@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { PageProps } from '../types/interfaces'
 import { DeLabConnect } from '@delab-team/connect'
+import { WalletInfoRemote } from '@tonconnect/sdk'
 
 interface ModalType {
    DelabObject: DeLabConnect,
@@ -12,6 +13,7 @@ interface ModalType {
    consoleLog: Function,
    isDesktop: boolean,
    installScripts: Function,
+   DelabLink: string
 }
 
 export const Modals: React.FC<ModalType> = (props: ModalType) => {
@@ -70,7 +72,16 @@ props.installScripts()
                   <i className="fa-solid fa-angle-right"></i>
                </div>
             </a>
-            <a className="d-flex align-items-center border rounded bg-grey hover-grey mb-3 p-3" href="#!">
+            <a 
+            className="d-flex align-items-center border rounded bg-grey hover-grey mb-3 p-3" 
+            href="#!"
+            onClick={() => {
+               if (props.DelabObject.tonConnectWallets) {
+                  props.DelabObject.connectTonkeeper(props.DelabObject.tonConnectWallets[0] as WalletInfoRemote)
+               }
+            }
+            }
+            >
                <div className="d-flex align-items-center">
                   <img src="./assets/img/tonkeeper.png" alt="Tonkeeper" width="40" height="40" className="wc-img" />
                   <span className="fs-18 ms-4">Tonkeeper</span>
@@ -79,7 +90,11 @@ props.installScripts()
                   <i className="fa-solid fa-angle-right"></i>
                </div>
             </a>
-            <a className="d-flex align-items-center border rounded bg-grey hover-grey p-3" href="#!">
+            <a 
+            className="d-flex align-items-center border rounded bg-grey hover-grey p-3" 
+            href="#!"
+            onClick={() => props.DelabObject.connectTonHub()}
+            >
                <div className="d-flex align-items-center">
                   <img src="./assets/img/tonhub.png" alt="Tonhub" width="40" height="40" className="wc-img" />
                   <span className="fs-18 ms-4">Tonhub</span>

@@ -109,7 +109,8 @@ export const App: React.FC = () => {
             console.log('link', data.data)
 
             const typeWallet = data.data.indexOf('tonhub') > -1
-            if (!isDesktop) openLink(data.data)
+            // if (!isDesktop) 
+            openLink(data.data)
 
             // const tonconnectImg = props.DeLabConnectObject.tonConnectWallet?.imageUrl
 
@@ -264,6 +265,7 @@ export const App: React.FC = () => {
                 <HeaderBlock 
                 openModalConnect={openModalConnect}
                 address={address}
+                DelabObject={DeLabConnector}
                  />
            
 
@@ -382,6 +384,7 @@ export const App: React.FC = () => {
                     isDesktop={isDesktop}
                     installScripts={installScripts}
                     DelabObject={DeLabConnector}
+                    DelabLink={DelabLink}
                 />
                     
                 {snackbar}

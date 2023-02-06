@@ -1,11 +1,12 @@
 
-import { DeLabAddress } from '@delab-team/connect'
+import { DeLabAddress, DeLabConnect } from '@delab-team/connect'
 import React, { useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 interface HeaderType {
    openModalConnect: Function,
-   address: DeLabAddress
+   address: DeLabAddress,
+   DelabObject: DeLabConnect
 }
 
 export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
@@ -95,7 +96,9 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
                      <ul className="dropdown-menu" aria-labelledby="dropdownMenuProfile">
                         <li><a className="dropdown-item" href="/my-profile"><i className="fa-regular fa-user me-3"></i>Profile</a></li>
                         <li><a className="dropdown-item" href="/create-nft"><i className="fa-regular fa-hexagon-vertical-nft me-3"></i>Create NFT</a></li>
-                        <li><a className="dropdown-item border-0" href="#"><i className="fa-regular fa-link-simple-slash me-3"></i>Disconnect</a></li>
+                        <li><a className="dropdown-item border-0" href="#" onClick={() => props.DelabObject.disconnect()}>
+                           <i className="fa-regular fa-link-simple-slash me-3"></i>Disconnect
+                           </a></li>
                      </ul>
                   </div>
                 }

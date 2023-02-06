@@ -21,6 +21,7 @@
     "dependencies": {
         "@delab-team/connect": "^1.4.0",
         "@itznevikat/router": "^0.1.0-beta28",
+        "@tonconnect/sdk": "^2.0.7",
         "@vkontakte/icons": "^1.202.0",
         "@vkontakte/vk-bridge": "^2.7.0",
         "@vkontakte/vkui": "^4.39.0",
