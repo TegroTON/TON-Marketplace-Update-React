@@ -47,7 +47,7 @@ $('.notable-slider, .category-slider, .create-slider').slick({
    dots: true,
    infinite: false,
    speed: 300,
-   slidesToShow: 4.71,
+   slidesToShow: 5,
    slidesToScroll: 2,
    responsive: [
      {

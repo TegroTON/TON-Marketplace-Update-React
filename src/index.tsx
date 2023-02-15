@@ -11,7 +11,7 @@ import { App } from './App'
 // import './assets/css/slick.css'
 
 // import './assets/css/app.css'
-import './style.css'
+// import './style.css'
 
 const el = document.createElement('div')
 document.body.appendChild(el)

@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { PageProps } from '../../types/interfaces'
+import { Button, ButtonGroup, Row, Col, Container, Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Div } from '@vkontakte/vkui';
 
 export const Main: React.FC<PageProps> = (props: PageProps) => {
     const [ firstRender, setFirstRender ] = React.useState<boolean>(false)
@@ -18,485 +20,41 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
     }, [])
 
     return (
-        <div id={props.id}>
-
+<div id={props.id}>
 <main className="main-page">
-    <section className="hero section" id="hero">
-      <div className="hero__container container-fluid carousel slide p-0" id="carouselHeroIndicators" data-bs-ride="carousel" data-bs-interval="false">
-         <div className="carousel-indicators">
-            <button type="button" data-bs-target="#carouselHeroIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselHeroIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-         </div>
-         <div className="carousel-inner">
-            <div className="carousel-item active">
-               <div className="row alight-items-center">
-                  <div className="col-md-12 col-lg-9 col-xl-9 col-xxl-7 text-center text-md-start">
-                     <h1 className="hero__title">
-                        Discover the Exclusive <span className="d-block">NFT Collection</span>
-                     </h1>
-                     <div className="hero__desc">
-                        Click My Collections and set up your collection. <br />
-                        Add social links, a description, profile & banner images, <br /> and set a secondary sales fee.
-                     </div>
-                     <a href="#!" className="btn btn-outline-primary">
-                     <span>Learn more</span>
-                     </a>
-                  </div>
-               </div>
-               <picture>
-                  {/* <source srcset="./assets/img/hero-image-2.webp" type="image/webp" />
-                  <source srcset="./assets/img/hero-image-2.jpg" type="image/jpeg" /> */}
-                  <img src="./assets/img/hero-image-2.jpg" alt="Libermall NFT Marketplace" className="hero__image" />
-               </picture>
+   <section className="hero section pt-2" id="hero">
+      <Container fluid className="hero__container">
+         <Row className="align-items-center">
+            <Col md={12} lg={9} xxl={5}>
+            <h1 className="hero__title">
+               Discover Digital Art, 
+               <span className="d-block">Collect and Sell Your</span>
+               Specific NFTs.
+            </h1>
+            <div className="hero__desc">
+               Welcome to the future, you can buy and sell awesome artworks form here. 
+               The world largest digital marketplace <br /> for non-fungible tokens.
             </div>
-            <div className="carousel-item">
-               <div className="row alight-items-center">
-                  <div className="col-md-12 col-lg-9 col-xl-9 col-xxl-7 text-center text-md-start">
-                     <h2 className="hero__title">
-                        Discover the Exclusive <span className="d-block">NFT Collection</span>
-                     </h2>
-                     <div className="hero__desc">
-                        Click My Collections and set up your collection.
-                        <span className="d-inline d-lg-block">Add social links, a description, profile & banner images,</span> and set a secondary sales fee.
-                     </div>
-                     <a href="#!" className="btn btn-outline-primary">
-                     <span>Learn more</span>
-                     </a>
-                  </div>
-               </div>
-               <picture>
-                  {/* <source srcset="./assets/img/hero-image.webp" type="image/webp" />
-                  <source srcset="./assets/img/hero-image.jpg" type="image/jpeg" /> */}
-                  <img src="./assets/img/hero-image.jpg" alt="Libermall NFT Marketplace" loading="lazy" className="hero__image" />
-               </picture>
-            </div>
-         </div>
-         <button className="carousel-control-prev  d-none d-lg-block" type="button" data-bs-target="#carouselHeroIndicators" data-bs-slide="prev">
-         <i className="fa-solid fa-arrow-left"></i>
-         </button>
-         <button className="carousel-control-next  d-none d-lg-block" type="button" data-bs-target="#carouselHeroIndicators" data-bs-slide="next">
-         <i className="fa-solid fa-arrow-right"></i>
-         </button>
-      </div>
+            <Button 
+               variant="primary"
+               className="order-3 order-lg-4"
+               data-bs-toggle="modal"
+               data-bs-target="#ConnectModal"
+               >
+            <i className="fa-regular fa-arrow-right-to-arc me-2"></i> 
+            Get Started
+            </Button>
+            </Col>
+            <Col md={12} lg={3} xxl={5} className="d-none d-xxl-block ms-auto">
+            <img src="./assets/img/hero-nft-series.png" alt="Libermall NFT Marketplace" className="hero__image" />
+            </Col>
+         </Row>
+         <div className="baground-hero__nft" style={{background: "url(./assets/img/hero-nft-series.png) no-repeat"}}></div>
+      </Container>
    </section>
-
-   <section className="discover section pt-150" id="discover">
-      <div className="discover__container container-fluid text-center">
-         <h2 className="section__title mb-3">
-            Discover, Collect and sell <span className="color-yellow">extraordinary NFTs</span>
-         </h2>
-         <p className="section__desc mb-5">
-            Libermall is the world's first and largest NFT marketplace
-         </p>
-         <div className="d-flex flex-wrap align-items-center justify-content-center">
-            <a href="/explore" className="btn btn-primary m-3">
-            Explore
-            </a>
-            <a href="#!" className="btn btn-outline-primary m-3">
-            + Create
-            </a>
-         </div>
-      </div>
-   </section>
-
-   <section className="libermall section" id="Libermall">
-      <div className="libermall__container container-fluid">
-         <h2 className="section__title mb-3">
-            TON is in beta <span className="d-block d-md-inline">on Libermall</span>
-         </h2>
-         <div className="libermall__buttons d-flex align-items-center">
-            <a href="#!" className="btn btn-dark">Explore</a>
-            <div className="libermall__soclinks ms-5 d-none d-md-flex">
-               <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-telegram"></i></a>
-               <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-discord"></i></a>
-               <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-twitter"></i></a>
-               <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-instagram"></i></a>
-            </div>
-         </div>
-      </div>
-   </section>
-
-   <section className="notable section" id="notable">
-      <div className="notable__container container-fluid">
-      <div className="notable__head">
-         <h2 className="section__title mb-5">
-            Notable <span className="color-yellow">drops</span>
-         </h2>
-      </div>
-      <div className="notable-slider pt-3">
-         <a href="/collection" className="card card-gradient top-effect" title="MetaPack">
-            <div className="card__bage color-yellow text-uppercase">
-               <i className="fa-solid fa-fire-flame-curved me-1"></i>
-               Live
-            </div>
-            <picture>
-               {/* <source srcset="./assets/img/nft/nft-1.webp" type="image/webp">
-               <source srcset="./assets/img/nft/nft-1.jpg" type="image/jpeg"> */}
-               <img src="./assets/img/nft/nft-1.jpg" className="rounded card-img" loading="lazy" width="300" height="390" alt="MetaPack" />
-            </picture>
-            <div className="card-body">
-               <h3 className="fs-20 my-3">MetaPack</h3>
-               <p className="d-flex align-items-center mb-0 color-grey">
-                  <span className="icon-ton me-2"></span>
-                  floor price: 0.5
-               </p>
-            </div>
-         </a>
-         <a href="/collection" className="card card-gradient top-effect" title="Ragnarok">
-            <div className="card__bage color-yellow text-uppercase">
-               <i className="fa-solid fa-fire-flame-curved me-1"></i>
-               Live
-            </div>
-            <picture>
-               {/* <source srcset="./assets/img/nft/nft-2.webp" type="image/webp">
-               <source srcset="./assets/img/nft/nft-2.jpg" type="image/jpeg"> */}
-               <img src="./assets/img/nft/nft-2.jpg" className="rounded card-img" loading="lazy" width="300" height="390" alt="Ragnarok" />
-            </picture>
-            <div className="card-body">
-               <h3 className="fs-20 my-3">Ragnarok</h3>
-               <p className="d-flex align-items-center mb-0 color-grey">
-                  <span className="icon-ton me-2"></span>
-                  floor price: 0.5
-               </p>
-            </div>
-         </a>
-         <a href="/collection" className="card card-gradient top-effect" title="Sneaker Heads">
-            <div className="card__bage color-yellow text-uppercase">
-               <i className="fa-solid fa-fire-flame-curved me-1"></i>
-               Live
-            </div>
-            <picture>
-               {/* <source srcset="./assets/img/nft/nft-3.webp" type="image/webp">
-               <source srcset="./assets/img/nft/nft-3.jpg" type="image/jpeg"> */}
-               <img src="./assets/img/nft/nft-3.jpg" className="rounded card-img" loading="lazy" width="300" height="390" alt="Sneaker Heads" />
-            </picture>
-            <div className="card-body">
-               <h3 className="fs-20 my-3">Sneaker Heads</h3>
-               <p className="d-flex align-items-center mb-0 color-grey">
-                  <span className="icon-ton me-2"></span>
-                  floor price: 0.5
-               </p>
-            </div>
-         </a>
-         <a href="#!" className="card card-gradient top-effect" title="Relationship">
-            <div className="card__bage color-yellow text-uppercase">
-               <i className="fa-solid fa-fire-flame-curved me-1"></i>
-               Live
-            </div>
-            <picture>
-               {/* <source srcset="./assets/img/nft/nft-4.webp" type="image/webp">
-               <source srcset="./assets/img/nft/nft-4.jpg" type="image/jpeg"> */}
-               <img src="./assets/img/nft/nft-4.jpg" className="rounded card-img" loading="lazy" width="300" height="390" alt="Ragnarok" />
-            </picture>
-            <div className="card-body">
-               <h3 className="fs-20 my-3">Relationship</h3>
-               <p className="d-flex align-items-center mb-0 color-grey">
-                  <span className="icon-ton me-2"></span>
-                  floor price: 0.5
-               </p>
-            </div>
-         </a>
-         <a href="/collection" className="card card-gradient top-effect" title="The Foundation">
-            <div className="card__bage color-yellow text-uppercase">
-               <i className="fa-solid fa-fire-flame-curved me-1"></i>
-               Live
-            </div>
-            <picture>
-               {/* <source srcset="./assets/img/nft/nft-5.webp" type="image/webp">
-               <source srcset="./assets/img/nft/nft-5.jpg" type="image/jpeg"> */}
-               <img src="./assets/img/nft/nft-5.jpg" className="rounded card-img" loading="lazy" width="300" height="390" alt="Ragnarok" />
-            </picture>
-            <div className="card-body">
-               <h3 className="fs-20 my-3">The Foundation</h3>
-               <p className="d-flex align-items-center mb-0 color-grey">
-                  <span className="icon-ton me-2"></span>
-                  floor price: 0.5
-               </p>
-            </div>
-         </a>
-         <a href="/collection" className="card card-gradient top-effect" title="Sneaker Heads">
-            <div className="card__bage color-yellow text-uppercase">
-               <i className="fa-solid fa-fire-flame-curved me-1"></i>
-               Live
-            </div>
-            <picture>
-               {/* <source srcset="./assets/img/nft/nft-6.webp" type="image/webp">
-               <source srcset="./assets/img/nft/nft-6.jpg" type="image/jpeg"> */}
-               <img src="./assets/img/nft/nft-6.jpg" className="rounded card-img" loading="lazy" width="300" height="390" alt="Sneaker Heads" />
-            </picture>
-            <div className="card-body">
-               <h3 className="fs-20 my-3">Sneaker Heads</h3>
-               <p className="d-flex align-items-center mb-0 color-grey">
-                  <span className="icon-ton me-2"></span>
-                  floor price: 0.5
-               </p>
-            </div>
-         </a>
-      </div>
-      </div>
-   </section>
-
-   <section className="collections section">
-      <div className="collection__container container-fluid">
-         <div className="d-block d-sm-flex align-items-center mb-56">
-            <h2 className="section__title mb-0">Top <span className="color-yellow">collections</span></h2>
-            <div className="dropdown mt-4 mt-sm-0 ms-0 ms-sm-auto">
-               <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-               Last 24 hours 
-               </a>
-               <ul className="dropdown-menu animate slideIn mt-5" aria-labelledby="dropdownMenuLink">
-                  <li><a className="dropdown-item" href="#">1 Day</a></li>
-                  <li><a className="dropdown-item" href="#">3 Days</a></li>
-                  <li><a className="dropdown-item" href="#">7 days</a></li>
-               </ul>
-            </div>
-         </div>
-         <div className="row pt-3">
-            <div className="col-sm-6 col-xxl-4">
-               <a href="#!" className="d-block" title="Mutant Ape Yach ClubMutant">
-                  <div className="card d-flex flex-lg-row align-items-center p-3 p-xl-4 rounded-20 mb-4">
-                     <div className="collection__picbox position-relative me-4 mb-4 mb-lg-0">
-                        <picture>
-                           {/* <source srcset="./assets/img/collections/img-1.webp" type="image/webp">
-                           <source srcset="./assets/img/collections/img-1.jpg" type="image/jpeg"> */}
-                           <img src="./assets/img/collections/img-1.jpg" className="image-80x80 rounded-circle" loading="lazy" width="80" height="80" alt="Mutant Ape Yach ClubMutant" />
-                        </picture>
-                        <i className="fa-solid fa-circle-check fs-22 color-yellow position-absolute bottom-0 right-4"></i>
-                     </div>
-                     <div className="collection__body mb-3 mb-lg-0">
-                        <h4 className="fs-20 mb-3 text-truncate width-224" >Mutant Ape Yach ClubMutant</h4>
-                        <p className="mb-0 color-grey text-center text-lg-start">
-                           Floor: <span className="ms-1 text-uppercase">3,02 TON</span>
-                        </p>
-                     </div>
-                     <div className="collection__info d-flex d-lg-block text-center text-lg-end ms-0 ms-lg-auto">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">3.8k TON</div>
-                        <div className="fw-medium color-grey">
-                           $2.68M 
-                           <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-            <div className="col-sm-6 col-xxl-4">
-               <a href="#!" className="d-block" title="Gossamer Seed">
-                  <div className="card d-flex flex-lg-row align-items-center p-3 p-xl-4 rounded-20 mb-4">
-                     <div className="collection__picbox position-relative me-4 mb-4 mb-lg-0">
-                        <picture>
-                           {/* <source srcset="./assets/img/collections/img-2.webp" type="image/webp">
-                           <source srcset="./assets/img/collections/img-2.jpg" type="image/jpeg"> */}
-                           <img src="./assets/img/collections/img-2.jpg" className="image-80x80 rounded-circle" loading="lazy" width="80" height="80" alt="Mutant Ape Yach ClubMutant" />
-                        </picture>
-                        <i className="fa-solid fa-circle-check fs-22 color-yellow position-absolute bottom-0 right-4" ></i>
-                     </div>
-                     <div className="collection__body mb-3 mb-lg-0">
-                        <h4 className="fs-20 mb-3 text-truncate width-224" >Gossamer Seed</h4>
-                        <p className="mb-0 color-grey text-center text-lg-start">
-                           Floor: <span className="ms-1 text-uppercase">3,02 TON</span>
-                        </p>
-                     </div>
-                     <div className="collection__info d-flex d-lg-block text-center text-lg-end ms-0 ms-lg-auto">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">3.8k TON</div>
-                        <div className="fw-medium color-grey">
-                           $2.68M <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-            <div className="col-sm-6 col-xxl-4">
-               <a href="#!" className="d-block" title="ENS: Ethereum Name...">
-                  <div className="card d-flex flex-lg-row align-items-center p-3 p-xl-4 rounded-20 mb-4">
-                     <div className="collection__picbox position-relative me-4 mb-4 mb-lg-0">
-                        <picture>
-                           {/* <source srcset="./assets/img/collections/img-3.webp" type="image/webp">
-                           <source srcset="./assets/img/collections/img-3.jpg" type="image/jpeg"> */}
-                           <img src="./assets/img/collections/img-3.jpg" className="image-80x80 rounded-circle" loading="lazy" width="80" height="80" alt="Mutant Ape Yach ClubMutant" />
-                        </picture>
-                        <i className="fa-solid fa-circle-check fs-22 color-yellow position-absolute bottom-0 right-4" ></i>
-                     </div>
-                     <div className="collection__body mb-3 mb-lg-0">
-                        <h4 className="fs-20 mb-3 text-truncate width-224" >ENS: Ethereum Name...</h4>
-                        <p className="mb-0 color-grey text-center text-lg-start">
-                           Floor: <span className="ms-1 text-uppercase">3,02 TON</span>
-                        </p>
-                     </div>
-                     <div className="collection__info d-flex d-lg-block text-center text-lg-end ms-0 ms-lg-auto">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">3.8k TON</div>
-                        <div className="fw-medium color-grey">
-                           $2.68M <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-            <div className="col-sm-6 col-xxl-4">
-               <a href="#!" className="d-block" title="Bored Ape Yacht Club">
-                  <div className="card d-flex flex-lg-row align-items-center p-3 p-xl-4 rounded-20 mb-4">
-                     <div className="collection__picbox position-relative me-4 mb-4 mb-lg-0">
-                        <picture>
-                           {/* <source srcset="./assets/img/collections/img-4.webp" type="image/webp">
-                           <source srcset="./assets/img/collections/img-4.jpg" type="image/jpeg"> */}
-                           <img src="./assets/img/collections/img-4.jpg" className="image-80x80 rounded-circle" loading="lazy" width="80" height="80" alt="Mutant Ape Yach ClubMutant" />
-                        </picture>
-                        <i className="fa-solid fa-circle-check fs-22 color-yellow position-absolute bottom-0 right-4" ></i>
-                     </div>
-                     <div className="collection__body mb-3 mb-lg-0">
-                        <h4 className="fs-20 mb-3 text-truncate width-224" >Bored Ape Yacht Club</h4>
-                        <p className="mb-0 color-grey text-center text-lg-start">
-                           Floor: <span className="ms-1 text-uppercase">3,02 TON</span>
-                        </p>
-                     </div>
-                     <div className="collection__info d-flex d-lg-block text-center text-lg-end ms-0 ms-lg-auto">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">3.8k TON</div>
-                        <div className="fw-medium color-grey">
-                           $2.68M <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-            <div className="col-sm-6 col-xxl-4">
-               <a href="#!" className="d-block" title="Mutant Ape Yach Club">
-                  <div className="card d-flex flex-lg-row align-items-center p-3 p-xl-4 rounded-20 mb-4">
-                     <div className="collection__picbox position-relative me-4 mb-4 mb-lg-0">
-                        <picture>
-                           {/* <source srcset="./assets/img/collections/img-5.webp" type="image/webp">
-                           <source srcset="./assets/img/collections/img-5.jpg" type="image/jpeg"> */}
-                           <img src="./assets/img/collections/img-5.jpg" className="image-80x80 rounded-circle" loading="lazy" width="80" height="80" alt="Mutant Ape Yach ClubMutant" />
-                        </picture>
-                        <i className="fa-solid fa-circle-check fs-22 color-yellow position-absolute bottom-0 right-4" ></i>
-                     </div>
-                     <div className="collection__body mb-3 mb-lg-0">
-                        <h4 className="fs-20 mb-3 text-truncate width-224" >Mutant Ape Yach Club</h4>
-                        <p className="mb-0 color-grey text-center text-lg-start">
-                           Floor: <span className="ms-1 text-uppercase">3,02 TON</span>
-                        </p>
-                     </div>
-                     <div className="collection__info d-flex d-lg-block text-center text-lg-end ms-0 ms-lg-auto">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">3.8k TON</div>
-                        <div className="fw-medium color-grey">
-                           $2.68M <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-            <div className="col-sm-6 col-xxl-4 d-none d-md-block">
-               <a href="#!" className="d-block" title="Art Blocks Curated">
-                  <div className="card d-flex flex-lg-row align-items-center p-3 p-xl-4 rounded-20 mb-4">
-                     <div className="collection__picbox position-relative me-4 mb-4 mb-lg-0">
-                        <picture>
-                           {/* <source srcset="./assets/img/collections/img-6.webp" type="image/webp">
-                           <source srcset="./assets/img/collections/img-6.jpg" type="image/jpeg"> */}
-                           <img src="./assets/img/collections/img-6.jpg" className="image-80x80 rounded-circle" loading="lazy" width="80" height="80" alt="Mutant Ape Yach ClubMutant" />
-                        </picture>
-                        <i className="fa-solid fa-circle-check fs-22 color-yellow position-absolute bottom-0 right-4" ></i>
-                     </div>
-                     <div className="collection__body mb-3 mb-lg-0">
-                        <h4 className="fs-20 mb-3 text-truncate width-224" >Art Blocks Curated</h4>
-                        <p className="mb-0 color-grey text-center text-lg-start">
-                           Floor: <span className="ms-1 text-uppercase">3,02 TON</span>
-                        </p>
-                     </div>
-                     <div className="collection__info d-flex d-lg-block text-center text-lg-end ms-0 ms-lg-auto">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">3.8k TON</div>
-                        <div className="fw-medium color-grey">
-                           $2.68M <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-            <div className="col-sm-6 col-xxl-4 d-none d-md-block">
-               <a href="#!" className="d-block" title="Moonrunners Official">
-                  <div className="card d-flex flex-lg-row align-items-center p-3 p-xl-4 rounded-20 mb-4">
-                     <div className="collection__picbox position-relative me-4 mb-4 mb-lg-0">
-                        <picture>
-                           {/* <source srcset="./assets/img/collections/img-7.webp" type="image/webp">
-                           <source srcset="./assets/img/collections/img-7.jpg" type="image/jpeg"> */}
-                           <img src="./assets/img/collections/img-7.jpg" className="image-80x80 rounded-circle" loading="lazy" width="80" height="80" alt="Mutant Ape Yach ClubMutant" />
-                        </picture>
-                        <i className="fa-solid fa-circle-check fs-22 color-yellow position-absolute bottom-0 right-4" ></i>
-                     </div>
-                     <div className="collection__body mb-3 mb-lg-0">
-                        <h4 className="fs-20 mb-3 text-truncate width-224" >Moonrunners Official</h4>
-                        <p className="mb-0 color-grey text-center text-lg-start">
-                           Floor: <span className="ms-1 text-uppercase">3,02 TON</span>
-                        </p>
-                     </div>
-                     <div className="collection__info d-flex d-lg-block text-center text-lg-end ms-0 ms-lg-auto">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">3.8k TON</div>
-                        <div className="fw-medium color-grey">
-                           $2.68M <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-            <div className="col-sm-6 col-xxl-4 d-none d-md-block">
-               <a href="#!" className="d-block" title="Cyber Galz - Galz">
-                  <div className="card d-flex flex-lg-row align-items-center p-3 p-xl-4 rounded-20 mb-4">
-                     <div className="collection__picbox position-relative me-4 mb-4 mb-lg-0">
-                        <picture>
-                           {/* <source srcset="./assets/img/collections/img-8.webp" type="image/webp">
-                           <source srcset="./assets/img/collections/img-8.jpg" type="image/jpeg"> */}
-                           <img src="./assets/img/collections/img-8.jpg" className="image-80x80 rounded-circle" loading="lazy" width="80" height="80" alt="Mutant Ape Yach ClubMutant" />
-                        </picture>
-                        <i className="fa-solid fa-circle-check fs-22 color-yellow position-absolute bottom-0 right-4" ></i>
-                     </div>
-                     <div className="collection__body mb-3 mb-lg-0">
-                        <h4 className="fs-20 mb-3 text-truncate width-224" >Cyber Galz - Galz</h4>
-                        <p className="mb-0 color-grey text-center text-lg-start">
-                           Floor: <span className="ms-1 text-uppercase">3,02 TON</span>
-                        </p>
-                     </div>
-                     <div className="collection__info d-flex d-lg-block text-center text-lg-end ms-0 ms-lg-auto">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">3.8k TON</div>
-                        <div className="fw-medium color-grey">
-                           $2.68M <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-            <div className="col-sm-6 col-xxl-4 d-none d-lg-block">
-               <a href="#!" className="d-block" title="ENS: Ethereum Name...">
-                  <div className="card d-flex flex-lg-row align-items-center p-3 p-xl-4 rounded-20 mb-4">
-                     <div className="collection__picbox position-relative me-4 mb-4 mb-lg-0">
-                        <picture>
-                           {/* <source srcset="./assets/img/collections/img-9.webp" type="image/webp">
-                           <source srcset="./assets/img/collections/img-9.jpg" type="image/jpeg"> */}
-                           <img src="./assets/img/collections/img-9.jpg" className="image-80x80 rounded-circle" loading="lazy" width="80" height="80" alt="Mutant Ape Yach ClubMutant" />
-                        </picture>
-                        <i className="fa-solid fa-circle-check fs-22 color-yellow position-absolute bottom-0 right-4" ></i>
-                     </div>
-                     <div className="collection__body mb-3 mb-lg-0">
-                        <h4 className="fs-20 mb-3 text-truncate width-224" >Moonturtlez</h4>
-                        <p className="mb-0 color-grey text-center text-lg-start">
-                           Floor: <span className="ms-1 text-uppercase">3,02 TON</span>
-                        </p>
-                     </div>
-                     <div className="collection__info d-flex d-lg-block text-center text-lg-end ms-0 ms-lg-auto">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">3.8k TON</div>
-                        <div className="fw-medium color-grey">
-                           $2.68M <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </div>
-                  </div>
-               </a>
-            </div>
-         </div>
-         <div className="mt-5 text-center">
-            <a href="#!" className="btn btn-primary">Go to ranking</a>
-         </div>
-      </div>
-   </section>
-
    <section className="create section" id="create">
-      <div className="create__container container-fluid position-relative">
-         <h2 className="section__title">
+      <Container className="create__container container-fluid position-relative">
+         <h2 className="section__title text-center">
             Create and sell <span className="color-yellow">your NFTs</span>
          </h2>
          <div className="d-flex flex-nowrap overflow-auto py-5" id="overflow-auto">
@@ -566,6 +124,593 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </div>
          </div>
          <div className="create-border"></div>
+      </Container>
+   </section>
+   
+   <section className="notable section" id="notable">
+      <Container fluid>
+         <div className="notable__head d-block d-lg-flex align-items-center mb-5">
+            <h2 className="section__title mb-3 mb-lg-0 me-3">
+               Top selling <span className="color-yellow">NFT's</span>
+            </h2>
+            <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">
+                  <p className="small text-start">
+                     The total sales volume of the NFT’s is calculated based on blockchain data. So, it’s not only the sales from Libermall that are reflected.
+                  </p>
+                  <p className="small text-start">
+                     The percentage shows the difference in sales between the current and the previous period. A dash means that, most likely, the collection had no sales in the previous period.
+                  </p>
+               </Tooltip>}>
+                  <span className="d-inline-block">
+                     <i className="fa-sharp fa-regular fa-circle-info color-grey fa-1x"></i>
+                  </span>
+               </OverlayTrigger>
+            <ButtonGroup className="btn-group-custom ms-auto">
+               <Button variant="secondary btn-sm active">1 Day</Button>
+               <Button variant="secondary btn-sm">7 Days</Button>
+               <Button variant="secondary btn-sm">30 Days</Button>
+               <Button variant="secondary btn-sm">All Time</Button>
+            </ButtonGroup>
+         </div>
+         <div className="notable-slider">
+         <Card className="card-hover mb-3 mb-l">
+               <Card.Link href="/collection-item" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-1.png" />
+                  <Card.Body> 
+                     <div className="card-subtitle mb-2">Pinocchio</div>
+                     <Card.Title className="mb-3">
+                        Pinocchio
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey fs-18">
+                        <span className="icon-ton me-2"></span>
+                        3
+                     </Card.Text>
+                  </Card.Body>
+               </Card.Link>
+               <Button variant="card__like">
+                  <i className="fa-regular fa-heart fs-16 me-2"></i>
+                  8
+               </Button>
+               <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                     Buy Now
+                  </Button>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-1.png)  no-repeat center center / cover'}}>
+         </div>
+         </Card>
+         <Card className="card-hover">
+               <Card.Link href="/collection-item" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" />
+                  <Card.Body>
+                     <div className="card-subtitle mb-2">Single NFT</div>
+                     <Card.Title className="mb-3">
+                        RED HOPE
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey fs-18">
+                        <span className="icon-ton me-2"></span>
+                        10
+                     </Card.Text>
+                  </Card.Body>
+               </Card.Link>
+               <Button variant="card__like">
+                  <i className="fa-regular fa-heart fs-16 me-2"></i>
+                  12
+               </Button>
+               <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                     Buy Now
+                  </Button>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-2.png)  no-repeat center center / cover'}}>
+         </div>
+         </Card>
+         <Card className="card-hover">
+               <Card.Link href="/collection-item" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" />
+                  <Card.Body>
+                     <div className="card-subtitle mb-2">CAT Meta</div>
+                     <Card.Title className="mb-3">
+                        CAT ETH
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey fs-18">
+                        <span className="icon-ton me-2"></span>
+                        5
+                     </Card.Text>
+                  </Card.Body>
+               </Card.Link>
+               <Button variant="card__like">
+                  <i className="fa-regular fa-heart fs-16 me-2"></i>
+                  4
+               </Button>
+               <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                     Buy Now
+                  </Button>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-3.png)  no-repeat center center / cover'}}>
+         </div>
+         </Card>
+         <Card className="card-hover">
+               <Card.Link href="/collection-item" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" />
+                  <Card.Body>
+                     <div className="card-subtitle mb-2">Cyber Girl</div>
+                     <Card.Title className="mb-3">
+                        TON CYBER GIRL
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey fs-18">
+                        <span className="icon-ton me-2"></span>
+                        50
+                     </Card.Text>
+                  </Card.Body>
+               </Card.Link>
+               <Button variant="card__like">
+                  <i className="fa-regular fa-heart fs-16 me-2"></i>
+                  23
+               </Button>
+               <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                     Buy Now
+                  </Button>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-4.png)  no-repeat center center / cover'}}>
+         </div>
+         </Card>
+         <Card className="card-hover">
+               <Card.Link href="/collection-item" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-5.png" />
+                  <Card.Body>
+                     <div className="card-subtitle mb-2">Moto Paradise</div>
+                     <Card.Title className="mb-3">
+                        Motorcyclist in paradise
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey fs-18">
+                        <span className="icon-ton me-2"></span>
+                        27
+                     </Card.Text>
+                  </Card.Body>
+               </Card.Link>
+               <Button variant="card__like">
+                  <i className="fa-regular fa-heart fs-16 me-2"></i>
+                  9
+               </Button>
+               <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                     Buy Now
+                  </Button>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-5.png)  no-repeat center center / cover'}}>
+         </div>
+         </Card>
+         <Card className="card-hover">
+               <Card.Link href="/collection-item" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-6.png" />
+                  <Card.Body>
+                     <div className="card-subtitle mb-2">Cute Monters</div>
+                     <Card.Title className="mb-3">
+                        ZubazzzTik
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey fs-18">
+                        <span className="icon-ton me-2"></span>
+                        35
+                     </Card.Text>
+                  </Card.Body>
+               </Card.Link>
+               <Button variant="card__like">
+                  <i className="fa-regular fa-heart fs-16 me-2"></i>
+                  16
+               </Button>
+                  <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                     Buy Now
+                  </Button>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-6.png)  no-repeat center center / cover'}}>
+         </div>
+         </Card>
+      </div>
+      </Container>
+   </section>
+
+
+   <section className="collections section">
+      <Container className="collection__container container-fluid">
+         <div className="notable__head d-block d-lg-flex align-items-center mb-5">
+            <h2 className="section__title mb-3 mb-lg-0 me-3">
+               Top <span className="color-yellow">collections</span>
+            </h2>
+            <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">
+                  <p className="small text-start">
+                     The total sales volume of the collection is calculated based on blockchain data. So, it’s not only the sales from Libermall that are reflected.
+                  </p>
+                  <p className="small text-start">
+                     The percentage shows the difference in sales between the current and the previous period. A dash means that, most likely, the collection had no sales in the previous period.
+                  </p>
+               </Tooltip>}>
+                  <span className="d-inline-block">
+                     <i className="fa-sharp fa-regular fa-circle-info color-grey fa-1x"></i>
+                  </span>
+               </OverlayTrigger>
+            <ButtonGroup className="btn-group-custom ms-auto">
+               <Button variant="secondary btn-sm active">1 Day</Button>
+               <Button variant="secondary btn-sm">7 Days</Button>
+               <Button variant="secondary btn-sm">30 Days</Button>
+               <Button variant="secondary btn-sm">All time</Button>
+            </ButtonGroup>
+         </div>
+         
+         <Row>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/1.gif" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-2 fs-18">
+                           Animals Red List
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">21,08 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-2 me-3 me-lg-0">
+                           908.5k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $2M -
+                           <span className="color-green ms-2">+8.78%</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/2.gif" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-2 fs-18">
+                           Rich Cats
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">90 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-2 me-3 me-lg-0">
+                           204.7k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $470.8K - 
+                           <span className="color-green ms-2">+1.33%</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/3.jpg" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           TON GUYS
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2,03 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           43.1k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $95.6K
+                           <span className="color-green ms-2">+2.01%</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/4.gif" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           TON DOODLES
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">1,09 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           41.5k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $95.6K
+                           <span className="ms-2">-</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/5.jpg" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           METAMORPHOSES
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">143,03 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           12.8k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $29.6K
+                           <span className="color-green ms-2">+5.35%</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/6.png" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           Dog Metaverse
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">15,03 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           11.3k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $26K
+                           <span className="ms-2">-</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/7.png" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           Eggs Wisdom
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           11.1k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $25.6K
+                           <span className="color-green ms-2">+8.84%</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/8.gif" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           Cosmic Friends
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2,03 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           43.1k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $95.6K
+                           <span className="color-green ms-2">+8.84%</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/9.gif" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        digital avatars
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">1,02 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           84.9k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $195.2K
+                           <span className="color-green ms-2">+4K%</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/10.jpg" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           G-BOTS SD
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">22 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           182.6K TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           420K TON
+                           <span className="ms-2">-</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/11.png" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           Rich Cats · Outfits
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">5,5 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           17.8K TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $41.1K
+                           <span className="color-green ms-2">+4K%</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/12.gif" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           Meta Panthers
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           3k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $7K
+                           <span className="color-green ms-2">+4K%</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/13.png" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           Alienation
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">7 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           1.2K TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $2.7K
+                           <span className="ms-2"> - </span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/15.jpg" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           Fantastic beasts
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           417.8 TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $960.9K
+                           <span className="ms-2">-</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+            <Col sm={6} xxl={4}>
+               <Card className="collection-card mb-3">
+                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/12.gif" />
+                     <Card.Body>
+                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                           Meta Panthers
+                        </Card.Title>
+                        <Card.Text className="d-flex align-items-center color-grey">
+                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
+                        </Card.Text>
+                     </Card.Body>
+                     <Card.Body className="text-end">
+                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                           3k TON
+                        </div>
+                        <div className="fw-medium small color-grey">
+                           $7K
+                           <span className="color-green ms-2">+4K%</span>
+                        </div>
+                     </Card.Body>
+                  </Card.Link>
+               </Card>
+            </Col>
+         </Row>
+
+         <div className="mt-5 text-center">
+            <a href="#!" className="btn btn-primary">See all <i className="fa-solid fa-arrow-right ms-2"></i></a>
+         </div>
+      </Container>
+   </section>
+  
+   <section className="libermall section" id="Libermall">
+      <div className="libermall__container container-fluid">
+         <h2 className="section__title mb-3">
+            TON is in beta <span className="d-block d-md-inline">on Libermall</span>
+         </h2>
+         <div className="libermall__buttons d-flex align-items-center">
+            <a href="#!" className="btn btn-dark">Explore</a>
+            <div className="libermall__soclinks ms-5 d-none d-md-flex">
+               <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-telegram"></i></a>
+               <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-discord"></i></a>
+               <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-twitter"></i></a>
+               <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-instagram"></i></a>
+            </div>
+         </div>
       </div>
    </section>
 
@@ -579,8 +724,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
          <div className="category-slider pt-3">
             <a href="/single-collection" className="card top-effect">
                <picture>
-                  {/* <source srcset="./assets/img/category/cat-1.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-1.jpg" type="image/jpeg"> */}
+                  {/* 
+                  <source srcset="./assets/img/category/cat-1.webp" type="image/webp">
+                  <source srcset="./assets/img/category/cat-1.jpg" type="image/jpeg">
+                  */}
                   <img src="./assets/img/category/cat-1.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
                </picture>
                <div className="card-body text-center">
@@ -589,8 +736,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </a>
             <a href="/single-collection" className="card top-effect">
                <picture>
-                  {/* <source srcset="./assets/img/category/cat-2.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-2.jpg" type="image/jpeg"> */}
+                  {/* 
+                  <source srcset="./assets/img/category/cat-2.webp" type="image/webp">
+                  <source srcset="./assets/img/category/cat-2.jpg" type="image/jpeg">
+                  */}
                   <img src="./assets/img/category/cat-2.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
                </picture>
                <div className="card-body text-center">
@@ -599,8 +748,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </a>
             <a href="/single-collection" className="card top-effect">
                <picture>
-                  {/* <source srcset="./assets/img/category/cat-3.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-3.jpg" type="image/jpeg"> */}
+                  {/* 
+                  <source srcset="./assets/img/category/cat-3.webp" type="image/webp">
+                  <source srcset="./assets/img/category/cat-3.jpg" type="image/jpeg">
+                  */}
                   <img src="./assets/img/category/cat-3.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
                </picture>
                <div className="card-body text-center">
@@ -609,8 +760,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </a>
             <a href="/single-collection" className="card top-effect">
                <picture>
-                  {/* <source srcset="./assets/img/category/cat-4.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-4.jpg" type="image/jpeg"> */}
+                  {/* 
+                  <source srcset="./assets/img/category/cat-4.webp" type="image/webp">
+                  <source srcset="./assets/img/category/cat-4.jpg" type="image/jpeg">
+                  */}
                   <img src="./assets/img/category/cat-4.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
                </picture>
                <div className="card-body text-center">
@@ -619,8 +772,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </a>
             <a href="#!" className="d-block card top-effect">
                <picture>
-                  {/* <source srcset="./assets/img/category/cat-5.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-5.jpg" type="image/jpeg"> */}
+                  {/* 
+                  <source srcset="./assets/img/category/cat-5.webp" type="image/webp">
+                  <source srcset="./assets/img/category/cat-5.jpg" type="image/jpeg">
+                  */}
                   <img src="./assets/img/category/cat-5.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
                </picture>
                <div className="card-body text-center">
@@ -629,8 +784,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </a>
             <a href="/single-collection" className="card top-effect">
                <picture>
-                  {/* <source srcset="./assets/img/category/cat-6.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-6.jpg" type="image/jpeg"> */}
+                  {/* 
+                  <source srcset="./assets/img/category/cat-6.webp" type="image/webp">
+                  <source srcset="./assets/img/category/cat-6.jpg" type="image/jpeg">
+                  */}
                   <img src="./assets/img/category/cat-6.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
                </picture>
                <div className="card-body text-center">
@@ -640,8 +797,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
          </div>
       </div>
    </section>
-
-    </main>
-        </div>
+</main>
+</div>
     )
 }
