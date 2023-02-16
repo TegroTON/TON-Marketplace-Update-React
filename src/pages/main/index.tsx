@@ -49,7 +49,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             <img src="./assets/img/hero-nft-series.png" alt="Libermall NFT Marketplace" className="hero__image" />
             </Col>
          </Row>
-         <div className="baground-hero__nft" style={{background: "url(./assets/img/hero-nft-series.png) no-repeat"}}></div>
+         <div className="baground-hero__nft" style={{background: "url(./assets/img/hero-nft-series.png) no-repeat"}} />
       </Container>
    </section>
    <section className="create section" id="create">
@@ -126,27 +126,28 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
          <div className="create-border"></div>
       </Container>
    </section>
-   
    <section className="notable section" id="notable">
       <Container fluid>
          <div className="notable__head d-block d-lg-flex align-items-center mb-5">
             <div className="d-flex align-items-center mb-3 mb-lg-0">
-            <h2 className="section__title mb-0 me-3">
-               Top selling <span className="color-yellow">NFT's</span>
-            </h2>
-            <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">
+               <h2 className="section__title mb-0 me-3">
+                  Top selling <span className="color-yellow">NFT's</span>
+               </h2>
+               <OverlayTrigger overlay={
+               <Tooltip id="tooltip-disabled">
                   <p className="small text-start">
                      The total sales volume of the NFT’s is calculated based on blockchain data. So, it’s not only the sales from Libermall that are reflected.
                   </p>
                   <p className="small text-start">
                      The percentage shows the difference in sales between the current and the previous period. A dash means that, most likely, the collection had no sales in the previous period.
                   </p>
-               </Tooltip>}>
-                  <span className="d-inline-block">
-                     <i className="fa-sharp fa-regular fa-circle-info color-grey fa-1x"></i>
-                  </span>
+               </Tooltip>
+               }>
+               <span className="d-inline-block">
+               <i className="fa-sharp fa-regular fa-circle-info color-grey fa-1x"></i>
+               </span>
                </OverlayTrigger>
-            </div> 
+            </div>
             <ButtonGroup className="btn-group-custom ms-auto">
                <Button variant="secondary btn-sm active">1 Day</Button>
                <Button variant="secondary btn-sm">7 Days</Button>
@@ -155,10 +156,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </ButtonGroup>
          </div>
          <div className="notable-slider">
-         <Card className="card-hover mb-3 mb-l">
+            <Card className="card-hover mb-3 mb-l">
                <Card.Link href="/collection-item" className="card-link">
                   <Card.Img variant="top card-image" src="./assets/img/nfts/nft-1.png" />
-                  <Card.Body> 
+                  <Card.Body>
                      <div className="card-subtitle mb-2">Pinocchio</div>
                      <Card.Title className="mb-3">
                         Pinocchio
@@ -170,157 +171,154 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   </Card.Body>
                </Card.Link>
                <Button variant="card__like">
-                  <i className="fa-regular fa-heart fs-16 me-2"></i>
-                  8
+               <i className="fa-regular fa-heart fs-16 me-2"></i>
+               8
                </Button>
                <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                     Buy Now
-                  </Button>
-               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-1.png)  no-repeat center center / cover'}}>
-         </div>
+               Buy Now
+               </Button>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-1.png)  no-repeat center center / cover'}} />
          </Card>
          <Card className="card-hover">
-               <Card.Link href="/collection-item" className="card-link">
-                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" />
-                  <Card.Body>
-                     <div className="card-subtitle mb-2">Single NFT</div>
-                     <Card.Title className="mb-3">
-                        RED HOPE
-                     </Card.Title>
-                     <Card.Text className="d-flex align-items-center color-grey fs-18">
-                        <span className="icon-ton me-2"></span>
-                        10
-                     </Card.Text>
-                  </Card.Body>
-               </Card.Link>
-               <Button variant="card__like">
-                  <i className="fa-regular fa-heart fs-16 me-2"></i>
-                  12
-               </Button>
-               <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                     Buy Now
-                  </Button>
-               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-2.png)  no-repeat center center / cover'}}></div>
+            <Card.Link href="/collection-item" className="card-link">
+               <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" />
+               <Card.Body>
+                  <div className="card-subtitle mb-2">Single NFT</div>
+                  <Card.Title className="mb-3">
+                     RED HOPE
+                  </Card.Title>
+                  <Card.Text className="d-flex align-items-center color-grey fs-18">
+                     <span className="icon-ton me-2"></span>
+                     10
+                  </Card.Text>
+               </Card.Body>
+            </Card.Link>
+            <Button variant="card__like">
+            <i className="fa-regular fa-heart fs-16 me-2"></i>
+            12
+            </Button>
+            <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+            Buy Now
+            </Button>
+            <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-2.png)  no-repeat center center / cover'}} />
          </Card>
          <Card className="card-hover">
-               <Card.Link href="/collection-item" className="card-link">
-                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" />
-                  <Card.Body>
-                     <div className="card-subtitle mb-2">CAT Meta</div>
-                     <Card.Title className="mb-3">
-                        CAT ETH
-                     </Card.Title>
-                     <Card.Text className="d-flex align-items-center color-grey fs-18">
-                        <span className="icon-ton me-2"></span>
-                        5
-                     </Card.Text>
-                  </Card.Body>
-               </Card.Link>
-               <Button variant="card__like">
-                  <i className="fa-regular fa-heart fs-16 me-2"></i>
-                  4
-               </Button>
-               <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                     Buy Now
-                  </Button>
-               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-3.png)  no-repeat center center / cover'}}>
-         </div>
+            <Card.Link href="/collection-item" className="card-link">
+               <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" />
+               <Card.Body>
+                  <div className="card-subtitle mb-2">CAT Meta</div>
+                  <Card.Title className="mb-3">
+                     CAT ETH
+                  </Card.Title>
+                  <Card.Text className="d-flex align-items-center color-grey fs-18">
+                     <span className="icon-ton me-2"></span>
+                     5
+                  </Card.Text>
+               </Card.Body>
+            </Card.Link>
+            <Button variant="card__like">
+            <i className="fa-regular fa-heart fs-16 me-2"></i>
+            4
+            </Button>
+            <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+            Buy Now
+            </Button>
+            <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-3.png)  no-repeat center center / cover'}} />
          </Card>
          <Card className="card-hover">
-               <Card.Link href="/collection-item" className="card-link">
-                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" />
-                  <Card.Body>
-                     <div className="card-subtitle mb-2">Cyber Girl</div>
-                     <Card.Title className="mb-3">
-                        TON CYBER GIRL
-                     </Card.Title>
-                     <Card.Text className="d-flex align-items-center color-grey fs-18">
-                        <span className="icon-ton me-2"></span>
-                        50
-                     </Card.Text>
-                  </Card.Body>
-               </Card.Link>
-               <Button variant="card__like">
-                  <i className="fa-regular fa-heart fs-16 me-2"></i>
-                  23
-               </Button>
-               <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                     Buy Now
-                  </Button>
-               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-4.png)  no-repeat center center / cover'}}>
-         </div>
+            <Card.Link href="/collection-item" className="card-link">
+               <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" />
+               <Card.Body>
+                  <div className="card-subtitle mb-2">Cyber Girl</div>
+                  <Card.Title className="mb-3">
+                     TON CYBER GIRL
+                  </Card.Title>
+                  <Card.Text className="d-flex align-items-center color-grey fs-18">
+                     <span className="icon-ton me-2"></span>
+                     50
+                  </Card.Text>
+               </Card.Body>
+            </Card.Link>
+            <Button variant="card__like">
+            <i className="fa-regular fa-heart fs-16 me-2"></i>
+            23
+            </Button>
+            <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+            Buy Now
+            </Button>
+            <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-4.png)  no-repeat center center / cover'}} />
          </Card>
          <Card className="card-hover">
-               <Card.Link href="/collection-item" className="card-link">
-                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-5.png" />
-                  <Card.Body>
-                     <div className="card-subtitle mb-2">Moto Paradise</div>
-                     <Card.Title className="mb-3">
-                        Motorcyclist in paradise
-                     </Card.Title>
-                     <Card.Text className="d-flex align-items-center color-grey fs-18">
-                        <span className="icon-ton me-2"></span>
-                        27
-                     </Card.Text>
-                  </Card.Body>
-               </Card.Link>
-               <Button variant="card__like">
-                  <i className="fa-regular fa-heart fs-16 me-2"></i>
-                  9
-               </Button>
-               <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                     Buy Now
-                  </Button>
-               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-5.png)  no-repeat center center / cover'}}>
-         </div>
+            <Card.Link href="/collection-item" className="card-link">
+               <Card.Img variant="top card-image" src="./assets/img/nfts/nft-5.png" />
+               <Card.Body>
+                  <div className="card-subtitle mb-2">Moto Paradise</div>
+                  <Card.Title className="mb-3">
+                     Motorcyclist in paradise
+                  </Card.Title>
+                  <Card.Text className="d-flex align-items-center color-grey fs-18">
+                     <span className="icon-ton me-2"></span>
+                     27
+                  </Card.Text>
+               </Card.Body>
+            </Card.Link>
+            <Button variant="card__like">
+            <i className="fa-regular fa-heart fs-16 me-2"></i>
+            9
+            </Button>
+            <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+            Buy Now
+            </Button>
+            <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-5.png)  no-repeat center center / cover'}} />
          </Card>
          <Card className="card-hover">
-               <Card.Link href="/collection-item" className="card-link">
-                  <Card.Img variant="top card-image" src="./assets/img/nfts/nft-6.png" />
-                  <Card.Body>
-                     <div className="card-subtitle mb-2">Cute Monters</div>
-                     <Card.Title className="mb-3">
-                        ZubazzzTik
-                     </Card.Title>
-                     <Card.Text className="d-flex align-items-center color-grey fs-18">
-                        <span className="icon-ton me-2"></span>
-                        35
-                     </Card.Text>
-                  </Card.Body>
-               </Card.Link>
-               <Button variant="card__like">
-                  <i className="fa-regular fa-heart fs-16 me-2"></i>
-                  16
-               </Button>
-                  <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                     Buy Now
-                  </Button>
-               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-6.png)  no-repeat center center / cover'}}>
-         </div>
+            <Card.Link href="/collection-item" className="card-link">
+               <Card.Img variant="top card-image" src="./assets/img/nfts/nft-6.png" />
+               <Card.Body>
+                  <div className="card-subtitle mb-2">Cute Monters</div>
+                  <Card.Title className="mb-3">
+                     ZubazzzTik
+                  </Card.Title>
+                  <Card.Text className="d-flex align-items-center color-grey fs-18">
+                     <span className="icon-ton me-2"></span>
+                     35
+                  </Card.Text>
+               </Card.Body>
+            </Card.Link>
+            <Button variant="card__like">
+            <i className="fa-regular fa-heart fs-16 me-2"></i>
+            16
+            </Button>
+            <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+            Buy Now
+            </Button>
+            <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-6.png)  no-repeat center center / cover'}} />
          </Card>
-      </div>
+         </div>
       </Container>
    </section>
-
-
    <section className="collections section">
       <Container className="collection__container container-fluid">
          <div className="notable__head d-block d-lg-flex align-items-center mb-5">
-            <h2 className="section__title mb-3 mb-lg-0 me-3">
-               Top <span className="color-yellow">collections</span>
-            </h2>
-            <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">
+            <div className="d-flex align-items-center mb-3 mb-lg-0">
+               <h2 className="section__title mb-0 me-3">
+                  Top <span className="color-yellow">collections</span>
+               </h2>
+               <OverlayTrigger overlay={
+               <Tooltip id="tooltip-disabled">
                   <p className="small text-start">
-                     The total sales volume of the collection is calculated based on blockchain data. So, it’s not only the sales from Libermall that are reflected.
+                     The total sales volume of the NFT’s is calculated based on blockchain data. So, it’s not only the sales from Libermall that are reflected.
                   </p>
                   <p className="small text-start">
                      The percentage shows the difference in sales between the current and the previous period. A dash means that, most likely, the collection had no sales in the previous period.
                   </p>
-               </Tooltip>}>
-                  <span className="d-inline-block">
-                     <i className="fa-sharp fa-regular fa-circle-info color-grey fa-1x"></i>
-                  </span>
+               </Tooltip>
+               }>
+               <span className="d-inline-block">
+               <i className="fa-sharp fa-regular fa-circle-info color-grey fa-1x"></i>
+               </span>
                </OverlayTrigger>
+            </div>
             <ButtonGroup className="btn-group-custom ms-auto">
                <Button variant="secondary btn-sm active">1 Day</Button>
                <Button variant="secondary btn-sm">7 Days</Button>
@@ -328,376 +326,388 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <Button variant="secondary btn-sm">All time</Button>
             </ButtonGroup>
          </div>
-         
          <Row>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/1.gif" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-2 fs-18">
-                           Animals Red List
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">21,08 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-2 me-3 me-lg-0">
-                           908.5k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $2M -
-                           <span className="color-green ms-2">+8.78%</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/1.gif" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-2 fs-18">
+                        Animals Red List
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">21,08 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-2 me-3 me-lg-0">
+                        908.5k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $2M -
+                        <span className="color-green ms-2">+8.78%</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/1.gif)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/2.gif" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-2 fs-18">
-                           Rich Cats
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">90 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-2 me-3 me-lg-0">
-                           204.7k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $470.8K - 
-                           <span className="color-green ms-2">+1.33%</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/2.gif" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-2 fs-18">
+                        Rich Cats
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">90 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-2 me-3 me-lg-0">
+                        204.7k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $470.8K - 
+                        <span className="color-green ms-2">+1.33%</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/2.gif)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/3.jpg" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           TON GUYS
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2,03 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           43.1k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $95.6K
-                           <span className="color-green ms-2">+2.01%</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/3.jpg" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        TON GUYS
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2,03 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        43.1k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $95.6K
+                        <span className="color-green ms-2">+2.01%</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/3.jpg)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/4.gif" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           TON DOODLES
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">1,09 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           41.5k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $95.6K
-                           <span className="ms-2">-</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/4.gif" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        TON DOODLES
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">1,09 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        41.5k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $95.6K
+                        <span className="ms-2">-</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/4.gif)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/5.jpg" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           METAMORPHOSES
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">143,03 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           12.8k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $29.6K
-                           <span className="color-green ms-2">+5.35%</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/5.jpg" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        METAMORPHOSES
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">143,03 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        12.8k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $29.6K
+                        <span className="color-green ms-2">+5.35%</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/5.jpg)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/6.png" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           Dog Metaverse
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">15,03 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           11.3k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $26K
-                           <span className="ms-2">-</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/6.png" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        Dog Metaverse
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">15,03 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        11.3k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $26K
+                        <span className="ms-2">-</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/6.png)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/7.png" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           Eggs Wisdom
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           11.1k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $25.6K
-                           <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/7.png" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        Eggs Wisdom
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        11.1k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $25.6K
+                        <span className="color-green ms-2">+8.84%</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/7.png)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/8.gif" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           Cosmic Friends
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2,03 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           43.1k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $95.6K
-                           <span className="color-green ms-2">+8.84%</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/8.gif" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        Cosmic Friends
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2,03 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        43.1k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $95.6K
+                        <span className="color-green ms-2">+8.84%</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/8.gif)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/9.gif" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/9.gif" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         digital avatars
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">1,02 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           84.9k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $195.2K
-                           <span className="color-green ms-2">+4K%</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">1,02 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        84.9k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $195.2K
+                        <span className="color-green ms-2">+4K%</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/9.gif)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/10.jpg" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           G-BOTS SD
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">22 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           182.6K TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           420K TON
-                           <span className="ms-2">-</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/10.jpg" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        G-BOTS SD
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">22 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        182.6K TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        420K TON
+                        <span className="ms-2">-</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/10.jpg)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/11.png" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           Rich Cats · Outfits
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">5,5 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           17.8K TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $41.1K
-                           <span className="color-green ms-2">+4K%</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/11.png" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        Rich Cats · Outfits
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">5,5 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        17.8K TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $41.1K
+                        <span className="color-green ms-2">+4K%</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/11.png)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/12.gif" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           Meta Panthers
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           3k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $7K
-                           <span className="color-green ms-2">+4K%</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/12.gif" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        Meta Panthers
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        3k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $7K
+                        <span className="color-green ms-2">+4K%</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/12.gif)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/13.png" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           Alienation
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">7 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           1.2K TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $2.7K
-                           <span className="ms-2"> - </span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/13.png" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        Alienation
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">7 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        1.2K TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $2.7K
+                        <span className="ms-2"> - </span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/13.png)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/15.jpg" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           Fantastic beasts
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           417.8 TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $960.9K
-                           <span className="ms-2">-</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/15.jpg" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        Fantastic beasts
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        417.8 TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $960.9K
+                        <span className="ms-2">-</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/15.jpg)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
             <Col sm={6} xxl={4}>
-               <Card className="collection-card mb-3">
-                  <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
-                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/12.gif" />
-                     <Card.Body>
-                        <Card.Title className="d-flex align-items-center mb-3 fs-18">
-                           Meta Panthers
-                        </Card.Title>
-                        <Card.Text className="d-flex align-items-center color-grey">
-                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
-                        </Card.Text>
-                     </Card.Body>
-                     <Card.Body className="text-end">
-                        <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
-                           3k TON
-                        </div>
-                        <div className="fw-medium small color-grey">
-                           $7K
-                           <span className="color-green ms-2">+4K%</span>
-                        </div>
-                     </Card.Body>
-                  </Card.Link>
-               </Card>
+            <Card className="collection-card mb-3">
+               <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                  <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/14.jpg" />
+                  <Card.Body>
+                     <Card.Title className="d-flex align-items-center mb-3 fs-18">
+                        Superhero
+                     </Card.Title>
+                     <Card.Text className="d-flex align-items-center color-grey">
+                        Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
+                     </Card.Text>
+                  </Card.Body>
+                  <Card.Body className="text-end">
+                     <div className="fw-medium text-uppercase text-white mb-3 me-3 me-lg-0">
+                        3k TON
+                     </div>
+                     <div className="fw-medium small color-grey">
+                        $7K
+                        <span className="color-green ms-2">+4K%</span>
+                     </div>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/14.jpg)  no-repeat center center / cover'}} />
+            </Card>
             </Col>
          </Row>
-
          <div className="mt-5 text-center">
             <a href="#!" className="btn btn-primary">See all <i className="fa-solid fa-arrow-right ms-2"></i></a>
          </div>
       </Container>
    </section>
-  
    <section className="libermall section" id="Libermall">
       <Container className="libermall__container container-fluid">
          <h2 className="section__title mb-3">
@@ -714,7 +724,6 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
          </div>
       </Container>
    </section>
-
    <section className="category section pt-150" id="category">
       <div className="category__container container-fluid">
          <div className="category__head">
