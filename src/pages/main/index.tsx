@@ -25,7 +25,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
    <section className="hero section pt-2" id="hero">
       <Container fluid className="hero__container">
          <Row className="align-items-center">
-            <Col md={12} lg={9} xxl={5}>
+            <Col md="12" lg="9" xxl="5">
             <h1 className="hero__title">
                Discover Digital Art, 
                <span className="d-block">Collect and Sell Your</span>
@@ -45,7 +45,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             Get Started
             </Button>
             </Col>
-            <Col md={12} lg={3} xxl={5} className="d-none d-xxl-block ms-auto">
+            <Col md="12" lg="3" xxl="5" className="d-none d-xxl-block ms-auto">
                <div className="hero-animated__box">
                   <div className="hero-animated__item">
                      <img src="./assets/img/hero-nfts-1.png" alt="" className="hero-animated__image" />
@@ -337,7 +337,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </ButtonGroup>
          </div>
          <Row>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/1.gif" />
@@ -362,7 +362,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/1.gif)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/2.gif" />
@@ -387,7 +387,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/2.gif)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/3.jpg" />
@@ -412,7 +412,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/3.jpg)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/4.gif" />
@@ -437,7 +437,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/4.gif)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/5.jpg" />
@@ -462,7 +462,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/5.jpg)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/6.png" />
@@ -487,7 +487,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/6.png)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/7.png" />
@@ -512,7 +512,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/7.png)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/8.gif" />
@@ -537,7 +537,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/8.gif)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/9.gif" />
@@ -562,7 +562,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/9.gif)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/10.jpg" />
@@ -587,7 +587,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/10.jpg)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/11.png" />
@@ -612,7 +612,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/11.png)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/12.gif" />
@@ -637,7 +637,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/12.gif)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/13.png" />
@@ -662,7 +662,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/13.png)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/15.jpg" />
@@ -687,7 +687,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/collections/15.jpg)  no-repeat center center / cover'}} />
             </Card>
             </Col>
-            <Col sm={6} xxl={4}>
+            <Col sm="6" xxl="4">
             <Card className="collection-card mb-3">
                <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
                   <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/14.jpg" />
