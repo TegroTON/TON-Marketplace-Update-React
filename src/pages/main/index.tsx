@@ -41,7 +41,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                data-bs-toggle="modal"
                data-bs-target="#ConnectModal"
                >
-            <i className="fa-regular fa-arrow-right-to-arc me-2"></i> 
+            <i className="fa-regular fa-arrow-right-to-arc me-2" />
             Get Started
             </Button>
             </Col>
@@ -130,7 +130,8 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
    <section className="notable section" id="notable">
       <Container fluid>
          <div className="notable__head d-block d-lg-flex align-items-center mb-5">
-            <h2 className="section__title mb-3 mb-lg-0 me-3">
+            <div className="d-flex align-items-center mb-3 mb-lg-0">
+            <h2 className="section__title mb-0 me-3">
                Top selling <span className="color-yellow">NFT's</span>
             </h2>
             <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">
@@ -145,6 +146,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      <i className="fa-sharp fa-regular fa-circle-info color-grey fa-1x"></i>
                   </span>
                </OverlayTrigger>
+            </div> 
             <ButtonGroup className="btn-group-custom ms-auto">
                <Button variant="secondary btn-sm active">1 Day</Button>
                <Button variant="secondary btn-sm">7 Days</Button>
@@ -198,8 +200,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
                      Buy Now
                   </Button>
-               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-2.png)  no-repeat center center / cover'}}>
-         </div>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-2.png)  no-repeat center center / cover'}}></div>
          </Card>
          <Card className="card-hover">
                <Card.Link href="/collection-item" className="card-link">
@@ -698,7 +699,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
    </section>
   
    <section className="libermall section" id="Libermall">
-      <div className="libermall__container container-fluid">
+      <Container className="libermall__container container-fluid">
          <h2 className="section__title mb-3">
             TON is in beta <span className="d-block d-md-inline">on Libermall</span>
          </h2>
@@ -711,7 +712,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-instagram"></i></a>
             </div>
          </div>
-      </div>
+      </Container>
    </section>
 
    <section className="category section pt-150" id="category">

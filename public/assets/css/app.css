@@ -512,22 +512,22 @@ h1, h2, h3, h4 {
 .form-control {
     min-height: 52px;
     color: var(--text-primary);
-    border-color: var(--bg-secondary);
+    background-color: var(--bg-third);
+    border-color: var(--border-color);
     border-radius: 12px;
-    background-color: var(--bg-secondary);
     box-shadow: none!important;
 }
 
 .form-control:focus {
     color: var(--text-primary);
-    border-color: var(--bg-secondary);
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-third);
+    border-color: var(--border-color);
 }
 
 .input-group {
-    border: 1px solid var(--bg-secondary);
     border-radius: 12px;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-third);
+    border: 1px solid var(--border-color);
 }
 
 .input-group .form-control {
@@ -551,8 +551,8 @@ h1, h2, h3, h4 {
 }
 
 .input-group:focus-within {
-    background-color: var(--grey-900);
-    border-color: var(--grey-700)
+    background-color: var(--bg-secondary);
+    border-color: var(--bg-secondary);
 }
 
 .input-group:focus-within .form-control, .input-group:focus-within .input-group-text {
@@ -564,7 +564,7 @@ h1, h2, h3, h4 {
     height: 50px;
     color: var(--text-primary);
     border: 0;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: var(--dark-700);
     background-image: url('data:image/svg+xml,%3Csvg width=\'7\' height=\'5\' viewBox=\'0 0 7 5\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M5.63815 1.15363L3.55493 3.23685L1.47171 1.15363C1.26232 0.944233 0.92406 0.944233 0.714664 1.15363C0.505268 1.36302 0.505268 1.70128 0.714664 1.91068L3.17909 4.37511C3.38849 4.5845 3.72675 4.5845 3.93614 4.37511L6.40057 1.91068C6.60997 1.70128 6.60997 1.36302 6.40057 1.15363C6.19117 0.949602 5.84755 0.944233 5.63815 1.15363Z\' fill=\'white\'/%3E%3C/svg%3E%0A');
     background-size: 14px 10px;
@@ -803,19 +803,6 @@ h1, h2, h3, h4 {
     color: var(--dark-900)
 }
 
-.navbar-collapse.show .btn-primary {
-    font-size: 18px;
-    margin: 14px 0 0 0;
-    padding: 0;
-    color: var(--text-secondary);
-    border: 0;
-    background: transparent;
-}
-
-.navbar-collapse.show .btn-primary i {
-    font-size: 20px;
-}
-
 @media (max-width: 1200px) {
     .header .btn {
         min-width: auto;
@@ -836,7 +823,7 @@ h1, h2, h3, h4 {
 
 .header .input-group {
     border: 1px solid rgb(255 255 255 / 0.01);
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: rgb(255 255 255 / 0.02);
 }
 
@@ -1065,7 +1052,7 @@ h1, h2, h3, h4 {
     width: 48px;
     height: 48px;
     margin: -30px 15px 0 15px;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: var(--grey-700)!important;
 }
 
