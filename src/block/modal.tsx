@@ -61,19 +61,19 @@ props.installScripts()
             <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
          </div>
          <div className="modal-body">
-            <a className="d-flex align-items-center border rounded bg-grey hover-grey mb-3 p-3" 
+            <a className="btn btn-soft btn-sm d-flex align-items-center mb-3" 
             onClick={() => props.DelabObject.connectToncoinWallet()}
             href="#">
                <div className="d-flex align-items-center">
                   <img src="./assets/img/ton-wallet.png" alt="Ton Wallet" width="40" height="40" className="wc-img" />
-                  <span className="fs-18 ms-4">Ton Wallet</span>
+                  <span className="fs-18 text-capitalize ms-3">Ton Wallet</span>
                </div>
                <div className="ms-auto">
                   <i className="fa-solid fa-angle-right"></i>
                </div>
             </a>
             <a 
-            className="d-flex align-items-center border rounded bg-grey hover-grey mb-3 p-3" 
+            className="btn btn-soft btn-sm d-flex align-items-center mb-3" 
             href="#!"
             onClick={() => {
                if (props.DelabObject.tonConnectWallets) {
@@ -91,7 +91,7 @@ props.installScripts()
                </div>
             </a>
             <a 
-            className="d-flex align-items-center border rounded bg-grey hover-grey p-3" 
+            className="btn btn-soft btn-sm d-flex align-items-center mb-3" 
             href="#!"
             onClick={() => props.DelabObject.connectTonHub()}
             >
@@ -138,7 +138,7 @@ props.installScripts()
             <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
          </div>
          <div className="modal-body mb-3">
-            <div className="d-flex align-items-center bg-soft hover rounded p-2 mb-3">
+            <div className="d-flex align-items-center bg-soft rounded p-2 mb-3">
                <img className="rounded image-80x80" src="/assets/img/item-details-image.jpg" alt="Tergo Cat" />
                <div className="__body ms-3">
                   <h5 className="fs-18 mb-2">TON NFT Tegro Cat #101</h5>
@@ -146,11 +146,11 @@ props.installScripts()
                </div>
             </div>
             <ul className="list-unstyled mb-3 px-1">
-               <li className="d-flex align-items-center mb-1">
+               <li className="d-flex align-items-center mb-3">
                   <span>NFT Price</span>
                   <span className="ms-auto">22.5 TON</span>
                </li>
-               <li className="d-flex align-items-center fs-14 color-grey mb-1">
+               <li className="d-flex align-items-center fs-14 color-grey mb-3">
                   <span>Creator Royalties</span>
                   <span className="ms-auto">0.525 TON</span>
                </li>
@@ -158,7 +158,7 @@ props.installScripts()
                   <span>Service Fee</span>
                   <span className="ms-auto">0.875 TON</span>
                </li>
-               <li className="d-flex align-items-center mb-1">
+               <li className="d-flex align-items-center mb-3">
                   <span>Network Fee</span>
                   <span className="ms-auto">1 TON</span>
                </li>
@@ -166,7 +166,7 @@ props.installScripts()
                   <span>The rest will be returned to your wallet</span>
                </li>
             </ul>
-            <div className="d-flex align-items-center bg-soft border rounded fs-18 fw-medium p-3 mb-3">
+            <div className="d-flex align-items-center bg-soft rounded fs-18 fw-medium p-3 mb-3">
                <span>You Pay</span>
                <span className="ms-auto">18.5 TON</span>
             </div>
@@ -178,7 +178,7 @@ props.installScripts()
                <a href="#!" className="color-yellow">Learn More</a>
             </div>
          </div>
-         <button type="button" className="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ConnectModal">Buy for 23.5 TON</button>
+         <button type="button" className="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ConnectModal">Buy for 18.5 TON</button>
       </div>
    </div>
 </div>

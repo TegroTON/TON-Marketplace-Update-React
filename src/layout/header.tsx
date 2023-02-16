@@ -53,7 +53,7 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
           </Navbar.Brand>
           {!props.address ? (
           <Button 
-             variant="soft d-block d-lg-none ms-auto"
+             variant="soft btn-mobile-header d-block d-lg-none ms-auto"
              data-bs-toggle="modal"
              data-bs-target="#ConnectModal"
              onClick={() => props.openModalConnect()}
@@ -96,7 +96,12 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
              <span />
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
-             <Form className="header__search flex-fill d-block d-lg-none d-xl-block mx-0 mx-lg-5 mb-3 mb-lg-0 order-1 order-lg-2">
+          <div className="dropdown header__search flex-fill mx-0 mx-lg-5 mb-3 mb-lg-0 order-1 order-lg-2">
+             <Form
+             data-bs-toggle="dropdown" 
+             aria-expanded="false"
+             id="dropdownMenuSearch"
+             >
                 <InputGroup>
                    <Form.Control
                       type="search"
@@ -104,14 +109,32 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
                       aria-label="Search"
                       />
                    <InputGroup.Text className="p-0">
-                      <Button variant="link">
+                      <Button variant="link p-3">
                       <i className="fa-solid fa-magnifying-glass color-grey" />
                       </Button>
                    </InputGroup.Text>
                 </InputGroup>
              </Form>
+             <div className="dropdown-menu w-100 animate slideIn mt-3" aria-labelledby="dropdownMenuSearch">
+                <a className="dropdown-item d-flex align-items-center" href="/collection">
+                   <img src="./assets/img/collections/1.gif" className="rounded" width="48" height="48" />
+                   <div className="card-title fs-16 ms-3">Animals Red List</div>
+                   <i className="fa-solid fa-angle-right ms-auto" />
+                </a>
+                <a className="dropdown-item d-flex align-items-center" href="/collection">
+                   <img src="./assets/img/collections/2.gif" className="rounded" width="48" height="48" />
+                   <div className="card-title fs-16 ms-3">Rich Cats</div>
+                   <i className="fa-solid fa-angle-right ms-auto" />
+                </a>
+                <a className="dropdown-item border-0 d-flex align-items-center" href="/collection">
+                   <img src="./assets/img/collections/4.gif" className="rounded" width="48" height="48" />
+                   <div className="card-title fs-16 ms-3">TON DOODLES</div>
+                   <i className="fa-solid fa-angle-right ms-auto" />
+                </a>
+             </div>
+             </div>
              <div className="dropdown order-4 order-lg-1">
-                <Button variant="outline-primary d-flex flex-nowrap align-items-center d-none d-lg-block" type="button"
+                <Button variant="outline-primary align-items-center d-none d-lg-flex flex-nowrap" type="button"
                    id="dropdownMenuCat" 
                    data-bs-toggle="dropdown" 
                    aria-expanded="false">
@@ -119,7 +142,7 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
                 Explore
                 </Button>
                 <div className="dropdown-menu animate slideIn mt-3" aria-labelledby="dropdownMenuCat">
-                   <a className="dropdown-item" href="#">
+                   <a className="dropdown-item" href="/explore">
                    <i className="fa-regular fa-hexagon-vertical-nft-slanted me-3" />
                    All NFTs
                    </a>
@@ -174,7 +197,7 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
              </Nav>
              {!props.address ? (
              <Button 
-                variant="soft d-none d-lg-block"
+                variant="soft d-none d-lg-flex align-items-center flex-nowrap"
                 className="order-3 order-lg-4"
                 data-bs-toggle="modal"
                 data-bs-target="#ConnectModal"

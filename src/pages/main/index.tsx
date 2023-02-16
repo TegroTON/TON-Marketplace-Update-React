@@ -170,7 +170,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                <Card.Link href="/collection-item" className="card-link">
                   <Card.Img variant="top card-image" src="./assets/img/nfts/nft-1.png" />
                   <Card.Body>
-                     <div className="card-subtitle mb-2">Pinocchio</div>
+                     <div className="card-subtitle d-flex align-items-center mb-2">
+                        Pinocchio
+                        <span className="verified-icon ms-2" />
+                     </div>
                      <Card.Title className="mb-3">
                         Pinocchio
                      </Card.Title>
@@ -193,7 +196,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             <Card.Link href="/collection-item" className="card-link">
                <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" />
                <Card.Body>
-                  <div className="card-subtitle mb-2">Single NFT</div>
+                  <div className="card-subtitle d-flex align-items-center mb-2">
+                     Single NFT
+                     <span className="verified-icon ms-2" />
+                  </div>
                   <Card.Title className="mb-3">
                      RED HOPE
                   </Card.Title>
@@ -216,7 +222,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             <Card.Link href="/collection-item" className="card-link">
                <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" />
                <Card.Body>
-                  <div className="card-subtitle mb-2">CAT Meta</div>
+                  <div className="card-subtitle d-flex align-items-center mb-2">
+                     CAT Meta
+                     <span className="verified-icon ms-2" />
+                  </div>
                   <Card.Title className="mb-3">
                      CAT ETH
                   </Card.Title>
@@ -239,7 +248,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             <Card.Link href="/collection-item" className="card-link">
                <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" />
                <Card.Body>
-                  <div className="card-subtitle mb-2">Cyber Girl</div>
+                  <div className="card-subtitle d-flex align-items-center mb-2">
+                     Cyber Girl
+                     <span className="verified-icon ms-2" />
+                  </div>
                   <Card.Title className="mb-3">
                      TON CYBER GIRL
                   </Card.Title>
@@ -262,7 +274,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             <Card.Link href="/collection-item" className="card-link">
                <Card.Img variant="top card-image" src="./assets/img/nfts/nft-5.png" />
                <Card.Body>
-                  <div className="card-subtitle mb-2">Moto Paradise</div>
+                  <div className="card-subtitle d-flex align-items-center mb-2">
+                     Moto Paradise
+                     <span className="verified-icon ms-2" />
+                  </div>
                   <Card.Title className="mb-3">
                      Motorcyclist in paradise
                   </Card.Title>
@@ -285,7 +300,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             <Card.Link href="/collection-item" className="card-link">
                <Card.Img variant="top card-image" src="./assets/img/nfts/nft-6.png" />
                <Card.Body>
-                  <div className="card-subtitle mb-2">Cute Monters</div>
+                  <div className="card-subtitle d-flex align-items-center mb-2">
+                     Cute Monters
+                     <span className="verified-icon ms-2" />
+                  </div>
                   <Card.Title className="mb-3">
                      ZubazzzTik
                   </Card.Title>
@@ -344,6 +362,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-2 fs-18">
                         Animals Red List
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">21,08 TON</span>
@@ -369,6 +388,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-2 fs-18">
                         Rich Cats
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">90 TON</span>
@@ -394,6 +414,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         TON GUYS
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2,03 TON</span>
@@ -419,6 +440,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         TON DOODLES
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">1,09 TON</span>
@@ -444,6 +466,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         METAMORPHOSES
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">143,03 TON</span>
@@ -469,6 +492,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         Dog Metaverse
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">15,03 TON</span>
@@ -494,6 +518,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         Eggs Wisdom
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
@@ -519,6 +544,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         Cosmic Friends
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2,03 TON</span>
@@ -544,6 +570,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         digital avatars
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">1,02 TON</span>
@@ -569,6 +596,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         G-BOTS SD
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">22 TON</span>
@@ -594,6 +622,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         Rich Cats · Outfits
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">5,5 TON</span>
@@ -619,6 +648,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         Meta Panthers
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
@@ -644,6 +674,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         Alienation
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">7 TON</span>
@@ -669,6 +700,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         Fantastic beasts
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">2 TON</span>
@@ -694,6 +726,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Card.Body>
                      <Card.Title className="d-flex align-items-center mb-3 fs-18">
                         Superhero
+                        <span className="verified-icon ms-2" />
                      </Card.Title>
                      <Card.Text className="d-flex align-items-center color-grey">
                         Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">6 TON</span>
