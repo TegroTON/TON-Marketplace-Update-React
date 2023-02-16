@@ -46,10 +46,20 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </Button>
             </Col>
             <Col md={12} lg={3} xxl={5} className="d-none d-xxl-block ms-auto">
-            <img src="./assets/img/hero-nft-series.png" alt="Libermall NFT Marketplace" className="hero__image" />
+               <div className="hero-animated__box">
+                  <div className="hero-animated__item">
+                     <img src="./assets/img/hero-nfts-1.png" alt="" className="hero-animated__image" />
+                  </div>
+                  <div className="hero-animated__item">
+                     <img src="./assets/img/hero-nfts-2.png" alt="" className="hero-animated__image" />
+                  </div>
+                  <div className="hero-animated__item">
+                     <img src="./assets/img/hero-nfts-3.png" alt="" className="hero-animated__image" />
+                  </div>
+               </div>
             </Col>
          </Row>
-         <div className="baground-hero__nft" style={{background: "url(./assets/img/hero-nft-series.png) no-repeat"}} />
+         <div className="baground-hero__nft" style={{background: "url(./assets/img/collections/1.gif) no-repeat"}} />
       </Container>
    </section>
    <section className="create section" id="create">
@@ -149,14 +159,14 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                </OverlayTrigger>
             </div>
             <ButtonGroup className="btn-group-custom ms-auto">
-               <Button variant="secondary btn-sm active">1 Day</Button>
-               <Button variant="secondary btn-sm">7 Days</Button>
-               <Button variant="secondary btn-sm">30 Days</Button>
-               <Button variant="secondary btn-sm">All Time</Button>
+               <Button variant="secondary btn-sm px-3 px-lg-4 active">1 Day</Button>
+               <Button variant="secondary btn-sm px-3 px-lg-4">7 Days</Button>
+               <Button variant="secondary btn-sm px-3 px-lg-4">30 Days</Button>
+               <Button variant="secondary btn-sm px-3 px-lg-4">All Time</Button>
             </ButtonGroup>
          </div>
          <div className="notable-slider">
-            <Card className="card-hover mb-3 mb-l">
+            <Card>
                <Card.Link href="/collection-item" className="card-link">
                   <Card.Img variant="top card-image" src="./assets/img/nfts/nft-1.png" />
                   <Card.Body>
@@ -179,7 +189,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                </Button>
                <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-1.png)  no-repeat center center / cover'}} />
          </Card>
-         <Card className="card-hover">
+         <Card>
             <Card.Link href="/collection-item" className="card-link">
                <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" />
                <Card.Body>
@@ -202,7 +212,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </Button>
             <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-2.png)  no-repeat center center / cover'}} />
          </Card>
-         <Card className="card-hover">
+         <Card>
             <Card.Link href="/collection-item" className="card-link">
                <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" />
                <Card.Body>
@@ -225,7 +235,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </Button>
             <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-3.png)  no-repeat center center / cover'}} />
          </Card>
-         <Card className="card-hover">
+         <Card>
             <Card.Link href="/collection-item" className="card-link">
                <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" />
                <Card.Body>
@@ -248,7 +258,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </Button>
             <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-4.png)  no-repeat center center / cover'}} />
          </Card>
-         <Card className="card-hover">
+         <Card>
             <Card.Link href="/collection-item" className="card-link">
                <Card.Img variant="top card-image" src="./assets/img/nfts/nft-5.png" />
                <Card.Body>
@@ -271,7 +281,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
             </Button>
             <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/nfts/nft-5.png)  no-repeat center center / cover'}} />
          </Card>
-         <Card className="card-hover">
+         <Card>
             <Card.Link href="/collection-item" className="card-link">
                <Card.Img variant="top card-image" src="./assets/img/nfts/nft-6.png" />
                <Card.Body>
@@ -300,7 +310,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
    <section className="collections section">
       <Container className="collection__container container-fluid">
          <div className="notable__head d-block d-lg-flex align-items-center mb-5">
-            <div className="d-flex align-items-center mb-3 mb-lg-0">
+            <div className="d-flex align-items-center mb-4 mb-lg-0">
                <h2 className="section__title mb-0 me-3">
                   Top <span className="color-yellow">collections</span>
                </h2>
@@ -320,10 +330,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                </OverlayTrigger>
             </div>
             <ButtonGroup className="btn-group-custom ms-auto">
-               <Button variant="secondary btn-sm active">1 Day</Button>
-               <Button variant="secondary btn-sm">7 Days</Button>
-               <Button variant="secondary btn-sm">30 Days</Button>
-               <Button variant="secondary btn-sm">All time</Button>
+               <Button variant="secondary btn-sm flex-fill px-3 px-lg-4 active">1 Day</Button>
+               <Button variant="secondary btn-sm flex-fill px-3 px-lg-4">7 Days</Button>
+               <Button variant="secondary btn-sm flex-fill px-3 px-lg-4">30 Days</Button>
+               <Button variant="secondary btn-sm flex-fill px-3 px-lg-4">All time</Button>
             </ButtonGroup>
          </div>
          <Row>
@@ -724,88 +734,80 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
          </div>
       </Container>
    </section>
-   <section className="category section pt-150" id="category">
-      <div className="category__container container-fluid">
-         <div className="category__head">
-            <h2 className="section__title">
+   <section className="category section" id="category">
+      <Container className="category__container container-fluid">
+      <h2 className="section__title mb-5">
                Browse <span className="color-yellow">by category</span> 
             </h2>
-         </div>
          <div className="category-slider pt-3">
-            <a href="/single-collection" className="card top-effect">
-               <picture>
-                  {/* 
-                  <source srcset="./assets/img/category/cat-1.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-1.jpg" type="image/jpeg">
-                  */}
-                  <img src="./assets/img/category/cat-1.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
-               </picture>
-               <div className="card-body text-center">
-                  <h3 className="text-uppercase fs-18 mt-3 mb-0" style={{letterSpacing: '1px'}}>Art</h3>
-               </div>
-            </a>
-            <a href="/single-collection" className="card top-effect">
-               <picture>
-                  {/* 
-                  <source srcset="./assets/img/category/cat-2.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-2.jpg" type="image/jpeg">
-                  */}
-                  <img src="./assets/img/category/cat-2.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
-               </picture>
-               <div className="card-body text-center">
-                  <h3 className="text-uppercase fs-18 mt-3 mb-0" style={{letterSpacing: '1px'}}>Sports</h3>
-               </div>
-            </a>
-            <a href="/single-collection" className="card top-effect">
-               <picture>
-                  {/* 
-                  <source srcset="./assets/img/category/cat-3.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-3.jpg" type="image/jpeg">
-                  */}
-                  <img src="./assets/img/category/cat-3.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
-               </picture>
-               <div className="card-body text-center">
-                  <h3 className="text-uppercase fs-18 mt-3 mb-0" style={{letterSpacing: '1px'}}>Collectibles</h3>
-               </div>
-            </a>
-            <a href="/single-collection" className="card top-effect">
-               <picture>
-                  {/* 
-                  <source srcset="./assets/img/category/cat-4.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-4.jpg" type="image/jpeg">
-                  */}
-                  <img src="./assets/img/category/cat-4.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
-               </picture>
-               <div className="card-body text-center">
-                  <h3 className="text-uppercase fs-18 mt-3 mb-0" style={{letterSpacing: '1px'}}>Photography</h3>
-               </div>
-            </a>
-            <a href="#!" className="d-block card top-effect">
-               <picture>
-                  {/* 
-                  <source srcset="./assets/img/category/cat-5.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-5.jpg" type="image/jpeg">
-                  */}
-                  <img src="./assets/img/category/cat-5.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
-               </picture>
-               <div className="card-body text-center">
-                  <h3 className="text-uppercase fs-18 mt-3 mb-0" style={{letterSpacing: '1px'}}>Domain Name</h3>
-               </div>
-            </a>
-            <a href="/single-collection" className="card top-effect">
-               <picture>
-                  {/* 
-                  <source srcset="./assets/img/category/cat-6.webp" type="image/webp">
-                  <source srcset="./assets/img/category/cat-6.jpg" type="image/jpeg">
-                  */}
-                  <img src="./assets/img/category/cat-6.jpg" className="rounded image-300x300" loading="lazy" width="340" height="275" alt="Ragnarok" />
-               </picture>
-               <div className="card-body text-center">
-                  <h3 className="text-uppercase fs-18 mt-3 mb-0" style={{letterSpacing: '1px'}}>Music</h3>
-               </div>
-            </a>
+         <Card>
+               <Card.Link href="/collection" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/category/cat-1.jpg" />
+                  <Card.Body>
+                     <Card.Title className="text-center mb-0">
+                     Art
+                     </Card.Title>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/category/cat-1.jpg)  no-repeat center center / cover'}} />
+         </Card>
+         <Card>
+               <Card.Link href="/collection" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/category/cat-2.jpg" />
+                  <Card.Body>
+                     <Card.Title className="text-center mb-0">
+                     Sports
+                     </Card.Title>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/category/cat-2.jpg)  no-repeat center center / cover'}} />
+         </Card>
+         <Card>
+               <Card.Link href="/collection" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/category/cat-3.jpg" />
+                  <Card.Body>
+                     <Card.Title className="text-center mb-0">
+                     Collectibles
+                     </Card.Title>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/category/cat-3.jpg)  no-repeat center center / cover'}} />
+         </Card>
+         <Card>
+               <Card.Link href="/collection" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/category/cat-4.jpg" />
+                  <Card.Body>
+                     <Card.Title className="text-center mb-0">
+                     Photography
+                     </Card.Title>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/category/cat-4.jpg)  no-repeat center center / cover'}} />
+         </Card>
+         <Card>
+               <Card.Link href="/collection" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/category/cat-5.jpg" />
+                  <Card.Body>
+                     <Card.Title className="text-center mb-0">
+                     Domain Name
+                     </Card.Title>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/category/cat-5.jpg)  no-repeat center center / cover'}} />
+         </Card>
+         <Card>
+               <Card.Link href="/collection" className="card-link">
+                  <Card.Img variant="top card-image" src="./assets/img/category/cat-6.jpg" />
+                  <Card.Body>
+                     <Card.Title className="text-center mb-0">
+                     Music
+                     </Card.Title>
+                  </Card.Body>
+               </Card.Link>
+               <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/category/cat-6.jpg)  no-repeat center center / cover'}} />
+         </Card>
          </div>
-      </div>
+         </Container>
    </section>
 </main>
 </div>
