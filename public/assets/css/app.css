@@ -2,7 +2,7 @@
     --bg-primary: #151723;
     --bg-secondary: #1d2031;
     --bg-third: #181a26;
-    --border-color: #262834;
+    --border-color: rgb(69 72 92 / 27%);
     --text-primary: #e3e6ed;
     --text-secondary: #adb1c7;
     --text-dark: #151723;
@@ -64,6 +64,10 @@ body {
     border-width: 1px;
     border-radius: 12px;
     box-shadow: none!important;
+}
+
+.dropdown-toggle::after {
+    display: none;
 }
 
 .btn:hover, .btn:focus, .btn:active {
@@ -1344,7 +1348,7 @@ h1, h2, h3, h4 {
     font-weight: 500;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 100%;
+    max-width: 100%;
     white-space: nowrap;
     color: var(--text-primary);
 }
@@ -1355,7 +1359,7 @@ h1, h2, h3, h4 {
 }
 
 .verified-icon {
-    width: 18px;
+    min-width: 18px;
     height: 18px;
     background: url(/assets/img/verified.svg) no-repeat center center / contain;
 }
