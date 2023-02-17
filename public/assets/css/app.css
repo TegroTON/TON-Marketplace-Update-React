@@ -347,6 +347,10 @@ h1, h2, h3, h4 {
     font-size: 32px !important;
 }
 
+.fs-40 {
+    font-size: 40px !important;
+}
+
 .fw-medium {
     font-weight: 500;
 }
@@ -647,7 +651,8 @@ h1, h2, h3, h4 {
     padding: 0;
     border-radius: 12px;
     border: 0;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-third);
+    box-shadow: 0 2px 22px -12px rgb(3 4 6 / 50%);
 }
 
 .dropdown-item {
@@ -657,9 +662,13 @@ h1, h2, h3, h4 {
     text-transform: math-auto;
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover, .dropdown-item.active {
     color: var(--text-primary);
     background: rgb(255 255 255 / 0.03);
+}
+
+.dropdown-item.active {
+    font-weight: 600;
 }
 
 .table {
@@ -957,7 +966,6 @@ h1, h2, h3, h4 {
 
 @media (max-width: 468px) {
     .navbar-collapse {
-        
     }
 }
 
@@ -1325,6 +1333,16 @@ h1, h2, h3, h4 {
     content: '';
     border-radius: 4px;
     background: var(--bg-secondary);
+}
+
+.grid-item {
+    min-width: 333px;
+}
+
+@media (max-width: 430px) {
+    .grid-item {
+        min-width: 100%;
+    }
 }
 
 .card {
