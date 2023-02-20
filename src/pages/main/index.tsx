@@ -59,7 +59,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                </div>
             </Col>
          </Row>
-         <div className="baground-hero__nft" style={{background: "url(./assets/img/collections/1.gif) no-repeat"}} />
+         <div className="baground-hero__nft"/>
       </Container>
    </section>
    <section className="create section" id="create">
