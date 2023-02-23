@@ -84,7 +84,7 @@ props.installScripts()
             >
                <div className="d-flex align-items-center">
                   <img src="./assets/img/tonkeeper.png" alt="Tonkeeper" width="40" height="40" className="wc-img" />
-                  <span className="fs-18 ms-4">Tonkeeper</span>
+                  <span className="fs-18 text-capitalize ms-3">Tonkeeper</span>
                </div>
                <div className="ms-auto">
                   <i className="fa-solid fa-angle-right"></i>
@@ -97,7 +97,7 @@ props.installScripts()
             >
                <div className="d-flex align-items-center">
                   <img src="./assets/img/tonhub.png" alt="Tonhub" width="40" height="40" className="wc-img" />
-                  <span className="fs-18 ms-4">Tonhub</span>
+                  <span className="fs-18 text-capitalize ms-3">Tonhub</span>
                </div>
                <div className="ms-auto">
                   <i className="fa-solid fa-angle-right"></i>

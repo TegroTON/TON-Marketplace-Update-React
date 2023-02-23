@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button, Collapse, Form, Row, Col, Container, Card, Dropdown } from 'react-bootstrap';
+import { Button, Form, InputGroup, Row, Col, Container, Card, Badge, Dropdown, Tabs, Tab } from 'react-bootstrap';
 import { PageProps } from '../../types/interfaces'
+
 
 export const Collection: React.FC<PageProps> = (props: PageProps) => {
     const [ firstRender, setFirstRender ] = React.useState<boolean>(false)
@@ -39,16 +40,16 @@ props.installScripts()
                               <Dropdown.Toggle variant="icon" id="dropdown-social">
                                  <i className="fa-solid fa-ellipsis-vertical" />
                               </Dropdown.Toggle>
-                              <Dropdown.Menu className="mt-2">
-                                 <Dropdown.Item href="#"><i className="fa-regular fa-flag me-2" /> Report</Dropdown.Item>
-                                 <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate" /> Refresh Metadata</Dropdown.Item>
+                              <Dropdown.Menu className="mt-2 fs-14">
+                                 <Dropdown.Item href="#"><i className="fa-regular fa-flag me-3" /> Report</Dropdown.Item>
+                                 <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
                               </Dropdown.Menu>
                            </Dropdown>
                         </div>
                         <Card.Text className="d-flex align-items-center color-grey">
                            <span>EQCioGF…mvYl</span> 
                            <a href="#!" className="ms-3">
-                           <i className="fa-regular fa-copy"></i>
+                           <i className="fa-regular fa-copy" />
                            </a>    
                         </Card.Text>
                      </div>
@@ -64,22 +65,22 @@ props.installScripts()
                   </Card.Text>
                   <Dropdown>
                      <div className="libermall__soclinks flex-wrap">
-                        <a href="#!" className="libermall__soclinks-item ms-0"><i className="fa-brands fa-telegram"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-discord"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-instagram"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-reddit-alien"></i></a>
-                        <Dropdown.Toggle variant="cube p-1 libermall__soclinks-item ms-2" id="dropdown-basic">
+                        <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-telegram" /></a>
+                        <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-discord" /></a>
+                        <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-instagram" /></a>
+                        <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-linkedin-in" /></a>
+                        <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-reddit-alien" /></a>
+                        <Dropdown.Toggle variant="none libermall__soclinks-item m-1 m-1" id="dropdown-basic">
                            +5
                         </Dropdown.Toggle>
                      </div>
-                     <Dropdown.Menu>
+                     <Dropdown.Menu className="mt-2 fs-14">
                         <Dropdown.Item href="#">
-                           <i className="fa-brands fa-youtube me-2" />
+                           <i className="fa-brands fa-youtube me-3" />
                            Youtube
                         </Dropdown.Item>
                         <Dropdown.Item href="#">
-                           <i className="fa-brands fa-telegram me-2" />
+                           <i className="fa-brands fa-telegram me-3" />
                            @tegrocatnft
                         </Dropdown.Item>
                      </Dropdown.Menu>
@@ -91,215 +92,186 @@ props.installScripts()
                   <span className="verified-icon ms-2" />
                </Card.Footer>
             </Card>
-            <Card className="card-filters bg-transparent position-sticky" style={{ top: 140 }}>
+            <div id="open-filters" className="modal-mobile">
+            <Card className="card-filters bg-transparent">
               <Card.Title className="card-title d-flex align-items-centeer fs-22 fw-bold py-4 mb-0 border-bottom">
                      Filters
-                     <a href="#!" className="fw-medium link fs-16 ms-auto">Clear</a>
+                     <a href="#!" className="fw-medium link fs-16 d-none d-lg-block ms-auto">Clear</a>
+                     <a href="#!" className="mobile-modal-close fw-medium link fs-16 d-block d-lg-none ms-auto">Close</a>
                   </Card.Title>
             <Card.Body className="p-0 border-bottom">
                <Button
                   variant="none"
-                  className="d-flex align-items-center py-3 w-100"
-                  type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseEventType"
                   aria-expanded="false"
-                  aria-controls="collapseExample"
+                  aria-controls="collapseEventType"
+                  className="d-flex align-items-center py-4 w-100"
                   >
                   <Card.Title className="card-filters__name fs-18 m-0">Event Type</Card.Title>
                   <i className="fa-solid fa-angle-down ms-auto" />
                </Button>
-               <div className="collapse position-relative" id="collapseEventType">
-                  <Form>
-                     <Form.Check type="checkbox" id="flexCheck-Sale" className="form-check hover d-flex aling-items-center p-3 mb-1">
-                        <Form.Check.Input type="checkbox"  className="form-check-input m-0" />
-                        <Form.Check.Label className="d-flex aling-items-center w-100 ">
-                           <i className="fa-regular fa-cart-shopping-fast fs-18 mx-3 color-grey" />
-                           <span>Sale</span>
-                           <div className="color-grey fw-medium small ms-auto">8</div>
-                        </Form.Check.Label>
-                     </Form.Check>
-                     <Form.Check type="checkbox" id="flexCheck-Putupforsale" className="form-check hover d-flex aling-items-center p-3 mb-1">
-                        <Form.Check.Input type="checkbox"  className="form-check-input m-0" />
-                        <Form.Check.Label className="d-flex aling-items-center w-100 ">
-                           <i className="fa-regular fa-circle-plus fs-18 mx-3 color-grey" />
-                           <span>Put up for sale</span>
-                           <div className="color-grey fw-medium small ms-auto">16</div>
-                        </Form.Check.Label>
-                     </Form.Check>
-                     <Form.Check type="checkbox" id="flexCheck-Cancelsale" className="form-check hover d-flex aling-items-center p-3 mb-1">
-                        <Form.Check.Input type="checkbox"  className="form-check-input m-0" />
-                        <Form.Check.Label className="d-flex aling-items-center w-100 ">
-                           <i className="fa-regular fa-circle-xmark fs-18 mx-3 color-grey" />
-                           <span>Cancel sale</span>
-                           <div className="color-grey fw-medium small ms-auto">16</div>
-                        </Form.Check.Label>
-                     </Form.Check>
-                     <Form.Check type="checkbox" id="flexCheck-Transfer" className="form-check hover d-flex aling-items-center p-3 mb-1">
-                        <Form.Check.Input type="checkbox"  className="form-check-input m-0" />
-                        <Form.Check.Label className="d-flex aling-items-center w-100 ">
-                           <i className="fa-regular fa-arrow-right-arrow-left fs-18 mx-3 color-grey" />
-                           <span>Transfer</span>
-                           <div className="color-grey fw-medium small ms-auto">7</div>
-                        </Form.Check.Label>
-                     </Form.Check>
-                     <Form.Check type="checkbox" id="flexCheck-Minting" className="form-check hover d-flex aling-items-center p-3 mb-1">
-                        <Form.Check.Input type="checkbox"  className="form-check-input m-0" />
-                        <Form.Check.Label className="d-flex aling-items-center w-100 ">
-                           <i className="fa-regular fa-paintbrush-fine fs-18 mx-3 color-grey" />
-                           <span>Minting</span>
-                           <div className="color-grey fw-medium small ms-auto">3</div>
-                        </Form.Check.Label>
-                     </Form.Check>
-                     <Form.Check type="checkbox" id="flexCheck-PutonAuction" className="form-check hover d-flex aling-items-center p-3 mb-1">
-                        <Form.Check.Input type="checkbox"  className="form-check-input m-0" />
-                        <Form.Check.Label className="d-flex aling-items-center w-100 ">
-                           <i className="fa-regular fa-gavel fs-18 mx-3 color-grey" />
-                           <span>Put on Auction</span>
-                           <div className="color-grey fw-medium small ms-auto">3</div>
-                        </Form.Check.Label>
-                     </Form.Check>
-                     <Form.Check type="checkbox" id="flexCheck-EndofAuction" className="form-check hover d-flex aling-items-center p-3 mb-1">
-                        <Form.Check.Input type="checkbox"  className="form-check-input m-0" />
-                        <Form.Check.Label className="d-flex aling-items-center w-100 ">
-                           <i className="fa-regular fa-gavel fs-18 mx-3 color-grey" />
-                           <span>End of Auction</span>
-                           <div className="color-grey fw-medium small ms-auto">2528</div>
-                        </Form.Check.Label>
-                     </Form.Check>
-                  </Form>
-               </div>
+                  <div id="collapseEventType" className="collapse">
+                     <Form.Check name="checkbox" type="checkbox" id="flexCheck-Sale"  className="hover p-3 mb-1 w-100"
+                           label={
+                              <>
+                              <i className="fa-regular fa-cart-shopping-fast fs-18 mx-3 color-grey" />
+                              <span>Sale</span>
+                              <div className="color-grey fw-medium small ms-auto">8</div>
+                              </>
+                           }
+                     />
+                     <Form.Check name="checkbox" type="checkbox" id="flexCheck-Putupforsale"  className="hover p-3 mb-1 w-100"
+                           label={
+                              <>
+                              <i className="fa-regular fa-circle-plus fs-18 mx-3 color-grey" />
+                              <span>Put up for sale</span>
+                              <div className="color-grey fw-medium small ms-auto">16</div>
+                              </>
+                           }
+                     />
+                     <Form.Check name="checkbox" type="checkbox" id="flexCheck-Cancelsale"  className="hover p-3 mb-1 w-100"
+                           label={
+                              <>
+                              <i className="fa-regular fa-circle-xmark fs-18 mx-3 color-grey" />
+                              <span>Cancel sale</span>
+                              <div className="color-grey fw-medium small ms-auto">16</div>
+                              </>
+                           }
+                     />
+                     <Form.Check name="checkbox" type="checkbox" id="flexCheck-Transfer"  className="hover p-3 mb-1 w-100"
+                           label={
+                              <>
+                              <i className="fa-regular fa-arrow-right-arrow-left fs-18 mx-3 color-grey" />
+                              <span>Transfer</span>
+                              <div className="color-grey fw-medium small ms-auto">17</div>
+                              </>
+                           }
+                     />
+                     <Form.Check name="checkbox" type="checkbox" id="flexCheck-Minting"  className="hover p-3 mb-1 w-100"
+                           label={
+                              <>
+                              <i className="fa-regular fa-paintbrush-fine fs-18 mx-3 color-grey" />
+                              <span>Minting</span>
+                              <div className="color-grey fw-medium small ms-auto">16</div>
+                              </>
+                           }
+                     />
+                     <Form.Check name="checkbox" type="checkbox" id="flexCheck-PutonAuction"  className="hover p-3 mb-1 w-100"
+                           label={
+                              <>
+                              <i className="fa-regular fa-gavel fs-18 mx-3 color-grey" />
+                              <span>Put on Auction</span>
+                              <div className="color-grey fw-medium small ms-auto">13</div>
+                              </>
+                           }
+                     />
+                     <Form.Check name="checkbox" type="checkbox" id="flexCheck-EndofAuction"  className="hover p-3 mb-1 w-100"
+                           label={
+                              <>
+                              <i className="fa-regular fa-gavel fs-18 mx-3 color-grey" />
+                              <span>End of Auction</span>
+                              <div className="color-grey fw-medium small ms-auto">28</div>
+                              </>
+                           }
+                     />
+                   </div> 
             </Card.Body>
             <Card.Body className="p-0 border-bottom">
-               <button
-                  className="d-flex align-items-center px-2 py-4 w-100"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseSaleType"
-                  aria-expanded="true"
-                  aria-controls="collapseSaleType"
-                  >
-                  <h4 className="card-filters__name fs-18 mb-0">Sale Type</h4>
-                  <i className="fa-solid fa-angle-down ms-auto color-grey" />
-               </button>
-               <div className="collapse show position-relative" id="collapseSaleType">
-                  <div className="form-check hover p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="radio"
-                        name="exampleRadios"
-                        defaultValue="option1"
-                        id="flexCheckMinting"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckMinting"
-                        >
-                     <span className="ms-3">All Types</span>
-                     <span className="color-grey ms-auto">7586</span>
-                     </label>
-                  </div>
-                  <div className="form-check hover p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="radio"
-                        name="exampleRadios"
-                        defaultValue="option2"
-                        id="flexCheckForSale"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckForSale"
-                        >
-                     <span className="ms-3">For Sale</span>
-                     <span className="color-grey ms-auto">6168</span>
-                     </label>
-                  </div>
-                  <div className="form-check hover p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="radio"
-                        name="exampleRadios"
-                        defaultValue="option3"
-                        id="flexCheckForAuction"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckForAuction"
-                        >
-                     <span className="ms-3">For Auction</span>
-                     <span className="color-grey ms-auto">0</span>
-                     </label>
-                  </div>
-                  <div className="form-check hover p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="radio"
-                        name="exampleRadios"
-                        defaultValue="option4"
-                        id="flexCheckNotForSale"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckNotForSale"
-                        >
-                     <span className="ms-3">Not For Sale</span>
-                     <span className="color-grey ms-auto">609</span>
-                     </label>
-                  </div>
-               </div>
-            </Card.Body>
-            <Card.Body className="p-0 border-bottom">
-               <button
-                  className="d-flex align-items-center px-2 py-4 w-100"
-                  type="button"
+               <Button
+                  variant="none"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapsePriceRange"
                   aria-expanded="false"
                   aria-controls="collapsePriceRange"
+                  className="d-flex align-items-center py-4 w-100"
                   >
                   <h4 className="card-filters__name fs-18 mb-0">Price Range</h4>
                   <i className="fa-solid fa-angle-down ms-auto color-grey" />
-               </button>
-               <div className="collapse position-relative pb-3" id="collapsePriceRange">
-                  <form action="">
-                     <input type="text" className="form-control mb-3" placeholder="From" />
-                     <input type="text" className="form-control mb-3" placeholder="To" />
-                     <button type="button" className="btn btn-primary w-100">
-                     Apply
-                     </button>
-                  </form>
+               </Button>
+               <div id="collapsePriceRange" className="collapse pb-3">
+                  <Form>
+                     <Form.Control className="mb-3" type="number" placeholder="From" />
+                     <Form.Control className="mb-3" type="number" placeholder="To" />
+                     <Button variant="primary btn-sm">Apply</Button>
+                  </Form>
                </div>
             </Card.Body>
             <Card.Body className="p-0 border-bottom">
-               <button
-                  className="d-flex align-items-center px-2 py-4 w-100"
-                  type="button"
+               <Button
+                  variant="none"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flexRadio-SaleType"
+                  aria-expanded="true"
+                  aria-controls="flexRadio-SaleType"
+                  className="d-flex align-items-center py-4 w-100"
+                  >
+                  <Card.Title className="card-filters__name fs-18 m-0">Sale Type</Card.Title>
+                  <i className="fa-solid fa-angle-down ms-auto" />
+               </Button>
+                  <div id="flexRadio-SaleType" className="collapse show">
+                  <Form.Check name="radio-group" type="radio" id="Radio-AllTypes"  className="hover p-3 mb-1 w-100"
+                     label={
+                        <>
+                        <div className="ms-3">All Types</div>
+                        <div className="color-grey fw-medium small ms-auto">522</div>
+                        </>
+                     }
+                  />
+                  <Form.Check name="radio-group" type="radio" id="Radio-ForSale" className="hover p-3 mb-1 w-100"
+                     label={
+                        <>
+                        <div className="ms-3">For Sale</div>
+                        <div className="color-grey fw-medium small ms-auto">160</div>
+                        </>
+                     }
+                  />
+                  <Form.Check 
+                     name="radio-group" type="radio" id="Radio-NotForSale" className="hover p-3 mb-1 w-100"
+                     label={
+                        <>
+                        <div className="ms-3">Not For Sale</div>
+                        <div className="color-grey fw-medium small ms-auto">20</div>
+                        </>
+                     }
+                  />
+                  <Form.Check name="radio-group" type="radio" id="Radio-Auction" className="hover p-3 mb-1 w-100"
+                     label={
+                        <> 
+                        <div className="ms-3">Auction</div>
+                        <div className="color-grey fw-medium small ms-auto">10</div>
+                        </>
+                     }
+                  />
+                  </div>
+            </Card.Body>
+            <Card.Body className="p-0 border-bottom">
+            <Button
+                  variant="none"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseAttributes"
                   aria-expanded="true"
                   aria-controls="collapseAttributes"
+                  className="d-flex align-items-center py-4 w-100"
                   >
                   <h4 className="card-filters__name fs-18 mb-0">Attributes</h4>
                   <i className="fa-solid fa-angle-down ms-auto color-grey" />
-               </button>
-               <div className="collapse show position-relative" id="collapseAttributes">
-                  <div className="input-group mb-3">
-                     <span className="input-group-text">
-                     <i className="fa-regular fa-magnifying-glass" />
-                     </span>
-                     <input
-                        type="text"
-                        className="form-control"
+               </Button>
+               <div id="collapseAttributes" className="collapse show">
+                  <InputGroup className="mb-3">
+                     <InputGroup.Text id="search-Attributes">
+                        <i className="fa-regular fa-magnifying-glass" />
+                     </InputGroup.Text>
+                     <Form.Control
                         placeholder="Search by value ..."
                         aria-label="Search by value ..."
-                        />
-                  </div>
-                  {/*Start Item*/}
+                        aria-describedby="search-Attributes"
+                     />
+                  </InputGroup>
                   <div className="attribute__item">
-                     <button
-                        className="d-flex align-items-center py-3 w-100"
-                        type="button"
+                     <Button
+                        variant="none"
+                        className="d-flex align-items-center py-3 w-100 color-grey"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseAccessoriese"
                         aria-expanded="false"
@@ -308,579 +280,438 @@ props.installScripts()
                         <div className="card-filters__name fs-16 color-grey mb-0">
                            Accessories
                         </div>
-                        <div className="color-grey ms-auto">
+                        <div className="fs-14 ms-auto">
                            <span>14</span>
                            <i className="fa-solid fa-angle-down ms-2" />
                         </div>
-                     </button>
+                     </Button>
                      <div
-                     className="collapse position-relative overflow-auto"
+                     className="collapse position-relative overflow-auto border-bottom"
                      id="collapseAccessoriese"
                      style={{ maxHeight: 250 }}
-                     >
-                     <div className="form-check hover d-block p-3 mb-1">
-                        <input
-                           className="form-check-input m-0"
-                           type="checkbox"
-                           defaultValue=""
-                           id="flexCheckNoAccessories"
-                           />
-                        <label
-                           className="form-check-label d-flex align-items-center"
-                           htmlFor="flexCheckNoAccessories"
+                     > 
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckNoAccessories" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">No Accessories</p>
+                                 <p className="mb-0 color-grey fs-14">40 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckBroom" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Broom</p>
+                                 <p className="mb-0 color-grey fs-14">40 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckDroid" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Droid</p>
+                                 <p className="mb-0 color-grey fs-14">40 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        />
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckShield" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Shield</p>
+                                 <p className="mb-0 color-grey fs-14">40 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
+                     </div>
+                  </div>
+                  <div className="attribute__item">
+                     <Button
+                        variant="none"
+                        className="d-flex align-items-center py-3 w-100 color-grey"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseBackgrounds"
+                        aria-expanded="false"
+                        aria-controls="collapseBackgrounds"
+                        >
+                        <div className="card-filters__name fs-16 color-grey mb-0">
+                           Backgrounds
+                        </div>
+                        <div className="fs-14 ms-auto">
+                           <span>10</span>
+                           <i className="fa-solid fa-angle-down ms-2" />
+                        </div>
+                     </Button>
+                     <div
+                        className="collapse position-relative overflow-auto"
+                        id="collapseBackgrounds"
+                        style={{ maxHeight: 250 }}
+                        >
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckButterfly" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Butterfly</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        />
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckCity" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">City</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckRoad" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Road</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        />
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckNYC" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">NYC</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
+                     </div>
+                  </div>
+                  <div className="attribute__item">
+                        <Button
+                           variant="none"
+                           className="d-flex align-items-center py-3 w-100 color-grey"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#collapseBody"
+                           aria-expanded="false"
+                           aria-controls="collapseBody"
                            >
-                           <div className="ms-3">
-                              <p className="mb-1">No Accessories</p>
-                              <p className="mb-0 color-grey fs-14">40 TON floor</p>
+                           <div className="card-filters__name fs-16 color-grey mb-0">
+                              Body
                            </div>
                            <div className="fs-14 ms-auto">
-                              <p className="mb-1">
-                                 4520 <span className="color-grey">/7586</span>
-                              </p>
-                              <p className="mb-0 color-yellow text-end">58.12%</p>
+                              <span>26</span>
+                              <i className="fa-solid fa-angle-down ms-2" />
                            </div>
-                        </label>
+                        </Button>
+                     <div
+                     className="collapse position-relative overflow-auto"
+                     id="collapseBody"
+                     style={{ maxHeight: 250 }}
+                     >
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckMantle" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Mantle</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckSuperuit" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Superuit</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckOveralls" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Overalls</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        />
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckDsrkRobe" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Dsrk Robe</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
                      </div>
-                     <div className="form-check hover d-block p-3 mb-1">
-                        <input
-                           className="form-check-input m-0"
-                           type="checkbox"
-                           defaultValue=""
-                           id="flexCheckBroom"
-                           />
-                        <label
-                           className="form-check-label d-flex align-items-center"
-                           htmlFor="flexCheckBroom"
+                  </div>
+                  <div className="attribute__item">
+                        <Button
+                           variant="none"
+                           className="d-flex align-items-center py-3 w-100 color-grey"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#collapseCat"
+                           aria-expanded="false"
+                           aria-controls="collapseCat"
                            >
-                           <div className="ms-3">
-                              <p className="mb-1">Broom</p>
-                              <p className="mb-0 color-grey fs-14">40 TON floor</p>
+                           <div className="card-filters__name fs-16 color-grey mb-0">
+                              Cat
                            </div>
                            <div className="fs-14 ms-auto">
-                              <p className="mb-1">
-                                 4520 <span className="color-grey">/7586</span>
-                              </p>
-                              <p className="mb-0 color-yellow text-end">58.12%</p>
+                              <span>32</span>
+                              <i className="fa-solid fa-angle-down ms-2" />
                            </div>
-                        </label>
+                        </Button>
+                     <div
+                     className="collapse position-relative overflow-auto"
+                     id="collapseCat"
+                     style={{ maxHeight: 250 }}
+                     >
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckWitcher" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Witcher</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckFrog" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Frog</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        />
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckYouda" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Youda</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        />
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckSullivan" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Sullivan</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
                      </div>
-                     <div className="form-check hover d-block p-3 mb-1">
-                        <input
-                           className="form-check-input m-0"
-                           type="checkbox"
-                           defaultValue=""
-                           id="flexCheckDroid"
-                           />
-                        <label
-                           className="form-check-label d-flex align-items-center"
-                           htmlFor="flexCheckDroid"
+                  </div>
+                  <div className="attribute__item">
+                        <Button
+                           variant="none"
+                           className="d-flex align-items-center py-3 w-100 color-grey"
+                           data-bs-toggle="collapse"
+                           data-bs-target="#collapseEyes"
+                           aria-expanded="false"
+                           aria-controls="collapseEyes"
                            >
-                           <div className="ms-3">
-                              <p className="mb-1">Droid</p>
-                              <p className="mb-0 color-grey fs-14">75 TON floor</p>
+                           <div className="card-filters__name fs-16 color-grey mb-0">
+                              Eyes
                            </div>
                            <div className="fs-14 ms-auto">
-                              <p className="mb-1">
-                                 366 <span className="color-grey">/7586</span>
-                              </p>
-                              <p className="mb-0 color-yellow text-end">4.71%</p>
+                              <span>12</span>
+                              <i className="fa-solid fa-angle-down ms-2" />
                            </div>
-                        </label>
-                     </div>
-                     <div className="form-check hover d-block p-3 mb-1">
-                        <input
-                           className="form-check-input m-0"
-                           type="checkbox"
-                           defaultValue=""
-                           id="flexCheckShield"
-                           />
-                        <label
-                           className="form-check-label d-flex align-items-center"
-                           htmlFor="flexCheckShield"
-                           >
-                           <div className="ms-3">
-                              <p className="mb-1">Shield</p>
-                              <p className="mb-0 color-grey fs-14">125 TON floor</p>
-                           </div>
-                           <div className="fs-14 ms-auto">
-                              <p className="mb-1">
-                                 354 <span className="color-grey">/7586</span>
-                              </p>
-                              <p className="mb-0 color-yellow text-end">4.55%</p>
-                           </div>
-                        </label>
-                     </div>
-                  </div>
-               </div>
-               {/*End Item*/}
-               {/*Start Item*/}
-               <div className="attribute__item">
-                  <button
-                     className="d-flex align-items-center py-3 w-100"
-                     type="button"
-                     data-bs-toggle="collapse"
-                     data-bs-target="#collapseBackgrounds"
-                     aria-expanded="false"
-                     aria-controls="collapseBackgrounds"
+                        </Button>
+                     <div
+                     className="collapse position-relative overflow-auto"
+                     id="collapseEyes"
+                     style={{ maxHeight: 250 }}
                      >
-                     <div className="card-filters__name fs-16 color-grey mb-0">
-                        Backgrounds
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckCyborg" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Cyborg</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        />
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckYellow" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Yellow</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckCat" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Cat</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
+                        <Form.Check name="checkbox-group" type="checkbox" id="flexCheckToy" className="hover p-3 mb-1 w-100"
+                           label={
+                              <> 
+                              <div className="ms-3">
+                                 <p className="mb-1">Toy</p>
+                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                              </div>
+                              <div className="fs-14 ms-auto text-end">
+                                 <p className="mb-1">
+                                    4520 <span className="color-grey">/7586</span>
+                                 </p>
+                                 <p className="mb-0 color-yellow">58.12%</p>
+                              </div>
+                              </>
+                           }
+                        /> 
                      </div>
-                     <div className="color-grey ms-auto">
-                        <span>11</span>
-                        <i className="fa-solid fa-angle-down ms-2" />
-                     </div>
-                  </button>
-                  <div
-                  className="collapse position-relative overflow-auto"
-                  id="collapseBackgrounds"
-                  style={{ maxHeight: 250 }}
-                  >
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckNoButterfly"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckNoButterfly"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Butterfly</p>
-                           <p className="mb-0 color-grey fs-14">40 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              4520 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">58.12%</p>
-                        </div>
-                     </label>
                   </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckCity"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckCity"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">City</p>
-                           <p className="mb-0 color-grey fs-14">40 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              4520 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">58.12%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckDroid"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckDroid"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Road</p>
-                           <p className="mb-0 color-grey fs-14">75 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              366 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">4.71%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckNyc"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckNyc"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">NYC</p>
-                           <p className="mb-0 color-grey fs-14">125 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              354 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">4.55%</p>
-                        </div>
-                     </label>
-                  </div>
-               </div>
-               </div>
-               {/*End Item*/}
-               {/*Start Item*/}
-               <div className="attribute__item">
-                  <button
-                     className="d-flex align-items-center py-3 w-100"
-                     type="button"
-                     data-bs-toggle="collapse"
-                     data-bs-target="#collapseBody"
-                     aria-expanded="false"
-                     aria-controls="collapseBody"
-                     >
-                     <div className="card-filters__name fs-16 color-grey mb-0">Body</div>
-                     <div className="color-grey ms-auto">
-                        <span>12</span>
-                        <i className="fa-solid fa-angle-down ms-2" />
-                     </div>
-                  </button>
-                  <div
-                  className="collapse position-relative overflow-auto"
-                  id="collapseBody"
-                  style={{ maxHeight: 250 }}
-                  >
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckMantle"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckMantle"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Mantle</p>
-                           <p className="mb-0 color-grey fs-14">40 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              4520 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">58.12%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckSuperuit"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckSuperuit"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Superuit</p>
-                           <p className="mb-0 color-grey fs-14">40 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              4520 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">58.12%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckOveralls"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckOveralls"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Overalls</p>
-                           <p className="mb-0 color-grey fs-14">70 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              765 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">9.84%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckNyc"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckNyc"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Dsrk Robe</p>
-                           <p className="mb-0 color-grey fs-14">125 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              354 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">4.55%</p>
-                        </div>
-                     </label>
-                  </div>
-               </div>
-               </div>
-               {/*End Item*/}
-               {/*Start Item*/}
-               <div className="attribute__item">
-                  <button
-                     className="d-flex align-items-center py-3 w-100"
-                     type="button"
-                     data-bs-toggle="collapse"
-                     data-bs-target="#collapseCat"
-                     aria-expanded="false"
-                     aria-controls="collapseCat"
-                     >
-                     <div className="card-filters__name fs-16 color-grey mb-0">Cat</div>
-                     <div className="color-grey ms-auto">
-                        <span>18</span>
-                        <i className="fa-solid fa-angle-down ms-2" />
-                     </div>
-                  </button>
-                  <div
-                  className="collapse position-relative overflow-auto"
-                  id="collapseCat"
-                  style={{ maxHeight: 250 }}
-                  >
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckWitcher"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckWitcher"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Witcher</p>
-                           <p className="mb-0 color-grey fs-14">40 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              4520 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">58.12%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckFrog"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckFrog"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Frog</p>
-                           <p className="mb-0 color-grey fs-14">40 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              4520 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">58.12%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckYouda"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckYouda"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Youda</p>
-                           <p className="mb-0 color-grey fs-14">70 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              765 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">9.84%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckSullivan"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckSullivan"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Sullivan</p>
-                           <p className="mb-0 color-grey fs-14">125 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              354 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">4.55%</p>
-                        </div>
-                     </label>
-                  </div>
-               </div>
-               </div>
-               {/*End Item*/}
-               {/*Start Item*/}
-               <div className="attribute__item">
-                  <button
-                     className="d-flex align-items-center py-3 w-100"
-                     type="button"
-                     data-bs-toggle="collapse"
-                     data-bs-target="#collapseEyes"
-                     aria-expanded="false"
-                     aria-controls="collapseEyes"
-                     >
-                     <div className="card-filters__name fs-16 color-grey mb-0">Eyes</div>
-                     <div className="color-grey ms-auto">
-                        <span>12</span>
-                        <i className="fa-solid fa-angle-down ms-2" />
-                     </div>
-                  </button>
-                  <div
-                  className="collapse position-relative overflow-auto"
-                  id="collapseEyes"
-                  style={{ maxHeight: 250 }}
-                  >
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckCyborg"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckCyborg"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Cyborg</p>
-                           <p className="mb-0 color-grey fs-14">40 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              4520 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">58.12%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckYellow"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckYellow"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Yellow</p>
-                           <p className="mb-0 color-grey fs-14">40 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              4520 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">58.12%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckCat"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckCat"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Cat</p>
-                           <p className="mb-0 color-grey fs-14">70 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              765 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">9.84%</p>
-                        </div>
-                     </label>
-                  </div>
-                  <div className="form-check hover d-block p-3 mb-1">
-                     <input
-                        className="form-check-input m-0"
-                        type="checkbox"
-                        defaultValue=""
-                        id="flexCheckToy"
-                        />
-                     <label
-                        className="form-check-label d-flex align-items-center"
-                        htmlFor="flexCheckToy"
-                        >
-                        <div className="ms-3">
-                           <p className="mb-1">Toy</p>
-                           <p className="mb-0 color-grey fs-14">125 TON floor</p>
-                        </div>
-                        <div className="fs-14 ms-auto">
-                           <p className="mb-1">
-                              354 <span className="color-grey">/7586</span>
-                           </p>
-                           <p className="mb-0 color-yellow text-end">4.55%</p>
-                        </div>
-                     </label>
-                  </div>
-               </div>
-               </div>
                </div>
             </Card.Body>
             </Card>
+            </div>
             </Col>
             <Col lg="8" xxl="9">
             <Card className="card-blur mb-4 overflow-auto" id="mouseScroll">
@@ -911,90 +742,456 @@ props.installScripts()
                   </div>
                </div>
             </Card>
-            <div className="overflow-auto mobile__nav-bottom mb-2 px-2" id="mouseScroll">
-               <ul className="nav collections__nav list-unstyled d-flex flex-nowrap align-items-center" id="myTab" role="tablist">
-                  <li className="collections__nav-item">
-                     <button className="collections__nav-link d-flex align-items-center text-nowrap active" id="Owned-tab" data-bs-toggle="tab" data-bs-target="#Owned" type="button" role="tab" aria-controls="Owned" aria-selected="true">Collection</button>
-                  </li>
-                  <li className="collections__nav-item">
-                     <button className="collections__nav-link d-flex align-items-center text-nowrap" id="Activity-tab" data-bs-toggle="tab" data-bs-target="#Activity" type="button" role="tab" aria-controls="Activity" aria-selected="false">Activity</button>
-                  </li>
-                  <button 
-                     className="btn btn-sm btn-secondary ms-auto d-flex align-items-center btn-filter" 
-                     data-bs-toggle="collapse" 
-                     //  href="#collapseFilters" 
-                     role="button" 
-                     aria-expanded="false" aria-controls="collapseFilters">
-                  <i className="fa-regular fa-filter-list me-2"></i> Sort
-                  </button>
-               </ul>
-            </div>
-            <div className="collections__filters collapse modified-collapse" id="collapseFilters">
-               <div className="d-block d-sm-flex flex-wrap align-items-center">
-                  <div className="m-3">
-                     <label className="color-grey mb-2">Category:</label>
-                     <select className="form-select border" aria-label="Select Category">
-                        <option selected>All</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                     </select>
+            <Tabs
+               defaultActiveKey="Collection"
+               transition={true}
+               id="tab__collection"
+               className="mb-3"
+               variant="pills collections__nav"
+            >
+               <Tab eventKey="Collection" title="Collection">
+                  <div className="d-block d-lg-flex flex-wrap align-items-center my-4">
+                     <Form className="flex-fill mb-3 mb-lg-0">
+                        <InputGroup>
+                           <InputGroup.Text>
+                              <i className="fa-solid fa-magnifying-glass color-grey" />
+                           </InputGroup.Text>
+                           <Form.Control
+                              placeholder="Name or description"
+                           />
+                        </InputGroup>
+                     </Form>  
+                     <div className="d-flex align-items-center ms-0 ms-lg-4">
+                     <Dropdown>
+                        <Dropdown.Toggle variant="soft">
+                           Recently added
+                           <i className="fa-solid fa-angle-down ms-2" />
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu className="w-100 mt-2">
+                           <Dropdown.Item href="#">Price: Low to Hight</Dropdown.Item>
+                           <Dropdown.Item href="#">Price: Hight to Low</Dropdown.Item>
+                           <Dropdown.Item href="#">Most Favorited</Dropdown.Item>
+                           <Dropdown.Item href="#" active>Recently added</Dropdown.Item>
+                           <Dropdown.Item href="#">Oldest</Dropdown.Item>
+                        </Dropdown.Menu>
+                     </Dropdown>
+                     <Button variant="none p-2 ms-auto d-flex align-items-center d-lg-none" href="#open-filters">
+                     <i className="fa-regular fa-filter-list fs-24 me-0 me-sm-3"/>
+                     <span className="d-none d-sm-inline fs-18">Filters</span>
+                     </Button>
+                     </div>
                   </div>
-                  <div className="m-3">
-                     <label className="color-grey mb-2">Properties:</label>
-                     <select className="form-select border" aria-label="Select Category">
-                        <option selected>All 354</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                     </select>
+                  
+                  <Row className="flex-wrap collections__list">
+                     <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                        <Card>
+                              <Card.Link href="/collection-item" className="card-link">
+                                 <Card.Img variant="top card-image" src="./assets/img/cats/1.png" />
+                                 <Card.Body>
+                                    <div className="card-subtitle d-flex align-items-center mb-2">
+                                       Cat Metaverse
+                                       <span className="verified-icon ms-2" />
+                                    </div>
+                                    <Card.Title className="mb-3">
+                                       TON NFT Tegro Cat (6452)
+                                    </Card.Title>
+                                    <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                       <span className="icon-ton me-2"></span> 3
+                                       <Badge bg="purple" className="ms-2">MIN.BID</Badge>
+                                    </Card.Text>
+                                 </Card.Body>
+                              </Card.Link>
+                                 <Dropdown className="card-actions">
+                                    <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                       <i className="fa-solid fa-ellipsis-vertical" />
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu className="mt-2 fs-14">
+                                       <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                       <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                 </Dropdown> 
+                              <Button variant="card__like">
+                                 <i className="fa-regular fa-heart fs-16 me-2" />16
+                              </Button>
+                              <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                                 Buy Now
+                              </Button>
+                              <div className="card-status fw-500">
+                                 <i className="fa-regular fa-gavel me-2 fs-14" />
+                                 7 days
+                              </div>
+                              <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/1.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                     <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                        <Card>
+                              <Card.Link href="/collection-item" className="card-link">
+                                 <Card.Img variant="top card-image" src="./assets/img/cats/2.png" />
+                                 <Card.Body>
+                                    <div className="card-subtitle d-flex align-items-center mb-2">
+                                       Cat Metaverse
+                                       <span className="verified-icon ms-2" />
+                                    </div>
+                                    <Card.Title className="mb-3">
+                                       TON NFT Tegro Cat (2144)
+                                    </Card.Title>
+                                    <Card.Text className="d-flex align-items-center color-grey">
+                                       Not For Sale
+                                    </Card.Text>
+                                 </Card.Body>
+                              </Card.Link>
+                                 <Dropdown className="card-actions">
+                                    <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                       <i className="fa-solid fa-ellipsis-vertical" />
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu className="mt-2 fs-14">
+                                       <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                       <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                 </Dropdown> 
+                              <Button variant="card__like">
+                                 <i className="fa-regular fa-heart fs-16 me-2" />24
+                              </Button>
+                              <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                              Buy Now
+                              </Button>
+                              <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/2.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                     <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                        <Card>
+                              <Card.Link href="/collection-item" className="card-link">
+                                 <Card.Img variant="top card-image" src="./assets/img/cats/3.png" />
+                                 <Card.Body>
+                                    <div className="card-subtitle d-flex align-items-center mb-2">
+                                       Cat Metaverse
+                                       <span className="verified-icon ms-2" />
+                                    </div>
+                                    <Card.Title className="mb-3">
+                                       TON NFT Tegro Cat (2689)
+                                    </Card.Title>
+                                    <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                       <span className="icon-ton me-2"></span> 5
+                                    </Card.Text>
+                                 </Card.Body>
+                              </Card.Link>
+                                 <Dropdown className="card-actions">
+                                    <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                       <i className="fa-solid fa-ellipsis-vertical" />
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu className="mt-2 fs-14">
+                                       <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                       <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                 </Dropdown> 
+                              <Button variant="card__like">
+                              <i className="fa-regular fa-heart fs-16 me-2" />10
+                              </Button>
+                              <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                              Buy Now
+                              </Button>
+                              <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/3.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                     <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                        <Card>
+                              <Card.Link href="/collection-item" className="card-link">
+                                 <Card.Img variant="top card-image" src="./assets/img/cats/4.png" />
+                                 <Card.Body>
+                                    <div className="card-subtitle d-flex align-items-center mb-2">
+                                       Cat Metaverse
+                                       <span className="verified-icon ms-2" />
+                                    </div>
+                                    <Card.Title className="mb-3">
+                                       TON NFT Tegro Cat (6034)
+                                    </Card.Title>
+                                    <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                       <span className="icon-ton me-2"></span> 7.99
+                                    </Card.Text>
+                                 </Card.Body>
+                              </Card.Link>
+                                 <Dropdown className="card-actions">
+                                    <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                       <i className="fa-solid fa-ellipsis-vertical" />
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu className="mt-2 fs-14">
+                                       <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                       <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                 </Dropdown> 
+                              <Button variant="card__like">
+                              <i className="fa-regular fa-heart fs-16 me-2" />8
+                              </Button>
+                              <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                              Buy Now
+                              </Button>
+                              <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/4.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                     <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                        <Card>
+                              <Card.Link href="/collection-item" className="card-link">
+                                 <Card.Img variant="top card-image" src="./assets/img/cats/5.png" />
+                                 <Card.Body>
+                                    <div className="card-subtitle d-flex align-items-center mb-2">
+                                       Cat Metaverse
+                                       <span className="verified-icon ms-2" />
+                                    </div>
+                                    <Card.Title className="mb-3">
+                                       TON NFT Tegro Cat (1315)
+                                    </Card.Title>
+                                    <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                       <span className="icon-ton me-2"></span> 8
+                                    </Card.Text>
+                                 </Card.Body>
+                              </Card.Link>
+                                 <Dropdown className="card-actions">
+                                    <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                       <i className="fa-solid fa-ellipsis-vertical" />
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu className="mt-2 fs-14">
+                                       <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                       <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                 </Dropdown> 
+                              <Button variant="card__like">
+                              <i className="fa-regular fa-heart fs-16 me-2" />8
+                              </Button>
+                              <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                              Buy Now
+                              </Button>
+                              <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/5.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                     <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                        <Card>
+                              <Card.Link href="/collection-item" className="card-link">
+                                 <Card.Img variant="top card-image" src="./assets/img/cats/6.png" />
+                                 <Card.Body>
+                                    <div className="card-subtitle d-flex align-items-center mb-2">
+                                       Cat Metaverse
+                                       <span className="verified-icon ms-2" />
+                                    </div>
+                                    <Card.Title className="mb-3">
+                                       TON NFT Tegro Cat (8766)
+                                    </Card.Title>
+                                    <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                       <span className="icon-ton me-2"></span> 8
+                                    </Card.Text>
+                                 </Card.Body>
+                              </Card.Link>
+                                 <Dropdown className="card-actions">
+                                    <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                       <i className="fa-solid fa-ellipsis-vertical" />
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu className="mt-2 fs-14">
+                                       <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                       <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                 </Dropdown> 
+                              <Button variant="card__like">
+                              <i className="fa-regular fa-heart fs-16 me-2" />8
+                              </Button>
+                              <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                              Buy Now
+                              </Button>
+                              <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/6.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                     <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                        <Card>
+                              <Card.Link href="/collection-item" className="card-link">
+                                 <Card.Img variant="top card-image" src="./assets/img/cats/7.png" />
+                                 <Card.Body>
+                                    <div className="card-subtitle d-flex align-items-center mb-2">
+                                       Cat Metaverse
+                                       <span className="verified-icon ms-2" />
+                                    </div>
+                                    <Card.Title className="mb-3">
+                                       TON NFT Tegro Cat (8766)
+                                    </Card.Title>
+                                    <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                       <span className="icon-ton me-2"></span> 8
+                                    </Card.Text>
+                                 </Card.Body>
+                              </Card.Link>
+                                 <Dropdown className="card-actions">
+                                    <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                       <i className="fa-solid fa-ellipsis-vertical" />
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu className="mt-2 fs-14">
+                                       <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                       <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                 </Dropdown> 
+                              <Button variant="card__like">
+                              <i className="fa-regular fa-heart fs-16 me-2" />8
+                              </Button>
+                              <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                              Buy Now
+                              </Button>
+                              <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/7.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                     <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                        <Card>
+                              <Card.Link href="/collection-item" className="card-link">
+                                 <Card.Img variant="top card-image" src="./assets/img/cats/8.png" />
+                                 <Card.Body>
+                                    <div className="card-subtitle d-flex align-items-center mb-2">
+                                       Cat Metaverse
+                                       <span className="verified-icon ms-2" />
+                                    </div>
+                                    <Card.Title className="mb-3">
+                                       TON NFT Tegro Cat (8766)
+                                    </Card.Title>
+                                    <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                       <span className="icon-ton me-2"></span> 8
+                                    </Card.Text>
+                                 </Card.Body>
+                              </Card.Link>
+                                 <Dropdown className="card-actions">
+                                    <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                       <i className="fa-solid fa-ellipsis-vertical" />
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu className="mt-2 fs-14">
+                                       <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                       <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                 </Dropdown> 
+                              <Button variant="card__like">
+                              <i className="fa-regular fa-heart fs-16 me-2" />8
+                              </Button>
+                              <Button variant="light btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                              Buy Now
+                              </Button>
+                              <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/8.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                  </Row>
+                  <div className="text-center mt-5">
+                     <Button>
+                     See More
+                     </Button>
                   </div>
-                  <div className="m-3">
-                     <label className="color-grey mb-2">Sale type:</label>
-                     <select className="form-select border" aria-label="Select Category">
-                        <option selected>All</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                     </select>
-                  </div>
-                  <div className="m-3">
-                     <label className="color-grey mb-2">Price range:</label>
-                     <select className="form-select border" aria-label="Select Category">
-                        <option selected>ETH 5 - 15</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                     </select>
-                  </div>
-                  <div className="m-3 ms-xxl-auto">
-                     <label className="color-grey mb-2">Sort:</label>
-                     <select className="form-select border" aria-label="Select Category">
-                        <option selected>Recently listed</option>
-                        <option value="1">Price: low to high</option>
-                        <option value="2">Price: high to low</option>
-                        <option value="3">Auction ending soon</option>
-                     </select>
-                  </div>
-               </div>
-            </div>
-            <div className="tab-content py-4" id="myTabContent">
-               <div className="tab-pane fade show active" id="Owned" role="tabpanel" aria-labelledby="Owned-tab">
-                  {/* <?php
-                     require "_collection-list";
-                     ?> */}
-               </div>
-               <div className="tab-pane fade" id="Activity" role="tabpanel" aria-labelledby="Activity-tab">
-                  {/* <?php
-                     require "_activity-list";
-                     ?> */}
-               </div>
-            </div>
-            <div className="text-center">
-               <Button>
-               See More
-               </Button>
-            </div>
+               </Tab>
+               <Tab eventKey="Activity" title="Activity">
+                  <Row>
+                     <Col sm="6" md="12">
+                        <Card className="activity__card d-flex flex-column flex-md-row align-items-center text-center text-md-start mb-4">
+                           <Card.Img variant="none image-80x80 rounded mb-4 mb-md-0" src="./assets/img/cats/8.png" />
+                           <Card.Body className="activity__body p-0 ms-4">
+                              <Card.Title className="activity__name fs-18 mt-0 mb-2">TON NFT Tegro Cat (8766)</Card.Title>
+                              <Card.Text className="activity__info d-block d-md-flex align-items-center mb-2">
+                                 <div className="d-flex me-2 mb-1 mb-md-0">
+                                    <span className="color-grey me-2">transferred from</span>
+                                    <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
+                                       <img src="/assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                       <span className="ms-2 d-block text-truncate" style={{maxWidth: '116px'}}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
+                                    </a>
+                                 </div>
+                                 <div className="d-flex">
+                                    <span className="color-grey me-2">to</span>
+                                    <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
+                                       <img src="/assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                       <span className="ms-2 d-block text-truncate" style={{maxWidth: '116px'}}>0xa83425b17824e9717155094ce3effbec907665de</span>
+                                    </a>
+                                 </div>
+                              </Card.Text>
+                              <p className="mb-0 color-grey fs-14">
+                                    12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
+                              </p>
+                           </Card.Body>   
+                           <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/8.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                     <Col sm="6" md="12">
+                        <Card className="activity__card d-flex flex-column flex-md-row align-items-center text-center text-md-start mb-4">
+                           <Card.Img variant="none image-80x80 rounded mb-4 mb-md-0" src="./assets/img/cats/6.png" />
+                           <Card.Body className="activity__body p-0 ms-4">
+                              <Card.Title className="activity__name fs-18 mt-0 mb-2">TON NFT Tegro Cat (8766)</Card.Title>
+                              <Card.Text className="activity__info d-block d-md-flex align-items-center mb-2">
+                                 <div className="d-flex me-2 mb-1 mb-md-0">
+                                    <span className="color-grey me-2">transferred from</span>
+                                    <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
+                                       <img src="/assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                       <span className="ms-2 d-block text-truncate" style={{maxWidth: '116px'}}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
+                                    </a>
+                                 </div>
+                                 <div className="d-flex">
+                                    <span className="color-grey me-2">to</span>
+                                    <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
+                                       <img src="/assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                       <span className="ms-2 d-block text-truncate" style={{maxWidth: '116px'}}>0xa83425b17824e9717155094ce3effbec907665de</span>
+                                    </a>
+                                 </div>
+                              </Card.Text>
+                              <p className="mb-0 color-grey fs-14">
+                                    12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
+                              </p>
+                           </Card.Body>   
+                           <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/6.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                     <Col sm="6" md="12">
+                        <Card className="activity__card d-flex flex-column flex-md-row align-items-center text-center text-md-start mb-4">
+                           <Card.Img variant="none image-80x80 rounded mb-4 mb-md-0" src="./assets/img/cats/5.png" />
+                           <Card.Body className="activity__body p-0 ms-4">
+                              <Card.Title className="activity__name fs-18 mt-0 mb-2">TON NFT Tegro Cat (8766)</Card.Title>
+                              <Card.Text className="activity__info d-block d-md-flex align-items-center mb-2">
+                                 <div className="d-flex me-2 mb-1 mb-md-0">
+                                    <span className="color-grey me-2">transferred from</span>
+                                    <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
+                                       <img src="/assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                       <span className="ms-2 d-block text-truncate" style={{maxWidth: '116px'}}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
+                                    </a>
+                                 </div>
+                                 <div className="d-flex">
+                                    <span className="color-grey me-2">to</span>
+                                    <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
+                                       <img src="/assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                       <span className="ms-2 d-block text-truncate" style={{maxWidth: '116px'}}>0xa83425b17824e9717155094ce3effbec907665de</span>
+                                    </a>
+                                 </div>
+                              </Card.Text>
+                              <p className="mb-0 color-grey fs-14">
+                                    12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
+                              </p>
+                           </Card.Body>   
+                           <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/5.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                     <Col sm="6" md="12">
+                        <Card className="activity__card d-flex flex-column flex-md-row align-items-center text-center text-md-start mb-4">
+                           <Card.Img variant="none image-80x80 rounded mb-4 mb-md-0" src="./assets/img/cats/6.png" />
+                           <Card.Body className="activity__body p-0 ms-4">
+                              <Card.Title className="activity__name fs-18 mt-0 mb-2">TON NFT Tegro Cat (8766)</Card.Title>
+                              <Card.Text className="activity__info d-block d-md-flex align-items-center mb-2">
+                                 <div className="d-flex me-2 mb-1 mb-md-0">
+                                    <span className="color-grey me-2">transferred from</span>
+                                    <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
+                                       <img src="/assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                       <span className="ms-2 d-block text-truncate" style={{maxWidth: '116px'}}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
+                                    </a>
+                                 </div>
+                                 <div className="d-flex">
+                                    <span className="color-grey me-2">to</span>
+                                    <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
+                                       <img src="/assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                       <span className="ms-2 d-block text-truncate" style={{maxWidth: '116px'}}>0xa83425b17824e9717155094ce3effbec907665de</span>
+                                    </a>
+                                 </div>
+                              </Card.Text>
+                              <p className="mb-0 color-grey fs-14">
+                                    12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
+                              </p>
+                           </Card.Body>   
+                           <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/6.png)  no-repeat center center / cover'}} />
+                        </Card>
+                     </Col>
+                  </Row>         
+               </Tab>
+            </Tabs>
             </Col> 
          </Row>
       </Container>

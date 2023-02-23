@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { PageProps } from '../../types/interfaces'
-import { Button, ButtonGroup, Row, Col, Container, Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Button, ButtonGroup, Dropdown, Row, Col, Container, Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Div } from '@vkontakte/vkui';
 
 export const Main: React.FC<PageProps> = (props: PageProps) => {
@@ -183,6 +183,15 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Card.Text>
                   </Card.Body>
                </Card.Link>
+               <Dropdown className="card-actions">
+                  <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                     <i className="fa-solid fa-ellipsis-vertical" />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className="mt-2 fs-14">
+                     <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                     <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                  </Dropdown.Menu>
+               </Dropdown>         
                <Button variant="card__like">
                <i className="fa-regular fa-heart fs-16 me-2"></i>
                8
@@ -209,6 +218,15 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   </Card.Text>
                </Card.Body>
             </Card.Link>
+               <Dropdown className="card-actions">
+                  <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                     <i className="fa-solid fa-ellipsis-vertical" />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className="mt-2 fs-14">
+                     <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                     <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                  </Dropdown.Menu>
+               </Dropdown> 
             <Button variant="card__like">
             <i className="fa-regular fa-heart fs-16 me-2"></i>
             12
@@ -235,6 +253,15 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   </Card.Text>
                </Card.Body>
             </Card.Link>
+               <Dropdown className="card-actions">
+                  <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                     <i className="fa-solid fa-ellipsis-vertical" />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className="mt-2 fs-14">
+                     <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                     <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                  </Dropdown.Menu>
+               </Dropdown> 
             <Button variant="card__like">
             <i className="fa-regular fa-heart fs-16 me-2"></i>
             4
@@ -261,6 +288,15 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   </Card.Text>
                </Card.Body>
             </Card.Link>
+               <Dropdown className="card-actions">
+                  <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                     <i className="fa-solid fa-ellipsis-vertical" />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className="mt-2 fs-14">
+                     <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                     <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                  </Dropdown.Menu>
+               </Dropdown> 
             <Button variant="card__like">
             <i className="fa-regular fa-heart fs-16 me-2"></i>
             23
@@ -287,6 +323,15 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   </Card.Text>
                </Card.Body>
             </Card.Link>
+               <Dropdown className="card-actions">
+                  <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                     <i className="fa-solid fa-ellipsis-vertical" />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className="mt-2 fs-14">
+                     <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                     <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                  </Dropdown.Menu>
+               </Dropdown> 
             <Button variant="card__like">
             <i className="fa-regular fa-heart fs-16 me-2"></i>
             9
@@ -313,6 +358,15 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   </Card.Text>
                </Card.Body>
             </Card.Link>
+               <Dropdown className="card-actions">
+                  <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                     <i className="fa-solid fa-ellipsis-vertical" />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className="mt-2 fs-14">
+                     <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                     <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                  </Dropdown.Menu>
+               </Dropdown> 
             <Button variant="card__like">
             <i className="fa-regular fa-heart fs-16 me-2"></i>
             16
