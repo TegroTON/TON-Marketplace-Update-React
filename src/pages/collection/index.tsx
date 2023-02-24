@@ -55,10 +55,10 @@ props.installScripts()
                      </div>
                   </div>
                   <Card.Text className="mb-4">
-                     <p className="mb-2">
+                     <div className="mb-2">
                         Cat Metaverse are unique NFTs with cats created only for the TON network. Our TON NFT "Cats" is a community 
                         of 9,999 super-rare ...
-                     </p>
+                     </div>
                      <div className="color-grey small">
                         See More <i className="fa-solid fa-angle-down ms-2" />
                      </div>
@@ -294,14 +294,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">No Accessories</p>
-                                 <p className="mb-0 color-grey fs-14">40 TON floor</p>
+                                 <div className="mb-1">No Accessories</div>
+                                 <div className="mb-0 color-grey fs-14">40 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -310,14 +310,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Broom</p>
-                                 <p className="mb-0 color-grey fs-14">40 TON floor</p>
+                                 <div className="mb-1">Broom</div>
+                                 <div className="mb-0 color-grey fs-14">40 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -326,14 +326,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Droid</p>
-                                 <p className="mb-0 color-grey fs-14">40 TON floor</p>
+                                 <div className="mb-1">Droid</div>
+                                 <div className="mb-0 color-grey fs-14">40 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -342,14 +342,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Shield</p>
-                                 <p className="mb-0 color-grey fs-14">40 TON floor</p>
+                                 <div className="mb-1">Shield</div>
+                                 <div className="mb-0 color-grey fs-14">40 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -382,14 +382,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Butterfly</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Butterfly</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -398,14 +398,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">City</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">City</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -414,14 +414,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Road</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Road</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -430,14 +430,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">NYC</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">NYC</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -470,14 +470,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Mantle</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Mantle</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -486,14 +486,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Superuit</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Superuit</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -502,14 +502,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Overalls</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Overalls</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -518,14 +518,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Dsrk Robe</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Dsrk Robe</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -558,14 +558,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Witcher</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Witcher</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -574,14 +574,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Frog</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Frog</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -590,14 +590,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Youda</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Youda</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -606,14 +606,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Sullivan</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Sullivan</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -646,14 +646,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Cyborg</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Cyborg</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -662,14 +662,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Yellow</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Yellow</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -678,14 +678,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Cat</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Cat</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -694,14 +694,14 @@ props.installScripts()
                            label={
                               <> 
                               <div className="ms-3">
-                                 <p className="mb-1">Toy</p>
-                                 <p className="mb-0 color-grey fs-14">20 TON floor</p>
+                                 <div className="mb-1">Toy</div>
+                                 <div className="mb-0 color-grey fs-14">20 TON floor</div>
                               </div>
                               <div className="fs-14 ms-auto text-end">
-                                 <p className="mb-1">
+                                 <div className="mb-1">
                                     4520 <span className="color-grey">/7586</span>
-                                 </p>
-                                 <p className="mb-0 color-yellow">58.12%</p>
+                                 </div>
+                                 <div className="mb-0 color-yellow">58.12%</div>
                               </div>
                               </>
                            }
@@ -718,27 +718,27 @@ props.installScripts()
                <div className="d-flex align-items-center justify-content-between">
                   <div className="card-blur__item p-4 border-end text-center">
                      <h5 className="text-uppercase fs-14 color-grey" style={{letterSpacing: '1px'}}>floor</h5>
-                     <p className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>0.04 eTH</p>
+                     <div className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>0.04 eTH</div>
                   </div>
                   <div className="card-blur__item p-4 border-end text-center">
                      <h5 className="text-uppercase fs-14 color-grey"  style={{letterSpacing: '1px'}}>volume</h5>
-                     <p className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>40.61 ETH</p>
+                     <div className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>40.61 ETH</div>
                   </div>
                   <div className="card-blur__item p-4 border-end text-center">
                      <h5 className="text-uppercase fs-14 color-grey"  style={{letterSpacing: '1px'}}>Items</h5>
-                     <p className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>1.3K</p>
+                     <div className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>1.3K</div>
                   </div>
                   <div className="card-blur__item p-4 border-end text-center">
                      <h5 className="text-uppercase fs-14 color-grey"  style={{letterSpacing: '1px'}}>Owners</h5>
-                     <p className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>461</p>
+                     <div className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>461</div>
                   </div>
                   <div className="card-blur__item p-4 border-end text-center">
                      <h5 className="text-uppercase fs-14 color-grey"  style={{letterSpacing: '1px'}}>Blockchain</h5>
-                     <p className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>TON Conin</p>
+                     <div className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>TON Conin</div>
                   </div>
                   <div className="card-blur__item p-4 text-center">
                      <h5 className="text-uppercase fs-14 color-grey"  style={{letterSpacing: '1px'}}>address</h5>
-                     <p className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>0x15f...d860</p>
+                     <div className="m-0 text-uppercase fw-medium"  style={{letterSpacing: '1px'}}>0x15f...d860</div>
                   </div>
                </div>
             </Card>
@@ -1098,9 +1098,9 @@ props.installScripts()
                                     </a>
                                  </div>
                               </Card.Text>
-                              <p className="mb-0 color-grey fs-14">
+                              <div className="mb-0 color-grey fs-14">
                                     12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
-                              </p>
+                              </div>
                            </Card.Body>   
                            <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/8.png)  no-repeat center center / cover'}} />
                         </Card>
@@ -1126,9 +1126,9 @@ props.installScripts()
                                     </a>
                                  </div>
                               </Card.Text>
-                              <p className="mb-0 color-grey fs-14">
+                              <div className="mb-0 color-grey fs-14">
                                     12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
-                              </p>
+                              </div>
                            </Card.Body>   
                            <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/6.png)  no-repeat center center / cover'}} />
                         </Card>
@@ -1154,9 +1154,9 @@ props.installScripts()
                                     </a>
                                  </div>
                               </Card.Text>
-                              <p className="mb-0 color-grey fs-14">
+                              <div className="mb-0 color-grey fs-14">
                                     12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
-                              </p>
+                              </div>
                            </Card.Body>   
                            <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/5.png)  no-repeat center center / cover'}} />
                         </Card>
@@ -1182,9 +1182,9 @@ props.installScripts()
                                     </a>
                                  </div>
                               </Card.Text>
-                              <p className="mb-0 color-grey fs-14">
+                              <div className="mb-0 color-grey fs-14">
                                     12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
-                              </p>
+                              </div>
                            </Card.Body>   
                            <div className="card__blur-bg-hover" style={{background: 'url(./assets/img/cats/6.png)  no-repeat center center / cover'}} />
                         </Card>
