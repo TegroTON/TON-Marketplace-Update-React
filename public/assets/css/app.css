@@ -288,7 +288,7 @@ h4 {
 }
 
 .bg-secondary {
-    background: var(--bg-secondary)!important;
+    background: var(--bg-secondary) !important;
 }
 
 .blur-filter {
@@ -324,9 +324,18 @@ h4 {
 
 .alert-warning {
     color: var(--text-second);
-    border-color: rgb(254 198 0 / 0.04);
-    background: rgb(254 198 0 / 0.06);
+    border-color: rgb(254 198 0 / 0.03);
+    background: rgb(254 198 0 / 0.04);
     font-size: 14px;
+}
+
+.alert-warning .alert-link {
+    color: var(--yellow);
+    font-weight: 400;
+}
+
+.alert-warning .alert-link:hover {
+    color: var(--yellow-hover)
 }
 
 .border,
@@ -556,9 +565,9 @@ h4 {
     }
 }
 
-.form-control { 
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--bg-secondary);
+.form-control {
+    background-color: #1c1c1c;
+    border: 1px solid #1c1c1c;
     border-radius: 12px;
     min-height: 52px;
     color: var(--text-primary);
@@ -566,9 +575,9 @@ h4 {
 
 .form-control:focus,
 .form-control:active {
-    background-color: var(--bg-secondary);
+    background-color: #1c1c1c;
     box-shadow: none;
-    border-color: var(--border-color);
+    border-color: rgb(255 255 255 / 0.1);
     color: var(--text-primary)
 }
 
@@ -577,14 +586,14 @@ h4 {
 }
 
 .input-group {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--bg-secondary);
+    background-color: #1c1c1c;
+    border: 1px solid #1c1c1c;
     border-radius: 12px;
     contain: paint;
 }
 
 .input-group:focus-within {
-    border-color: rgb(255 255 255 / 0.04);
+    border-color: rgb(255 255 255 / 0.1);
 }
 
 .input-group-text,
@@ -597,21 +606,21 @@ h4 {
 
 .input-group .form-control {
     border: 0;
-    background-color: var(--bg-secondary);
+    background-color: #1c1c1c;
 }
 
 .input-group:focus-within .input-group-text {
-    background: var(--bg-third);
+    background: #1c1c1c;
     color: var(--text-primary);
 }
 
 .form-select {
     min-width: 180px;
-    height: 50px;
+    height: 52px;
     color: var(--text-primary);
-    border: 0;
     border-radius: 12px;
-    background-color: var(--bg-third);
+    background-color: #1c1c1c;
+    border: 1px solid #1c1c1c;
     background-image: url('data:image/svg+xml,%3Csvg width=\'7\' height=\'5\' viewBox=\'0 0 7 5\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M5.63815 1.15363L3.55493 3.23685L1.47171 1.15363C1.26232 0.944233 0.92406 0.944233 0.714664 1.15363C0.505268 1.36302 0.505268 1.70128 0.714664 1.91068L3.17909 4.37511C3.38849 4.5845 3.72675 4.5845 3.93614 4.37511L6.40057 1.91068C6.60997 1.70128 6.60997 1.36302 6.40057 1.15363C6.19117 0.949602 5.84755 0.944233 5.63815 1.15363Z\' fill=\'white\'/%3E%3C/svg%3E%0A');
     background-size: 14px 10px;
 }
@@ -619,8 +628,8 @@ h4 {
 .form-select:hover,
 .form-select:focus,
 .form-select:active {
-    border-color: var(--gbg-secondary);
-    box-shadow: rgba(17, 25, 39, .3) 0 0 0 4px;
+    border-color: rgb(255 255 255 / 0.1);
+    box-shadow: none;
 }
 
 .nav-pills {
@@ -686,9 +695,8 @@ h4 {
 .form-switch .form-check-input {
     width: 42px;
     height: 24px;
-    border-color: var(--bg-secondary);
-    background-color: var(--bg-secondary);
-    box-shadow: rgba(17, 25, 39, .3) 0 0 0 4px;
+    border-color: #333333;
+    background-color: #333333;
 }
 
 .form-switch .form-check-input:checked {
@@ -701,8 +709,8 @@ h4 {
     padding: 0;
     border-radius: 12px;
     border: 0;
-    left: auto!important;
-    right: 0!important;
+    left: auto !important;
+    right: 0 !important;
     background-color: var(--bg-secondary);
     box-shadow: 0 12px 12px -6px rgb(3 4 6 / 29%);
 }
@@ -1307,6 +1315,12 @@ h4 {
     background: var(--bg-secondary);
 }
 
+.card-header {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
 .card-title {
     font-size: 18px;
     font-weight: 500;
@@ -1483,6 +1497,46 @@ h4 {
     margin-right: 15px;
 }
 
+.card-choose img {
+    width: 100%;
+    max-height: 207px;
+    border-radius: 10px;
+}
+
+.card-choose__label {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 4px solid var(--border-color);
+}
+
+.card-choose input[type=radio]:checked~.card-choose__label {
+    border: 4px solid var(--yellow)
+}
+
+
+.card-choose input[type=radio]:checked~.card-choose__discount {
+    color: var(--white);
+    background: var(--yellow)
+}
+
+.upload-nft__box {
+    width: 100%;
+    height: 74vh;
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
 @media (max-width: 500px) {
     .create-card {
         min-width: 100%;
@@ -1566,9 +1620,21 @@ h4 {
     }
 }
 
+.list-group {
+    background: #222;
+    border-radius: 12px;
+    padding: 24px;
+}
+
 .list-group-item {
     background: none;
     color: var(--text-primary);
+    border: 0;
+    padding: 0 0 16px 0;
+}
+
+.list-group-item:last-child {
+    padding-bottom: 0;
 }
 
 .item-details__image {
@@ -1625,8 +1691,7 @@ h4 {
 
 .btn.btn-like:focus .fa-regular:before,
 .btn.btn-like:active .fa-regular:before,
-.btn.btn-like.active .fa-regular:before
-{
+.btn.btn-like.active .fa-regular:before {
     color: var(--red);
 }
 
