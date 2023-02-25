@@ -307,9 +307,9 @@ table td:last-child{border-bottom:0}
 .badge__green{color:var(--green);background:var(--soft-green)}
 .badge__purple{color:var(--purple);background:var(--soft-purple)}
 .badge__red{color:var(--red);background:var(--soft-red)}
-.btn-details__like{transition:all .3s}
-.btn-details__like:active .btn-details__like.active,.btn-details__like:focus{color:var(--red);background:var(--soft-red)}
-.btn-details__like.active .fa-regular:before,.btn-details__like:active .fa-regular:before,.btn-details__like:focus .fa-regular:before,.btn-details__like:hover .fa-regular:before{font-weight:900;content:'\f004'}
+.btn-like{transition:all .3s}
+.btn-like:active .btn-like.active,.btn-like:focus{color:var(--red);background:var(--soft-red)}
+.btn-like.active .fa-regular:before,.btn-like:active .fa-regular:before,.btn-like:focus .fa-regular:before,.btn-like:hover .fa-regular:before{font-weight:900;content:'\f004'}
 .price-item__ton{font-size:24px;font-weight:600}
 .create-card__num{font-size:60px;font-weight:300}
 .create-border{position:absolute;bottom:-14%;left:auto;width:79%;height:191px;background:url(/assets/img/create-border.svg) no-repeat center center/contain}

@@ -21,32 +21,28 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
 
    return (
       <div id={props.id}>
-         <main className="main-page">
-            <div className="collection__item-bg" style={{ background: 'url(./assets/img/cats/1.png)  no-repeat center center / cover' }} />
+         <main className="main-page border-top">
             <section className="item-details section pt-5">
                <Container fluid>
-                  <Row className="justify-content-center mb-5">
-                     <Col md="10" lg="12" xxl="9">
                         <Breadcrumb className="mb-5">
                            <Breadcrumb.Item href="/explore">Explore</Breadcrumb.Item>
                            <Breadcrumb.Item href="/collection">Cat Metaverse</Breadcrumb.Item>
                            <Breadcrumb.Item active>TON NFT Tegro Cat (6452)</Breadcrumb.Item>
                         </Breadcrumb>
-
                         <Row className="justify-content-center mb-4">
                            <Col lg="5" className="mb-4 mb-lg-0">
                               <div className="position-sticky" style={{ top: '140px' }}>
-                                 <img className="item-details__image" data-enlargable src="./assets/img/cats/1.png" alt="" />
+                                 <img className="item-details__image" data-enlargable src="./assets/img/nfts/nft-6.png" alt="" />
                               </div>
                            </Col>
-                           <Col className="col-lg-6 ms-auto">
+                           <Col lg="7" className="ms-auto">
                               <div className="card-item-details mb-5">
                                  <div className="">
                                     <div className="card-item-head d-flex mb-4">
                                        <div className="item-details__badge badge__green me-auto">For Sale</div>
-                                       <Button variant="icon btn-details__like me-3">
-                                          <i className="fa-regular fa-heart me-3" />
-                                          <span className="d-block d-sm-inline">24</span>
+                                       <Button variant="icon btn-like me-3">
+                                          <i className="fa-regular fa-heart fs-18 me-2" />
+                                          <span className="d-block d-sm-inline fw-500">24</span>
                                        </Button>
                                        <Dropdown>
                                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
@@ -54,7 +50,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                           </Dropdown.Toggle>
                                           <Dropdown.Menu className="mt-2 fs-14">
                                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                                             <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-3" /> Like</Dropdown.Item>
+                                             <Dropdown.Item href="#"><i className="fa-regular fa-copy fs-16 me-3" /> Copy Link</Dropdown.Item>
                                           </Dropdown.Menu>
                                        </Dropdown>
                                     </div>
@@ -67,7 +63,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  </p>
                               </div>
 
-                              <Card className="bg-soft border mb-4">
+                              <Card className="border mb-4">
                                  <Card.Body className="">
                                     <div className="d-flex align-items-center">
                                        <div className="d-block text-uppercase fs-18 fw-medium">Price:</div>
@@ -75,16 +71,18 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                     </div>
                                     <div className="d-flex align-items-center mb-4">
                                        <div className="color-grey">Plus a network fee of 1 TON</div>
-                                       <div className="price-item__dollar d-block color-grey text-end ms-auto">$64.09</div>
+                                       <div className="price-item__dollar d-block color-grey ms-auto">$64.09</div>
                                     </div>
-                                    <Button variant="primary w-100" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Buy Now</Button>
-                                    <Button variant="soft w-100 mt-2" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Make Offer</Button>
+                                    <div className="d-flex flex-wrap">
+                                       <Button variant="primary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Buy Now</Button>
+                                       <Button variant="secondary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal"><i className="fa-solid fa-tag me-3"></i>Make Offer</Button>
+                                    </div>
                                  </Card.Body>
                               </Card>
 
                               <Row>
                                  <Col xl="6" className="mx-auto mb-4">
-                                    <Card className="bg-soft border">
+                                    <Card className="hover border">
                                        <a href="/profile" className="text-white">
                                           <Card.Title className="color-grey fs-14 mb-4">Owner</Card.Title>
                                           <div className="d-flex align-items-center">
@@ -96,7 +94,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                     </Card>
                                  </Col>
                                  <Col xl="6" className="mx-auto mb-4">
-                                    <Card className="bg-soft border">
+                                    <Card className="hover border">
                                        <a href="/collection" className="text-white">
                                           <Card.Title className="color-grey fs-14 mb-4">Collection</Card.Title>
                                           <div className="d-flex align-items-center">
@@ -108,7 +106,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                     </Card>
                                  </Col>
                               </Row>
-                              <Card className="bg-soft border mb-4">
+                              <Card className="border mb-4">
                                  <Card.Body>
                                     <Card.Title className="mb-4">Details</Card.Title>
                                     <ListGroup variant="flush">
@@ -140,7 +138,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  </Card.Body>
                               </Card>
 
-                              <Card className="bg-soft border">
+                              <Card className="border">
                                  <Card.Title className="mb-4">Attributes</Card.Title>
                                  <Row>
                                     <Col lg="6" className="mb-3">
@@ -149,11 +147,11 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                              <span className="d-block fs-14 fw-medium color-grey mb-2">Background</span>
                                              <span className="d-block fw-medium">Orange</span>
                                           </div>
-                                          <div className="fs-14 text-end">
-                                             <div className="d-block fw-medium color-grey text-end mb-2">Rarity</div>
+                                          <div className="fs-14">
+                                             <div className="d-block fw-medium color-grey mb-2">Rarity</div>
                                              <span>22/100</span>
                                              <span className="mx-1">~</span>
-                                             <span className="fw-medium text-end">17.1%</span>
+                                             <span className="fw-medium">17.1%</span>
                                           </div>
                                        </a>
                                     </Col>
@@ -163,11 +161,11 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                              <span className="d-block fs-14 fw-medium color-grey mb-2">Expression</span>
                                              <span className="d-block fw-medium">Brown Eyes</span>
                                           </div>
-                                          <div className="fs-14 text-end">
-                                             <div className="d-block fw-medium color-grey text-end mb-2">Rarity</div>
+                                          <div className="fs-14">
+                                             <div className="d-block fw-medium color-grey mb-2">Rarity</div>
                                              <span>22/100</span>
                                              <span className="mx-1">~</span>
-                                             <span className="fw-medium text-end">17.1%</span>
+                                             <span className="fw-medium">17.1%</span>
                                           </div>
                                        </a>
                                     </Col>
@@ -177,11 +175,11 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                              <span className="d-block fs-14 fw-medium color-grey mb-2">Hairstyle</span>
                                              <span className="d-block fw-medium">Double Ponies</span>
                                           </div>
-                                          <div className="fs-14 text-end">
-                                             <div className="d-block fw-medium color-grey text-end mb-2">Rarity</div>
+                                          <div className="fs-14">
+                                             <div className="d-block fw-medium color-grey mb-2">Rarity</div>
                                              <span>22/100</span>
                                              <span className="mx-1">~</span>
-                                             <span className="fw-medium text-end">17.1%</span>
+                                             <span className="fw-medium">17.1%</span>
                                           </div>
                                        </a>
                                     </Col>
@@ -191,11 +189,11 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                              <span className="d-block fs-14 fw-medium color-grey mb-2">Outfit</span>
                                              <span className="d-block fw-medium">Qipao</span>
                                           </div>
-                                          <div className="fs-14 text-end">
-                                             <div className="d-block fw-medium color-grey text-end mb-2">Rarity</div>
+                                          <div className="fs-14">
+                                             <div className="d-block fw-medium color-grey mb-2">Rarity</div>
                                              <span>22/100</span>
                                              <span className="mx-1">~</span>
-                                             <span className="fw-medium text-end">17.1%</span>
+                                             <span className="fw-medium">17.1%</span>
                                           </div>
                                        </a>
                                     </Col>
@@ -205,11 +203,11 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                              <span className="d-block fs-14 fw-medium color-grey mb-2">Prop</span>
                                              <span className="d-block fw-medium">Lolipop</span>
                                           </div>
-                                          <div className="fs-14 text-end">
-                                             <div className="d-block fw-medium color-grey text-end mb-2">Rarity</div>
+                                          <div className="fs-14">
+                                             <div className="d-block fw-medium color-grey mb-2">Rarity</div>
                                              <span>22/100</span>
                                              <span className="mx-1">~</span>
-                                             <span className="fw-medium text-end">17.1%</span>
+                                             <span className="fw-medium">17.1%</span>
                                           </div>
                                        </a>
                                     </Col>
@@ -217,10 +215,26 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               </Card>
                            </Col>
                         </Row>
-
-                        <Card.Title className="fs-28 mb-4 pt-5">Transaction History</Card.Title>
-                        <Card className="bg-soft border p-0">
-                           <Table className="text-white mb-0">
+                        <Card className="border p-0 mb-5">
+                           <Card.Header className="px-4 py-3 border-bottom d-flex align-items-center">
+                              <Card.Title>
+                                 <i className="fa-solid fa-arrow-down-arrow-up me-3"></i>
+                                 Transaction History
+                              </Card.Title>
+                              <Dropdown className="ms-auto">
+                                 <Dropdown.Toggle variant="secondary w-100">
+                                    Filters
+                                    <i className="fa-solid fa-angle-down ms-2" />
+                                 </Dropdown.Toggle>
+                                 <Dropdown.Menu className="w-100 mt-2">
+                                    <Dropdown.Item href="#">Sales</Dropdown.Item>
+                                    <Dropdown.Item href="#">Listings</Dropdown.Item>
+                                    <Dropdown.Item href="#">Offers</Dropdown.Item>
+                                    <Dropdown.Item href="#">Transfers</Dropdown.Item>
+                                 </Dropdown.Menu>
+                              </Dropdown>
+                           </Card.Header>
+                           <Table responsive className="text-white mb-0">
                               <thead className="bg-soft">
                                  <tr className="border-bottom">
                                     <th scope="col" className="p-4">Type</th>
@@ -269,8 +283,8 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  </tr>
                                  <tr className="border-bottom hover">
                                     <td className="p-4">
-                                       <i className="fa-regular fa-coin-blank me-3" />
-                                       <span className="fw-medium">Mint</span>
+                                       <i className="fa-solid fa-solid fa-sparkles me-3" />
+                                       <span className="fw-medium">Minted</span>
                                     </td>
                                     <td className="p-4">40 TON</td>
                                     <td className="p-4">
@@ -321,10 +335,10 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                     </td>
                                     <td className="p-4"><i className="fa-regular fa-timer me-3" /> 12 hours ago</td>
                                  </tr>
-                                 <tr className="border-bottom hover">
+                                 <tr className="border-0 hover">
                                     <td className="p-4">
-                                       <i className="fa-regular fa-coin-blank me-3" />
-                                       <span className="fw-medium">Mint</span>
+                                       <i className="fa-solid fa-solid fa-sparkles me-3" />
+                                       <span className="fw-medium">Minted</span>
                                     </td>
                                     <td className="p-4">40 TON</td>
                                     <td className="p-4">
@@ -342,8 +356,222 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               </tbody>
                            </Table>
                         </Card>
-                     </Col>
-                  </Row>
+
+                        <h2 className="fs-28 fw-bold mb-4 me-3">
+                           More From This Collection
+                        </h2>
+                        <div className="notable-slider">
+                     <Card>
+                        <Card.Link href="/collection-item" className="card-link">
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-1.png" />
+                           <Card.Body>
+                              <div className="card-subtitle d-flex align-items-center mb-2">
+                                 Pinocchio
+                                 <span className="verified-icon ms-2" />
+                              </div>
+                              <Card.Title className="mb-3">
+                                 Pinocchio
+                              </Card.Title>
+                              <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                 <span className="icon-ton me-2"></span>
+                                 3
+                              </Card.Text>
+                           </Card.Body>
+                        </Card.Link>
+                        <Dropdown className="card-actions">
+                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                              <i className="fa-solid fa-ellipsis-vertical" />
+                           </Dropdown.Toggle>
+                           <Dropdown.Menu className="mt-2 fs-14">
+                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                           </Dropdown.Menu>
+                        </Dropdown>
+                        <Button variant="icon btn-like btn-like__card">
+                           <i className="fa-regular fa-heart fs-18 me-2" />
+                           8
+                        </Button>
+                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                           Buy Now
+                        </Button>
+                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-1.png)  no-repeat center center / cover' }} />
+                     </Card>
+                     <Card>
+                        <Card.Link href="/collection-item" className="card-link">
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" />
+                           <Card.Body>
+                              <div className="card-subtitle d-flex align-items-center mb-2">
+                                 Single NFT
+                                 <span className="verified-icon ms-2" />
+                              </div>
+                              <Card.Title className="mb-3">
+                                 RED HOPE
+                              </Card.Title>
+                              <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                 <span className="icon-ton me-2"></span>
+                                 10
+                              </Card.Text>
+                           </Card.Body>
+                        </Card.Link>
+                        <Dropdown className="card-actions">
+                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                              <i className="fa-solid fa-ellipsis-vertical" />
+                           </Dropdown.Toggle>
+                           <Dropdown.Menu className="mt-2 fs-14">
+                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                           </Dropdown.Menu>
+                        </Dropdown>
+                        <Button variant="icon btn-like btn-like__card">
+                           <i className="fa-regular fa-heart fs-18 me-2" />
+                           12
+                        </Button>
+                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                           Buy Now
+                        </Button>
+                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-2.png)  no-repeat center center / cover' }} />
+                     </Card>
+                     <Card>
+                        <Card.Link href="/collection-item" className="card-link">
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" />
+                           <Card.Body>
+                              <div className="card-subtitle d-flex align-items-center mb-2">
+                                 CAT Meta
+                                 <span className="verified-icon ms-2" />
+                              </div>
+                              <Card.Title className="mb-3">
+                                 CAT ETH
+                              </Card.Title>
+                              <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                 <span className="icon-ton me-2"></span>
+                                 5
+                              </Card.Text>
+                           </Card.Body>
+                        </Card.Link>
+                        <Dropdown className="card-actions">
+                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                              <i className="fa-solid fa-ellipsis-vertical" />
+                           </Dropdown.Toggle>
+                           <Dropdown.Menu className="mt-2 fs-14">
+                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                           </Dropdown.Menu>
+                        </Dropdown>
+                        <Button variant="icon btn-like btn-like__card">
+                           <i className="fa-regular fa-heart fs-18 me-2" />
+                           4
+                        </Button>
+                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                           Buy Now
+                        </Button>
+                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-3.png)  no-repeat center center / cover' }} />
+                     </Card>
+                     <Card>
+                        <Card.Link href="/collection-item" className="card-link">
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" />
+                           <Card.Body>
+                              <div className="card-subtitle d-flex align-items-center mb-2">
+                                 Cyber Girl
+                                 <span className="verified-icon ms-2" />
+                              </div>
+                              <Card.Title className="mb-3">
+                                 TON CYBER GIRL
+                              </Card.Title>
+                              <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                 <span className="icon-ton me-2"></span>
+                                 50
+                              </Card.Text>
+                           </Card.Body>
+                        </Card.Link>
+                        <Dropdown className="card-actions">
+                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                              <i className="fa-solid fa-ellipsis-vertical" />
+                           </Dropdown.Toggle>
+                           <Dropdown.Menu className="mt-2 fs-14">
+                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                           </Dropdown.Menu>
+                        </Dropdown>
+                        <Button variant="icon btn-like btn-like__card">
+                           <i className="fa-regular fa-heart fs-18 me-2" />
+                           23
+                        </Button>
+                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                           Buy Now
+                        </Button>
+                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-4.png)  no-repeat center center / cover' }} />
+                     </Card>
+                     <Card>
+                        <Card.Link href="/collection-item" className="card-link">
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-5.png" />
+                           <Card.Body>
+                              <div className="card-subtitle d-flex align-items-center mb-2">
+                                 Moto Paradise
+                                 <span className="verified-icon ms-2" />
+                              </div>
+                              <Card.Title className="mb-3">
+                                 Motorcyclist in paradise
+                              </Card.Title>
+                              <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                 <span className="icon-ton me-2"></span>
+                                 27
+                              </Card.Text>
+                           </Card.Body>
+                        </Card.Link>
+                        <Dropdown className="card-actions">
+                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                              <i className="fa-solid fa-ellipsis-vertical" />
+                           </Dropdown.Toggle>
+                           <Dropdown.Menu className="mt-2 fs-14">
+                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                           </Dropdown.Menu>
+                        </Dropdown>
+                        <Button variant="icon btn-like btn-like__card">
+                           <i className="fa-regular fa-heart fs-18 me-2" />
+                           9
+                        </Button>
+                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                           Buy Now
+                        </Button>
+                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-5.png)  no-repeat center center / cover' }} />
+                     </Card>
+                     <Card>
+                        <Card.Link href="/collection-item" className="card-link">
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-6.png" />
+                           <Card.Body>
+                              <div className="card-subtitle d-flex align-items-center mb-2">
+                                 Cute Monters
+                                 <span className="verified-icon ms-2" />
+                              </div>
+                              <Card.Title className="mb-3">
+                                 ZubazzzTik
+                              </Card.Title>
+                              <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                 <span className="icon-ton me-2"></span>
+                                 35
+                              </Card.Text>
+                           </Card.Body>
+                        </Card.Link>
+                        <Dropdown className="card-actions">
+                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                              <i className="fa-solid fa-ellipsis-vertical" />
+                           </Dropdown.Toggle>
+                           <Dropdown.Menu className="mt-2 fs-14">
+                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                           </Dropdown.Menu>
+                        </Dropdown>
+                        <Button variant="icon btn-like btn-like__card">
+                           <i className="fa-regular fa-heart fs-18 me-2" />
+                           16
+                        </Button>
+                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                           Buy Now
+                        </Button>
+                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-6.png)  no-repeat center center / cover' }} />
+                     </Card>
+                  </div>
                </Container>
             </section>
          </main>

@@ -14,7 +14,7 @@
     background: transparent;
     width: 50px;
     height: 50px;
-    background: #2e3146;
+    background: var(--bg-third);
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
     display: flex;

@@ -17,7 +17,7 @@ export const FooterBlock: React.FC = () => {
 
    return (
 <div>
-   <section className="partners section bg-grey">
+   <section className="partners section bg-secondary">
       <Container fluid>
          <Row overflow-auto>
             <Col xs="6" md="4" lg="3" xl="2" className="text-center">

@@ -19,7 +19,7 @@ props.installScripts()
 
     return (
         <div id={props.id}>
-            <main className="main-page justify-content-center">
+            <main className="main-page justify-content-center border-top">
             <div className="container">
                     <div className="row" style={{minHeight: '80vh'}}>
                         <div className="col-md-8 col-lg-4 m-auto text-center">

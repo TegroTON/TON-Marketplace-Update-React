@@ -53,7 +53,7 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
           </Navbar.Brand>
           {!props.address ? (
           <Button 
-             variant="soft btn-mobile-header d-block d-lg-none ms-auto"
+             variant="secondary btn-mobile-header d-block d-lg-none ms-auto"
              data-bs-toggle="modal"
              data-bs-target="#ConnectModal"
              onClick={() => props.openModalConnect()}
@@ -192,41 +192,41 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
                 <Nav.Link href="#">Create</Nav.Link>
              </Nav>
              {!props.address ? (
-             <Button 
-                variant="soft d-none d-lg-flex align-items-center flex-nowrap"
-                className="order-3 order-lg-4"
-                data-bs-toggle="modal"
-                data-bs-target="#ConnectModal"
-                onClick={() => props.openModalConnect()}
-             >
-             <i className="fa-solid fa-wallet me-2" />
-             Connect
-             </Button>
+              <div className="dropdown ms-auto d-none d-lg-block order-3 order-lg-4">
+              <Button id="dropdownMenuProfile" variant="cube rounded-circle p-0 border-0" data-bs-toggle="dropdown" aria-expanded="false"> 
+              <img src="/assets/img/no-user-pic.png" alt="" className="rounded-circle profile-image" width="42" height="42"/> 
+              </Button>
+              <ul className="dropdown-menu me-0 end-0" aria-labelledby="dropdownMenuProfile">
+                 <a className="dropdown-item py-3 px-2" href="/my-profile">
+                    <div className="d-flex align-items-center ps-2">
+                       <img src="/assets/img/no-user-pic.png" alt="" className="rounded-circle profile-image me-3" width="42" height="42"/> 
+                       <div className="__body">
+                          <h5 className="mb-2 text-white fs-18">EQDHirL…4JiG</h5>
+                          <p className="mb-0 small d-flex align-items-center"> <span className="icon-ton me-1"/> 0,24 TON <span className="text-muted ms-1">~ 0.56$</span> </p>
+                       </div>
+                    </div>
+                 </a>
+                 <a className="dropdown-item" href="/create-nft"> 
+                 <i className="fa-regular fa-hexagon-vertical-nft me-3"/> 
+                 Create NFT 
+                 </a> 
+                 <a className="dropdown-item border-0" href="#" 
+                    onClick={()=> props.DelabObject.disconnect()}
+                 > 
+                 <i className="fa-regular fa-link-simple-slash me-3"/> Disconnect </a> 
+              </ul>
+           </div>
              ) : (
-             <div className="dropdown ms-auto d-none d-lg-block order-3 order-lg-4">
-                <Button id="dropdownMenuProfile" variant="cube rounded-circle p-0 border-0" data-bs-toggle="dropdown" aria-expanded="false"> 
-                <img src="/assets/img/no-user-pic.png" alt="" className="rounded-circle profile-image" width="42" height="42"/> 
-                </Button>
-                <ul className="dropdown-menu me-0 end-0" aria-labelledby="dropdownMenuProfile">
-                   <a className="dropdown-item py-3 px-2" href="/my-profile">
-                      <div className="d-flex align-items-center ps-2">
-                         <img src="/assets/img/no-user-pic.png" alt="" className="rounded-circle profile-image me-3" width="42" height="42"/> 
-                         <div className="__body">
-                            <h5 className="mb-2 text-white fs-18">EQDHirL…4JiG</h5>
-                            <p className="mb-0 small d-flex align-items-center"> <span className="icon-ton me-1"/> 0,24 TON <span className="text-muted ms-1">~ 0.56$</span> </p>
-                         </div>
-                      </div>
-                   </a>
-                   <a className="dropdown-item" href="/create-nft"> 
-                   <i className="fa-regular fa-hexagon-vertical-nft me-3"/> 
-                   Create NFT 
-                   </a> 
-                   <a className="dropdown-item border-0" href="#" 
-                      onClick={()=> props.DelabObject.disconnect()}
-                   > 
-                   <i className="fa-regular fa-link-simple-slash me-3"/> Disconnect </a> 
-                </ul>
-             </div>
+               <Button 
+               variant="secondary d-none d-lg-flex align-items-center flex-nowrap"
+               className="order-3 order-lg-4"
+               data-bs-toggle="modal"
+               data-bs-target="#ConnectModal"
+               onClick={() => props.openModalConnect()}
+            >
+            <i className="fa-solid fa-wallet me-2" />
+            Connect
+            </Button>
              )}
           </Navbar.Collapse>
        </Navbar>

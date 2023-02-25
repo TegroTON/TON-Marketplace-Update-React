@@ -178,14 +178,14 @@ props.installScripts()
                            <h4 className="fs-16 mb-3">Choose collection</h4>
                            <div className="row mb-4">
                               <div className="col-12 col-sm-6 col-md-4">
-                                 <button type="button" className="btn btn-soft py-4 w-100" data-bs-toggle="modal" data-bs-target="#CreateCollectionModal">
+                                 <button type="button" className="btn btn-secondary py-4 w-100" data-bs-toggle="modal" data-bs-target="#CreateCollectionModal">
                                  <i className="fa-regular fa-octagon-plus fs-28 mb-3"></i>
                                  <span className="d-block fs-18 text-capitalize">Create</span>
                                  <span className="d-block fs-14 color-grey text-capitalize mt-1">ERC-721</span>
                                  </button>
                               </div>
                               <div className="col-12 col-sm-6 col-md-4">
-                                 <button type="button" className="btn btn-soft active py-4 w-100">
+                                 <button type="button" className="btn btn-secondary active py-4 w-100">
                                  <img className="mb-3" src="./assets/img/logo/apple-icon-57x57.png" alt="Libermall - NFT Marketplace" width="28" />
                                  <span className="d-block fs-18 text-capitalize">Libermall</span>
                                  <span className="d-block fs-14 color-grey text-capitalize mt-1">Liber</span>

@@ -61,7 +61,7 @@ props.installScripts()
             <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
          </div>
          <div className="modal-body">
-            <a className="btn btn-soft btn-sm d-flex align-items-center mb-3" 
+            <a className="btn btn-secondary btn-sm d-flex align-items-center mb-3" 
             onClick={() => props.DelabObject.connectToncoinWallet()}
             href="#">
                <div className="d-flex align-items-center">
@@ -73,7 +73,7 @@ props.installScripts()
                </div>
             </a>
             <a 
-            className="btn btn-soft btn-sm d-flex align-items-center mb-3" 
+            className="btn btn-secondary btn-sm d-flex align-items-center mb-3" 
             href="#!"
             onClick={() => {
                if (props.DelabObject.tonConnectWallets) {
@@ -91,7 +91,7 @@ props.installScripts()
                </div>
             </a>
             <a 
-            className="btn btn-soft btn-sm d-flex align-items-center mb-3" 
+            className="btn btn-secondary btn-sm d-flex align-items-center mb-3" 
             href="#!"
             onClick={() => props.DelabObject.connectTonHub()}
             >
@@ -287,7 +287,7 @@ props.installScripts()
                <img src="/assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
                <a href="#!" className="color-yellow d-block"><i className="fa-regular fa-copy me-2"></i> Copy address</a>
             </div>
-            <button type="button" className="btn btn-soft w-100" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            <button type="button" className="btn btn-secondary w-100" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
          </div>
       </div>
    </div>
@@ -316,7 +316,7 @@ props.installScripts()
                <img src="/assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
                <a href="#!" className="color-yellow d-block"><i className="fa-regular fa-copy me-2"></i> Copy address</a>
             </div>
-            <button type="button" className="btn btn-soft w-100" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            <button type="button" className="btn btn-secondary w-100" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
          </div>
       </div>
    </div>
@@ -546,7 +546,7 @@ props.installScripts()
                   </div>
                </li>
             </ul>
-            <button className="btn btn-soft w-100" data-bs-toggle="modal" data-bs-target="#CreatNFTSuccessfullyModal">Cancel</button>
+            <button className="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#CreatNFTSuccessfullyModal">Cancel</button>
          </div>
       </div>
    </div>
@@ -583,7 +583,7 @@ props.installScripts()
             </div>
             <div>
                <button className="btn btn-primary w-100 mb-2" data-bs-dismiss="modal" aria-label="Close">View NFT</button>
-               <button className="btn btn-soft w-100" data-bs-dismiss="modal" aria-label="Close">Create another</button>
+               <button className="btn btn-secondary w-100" data-bs-dismiss="modal" aria-label="Close">Create another</button>
             </div>
          </div>
       </div>

@@ -29,8 +29,8 @@ export const Explore: React.FC<PageProps> = (props: PageProps) => {
                         Explore
                      </h1>
                      <div className="d-block d-sm-flex">
-                        <Dropdown className="mb-2 mb-sm-0 mx-1">
-                           <Dropdown.Toggle variant="soft btn-sm" id="Collections">
+                        <Dropdown className="mb-2 mb-sm-0 mx-1 flex-fill">
+                           <Dropdown.Toggle variant="secondary w-100" id="Collections">
                               Collections
                               <i className="fa-solid fa-angle-down ms-2" />
                            </Dropdown.Toggle>
@@ -39,8 +39,8 @@ export const Explore: React.FC<PageProps> = (props: PageProps) => {
                               <Dropdown.Item href="#">NFTs</Dropdown.Item>
                            </Dropdown.Menu>
                         </Dropdown>
-                        <Dropdown className="mx-1">
-                           <Dropdown.Toggle variant="soft btn-sm">
+                        <Dropdown className="mx-1 flex-fill">
+                           <Dropdown.Toggle variant="secondary w-100">
                               Recently added
                               <i className="fa-solid fa-angle-down ms-2" />
                            </Dropdown.Toggle>
