@@ -110,7 +110,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                         <div>Network Fee</div>
                         <div className="ms-auto">1 TON</div>
                      </ListGroup.Item>
-                     <ListGroup.Item className="fs-14 color-grey mb-4">
+                     <ListGroup.Item className="fs-14 color-grey">
                         The rest will be returned to your wallet
                      </ListGroup.Item>
                   </ListGroup>
@@ -277,7 +277,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
          {/*Make Offer */}
          <div className="modal fade" id="MakeOfferModal" tabIndex={-1} aria-hidden="true">
             <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
-               <Modal.Header className="mb-2">
+               <Modal.Header>
                   <Modal.Title>Make Offer</Modal.Title>
                   <Button variant="link border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close">
                      <i className="fa-solid fa-xmark fa-lg" />
@@ -291,6 +291,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                            <Form.Control
                               placeholder="Enter offer price"
                               aria-label="Enter offer price"
+                              required
                            />
                            <InputGroup.Text>TON</InputGroup.Text>
                         </InputGroup>
@@ -341,7 +342,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                      <div className="__body ms-4">
                         <div className="fs-18 fw-medium mb-1">Transaction</div>
                         <div className="color-grey fs-14 mb-3 pe-5">
-                           Go to the Tonkeeper app and confirm the transaction
+                           Go to the [Wallet Name] app and confirm the transaction
                         </div>
                         <Button variant="primary btn-sm small px-3 py-2">Go to [Wallet Name]</Button>
                      </div>
@@ -361,6 +362,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                <Button variant="secondary">Cancel</Button>
             </Modal.Dialog>
          </div>
+
          <div className="modal fade" id="SelectTypeModal" tabIndex={-1} aria-labelledby="SelectTypeModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
                <div className="modal-content border-0">
@@ -433,7 +435,6 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                </div>
             </div>
          </div>
-
          <div className="modal fade" id="CreateContractModal" tabIndex={-1} aria-labelledby="CreateContractModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
                <div className="modal-content border-0">

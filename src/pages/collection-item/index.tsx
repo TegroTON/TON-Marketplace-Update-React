@@ -31,7 +31,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                   </Breadcrumb>
                   <Row className="justify-content-center mb-4">
                      <Col lg="5" className="mb-4 mb-lg-0">
-                        <div className="position-sticky" style={{ top: '140px' }}>
+                        <div className="text-center position-sticky" style={{ top: '140px' }}>
                            <img className="item-details__image" data-enlargable src="./assets/img/nfts/nft-6.png" alt="" />
                         </div>
                      </Col>

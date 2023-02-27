@@ -1,179 +1,504 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { Button, Form, InputGroup, Row, Col, Container, Card, Badge, Dropdown, Tabs, Tab } from 'react-bootstrap'
+
 import { PageProps } from '../../types/interfaces'
+
 export const Profile: React.FC<PageProps> = (props: PageProps) => {
-    const [ firstRender, setFirstRender ] = React.useState<boolean>(false)
+   const [firstRender, setFirstRender] = React.useState<boolean>(false)
 
-    const history = useNavigate()
+   const history = useNavigate()
 
 
-    useEffect(() => {
-        if (!firstRender) {
-            setFirstRender(true)
-props.installScripts()
-        }
-    }, [])
+   useEffect(() => {
+      if (!firstRender) {
+         setFirstRender(true)
+         props.installScripts()
+      }
+   }, [])
 
-    return (
-        <div id={props.id}>
-            <section className="nft-hero">
-   <picture>
-      {/* <source srcset="./assets/img/profile-hero.webp" type="image/webp">
-      <source srcset="./assets/img/profile-hero.jpg" type="image/jpeg"> */}
-      <img src="./assets/img/profile-hero.jpg" className="nft-hero__image" loading="lazy" width="340" height="275" alt="Tegro Cat" />
-   </picture>
-</section>
-
-<main className="main-page">
-   <section className="nfr-collection section pt-0">
-      <div className="container-fluid">
-         <div className="row">
-            <div className="col-lg-4 col-xl-4 col-xxl-3 mb-4 mb-lg-0">
-               <div className="card card-blur p-0 mt--100">
-                  <div className="card__share d-flex position-absolute" style={{top: '8px', right: '8px'}}>
-                     <button className="btn btn-cube" type="button" data-bs-toggle="modal" data-bs-target="#ShareModal"><i className="fa-regular fa-share-nodes"></i></button>
-                     <div className="dropdown">
-                        <button className="btn btn-cube" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i className="fa-regular fa-ellipsis-stroke"></i>
-                        </button>
-                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                           <li><a className="dropdown-item border-0" href="#">Report page</a></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div className="card-body p-4 p-lg-2 p-xl-3 p-xxl-4">
-                     <div className="d-flex flex-column flex-md-row flex-lg-column align-items-center mb-5">
-                        <div className="collection__image mb-4 mb-md-0 mb-lg-4 ms-auto ms-md-0 ms-lg-auto me-auto">
-                           <img src="/assets/img/cats/t-cat-02.jpg" alt="" className="img-fluid rounded-circle" width="80" height="80" />
+   return (
+      <div id={props.id}>
+         <section className="nft-hero hero__no-cover">
+            <img src="/assets/img/no-user-pic.png" className="nft-hero__image" loading="lazy" width="340" height="275" alt="Tegro Cat" />
+         </section>
+         <main className="main-page">
+            <section className="nft-collection section pt-0">
+               <Container fluid>
+                  <Row>
+                     <Col lg="4" xxl="3" className="mb-4 mb-lg-0">
+                        <Card className="card-blur p-0 mb-4" style={{marginTop: '-75px'}}>
+                           <Card.Body className="p-2 p-xl-4">
+                              <div className="d-flex mb-4">
+                                 <Card.Img variant="profile__avatar" src="/assets/img/no-user-pic.png" />
+                                 <div className="ms-3 w-100">
+                                    <div className="d-flex">
+                                       <Card.Title className="fs-28 fw-bold mb-2 me-3 text-wrap">
+                                          NFactura
+                                       </Card.Title>
+                                       <Dropdown className="ms-auto">
+                                          <Dropdown.Toggle variant="icon" id="dropdown-social">
+                                             <i className="fa-solid fa-ellipsis-vertical" />
+                                          </Dropdown.Toggle>
+                                          <Dropdown.Menu className="mt-2 fs-14">
+                                             <Dropdown.Item href="#"><i className="fa-regular fa-flag me-3" /> Report</Dropdown.Item>
+                                             <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                          </Dropdown.Menu>
+                                       </Dropdown>
+                                    </div>
+                                    <Card.Text className="d-flex align-items-center color-grey">
+                                       <span>EQCioGF…mvYl</span>
+                                       <a href="#!" className="ms-3">
+                                          <i className="fa-regular fa-copy" />
+                                       </a>
+                                    </Card.Text>
+                                 </div>
+                              </div>
+                              <Dropdown>
+                                 <div className="libermall__soclinks flex-wrap">
+                                    <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-telegram" /></a>
+                                    <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-discord" /></a>
+                                    <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-instagram" /></a>
+                                    <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-linkedin-in" /></a>
+                                    <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-reddit-alien" /></a>
+                                    <Dropdown.Toggle variant="none libermall__soclinks-item m-1 m-1" id="dropdown-basic">
+                                       +5
+                                    </Dropdown.Toggle>
+                                 </div>
+                                 <Dropdown.Menu className="mt-2 fs-14">
+                                    <Dropdown.Item href="#">
+                                       <i className="fa-brands fa-youtube me-3" />
+                                       Youtube
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#">
+                                       <i className="fa-brands fa-telegram me-3" />
+                                       @tegrocatnft
+                                    </Dropdown.Item>
+                                 </Dropdown.Menu>
+                              </Dropdown>
+                           </Card.Body>
+                        </Card>
+                        <div id="open-filters" className="modal-mobile position-sticky" style={{ top: '90px' }}>
+                           <Card className="card-filters bg-transparent">
+                              <div className="d-flex align-items-center py-4 border-bottom">
+                                 <Card.Title className="card-title fs-22 fw-bold m-0">
+                                    Filters
+                                 </Card.Title>
+                                 <a href="#!" className="fw-medium link fs-16 d-none d-lg-block ms-auto">Clear</a>
+                                 <a href="#!" className="mobile-modal-close fw-medium link fs-16 d-block d-lg-none ms-auto"><i className="fa-solid fs-24 fa-xmark"></i></a>
+                              </div>
+                              <Card.Body className="p-0 border-bottom">
+                                 <Button
+                                    variant="none"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapsePriceRange"
+                                    aria-expanded="false"
+                                    aria-controls="collapsePriceRange"
+                                    className="d-flex align-items-center py-4 w-100"
+                                 >
+                                    <h4 className="card-filters__name fs-18 mb-0">Price Range</h4>
+                                    <i className="fa-solid fa-angle-down ms-auto color-grey" />
+                                 </Button>
+                                 <div id="collapsePriceRange" className="collapse pb-3">
+                                    <Form>
+                                       <Form.Control className="mb-3" type="number" placeholder="From" />
+                                       <Form.Control className="mb-3" type="number" placeholder="To" />
+                                       <Button variant="primary btn-sm w-100">Apply</Button>
+                                    </Form>
+                                 </div>
+                              </Card.Body>
+                              <Card.Body className="p-0 border-bottom">
+                                 <Button
+                                    variant="none"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#flexRadio-SaleType"
+                                    aria-expanded="true"
+                                    aria-controls="flexRadio-SaleType"
+                                    className="d-flex align-items-center py-4 w-100"
+                                 >
+                                    <Card.Title className="card-filters__name fs-18 m-0">Sale Type</Card.Title>
+                                    <i className="fa-solid fa-angle-down ms-auto" />
+                                 </Button>
+                                 <div id="flexRadio-SaleType" className="collapse show">
+                                    <Form.Check name="radio-group" type="radio" id="Radio-AllTypes" className="hover p-3 mb-1 w-100"
+                                       label={
+                                          <>
+                                             <div className="ms-3">All Types</div>
+                                             <div className="color-grey fw-medium small ms-auto">522</div>
+                                          </>
+                                       }
+                                    />
+                                    <Form.Check name="radio-group" type="radio" id="Radio-ForSale" className="hover p-3 mb-1 w-100"
+                                       label={
+                                          <>
+                                             <div className="ms-3">For Sale</div>
+                                             <div className="color-grey fw-medium small ms-auto">160</div>
+                                          </>
+                                       }
+                                    />
+                                    <Form.Check
+                                       name="radio-group" type="radio" id="Radio-NotForSale" className="hover p-3 mb-1 w-100"
+                                       label={
+                                          <>
+                                             <div className="ms-3">Not For Sale</div>
+                                             <div className="color-grey fw-medium small ms-auto">20</div>
+                                          </>
+                                       }
+                                    />
+                                    <Form.Check name="radio-group" type="radio" id="Radio-Auction" className="hover p-3 mb-1 w-100"
+                                       label={
+                                          <>
+                                             <div className="ms-3">Auction</div>
+                                             <div className="color-grey fw-medium small ms-auto">10</div>
+                                          </>
+                                       }
+                                    />
+                                 </div>
+                              </Card.Body>
+                           </Card>
                         </div>
-                        <div className="d-flex mx-0 mx-lg-auto">
-                           <a href="#!" className="btn btn-sm btn-outline-primary me-3">Follow</a>
-                           <a href="#!" className="btn btn-sm btn-soft" data-bs-toggle="modal" data-bs-target="#MessageModal" data-bs-whatever="@Tegro">Message</a>
-                        </div>
-                     </div>
-                     <h1 className="collection__name fs-24 mb-4">
-                        <span>Tegro</span>
-                        <i className="fa-solid fa-circle-check fs-22 color-yellow ms-2"></i>
-                     </h1>
-                     <div className="collection__desc color-grey mb-4">
-                        <p>
-                           The first exclusive NFTs on The Open Network about resistance dogs from Tegro. 
-                        </p>
-                        <a href="#!" className="collection__link text-white" target="__blank">
-                        <i className="fa-regular fa-link-simple color-yellow me-2"></i>
-                        tegro.com
-                        </a>
-                     </div>
-                     <div className="libermall__soclinks">
-                        <a href="#!" className="libermall__soclinks-item ms-0"><i className="fa-brands fa-telegram"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-discord"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-instagram"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-reddit-alien"></i></a>
-                     </div>
-                  </div>
-               </div>
-              
-               {/* <?php
-                  require "_collection-filters";
-                  ?> */}
-            </div>
-            <div className="col-lg-8 col-xl-8 col-xxl-9">
-               <div className="card card-blur mb-4 overflow-auto" id="mouseScroll">
-                  <div className="d-flex align-items-center justify-content-between">
-                     <div className="card-blur__item p-4 border-end text-center">
-                        <h5 className="text-uppercase fs-14 color-grey" style={{letterSpacing: '1px'}}>floor</h5>
-                        <p className="m-0 text-uppercase fw-medium" style={{letterSpacing: '1px'}}>0.04 eTH</p>
-                     </div>
-                     <div className="card-blur__item p-4 border-end text-center">
-                        <h5 className="text-uppercase fs-14 color-grey" style={{letterSpacing: '1px'}}>volume</h5>
-                        <p className="m-0 text-uppercase fw-medium" style={{letterSpacing: '1px'}}>40.61 ETH</p>
-                     </div>
-                     <div className="card-blur__item p-4 border-end text-center">
-                        <h5 className="text-uppercase fs-14 color-grey" style={{letterSpacing: '1px'}}>Items</h5>
-                        <p className="m-0 text-uppercase fw-medium" style={{letterSpacing: '1px'}}>1.3K</p>
-                     </div>
-                     <div className="card-blur__item p-4 border-end text-center">
-                        <h5 className="text-uppercase fs-14 color-grey" style={{letterSpacing: '1px'}}>Owners</h5>
-                        <p className="m-0 text-uppercase fw-medium" style={{letterSpacing: '1px'}}>461</p>
-                     </div>
-                     <div className="card-blur__item p-4 border-end text-center">
-                        <h5 className="text-uppercase fs-14 color-grey" style={{letterSpacing: '1px'}}>Blockchain</h5>
-                        <p className="m-0 text-uppercase fw-medium" style={{letterSpacing: '1px'}}>TON Conin</p>
-                     </div>
-                     <div className="card-blur__item p-4 text-center">
-                        <h5 className="text-uppercase fs-14 color-grey" style={{letterSpacing: '1px'}}>address</h5>
-                        <p className="m-0 text-uppercase fw-medium" style={{letterSpacing: '1px'}}>0x15f...d860</p>
-                     </div>
-                  </div>
-               </div>
-               <div className="overflow-auto mobile__nav-bottom mb-4 px-2" id="mouseScroll">
-                  <ul className="nav collections__nav list-unstyled d-flex flex-nowrap align-items-center" id="myTab" role="tablist">
-                     <li className="collections__nav-item">
-                        <button className="collections__nav-link d-flex align-items-center text-nowrap active" id="Owned-tab" data-bs-toggle="tab" data-bs-target="#Owned" type="button" role="tab" aria-controls="Owned" aria-selected="true">Owned <span className="badge bg-grey ms-2">25</span></button>
-                     </li>
-                     <li className="collections__nav-item ">
-                        <button className="collections__nav-link d-flex align-items-center text-nowrap" id="Onsale-tab" data-bs-toggle="tab" data-bs-target="#Onsale" type="button" role="tab" aria-controls="Onsale" aria-selected="false">On sale <span className="badge bg-grey ms-2">24</span></button>
-                     </li>
-                     <li className="collections__nav-item">
-                        <button className="collections__nav-link d-flex align-items-center text-nowrap" id="Created-tab" data-bs-toggle="tab" data-bs-target="#Created" type="button" role="tab" aria-controls="Created" aria-selected="false">Created <span className="badge bg-grey ms-2">24</span></button>
-                     </li>
-                     <li className="collections__nav-item">
-                        <button className="collections__nav-link d-flex align-items-center text-nowrap" id="Activity-tab" data-bs-toggle="tab" data-bs-target="#Activity" type="button" role="tab" aria-controls="Activity" aria-selected="false">Activity</button>
-                     </li>
-                     <li className="collections__nav-item">
-                        <button className="collections__nav-link d-flex align-items-center text-nowrap" id="Sold-tab" data-bs-toggle="tab" data-bs-target="#Sold" type="button" role="tab" aria-controls="Sold" aria-selected="false">Sold <span className="badge bg-grey ms-2">11</span></button>
-                     </li>
-                     <li className="ms-0 ms-md-autp ms-lg-0 ms-xl-auto">
-                        <select className="form-select" aria-label="Select Category">
-                           <option selected>Recently listed</option>
-                           <option value="1">Price: low to high</option>
-                           <option value="2">Price: high to low</option>
-                           <option value="3">Auction ending soon</option>
-                        </select>
-                     </li>
-                  </ul>
-               </div>
-               <div className="tab-content py-4" id="myTabContent">
-                  <div className="tab-pane fade show active" id="Owned" role="tabpanel" aria-labelledby="Owned-tab">
-                     {/* <?php
-                        require "_collection-list";
-                        ?> */}
-                  </div>
-                  <div className="tab-pane fade" id="Onsale" role="tabpanel" aria-labelledby="Onsale-tab">
-                     {/* <?php
-                        require "_collection-list";
-                        ?> */}
-                  </div>
-                  <div className="tab-pane fade" id="Created" role="tabpanel" aria-labelledby="Created-tab">
-                     {/* <?php
-                        require "_collection-list";
-                        ?> */}
-                  </div>
-                  <div className="tab-pane fade" id="Created" role="tabpanel" aria-labelledby="Created-tab">
-                     {/* <?php
-                        require "_collection-list";
-                        ?> */}
-                  </div>
-                  <div className="tab-pane fade" id="Activity" role="tabpanel" aria-labelledby="Activity-tab">
-                     {/* <?php
-                        require "_activity-list";
-                        ?> */}
-                  </div>
-                  <div className="tab-pane fade" id="Sold" role="tabpanel" aria-labelledby="Sold-tab">
-                     {/* <?php
-                        require "_collection-list";
-                        ?> */}
-                  </div>
-               </div>
-               <button type="button" className="btn btn-outline-secondary mt-3 w-100">LOAD MORE</button>
-            </div>
-         </div>
+                     </Col>
+                     <Col lg="8" xxl="9">
+                        <Tabs
+                           defaultActiveKey="Collected"
+                           transition={true}
+                           id="tab__collection"
+                           className="mb-3"
+                           variant="pills collections__nav mt-5"
+                        >
+                           <Tab eventKey="Collected" title="Collected">
+                              <div className="d-block d-lg-flex flex-wrap align-items-center my-4">
+                                 <Form className="flex-fill mb-3 mb-lg-0">
+                                    <InputGroup>
+                                       <InputGroup.Text>
+                                          <i className="fa-solid fa-magnifying-glass color-grey" />
+                                       </InputGroup.Text>
+                                       <Form.Control
+                                          placeholder="Name or description"
+                                       />
+                                    </InputGroup>
+                                 </Form>
+                                 <div className="d-flex align-items-center ms-0 ms-lg-4">
+                                    <Dropdown>
+                                       <Dropdown.Toggle variant="secondary">
+                                          Recently added
+                                          <i className="fa-solid fa-angle-down ms-2" />
+                                       </Dropdown.Toggle>
+                                       <Dropdown.Menu className="w-100 mt-2">
+                                          <Dropdown.Item href="#">Price: Low to Hight</Dropdown.Item>
+                                          <Dropdown.Item href="#">Price: Hight to Low</Dropdown.Item>
+                                          <Dropdown.Item href="#">Most Favorited</Dropdown.Item>
+                                          <Dropdown.Item href="#" active>Recently added</Dropdown.Item>
+                                          <Dropdown.Item href="#">Oldest</Dropdown.Item>
+                                       </Dropdown.Menu>
+                                    </Dropdown>
+                                    <Button variant="none p-2 ms-auto d-flex align-items-center d-lg-none" href="#open-filters">
+                                       <i className="fa-regular fa-filter-list fs-24 me-0 me-sm-3" />
+                                       <span className="d-none d-sm-inline fs-18">Filters</span>
+                                    </Button>
+                                 </div>
+                              </div>
+                              <Row className="flex-wrap collections__list">
+                                 <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                                    <Card>
+                                       <Card.Link href="/collection-item" className="card-link">
+                                          <Card.Img variant="top card-image" src="./assets/img/nfts/nft-1.png" />
+                                          <Card.Body>
+                                             <div className="card-subtitle d-flex align-items-center mb-2">
+                                                Pinocchio
+                                                <span className="verified-icon ms-2" />
+                                             </div>
+                                             <Card.Title className="mb-3">
+                                                Pinocchio
+                                             </Card.Title>
+                                             <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                                <span className="icon-ton me-2"></span>
+                                                3
+                                             </Card.Text>
+                                          </Card.Body>
+                                       </Card.Link>
+                                       <Dropdown className="card-actions">
+                                          <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                             <i className="fa-solid fa-ellipsis-vertical" />
+                                          </Dropdown.Toggle>
+                                          <Dropdown.Menu className="mt-2 fs-14">
+                                             <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                             <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                          </Dropdown.Menu>
+                                       </Dropdown>
+                                       <Button variant="icon btn-like btn-like__card">
+                                          <i className="fa-regular fa-heart fs-18 me-2" />
+                                          8
+                                       </Button>
+                                       <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                                          Buy Now
+                                       </Button>
+                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-1.png)  no-repeat center center / cover' }} />
+                                    </Card>
+                                 </Col>
+                                 <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                                    <Card>
+                                       <Card.Link href="/collection-item" className="card-link">
+                                          <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" />
+                                          <Card.Body>
+                                             <div className="card-subtitle d-flex align-items-center mb-2">
+                                                Single NFT
+                                                <span className="verified-icon ms-2" />
+                                             </div>
+                                             <Card.Title className="mb-3">
+                                                RED HOPE
+                                             </Card.Title>
+                                             <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                                <span className="icon-ton me-2"></span>
+                                                10
+                                             </Card.Text>
+                                          </Card.Body>
+                                       </Card.Link>
+                                       <Dropdown className="card-actions">
+                                          <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                             <i className="fa-solid fa-ellipsis-vertical" />
+                                          </Dropdown.Toggle>
+                                          <Dropdown.Menu className="mt-2 fs-14">
+                                             <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                             <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                          </Dropdown.Menu>
+                                       </Dropdown>
+                                       <Button variant="icon btn-like btn-like__card">
+                                          <i className="fa-regular fa-heart fs-18 me-2" />
+                                          12
+                                       </Button>
+                                       <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                                          Buy Now
+                                       </Button>
+                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-2.png)  no-repeat center center / cover' }} />
+                                    </Card>
+                                 </Col>
+                                 <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                                    <Card>
+                                       <Card.Link href="/collection-item" className="card-link">
+                                          <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" />
+                                          <Card.Body>
+                                             <div className="card-subtitle d-flex align-items-center mb-2">
+                                                CAT Meta
+                                                <span className="verified-icon ms-2" />
+                                             </div>
+                                             <Card.Title className="mb-3">
+                                                CAT ETH
+                                             </Card.Title>
+                                             <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                                <span className="icon-ton me-2"></span>
+                                                5
+                                             </Card.Text>
+                                          </Card.Body>
+                                       </Card.Link>
+                                       <Dropdown className="card-actions">
+                                          <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                             <i className="fa-solid fa-ellipsis-vertical" />
+                                          </Dropdown.Toggle>
+                                          <Dropdown.Menu className="mt-2 fs-14">
+                                             <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                             <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                          </Dropdown.Menu>
+                                       </Dropdown>
+                                       <Button variant="icon btn-like btn-like__card">
+                                          <i className="fa-regular fa-heart fs-18 me-2" />
+                                          4
+                                       </Button>
+                                       <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                                          Buy Now
+                                       </Button>
+                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-3.png)  no-repeat center center / cover' }} />
+                                    </Card>
+                                 </Col>
+                                 <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                                    <Card>
+                                       <Card.Link href="/collection-item" className="card-link">
+                                          <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" />
+                                          <Card.Body>
+                                             <div className="card-subtitle d-flex align-items-center mb-2">
+                                                Cyber Girl
+                                                <span className="verified-icon ms-2" />
+                                             </div>
+                                             <Card.Title className="mb-3">
+                                                TON CYBER GIRL
+                                             </Card.Title>
+                                             <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                                <span className="icon-ton me-2"></span>
+                                                50
+                                             </Card.Text>
+                                          </Card.Body>
+                                       </Card.Link>
+                                       <Dropdown className="card-actions">
+                                          <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                             <i className="fa-solid fa-ellipsis-vertical" />
+                                          </Dropdown.Toggle>
+                                          <Dropdown.Menu className="mt-2 fs-14">
+                                             <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                             <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                          </Dropdown.Menu>
+                                       </Dropdown>
+                                       <Button variant="icon btn-like btn-like__card">
+                                          <i className="fa-regular fa-heart fs-18 me-2" />
+                                          23
+                                       </Button>
+                                       <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                                          Buy Now
+                                       </Button>
+                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-4.png)  no-repeat center center / cover' }} />
+                                    </Card>
+                                 </Col>
+                              </Row>
+                           </Tab>
+                           <Tab eventKey="Created" title="Created">
+                              <Card className="text-center p-5">
+                                 <div className="display-2 w-100 mb-4">😔</div>
+                                 <div className="fs-28 fw-bold">The user has <br /> no created NFTs.</div>
+                                 <Card.Text className="color-grey mt-2">After minting, NFTs will be displayed in this section <br /> and visible to other users.</Card.Text>
+                              </Card>
+                           </Tab>
+                           <Tab eventKey="Collections" title="Collections">
+                              <div className="d-block d-lg-flex flex-wrap align-items-center my-4">
+                                 <Form className="flex-fill mb-3 mb-lg-0">
+                                    <InputGroup>
+                                       <InputGroup.Text>
+                                          <i className="fa-solid fa-magnifying-glass color-grey" />
+                                       </InputGroup.Text>
+                                       <Form.Control
+                                          placeholder="Name or description"
+                                       />
+                                    </InputGroup>
+                                 </Form>
+                                 <div className="d-flex align-items-center ms-0 ms-lg-4">
+                                    <Dropdown className="mb-2 mb-sm-0 mx-1 flex-fill">
+                                       <Dropdown.Toggle variant="secondary w-100" id="Collections">
+                                          Collections
+                                          <i className="fa-solid fa-angle-down ms-2" />
+                                       </Dropdown.Toggle>
+                                       <Dropdown.Menu className="w-100 mt-2">
+                                          <Dropdown.Item href="#" active>Collections</Dropdown.Item>
+                                          <Dropdown.Item href="#">NFTs</Dropdown.Item>
+                                       </Dropdown.Menu>
+                                    </Dropdown>
+                                    <Dropdown className="mx-1 flex-fill">
+                                       <Dropdown.Toggle variant="secondary w-100">
+                                          Recently added
+                                          <i className="fa-solid fa-angle-down ms-2" />
+                                       </Dropdown.Toggle>
+                                       <Dropdown.Menu className="w-100 mt-2">
+                                          <Dropdown.Item href="#">Price: Low to Hight</Dropdown.Item>
+                                          <Dropdown.Item href="#">Price: Hight to Low</Dropdown.Item>
+                                          <Dropdown.Item href="#">Most Favorited</Dropdown.Item>
+                                          <Dropdown.Item href="#" active>Recently added</Dropdown.Item>
+                                          <Dropdown.Item href="#">Oldest</Dropdown.Item>
+                                       </Dropdown.Menu>
+                                    </Dropdown>
+                                 </div>
+                              </div>
+                              <Row className="collections__list">
+                                 <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                                    <Card>
+                                       <Card.Link href="/collection" className="card-link">
+                                          <Card.Img variant="top card-image" src="./assets/img/collections/1.gif" />
+                                          <Card.Body className="d-flex align-items-center mt-2">
+                                             <Card.Title className="mb-0">
+                                                Animals Red List
+                                             </Card.Title>
+                                             <span className="verified-icon ms-2" />
+                                          </Card.Body>
+                                       </Card.Link>
+                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/1.gif)  no-repeat center center / cover' }} />
+                                    </Card>
+                                 </Col>
+                              </Row>
+                           </Tab>
+                           <Tab eventKey="Favorites" title="Favorites">
+                              <Row className="flex-wrap collections__list">
+                                 <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                                    <Card>
+                                       <Card.Link href="/collection-item" className="card-link">
+                                          <Card.Img variant="top card-image" src="./assets/img/cats/1.png" />
+                                          <Card.Body>
+                                             <div className="card-subtitle d-flex align-items-center mb-2">
+                                                Cat Metaverse
+                                                <span className="verified-icon ms-2" />
+                                             </div>
+                                             <Card.Title className="mb-3">
+                                                TON NFT Tegro Cat (6452)
+                                             </Card.Title>
+                                             <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                                <span className="icon-ton me-2"></span> 3
+                                                <Badge bg="purple" className="ms-2">MIN.BID</Badge>
+                                             </Card.Text>
+                                          </Card.Body>
+                                       </Card.Link>
+                                       <Dropdown className="card-actions">
+                                          <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                             <i className="fa-solid fa-ellipsis-vertical" />
+                                          </Dropdown.Toggle>
+                                          <Dropdown.Menu className="mt-2 fs-14">
+                                             <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                             <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-18 me-2" /> Like</Dropdown.Item>
+                                          </Dropdown.Menu>
+                                       </Dropdown>
+                                       <Button variant="icon btn-like btn-like__card">
+                                          <i className="fa-regular fa-heart fs-18 me-2" />
+                                          16
+                                       </Button>
+                                       <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                                          Buy Now
+                                       </Button>
+                                       <div className="card-status fw-500">
+                                          <i className="fa-regular fa-gavel me-2 fs-18" />
+                                          7 days
+                                       </div>
+                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/cats/1.png)  no-repeat center center / cover' }} />
+                                    </Card>
+                                 </Col>
+                                 <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                                    <Card>
+                                       <Card.Link href="/collection-item" className="card-link">
+                                          <Card.Img variant="top card-image" src="./assets/img/cats/2.png" />
+                                          <Card.Body>
+                                             <div className="card-subtitle d-flex align-items-center mb-2">
+                                                Cat Metaverse
+                                                <span className="verified-icon ms-2" />
+                                             </div>
+                                             <Card.Title className="mb-3">
+                                                TON NFT Tegro Cat (2144)
+                                             </Card.Title>
+                                             <Card.Text className="d-flex align-items-center color-grey">
+                                                Not For Sale
+                                             </Card.Text>
+                                          </Card.Body>
+                                       </Card.Link>
+                                       <Dropdown className="card-actions">
+                                          <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                             <i className="fa-solid fa-ellipsis-vertical" />
+                                          </Dropdown.Toggle>
+                                          <Dropdown.Menu className="mt-2 fs-14">
+                                             <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                             <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-18 me-2" /> Like</Dropdown.Item>
+                                          </Dropdown.Menu>
+                                       </Dropdown>
+                                       <Button variant="icon btn-like btn-like__card">
+                                          <i className="fa-regular fa-heart fs-18 me-2" />
+                                          24
+                                       </Button>
+                                       <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                                          Buy Now
+                                       </Button>
+                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/cats/2.png)  no-repeat center center / cover' }} />
+                                    </Card>
+                                 </Col>
+                              </Row>
+                           </Tab>
+                        </Tabs>
+                     </Col>
+                  </Row>
+               </Container>
+            </section>
+         </main>
       </div>
-   </section>
-</main>
-
-        </div>
-    )
+   )
 }
