@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Button, InputGroup, Form, Modal, Card, ListGroup, Alert } from 'react-bootstrap';
+import { Button, InputGroup, Form, Modal, Card, ListGroup, Alert, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 import { PageProps } from '../types/interfaces'
 import { DeLabConnect } from '@delab-team/connect'
@@ -123,6 +123,50 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                      <Alert.Link href="#">Learn More</Alert.Link>
                   </Alert>
                   <Button variant="primary w-100" data-bs-toggle="modal" data-bs-target="#TransactionModal">Buy For 46.98 TON</Button>
+               </Modal.Body>
+            </Modal.Dialog>
+         </div>
+         {/* Place a Bid  */}
+         <div className="modal fade" id="PlaceAbidModal" tabIndex={-1} aria-labelledby="PlaceAbidLabel" aria-hidden="true">
+            <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
+               <Modal.Header>
+                  <Modal.Title>Place a bid</Modal.Title>
+                  <Button variant="link border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close">
+                     <i className="fa-solid fa-xmark fa-lg" />
+                  </Button>
+               </Modal.Header>
+               <Modal.Body>
+                  <Card className="flex-row bg-soft p-2 mb-3">
+                     <Card.Img variant="custom rounded image-80x80" src="./assets/img/nfts/nft-6.png" />
+                     <Card.Body>
+                        <Card.Title className="fs-18 mb-2">ZubazzzTik (2684)</Card.Title>
+                        <Card.Text className="mb-0 color-grey fs-14">Cute Monters</Card.Text>
+                     </Card.Body>
+                  </Card>
+                  <Form.Group className="mb-4">
+                     <div className="d-flex align-items-center">
+                        <Form.Label>Your bid</Form.Label>
+                        <div className="ms-auto color-grey">Bid step is 20 TON</div>
+                     </div>
+                     <InputGroup className="mb-2">
+                        <Form.Control
+                           defaultValue={21}
+                           placeholder="Min is 21 TON"
+                           type="text"
+                        />
+                        <InputGroup.Text>TON</InputGroup.Text>
+                     </InputGroup>
+                     <Form.Text>
+                        <div className="fs-14 fw-medium">The last bid is 1 TON</div>
+                        <div className="color-grey">Your bid must be higher than the last bid by 20 TON.</div>
+                     </Form.Text>
+                  </Form.Group>
+                  <Alert key="warning" variant="warning mb-4">
+                     <div className="fs-16 fw-bold mb-2">Warning</div>
+                     <p>Libermall is unaffiliated with any NFT projects. We are not responsible for possible losses. Invest at your own risk.</p>
+                     <Alert.Link href="#">Learn More</Alert.Link>
+                  </Alert>
+                  <Button variant="primary w-100" data-bs-toggle="modal" data-bs-target="#TransactionModal">Place a 21 TON bid</Button>
                </Modal.Body>
             </Modal.Dialog>
          </div>
@@ -295,6 +339,9 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                            />
                            <InputGroup.Text>TON</InputGroup.Text>
                         </InputGroup>
+                        <Form.Text className="color-grey mt-1">
+                           Current price — 49.9 TON
+                        </Form.Text>
                      </Form.Group>
                      <Form.Group className="mb-4">
                         <Form.Label>Offer Duration</Form.Label>
@@ -336,8 +383,8 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                </Modal.Header>
                <Modal.Body className="progress-list">
                   <div className="progress-list__step d-flex mb-4">
-                     <div className="progress-list__icon progress-list__icon--loading">
-                        <i className="fa-duotone fa-spinner-third fa-3x fa-spin color-yellow" />
+                     <div className="progress-list__icon progress-list__icon--loading" style={{ fontSize: '40px' }} >
+                        <i className="fa-duotone fa-spinner-third fa-spin color-yellow" />
                      </div>
                      <div className="__body ms-4">
                         <div className="fs-18 fw-medium mb-1">Transaction</div>
@@ -348,8 +395,8 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                      </div>
                   </div>
                   <div className="progress-list__step d-flex mb-4">
-                     <div className="progress-list__icon">
-                        <i className="fa-duotone fa-circle fa-3x" />
+                     <div className="progress-list__icon" style={{ fontSize: '40px' }}>
+                        <i className="fa-duotone fa-circle" />
                      </div>
                      <div className="__body ms-4">
                         <div className="fs-18 fw-medium mb-1">Checking Payment</div>
@@ -359,7 +406,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                      </div>
                   </div>
                </Modal.Body>
-               <Button variant="secondary">Cancel</Button>
+               <Button variant="secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</Button>
             </Modal.Dialog>
          </div>
          {/* Edit Your Profile  */}
@@ -494,157 +541,118 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                </Modal.Body>
             </Modal.Dialog>
          </div>
-         <div className="modal fade" id="SelectTypeModal" tabIndex={-1} aria-labelledby="SelectTypeModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
-               <div className="modal-content border-0">
-                  <div className="modal-header border-0 mb-4">
-                     <h5 className="modal-title fs-24" id="SelectTypeModalLabel">Select Type</h5>
-                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
-                  </div>
-                  <div className="modal-body">
-                     <button type="button" className="d-flex w-100 text-start border rounded bg-grey hover-grey mb-3 p-3" data-bs-toggle="modal" data-bs-target="#EnterPriceModal">
-                        <i className="fa-regular fa-tag fs-20 mt-1"></i>
-                        <div className="__body ms-3">
-                           <h5 className="fs-18 mb-2">Fixed Price</h5>
-                           <p className="color-grey fs-14 mb-0">
-                              Enter a price so users can instantly buy your NFT
-                           </p>
+         {/* Put On Sale  */}
+         <div className="modal fade" id="PutonSaleModal" tabIndex={-1} aria-labelledby="PutonSaleLabel" aria-hidden="true">
+            <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
+               <Modal.Header>
+                  <Modal.Title>Choose a type</Modal.Title>
+                  <Button variant="link border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close">
+                     <i className="fa-solid fa-xmark fa-lg" />
+                  </Button>
+               </Modal.Header>
+               <Modal.Body>
+                  <Button variant="link bg-soft hover text-white text-start d-flex w-100 p-3 mb-4" data-bs-toggle="modal" data-bs-target="#EnterPriceModal">
+                     <i className="fa-regular fa-tag fs-32 mt-1" />
+                     <div className="ms-3">
+                        <div className="fs-18 fw-medium mb-1">Fixed Price</div>
+                        <div className="color-grey fs-14">
+                           Enter a price to allow users to purchase <br /> your NFT instantly.
                         </div>
-                        <i className="fa-regular fa-angle-right my-auto ms-auto"></i>
-                     </button>
-                     <button type="button" className="d-flex w-100 text-start border rounded bg-grey hover-grey p-3" data-bs-toggle="modal" data-bs-target="#PutAuctionModal">
-                        <i className="fa-regular fa-gavel fs-20 mt-1"></i>
-                        <div className="__body ms-3">
-                           <h5 className="fs-18 mb-2">Auction</h5>
-                           <p className="color-grey fs-14 mb-0">
-                              Allow other users to bet on your NFT
-                           </p>
+                     </div>
+                     <i className="fa-regular fa-angle-right ms-auto" />
+                  </Button>
+                  <Button variant="link bg-soft hover text-white text-start d-flex w-100 p-3" data-bs-toggle="modal" data-bs-target="#PutAuctionModal">
+                     <i className="fa-regular fa-gavel fs-20 mt-1" />
+                     <div className="ms-3">
+                        <div className="fs-18 fw-medium mb-1">Auction</div>
+                        <div className="color-grey fs-14">
+                           Allow other users to bet on your NFT
                         </div>
-                        <i className="fa-regular fa-angle-right my-auto ms-auto"></i>
-                     </button>
-                  </div>
-               </div>
-            </div>
+                     </div>
+                     <i className="fa-regular fa-angle-right ms-auto" />
+                  </Button>
+               </Modal.Body>
+            </Modal.Dialog>
          </div>
+         {/* Fix Price */}
          <div className="modal fade" id="EnterPriceModal" tabIndex={-1} aria-labelledby="EnterPriceModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
-               <div className="modal-content border-0">
-                  <div className="modal-header border-0 mb-4">
-                     <h5 className="modal-title fs-24" id="SelectTypeModalLabel">Enter Price</h5>
-                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
-                  </div>
-                  <div className="modal-body">
-                     <form action="">
-                        <label htmlFor="" className="mb-1">Price</label>
-                        <div className="input-group mb-4">
-                           <input type="text" className="form-control" value="10" placeholder="Enter Price" />
-                           <span className="input-group-text" id="basic-addon1">TON</span>
+            <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
+               <Modal.Header>
+                  <Modal.Title>Enter a Price</Modal.Title>
+                  <Button variant="link border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close">
+                     <i className="fa-solid fa-xmark fa-lg" />
+                  </Button>
+               </Modal.Header>
+               <Modal.Body>
+                  <Form.Group className="mb-4">
+                     <Form.Label>Item’s Price</Form.Label>
+                     <InputGroup className="mb-3">
+                        <Form.Control placeholder="Enter Price" />
+                        <InputGroup.Text id="basic-addon3">TON</InputGroup.Text>
+                     </InputGroup>
+                  </Form.Group>
+                  <ListGroup className="mb-4">
+                     <ListGroup.Item className="d-flex">
+                        <div className="color-grey">
+                           Service Fee
+                           <OverlayTrigger
+                              key="bottom"
+                              placement="bottom"
+                              overlay={
+                                 <Tooltip id={`tooltip-bottom`}>
+                                    The service fee is what the marketplace collects when an NFT is sold.
+                                 </Tooltip>
+                              }
+                           >
+                              <i className="fa-regular fa-circle-info ms-2"></i>
+                           </OverlayTrigger>
                         </div>
-                        <ul className="list-unstyled mb-4 pb-4 border-bottom">
-                           <li className="d-flex align-items-center mb-3">
-                              <span className="color-grey">
-                                 Service fee
-                                 <a href="#!" data-bs-toggle="tooltip" data-bs-placement="right" title="The commission that the marketplace takes when selling NFTs"><i className="fa-regular fa-circle-info ms-2"></i></a>
-                              </span>
-                              <span className="ms-auto">0.5 TON</span>
-                           </li>
-                           <li className="d-flex align-items-center">
-                              <span className="color-grey">
-                                 Royalties
-                                 <a href="#!" data-bs-toggle="tooltip" data-bs-placement="right" title="Percentage of the NFT value that the author receives on each resale"><i className="fa-regular fa-circle-info ms-2"></i></a>
-                              </span>
-                              <span className="ms-auto">0.5 TON</span>
-                           </li>
-                        </ul>
-                        <div className="d-flex align-items-center fw-medium mb-5">
-                           <span>You'll get</span>
-                           <span className="ms-auto">9 TON</span>
+                        <div className="ms-auto">
+                           <span>0</span> TON
                         </div>
-                        <button type="button" className="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#CreateContractModal">Put up for sale</button>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div className="modal fade" id="CreateContractModal" tabIndex={-1} aria-labelledby="CreateContractModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
-               <div className="modal-content border-0">
-                  <div className="modal-header border-0 mb-4">
-                     <h5 className="modal-title fs-24" id="SelectTypeModalLabel">Almost done</h5>
-                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
-                  </div>
-                  <div className="modal-body">
-                     <ul className="list-unstyled mb-4">
-                        <li className="d-flex mb-4">
-                           <i className="fa-regular fa-circle-check fa-2x color-yellow"></i>
-                           <div className="ms-3">
-                              <h5 className="fs-16">Create a sales contract</h5>
-                              <p className="mb-0 color-grey">
-                                 To sell NFT, you need to create a sales contract
-                              </p>
-                           </div>
-                        </li>
-                        <li className="d-flex">
-                           <i className="fa-duotone fa-spinner-third fa-2x color-yellow"></i>
-                           <div className="ms-3">
-                              <h5 className="fs-16">Creation and verification</h5>
-                              <p className="mb-0 color-grey">
-                                 Confirm the transaction in your wallet. After confirmation, verification usually takes some time.
-                              </p>
-                           </div>
-                        </li>
-                     </ul>
-                     <div className="p-3 p-md-4 border rounded text-center mb-4">
-                        <h4 className="fs-18 mb-4">Scan the QR code in Tonkeeper</h4>
-                        <img src="./assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
-                        <a href="#!" className="color-yellow d-block"><i className="fa-regular fa-copy me-2"></i> Copy address</a>
-                     </div>
-                     <button type="button" className="btn btn-secondary w-100" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div className="modal fade" id="AlmostDoneAuctionModal" tabIndex={-1} aria-labelledby="AlmostDoneAuctionModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
-               <div className="modal-content border-0">
-                  <div className="modal-header border-0 mb-4">
-                     <h5 className="modal-title fs-24" id="SelectTypeModalLabel">Almost done</h5>
-                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
-                  </div>
-                  <div className="modal-body">
-                     <ul className="list-unstyled mb-4">
-                        <li className="d-flex">
-                           <i className="fa-duotone fa-spinner-third fa-2x color-yellow"></i>
-                           <div className="ms-3">
-                              <h5 className="fs-16">Creation and verification</h5>
-                              <p className="mb-0 color-grey">
-                                 Confirm the transaction in your wallet. After confirmation, verification usually takes some time.
-                              </p>
-                           </div>
-                        </li>
-                     </ul>
-                     <div className="p-3 p-md-4 border rounded text-center mb-4">
-                        <h4 className="fs-18 mb-4">Scan the QR code in Tonkeeper</h4>
-                        <img src="./assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
-                        <a href="#!" className="color-yellow d-block"><i className="fa-regular fa-copy me-2"></i> Copy address</a>
-                     </div>
-                     <button type="button" className="btn btn-secondary w-100" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                  </div>
-               </div>
-            </div>
+                     </ListGroup.Item>
+                     <ListGroup.Item className="d-flex border-bottom mb-3">
+                        <div className="color-grey">
+                           Creator Royalties
+                           <OverlayTrigger
+                              key="bottom"
+                              placement="bottom"
+                              overlay={
+                                 <Tooltip id={`tooltip-bottom`}>
+                                    This is the percentage creators receive each time their NFTs are sold on the secondary market.
+                                 </Tooltip>
+                              }
+                           >
+                              <i className="fa-regular fa-circle-info ms-2"></i>
+                           </OverlayTrigger>
+                        </div>
+                        <div className="ms-auto">
+                           <span>0</span> TON
+                        </div>
+                     </ListGroup.Item>
+                     <ListGroup.Item className="d-flex fw-500">
+                        <div className="color-grey">You Receive</div>
+                        <div className="ms-auto">
+                           <span>0</span> TON
+                        </div>
+                     </ListGroup.Item>
+                  </ListGroup>
+                  <Button variant="primary w-100" data-bs-toggle="modal" data-bs-target="#TransactionModal">Put on Sale</Button>
+               </Modal.Body>
+            </Modal.Dialog>
          </div>
          <div className="modal fade" id="EndAuctionModal" tabIndex={-1} aria-labelledby="EndAuctionModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
                <div className="modal-content border-0">
                   <div className="modal-header border-0 mb-4">
                      <h5 className="modal-title fs-24" id="SelectTypeModalLabel">Bets are no longer accepted</h5>
-                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
+                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg" /></button>
                   </div>
                   <div className="modal-body">
                      <div className="p-3 p-md-4 border rounded text-center mb-4">
                         <div className="fs-18 mb-4">Scan the QR code and pay <span className="fw-bold">0.05 TON</span> <br /> to Tonkeeper</div>
                         <img src="./assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
-                        <a href="#!" className="d-block"><i className="fa-regular fa-copy me-2"></i> Copy address</a>
+                        <a href="#!" className="d-block"><i className="fa-regular fa-copy me-2" /> Copy address</a>
                      </div>
                      <div className="alert alert-warning text-center mb-4">
                         👉 After payment, click the button
@@ -654,136 +662,153 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                </div>
             </div>
          </div>
+         {/* Put For Auction */}
          <div className="modal fade" id="PutAuctionModal" tabIndex={-1} aria-labelledby="PutAuctionModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
-               <div className="modal-content border-0">
-                  <div className="modal-header border-0 mb-4">
-                     <h5 className="modal-title fs-24" id="SelectTypeModalLabel">Put up for auction</h5>
-                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
-                  </div>
-                  <div className="modal-body">
-                     <div className="d-flex align-items-center bg-soft rounded p-2 mb-4">
-                        <img className="rounded image-80x80" src="./assets/img/item-details-image.jpg" alt="Tergo Cat" />
-                        <div className="__body ms-3">
-                           <h5 className="fs-18 mb-2">TON NFT Tegro Cat #101</h5>
-                           <p className="mb-0 color-grey fs-14">TON NFT Tegro Cat</p>
-                        </div>
-                     </div>
-                     <div className="mb-4">
-                        <h5 className="fs-18">Minimum bet</h5>
-                        <p className="color-grey">
-                           Bets below this amount are not allowed. You will only be able to accept the most recent high bid.
-                        </p>
-                        <div className="input-group">
-                           <input type="text" className="form-control" placeholder="Enter your minimum bid" />
-                           <span className="input-group-text" id="basic-addon1">TON</span>
-                        </div>
-                     </div>
-                     <div className="mb-4">
-                        <h5 className="fs-18">Expiration date</h5>
-                        <p className="color-grey">
-                           <span>Until September 14, 17:54.</span> The auction will end automatically. The one who offers the highest bid wins.
-                        </p>
-                        <select className="form-select border" aria-label="Default select example">
-                           <option selected>7 days</option>
-                           <option value="1">14 days</option>
-                           <option value="2">1 month</option>
-                        </select>
-                     </div>
-                     <div className="mb-4">
+            <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
+               <Modal.Header className="mb-2">
+                  <Modal.Title>Put for auction</Modal.Title>
+                  <Button variant="link border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close">
+                     <i className="fa-solid fa-xmark fa-lg" />
+                  </Button>
+               </Modal.Header>
+               <a href="#!" className="d-flex align-items-center mb-4" data-bs-toggle="modal" data-bs-target="#AboutAuctions">
+                  How it works
+                  <i className="fa-solid fa-angle-right ms-2" />
+               </a>
+               <Modal.Body>
+                  <Form>
+                     <Form.Group className="mb-4">
+                        <Form.Label className="d-block">Min. bid</Form.Label>
+                        <Form.Text className="color-grey d-block mb-3">
+                           Bids below this amount won’t be allowed. You will only be able to accept the most recent high bid.
+                        </Form.Text>
+                        <Form.Control type="text" placeholder="Enter min. bid" required />
+                     </Form.Group>
+                     <Form.Group className="mb-4">
+                        <Form.Label className="d-block">Expiration date</Form.Label>
+                        <Form.Text className="color-grey d-block mb-3">
+                           Until 6 Mar, 10:49 PM. The auction will end automatically and the highest bidder will win.
+                        </Form.Text>
+                        <Form.Select className="mb-2">
+                           <option>7 Days</option>
+                           <option value="1">15 minutes</option>
+                           <option value="2">1 Day</option>
+                           <option value="3">2 Days</option>
+                           <option value="3">3 Days</option>
+                           <option value="3">4 Days</option>
+                           <option value="3">5 Days</option>
+                           <option value="3">6 Days</option>
+                           <option value="3">7 Days</option>
+                           <option value="3">8 Days</option>
+                           <option value="3">9 Days</option>
+                           <option value="3">10 Days</option>
+                           <option value="3">1 Days</option>
+                           <option value="3">12 Days</option>
+                           <option value="3">13 Days</option>
+                           <option value="3">14 Days</option>
+                        </Form.Select>
+                     </Form.Group>
+                     <Form.Group className="mb-4">
                         <div className="d-flex align-items-center mb-2">
-                           <h5 className="fs-18 mb-0">Maximum bet</h5>
-                           <div className="form-check form-switch ms-auto">
-                              <input className="form-check-input p-2" type="checkbox" id="flexSwitchCheckDefault" />
-                           </div>
+                           <Form.Label htmlFor="maxBid-switch" className="m-0">Max. bid</Form.Label>
+                           <Form.Check
+                              type="switch"
+                              id="maxBid-switch"
+                              className="ms-auto"
+                           />
                         </div>
-                        <p className="mb-0 color-grey">
-                           If someone bids that amount, the NFT will be given <br /> to the buyers and the auction will be closed.
-                        </p>
-                     </div>
-                     <div className="mb-5">
+                        <Form.Text className="color-grey fs-12">
+                           If anyone bids this amount, the NFT will be transferred <br /> to the bidder, and the auction will close.
+                        </Form.Text>
+                        {/* Show When Switch Enable
+                           <Form.Control type="text" className="mt-3" placeholder="Enter max. bid" /> 
+                        */}
+                     </Form.Group>
+                     <Form.Group className="mb-4">
                         <div className="d-flex align-items-center mb-2">
-                           <h5 className="fs-18 mb-0">Step</h5>
-                           <div className="form-check form-switch ms-auto">
-                              <input className="form-check-input p-2" type="checkbox" id="flexSwitchCheckDefault" />
-                           </div>
+                           <Form.Label htmlFor="maxBid-switch" className="m-0">Min. step</Form.Label>
+                           <Form.Check
+                              type="switch"
+                              id="maxBid-switch"
+                              className="ms-auto"
+                           />
                         </div>
-                        <p className="mb-0 color-grey">
-                           Each new bet must be higher than the previous one <br /> by this amount of TON
-                        </p>
-                     </div>
-                     <button type="button" className="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#AlmostDoneAuctionModal">Put up for auction</button>
-                  </div>
-               </div>
-            </div>
+                        <Form.Text className="color-grey fs-12">
+                           Each new bid must be higher than the previous <br /> one by this amount of TON.
+                        </Form.Text>
+                        {/* Show When Switch Enable
+                           <Form.Control type="text" className="mt-3" placeholder="Enter min. step" /> 
+                        */}
+                     </Form.Group>
+                     <Button variant="primary w-100" data-bs-toggle="modal" data-bs-target="#TransactionModal">Put up for auction</Button>
+                  </Form>
+               </Modal.Body>
+            </Modal.Dialog>
          </div>
-         <div className="modal fade" id="UpdateCoverModal" tabIndex={-1} aria-labelledby="UpdateCoverModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
-               <div className="modal-content border-0">
-                  <div className="modal-header border-0 mb-2">
-                     <h5 className="modal-title fs-24" id="SelectTypeModalLabel">Update Cover</h5>
-                  </div>
-                  <div className="modal-body">
-                     <p className="color-grey mb-5">
-                        Upload new cover for your page. We recommend to upload image in 1920x340 resolution. Max 15 mb.
-                     </p>
-                     <div className="mb-3">
-                        <label htmlFor="formFile" className="btn btn-sm btn-primary w-100">Choose file</label>
-                        <input className="form-control d-none" type="file" id="formFile" />
-                     </div>
-                     <button type="button" className="btn btn-sm btn-soft w-100" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                  </div>
-               </div>
-            </div>
+         {/* About Auctions */}
+         <div className="modal fade" id="AboutAuctions" tabIndex={-1} aria-labelledby="AboutAuctionsModalLabel" aria-hidden="true">
+            <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
+               <Modal.Header>
+                  <Modal.Title>About Auctions</Modal.Title>
+                  <Button variant="link border-0 p-0 modal-close" data-bs-toggle="modal" data-bs-target="#PutAuctionModal">
+                     <i className="fa-solid fa-xmark fa-lg" />
+                  </Button>
+               </Modal.Header>
+               <Modal.Body>
+                  <ListGroup className="p-0 bg-transparent mb-4" as="ol" numbered>
+                     <ListGroup.Item as="li" className="d-flex fs-20">
+                        <div className="ms-3 fs-16">
+                           The seller places their NFT up for auction and sets the minimum bid, start date, and expiration date of the auction.
+                        </div>
+                     </ListGroup.Item>
+                     <ListGroup.Item as="li" className="d-flex fs-20">
+                        <div className="ms-3 fs-16">
+                           When a bidder makes a bid, TON is deducted from their wallet balance, which will be stored on the balance of the auction contract. It’s safe: The TONs is on the blockchain, and no one else has access to it.
+                        </div>
+                     </ListGroup.Item>
+                     <ListGroup.Item as="li" className="d-flex fs-20">
+                        <div className="ms-3 fs-16">
+                           The bidder must bid higher than the current highest bid.
+                        </div>
+                     </ListGroup.Item>
+                     <ListGroup.Item as="li" className="d-flex fs-20">
+                        <div className="ms-3 fs-16">
+                           If another user outbids the current bid, the amount of Toncoin minus blockchain fees will be returned to the participant.
+                        </div>
+                     </ListGroup.Item>
+                     <ListGroup.Item as="li" className="d-flex fs-20">
+                        <div className="ms-3 fs-16">
+                           Within 48 hours after the end of the auction, the seller will only be able to accept the highest available bid made during the auction. As with regular transactions, the seller will need to pay a gas fee to accept the bid.
+                        </div>
+                     </ListGroup.Item>
+                     <ListGroup.Item as="li" className="d-flex fs-20">
+                        <div className="ms-3 fs-16">
+                           If the seller accepts the participant’s bid, the NFT will be instantly credited to the bidder’s wallet, and the bid in TON will be credited to the seller’s wallet.
+                        </div>
+                     </ListGroup.Item>
+                  </ListGroup>
+                  <Button variant="secondary w-100" data-bs-toggle="modal" data-bs-target="#PutAuctionModal">
+                     <i className="fa-solid fa-angle-left me-3" />
+                     Back
+                  </Button>
+               </Modal.Body>
+            </Modal.Dialog>
          </div>
-         <div className="modal fade" id="ShareModal" tabIndex={-1} aria-labelledby="ShareModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
-               <div className="modal-content border-0">
-                  <div className="modal-header border-0 mb-5">
-                     <h5 className="modal-title fs-24" id="SelectTypeModalLabel">Share</h5>
-                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
-                  </div>
-                  <div className="modal-body">
-                     <div className="libermall__soclinks justify-content-center p-2 border rounded">
-                        <a href="#!" className="libermall__soclinks-item ms-0"><i className="fa-brands fa-telegram"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-discord"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-instagram"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-reddit-alien"></i></a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div className="modal fade" id="HowAuctionsWorkModal" tabIndex={-1} aria-labelledby="HowAuctionsWorkModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
-               <div className="modal-content border-0">
-                  <div className="modal-header border-0 mb-5">
-                     <h5 className="modal-title fs-24" id="SelectTypeModalLabel">How timed auctions work</h5>
-                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
-                  </div>
-                  <div className="modal-body">
-                     When you put your NFT on timed auction, you choose currency, minimum bid, starting and ending dates of your auction.<br /><br />The bidder can only place a bid which satisfies the following conditions:<br /><br />
-                     <ol className="sc-fKknU cScerJ">
-                        <li>It is at least minimum bid set for the auction</li>
-                        <li>It is at least 5% higher than the current highest bid in equivalent</li>
-                     </ol>
-                     <br />Note that some bids may disappear with time if the bidder withdraws their balance. At the same time, some bids may reappear if the bidder has topped up their balance again.<br /><br />Auction cannot be cancelled after any valid bid was made. Any bid placed in the last 10 minutes extends the auction by 10 minutes.<br /><br />In the 48 hours after the auction ends you will only be able to accept the highest available bid placed during the auction. As with regular bids, you will need to pay some gas to accept it.Note that you can always decrease the price of your listing for free, without making a transaction or paying gas. You can view all your NFTs here.
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div className="modal fade" id="FollowStepsModal" tabIndex={-1} aria-labelledby="FollowStepsModalLabel" aria-hidden="true">
+
+
+
+
+         {/* <div className="modal fade" id="FollowStepsModal" tabIndex={-1} aria-labelledby="FollowStepsModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
                <div className="modal-content border-0">
                   <div className="modal-header border-0 mb-5">
                      <h5 className="modal-title fs-24" id="SelectTypeModalLabel">Follow Steps</h5>
-                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg"></i></button>
+                     <button type="button" className="border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close"><i className="fa-solid fa-xmark fa-lg" /></button>
                   </div>
                   <div className="modal-body">
                      <ul className="list-unstyled mb-5">
                         <li className="d-flex mb-4">
-                           <i className="fa-duotone fa-spinner-third fa-2x color-yellow"></i>
+                           <i className="fa-duotone fa-spinner-third fa-2x color-yellow" />
                            <div className="ms-3">
                               <h5 className="fs-16">Upload</h5>
                               <p className="mb-0 color-grey">
@@ -792,7 +817,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                            </div>
                         </li>
                         <li className="d-flex mb-4">
-                           <i className="fa-regular fa-circle-check fa-2x color-yellow"></i>
+                           <i className="fa-regular fa-circle-check fa-2x color-yellow" />
                            <div className="ms-3">
                               <h5 className="fs-16">Mint</h5>
                               <p className="mb-0 color-grey">
@@ -801,7 +826,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                            </div>
                         </li>
                         <li className="d-flex">
-                           <i className="fa-regular fa-circle-check fa-2x color-yellow"></i>
+                           <i className="fa-regular fa-circle-check fa-2x color-yellow" />
                            <div className="ms-3">
                               <h5 className="fs-16">Start auction</h5>
                               <p className="mb-0 color-grey">
@@ -814,8 +839,9 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                   </div>
                </div>
             </div>
-         </div>
-         <div className="modal fade" id="CreatNFTSuccessfullyModal" tabIndex={-1} aria-labelledby="CreatNFTSuccessfullyModalLabel" aria-hidden="true">
+         </div> */}
+
+         {/* <div className="modal fade" id="CreatNFTSuccessfullyModal" tabIndex={-1} aria-labelledby="CreatNFTSuccessfullyModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
                <div className="modal-content border-0">
                   <div className="modal-body">
@@ -839,11 +865,11 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                      </ul>
                      <h4 className="fs-18 text-center mb-3">Let's show-off a little</h4>
                      <div className="libermall__soclinks justify-content-center mb-5 p-2 border rounded">
-                        <a href="#!" className="libermall__soclinks-item ms-0"><i className="fa-brands fa-telegram"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-discord"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-instagram"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-reddit-alien"></i></a>
+                        <a href="#!" className="libermall__soclinks-item ms-0"><i className="fa-brands fa-telegram" /></a>
+                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-discord" /></a>
+                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-instagram" /></a>
+                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-linkedin-in" /></a>
+                        <a href="#!" className="libermall__soclinks-item"><i className="fa-brands fa-reddit-alien" /></a>
                      </div>
                      <div>
                         <button className="btn btn-primary w-100 mb-2" data-bs-dismiss="modal" aria-label="Close">View NFT</button>
@@ -852,7 +878,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                   </div>
                </div>
             </div>
-         </div>
-      </div>
+         </div> */}
+      </div >
    )
 }

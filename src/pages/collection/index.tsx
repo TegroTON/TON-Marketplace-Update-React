@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button, Form, InputGroup, Row, Col, Container, Card, Badge, Dropdown, Tabs, Tab } from 'react-bootstrap';
+import { Button, Form, InputGroup, Row, Col, Container, Card, Badge, Dropdown, Tabs, Tab, Table } from 'react-bootstrap';
 import { PageProps } from '../../types/interfaces'
 
 
@@ -22,12 +22,12 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
          <section className="nft-hero">
             <img src="./assets/img/profile-header.webp" className="nft-hero__image" loading="lazy" width="340" height="275" alt="Tegro Cat" />
          </section>
-         <main className="main-page" style={{marginTop: '-65px'}}>
+         <main className="main-page" style={{ marginTop: '-65px' }}>
             <section className="nft-collection section pt-0">
                <Container fluid>
                   <Row>
                      <Col lg="4" xxl="3" className="mb-4 mb-lg-0">
-                        <Card className="card-blur p-0 mb-4" style={{marginTop: '-135px'}}>
+                        <Card className="card-blur p-0 mb-4" style={{ marginTop: '-135px' }}>
                            <Card.Body className="p-2 p-xl-4">
                               <div className="d-flex mb-4">
                                  <Card.Img variant="profile__avatar" src="assets/img/profile-avatar.png" />
@@ -1080,120 +1080,194 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                               </div>
                            </Tab>
                            <Tab eventKey="Activity" title="Activity">
-                              <Row>
-                                 <Col sm="6" md="12">
-                                    <Card className="activity__card d-flex flex-column flex-md-row align-items-center text-center text-md-start mb-4">
-                                       <Card.Img variant="none image-80x80 rounded mb-4 mb-md-0" src="./assets/img/cats/8.png" />
-                                       <Card.Body className="activity__body p-0 ms-4">
-                                          <Card.Title className="activity__name fs-18 mt-0 mb-2">TON NFT Tegro Cat (8766)</Card.Title>
-                                          <Card.Text className="activity__info d-block d-md-flex align-items-center mb-2">
-                                             <div className="d-flex me-2 mb-1 mb-md-0">
-                                                <span className="color-grey me-2">transferred from</span>
-                                                <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
-                                                   <img src="./assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
-                                                   <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
+                              <Card className="border p-0 mb-5">
+                                 <Card.Header className="px-4 py-3 border-bottom d-flex align-items-center">
+                                    <Card.Title>
+                                       <i className="fa-solid fa-arrow-down-arrow-up me-3"></i>
+                                       Activity
+                                    </Card.Title>
+                                    <Dropdown className="ms-auto">
+                                       <Dropdown.Toggle variant="secondary w-100">
+                                          Filters
+                                          <i className="fa-solid fa-angle-down ms-2" />
+                                       </Dropdown.Toggle>
+                                       <Dropdown.Menu className="w-100 mt-2">
+                                          <Dropdown.Item href="#">Sales</Dropdown.Item>
+                                          <Dropdown.Item href="#">Listings</Dropdown.Item>
+                                          <Dropdown.Item href="#">Offers</Dropdown.Item>
+                                          <Dropdown.Item href="#">Transfers</Dropdown.Item>
+                                       </Dropdown.Menu>
+                                    </Dropdown>
+                                 </Card.Header>
+                                 <Table responsive className="table-stats mb-0">
+                                    <thead className="bg-soft">
+                                       <tr className="border-bottom">
+                                          <th scope="col" className="p-4">Type</th>
+                                          <th scope="col" className="p-4 text-end">Price</th>
+                                          <th scope="col" className="p-4 text-end">From</th>
+                                          <th scope="col" className="p-4">To</th>
+                                          <th scope="col" className="p-4 text-end">Time</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr>
+                                          <td>
+                                             <div className="table-stats d-flex align-items-center">
+                                                <div className="table-stats__icon fs-18 me-3">
+                                                   <i className="fa-regular fa-circle-plus" />
+                                                </div>
+                                                <a href="/collection-item" className="d-flex align-items-center">
+                                                   <img src="/assets/img/cats/1.png" className="rounded-12" style={{ width: '32px', height: '32px' }} />
+                                                   <span className="table-stats__name fw-medium ms-3">TON NFT Tegro Cat (6452)</span>
                                                 </a>
                                              </div>
-                                             <div className="d-flex">
-                                                <span className="color-grey me-2">to</span>
-                                                <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
-                                                   <img src="./assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
-                                                   <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0xa83425b17824e9717155094ce3effbec907665de</span>
+                                          </td>
+                                          <td>
+                                             <div className="table-stats__price text-end">
+                                                <div className="mb-1">3 TON</div>
+                                                <div className="fs-14 color-grey">$2,45</div>
+                                             </div>
+                                          </td>
+                                          <td className="text-end">
+                                             <a href="/user1" className="table-stats__from d-flex align-items-center justify-content-lg-end" target="_blank">
+                                                <img src="./assets/img/user-avatar.png" className="table-stats__avatar" alt="" />
+                                                <div className="table-stats__address ms-2">Artinox</div>
+                                             </a>
+                                          </td>
+                                          <td>
+                                             -
+                                          </td>
+                                          <td className="text-end">
+                                             2 hours ago
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td>
+                                             <div className="table-stats d-flex align-items-center">
+                                                <div className="table-stats__icon fs-18 me-3">
+                                                   <i className="fa-regular fa-cart-shopping-fast" />
+                                                </div>
+                                                <a href="/collection-item" className="d-flex align-items-center">
+                                                   <img src="/assets/img/cats/2.png" className="rounded-12" style={{ width: '32px', height: '32px' }} />
+                                                   <span className="table-stats__name fw-medium ms-3">TON NFT Tegro Cat (2144)</span>
                                                 </a>
                                              </div>
-                                          </Card.Text>
-                                          <div className="mb-0 color-grey fs-14">
-                                             12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
-                                          </div>
-                                       </Card.Body>
-                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/cats/8.png)  no-repeat center center / cover' }} />
-                                    </Card>
-                                 </Col>
-                                 <Col sm="6" md="12">
-                                    <Card className="activity__card d-flex flex-column flex-md-row align-items-center text-center text-md-start mb-4">
-                                       <Card.Img variant="none image-80x80 rounded mb-4 mb-md-0" src="./assets/img/cats/6.png" />
-                                       <Card.Body className="activity__body p-0 ms-4">
-                                          <Card.Title className="activity__name fs-18 mt-0 mb-2">TON NFT Tegro Cat (8766)</Card.Title>
-                                          <Card.Text className="activity__info d-block d-md-flex align-items-center mb-2">
-                                             <div className="d-flex me-2 mb-1 mb-md-0">
-                                                <span className="color-grey me-2">transferred from</span>
-                                                <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
-                                                   <img src="./assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
-                                                   <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
+                                          </td>
+                                          <td>
+                                             <div className="table-stats__price text-end">
+                                                <div className="mb-1">3 TON</div>
+                                                <div className="fs-14 color-grey">$2,45</div>
+                                             </div>
+                                          </td>
+                                          <td className="text-end">
+                                             <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-lg-end" target="_blank">
+                                                <img src="./assets/img/user-avatar.png" className="table-stats__avatar" alt="" />
+                                                <div className="table-stats__address ms-2">Artinox</div>
+                                             </a>
+                                          </td>
+                                          <td>
+                                             <a href="/profile" className="table-stats__from d-flex align-items-center" target="_blank">
+                                                <img src="./assets/img/nfts/nft-1.png" className="table-stats__avatar" alt="" />
+                                                <div className="table-stats__address ms-2">EQDZr7KDKG0R4Kyauz-iRetnuY7nMKXFIEQn4-44vzygNEvj</div>
+                                             </a>
+                                          </td>
+                                          <td className="text-end">
+                                             3 min ago
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td>
+                                             <div className="table-stats d-flex align-items-center">
+                                                <div className="table-stats__icon fs-18 me-3">
+                                                   <i className="fa-regular fa-ban" />
+                                                </div>
+                                                <a href="/collection-item" className="d-flex align-items-center">
+                                                   <img src="/assets/img/cats/3.png" className="rounded-12" style={{ width: '32px', height: '32px' }} />
+                                                   <span className="table-stats__name fw-medium ms-3">TON NFT Tegro Cat (2689)</span>
                                                 </a>
                                              </div>
-                                             <div className="d-flex">
-                                                <span className="color-grey me-2">to</span>
-                                                <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
-                                                   <img src="./assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
-                                                   <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0xa83425b17824e9717155094ce3effbec907665de</span>
+                                          </td>
+                                          <td>
+                                             <div className="table-stats__price text-end">
+                                                <div className="mb-1">3 TON</div>
+                                                <div className="fs-14 color-grey">$2,45</div>
+                                             </div>
+                                          </td>
+                                          <td className="text-end">
+                                             <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-lg-end" target="_blank">
+                                                <img src="./assets/img/user-avatar.png" className="table-stats__avatar" alt="" />
+                                                <div className="table-stats__address ms-2">Artinox</div>
+                                             </a>
+                                          </td>
+                                          <td>
+                                             -
+                                          </td>
+                                          <td className="text-end">
+                                             12 min ago
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td>
+                                             <div className="table-stats d-flex align-items-center">
+                                                <div className="table-stats__icon fs-18 me-3">
+                                                   <i className="fa-regular fa-cart-shopping-fast" />
+                                                </div>
+                                                <a href="/collection-item" className="d-flex align-items-center">
+                                                   <img src="/assets/img/cats/4.png" className="rounded-12" style={{ width: '32px', height: '32px' }} />
+                                                   <span className="table-stats__name fw-medium ms-3">TON NFT Tegro Cat (3264)</span>
                                                 </a>
                                              </div>
-                                          </Card.Text>
-                                          <div className="mb-0 color-grey fs-14">
-                                             12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
-                                          </div>
-                                       </Card.Body>
-                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/cats/6.png)  no-repeat center center / cover' }} />
-                                    </Card>
-                                 </Col>
-                                 <Col sm="6" md="12">
-                                    <Card className="activity__card d-flex flex-column flex-md-row align-items-center text-center text-md-start mb-4">
-                                       <Card.Img variant="none image-80x80 rounded mb-4 mb-md-0" src="./assets/img/cats/5.png" />
-                                       <Card.Body className="activity__body p-0 ms-4">
-                                          <Card.Title className="activity__name fs-18 mt-0 mb-2">TON NFT Tegro Cat (8766)</Card.Title>
-                                          <Card.Text className="activity__info d-block d-md-flex align-items-center mb-2">
-                                             <div className="d-flex me-2 mb-1 mb-md-0">
-                                                <span className="color-grey me-2">transferred from</span>
-                                                <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
-                                                   <img src="./assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
-                                                   <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
+                                          </td>
+                                          <td>
+                                             <div className="table-stats__price text-end">
+                                                <div className="mb-1">3 TON</div>
+                                                <div className="fs-14 color-grey">$2,45</div>
+                                             </div>
+                                          </td>
+                                          <td className="text-end">
+                                             <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-lg-end" target="_blank">
+                                                <img src="./assets/img/user-avatar.png" className="table-stats__avatar" alt="" />
+                                                <div className="table-stats__address ms-2">Artinox</div>
+                                             </a>
+                                          </td>
+                                          <td>
+                                             <a href="/profile" className="table-stats__from d-flex align-items-center" target="_blank">
+                                                <img src="./assets/img/nfts/nft-2.png" className="table-stats__avatar" alt="" />
+                                                <div className="table-stats__address ms-2">iRetnuY7nMKXFEQDZr7KDKG0R4Kyauz-IEQn4-44vzygNEvj</div>
+                                             </a>
+                                          </td>
+                                          <td className="text-end">
+                                             3 min ago
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td>
+                                             <div className="table-stats d-flex align-items-center">
+                                                <div className="table-stats__icon fs-18 me-3">
+                                                   <i className="fa-regular fa-paintbrush-fine" />
+                                                </div>
+                                                <a href="/collection-item" className="d-flex align-items-center">
+                                                   <img src="/assets/img/cats/3.png" className="rounded-12" style={{ width: '32px', height: '32px' }} />
+                                                   <span className="table-stats__name fw-medium ms-3">TON NFT Tegro Cat (2689)</span>
                                                 </a>
                                              </div>
-                                             <div className="d-flex">
-                                                <span className="color-grey me-2">to</span>
-                                                <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
-                                                   <img src="./assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
-                                                   <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0xa83425b17824e9717155094ce3effbec907665de</span>
-                                                </a>
-                                             </div>
-                                          </Card.Text>
-                                          <div className="mb-0 color-grey fs-14">
-                                             12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
-                                          </div>
-                                       </Card.Body>
-                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/cats/5.png)  no-repeat center center / cover' }} />
-                                    </Card>
-                                 </Col>
-                                 <Col sm="6" md="12">
-                                    <Card className="activity__card d-flex flex-column flex-md-row align-items-center text-center text-md-start mb-4">
-                                       <Card.Img variant="none image-80x80 rounded mb-4 mb-md-0" src="./assets/img/cats/6.png" />
-                                       <Card.Body className="activity__body p-0 ms-4">
-                                          <Card.Title className="activity__name fs-18 mt-0 mb-2">TON NFT Tegro Cat (8766)</Card.Title>
-                                          <Card.Text className="activity__info d-block d-md-flex align-items-center mb-2">
-                                             <div className="d-flex me-2 mb-1 mb-md-0">
-                                                <span className="color-grey me-2">transferred from</span>
-                                                <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
-                                                   <img src="./assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
-                                                   <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
-                                                </a>
-                                             </div>
-                                             <div className="d-flex">
-                                                <span className="color-grey me-2">to</span>
-                                                <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
-                                                   <img src="./assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
-                                                   <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0xa83425b17824e9717155094ce3effbec907665de</span>
-                                                </a>
-                                             </div>
-                                          </Card.Text>
-                                          <div className="mb-0 color-grey fs-14">
-                                             12 minutes ago <a href="#!" target="_blank"><i className="fa-regular fa-up-right-from-square ms-2" /></a>
-                                          </div>
-                                       </Card.Body>
-                                       <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/cats/6.png)  no-repeat center center / cover' }} />
-                                    </Card>
-                                 </Col>
-                              </Row>
+                                          </td>
+                                          <td>
+                                             -
+                                          </td>
+                                          <td className="text-end">
+                                             -
+                                          </td>
+                                          <td>
+                                             -
+                                          </td>
+                                          <td className="text-end">
+                                             12 hours ago
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </Table>
+                              </Card>
                            </Tab>
                         </Tabs>
                      </Col>

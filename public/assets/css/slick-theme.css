@@ -14,7 +14,7 @@
     background: transparent;
     width: 50px;
     height: 50px;
-    background: #2e3146;
+    background: #222222;
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
     display: flex;
@@ -28,7 +28,7 @@
 .slick-prev:hover,.slick-prev:focus,.slick-next:hover,.slick-next:focus {
     color: transparent;
     outline: none;
-    background: var(--bg-secondary);
+    background: #333333;
 }
 
 .slick-prev:hover:before,.slick-prev:focus:before,.slick-next:hover:before,.slick-next:focus:before {
@@ -52,9 +52,6 @@
     left: -26px;
 }
 
-[dir='rtl'] .slick-prev {
-}
-
 .slick-prev:before {
     content: '\f060';
     font-family: FontAwesome
@@ -67,9 +64,6 @@
 
 .slick-next {
     right: -29px;
-}
-
-[dir='rtl'] .slick-next {
 }
 
 .slick-next:before {

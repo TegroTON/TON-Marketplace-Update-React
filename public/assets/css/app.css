@@ -15,10 +15,10 @@
     --soft: rgb(255 255 255 / 0.02);
     --green: #13ff77;
     --soft-green: rgb(41 255 107 / .1);
-    --purple: #8829ff;
-    --soft-purple: rgb(243 72 66 / 0.03);
+    --purple: #9f4cff;
+    --soft-purple: rgb(159 76 255 / 0.06);
     --red: #ff3347;
-    --soft-red: rgb(255 51 71 / 0.2);
+    --soft-red: rgb(255 51 71 / 0.06);
     --aqua: #2af1ff;
     --yellow-gradient: linear-gradient(270deg, #ffb665 0%, #fed84d 100%);
     --font-Inter: 'Inter', sans-serif;
@@ -588,6 +588,10 @@ h4 {
     }
 }
 
+.form-label {
+    font-weight: 500;
+}
+
 .form-control {
     background-color: #1c1c1c;
     border: 1px solid #1c1c1c;
@@ -739,8 +743,8 @@ h4 {
     border: 0;
     left: auto !important;
     right: 0 !important;
-    background-color: var(--bg-secondary);
-    box-shadow: 0 12px 12px -6px rgb(3 4 6 / 29%);
+    background-color: #1c1c1c;
+    box-shadow: 0 6px 6px rgb(3 4 6 / 9%);
 }
 
 .dropdown-item {
@@ -811,7 +815,7 @@ h4 {
     font-size: 14px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 760px) {
     .table {
         min-width: auto;
     }
@@ -832,6 +836,16 @@ h4 {
 
     .table td {
         width: 50%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .table td:nth-child(1) {
+        width: 70%;
+    }
+
+    .table td:nth-child(2) {
+        width: 30%;
     }
 
     .table td:nth-child(1),
@@ -1732,7 +1746,7 @@ h4 {
 }
 
 .item-details__title {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 700;
 }
 
@@ -1742,11 +1756,9 @@ h4 {
 }
 
 .item-details__badge {
-    font-size: 13px;
     font-weight: 500;
-    line-height: 1;
     display: inline-block;
-    padding: 12px 24px;
+    padding: 8px 24px;
     text-transform: uppercase;
     border-radius: 12px;
 }
