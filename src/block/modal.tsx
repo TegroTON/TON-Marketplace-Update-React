@@ -275,7 +275,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
             </Modal.Dialog>
          </div>
          {/*Make Offer */}
-         <div className="modal fade" id="MakeOfferModal" tabIndex={-1} aria-hidden="true">
+         <div className="modal fade" id="MakeOfferModal" tabIndex={-1} aria-labelledby="MakeOfferModalLabel" aria-hidden="true">
             <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
                <Modal.Header>
                   <Modal.Title>Make Offer</Modal.Title>
@@ -326,7 +326,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
             </Modal.Dialog>
          </div>
          {/* Transaction Progress */}
-         <div className="modal fade" id="TransactionModal" tabIndex={-1} aria-hidden="true">
+         <div className="modal fade" id="TransactionModal" tabIndex={-1} aria-labelledby="MakeOfferModalLabel" aria-hidden="true">
             <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
                <Modal.Header>
                   <Modal.Title>Almost ready</Modal.Title>
@@ -362,7 +362,138 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                <Button variant="secondary">Cancel</Button>
             </Modal.Dialog>
          </div>
-
+         {/* Edit Your Profile  */}
+         <div className="modal fade" id="EditProfileModal" tabIndex={-1} aria-labelledby="EditProfileModalLabel" aria-hidden="true">
+            <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
+               <Modal.Header>
+                  <Modal.Title>Edit Your Profile</Modal.Title>
+                  <Button variant="link border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close">
+                     <i className="fa-solid fa-xmark fa-lg" />
+                  </Button>
+               </Modal.Header>
+               <Modal.Body>
+                  <Form>
+                     <div className="upload-nft__box py-5 position-sticky mb-4" style={{ maxHeight: '30vh' }}>
+                        <div>
+                           <i className="fa-regular fa-cloud-arrow-up fa-3x mb-4" />
+                           <p className="mb-4">
+                              File types supported: JPG, PNG, SVG, GIF and WEBP
+                              Optimal dimensions 2500×650.
+                              Max. size: 15MB
+                           </p>
+                           <Form.Group controlId="formFile">
+                              <Form.Label forHtml="formFile" className="btn btn-secondary">Upload Banner</Form.Label>
+                              <Form.Control type="file" className="d-none" />
+                           </Form.Group>
+                        </div>
+                     </div>
+                     <Form.Group controlId="formFile" className="mb-4">
+                        <Form.Label forHtml="formFile" className="d-flex align-items-center">
+                           <div className="bg-soft rounded p-4 me-4" style={{ minHeight: '76px' }}>
+                              <i className="fa-regular fa-cloud-arrow-up fs-24" />
+                           </div>
+                           <Form.Text>
+                              <div className="fs-16 text-white fw-medium mb-2">Profile Image</div>
+                              <div className="fs-14 color-grey">File types supported: JPG, PNG, SVG, GIF and WEBP Size: 512×512</div>
+                           </Form.Text>
+                        </Form.Label>
+                        <Form.Control type="file" className="d-none" />
+                     </Form.Group>
+                     <Form.Group className="mb-4">
+                        <div className="d-flex">
+                           <Form.Label className="fw-medium">Display Name</Form.Label>
+                           <div className="ms-auto color-grey"><span>0</span>/60</div>
+                        </div>
+                        <Form.Control type="text" placeholder="Name your NFT" />
+                     </Form.Group>
+                     <Form.Group className="mb-4">
+                        <div className="d-flex">
+                           <Form.Label className="fw-medium">Description</Form.Label>
+                           <div className="ms-auto color-grey"><span>0</span>/700</div>
+                        </div>
+                        <Form.Control as="textarea" rows={4} placeholder="Describe the idea behind your NFT and explain how it stands out from the rest." />
+                     </Form.Group>
+                     <Form.Group className="mb-4">
+                        <Form.Label className="fw-medium">Links</Form.Label>
+                        <InputGroup className="mb-3">
+                           <InputGroup.Text className="d-flex align-items-center pe-0">
+                              <i className="fa-brands fa-telegram fs-18 me-2" />
+                              <div className="color-grey">t.me/</div>
+                           </InputGroup.Text>
+                           <Form.Control
+                              placeholder=""
+                              aria-label="telegram"
+                              className="ps-0"
+                           />
+                        </InputGroup>
+                        <InputGroup className="mb-3">
+                           <InputGroup.Text className="d-flex align-items-center pe-0">
+                              <i className="fa-brands fa-twitter me-2" />
+                              <div className="color-grey">twitter.com/</div>
+                           </InputGroup.Text>
+                           <Form.Control
+                              placeholder=""
+                              aria-label="twitter"
+                              className="ps-0"
+                           />
+                        </InputGroup>
+                        <InputGroup className="mb-3">
+                           <InputGroup.Text className="d-flex align-items-center pe-0">
+                              <i className="fa-brands fa-discord me-2" />
+                              <div className="color-grey">discord.gg/</div>
+                           </InputGroup.Text>
+                           <Form.Control
+                              placeholder=""
+                              aria-label="discord"
+                              className="ps-0"
+                           />
+                        </InputGroup>
+                        <InputGroup className="mb-3">
+                           <InputGroup.Text className="d-flex align-items-center pe-0">
+                              <i className="fa-brands fa-youtube fs-18 me-2" />
+                              <div className="color-grey">youtube.com/</div>
+                           </InputGroup.Text>
+                           <Form.Control
+                              placeholder=""
+                              aria-label="youtube"
+                              className="ps-0"
+                           />
+                        </InputGroup>
+                        <InputGroup className="mb-3">
+                           <InputGroup.Text className="d-flex align-items-center pe-0">
+                              <i className="fa-brands fa-tiktok fs-18 me-2" />
+                              <div className="color-grey">tiktok.com/</div>
+                           </InputGroup.Text>
+                           <Form.Control
+                              placeholder=""
+                              aria-label="tiktok"
+                              className="ps-0"
+                           />
+                        </InputGroup>
+                        <InputGroup className="mb-3">
+                           <InputGroup.Text>
+                              <i className="fa-regular fa-link" />
+                           </InputGroup.Text>
+                           <Form.Control
+                              placeholder="Any link"
+                              aria-label="Anylink"
+                           />
+                        </InputGroup>
+                        <InputGroup className="mb-3">
+                           <InputGroup.Text>
+                              <i className="fa-regular fa-link" />
+                           </InputGroup.Text>
+                           <Form.Control
+                              placeholder="Any link"
+                              aria-label="Anylink"
+                           />
+                        </InputGroup>
+                     </Form.Group>
+                     <Button variant="primary w-100">Save</Button>
+                  </Form>
+               </Modal.Body>
+            </Modal.Dialog>
+         </div>
          <div className="modal fade" id="SelectTypeModal" tabIndex={-1} aria-labelledby="SelectTypeModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered mobile-modal-bottom">
                <div className="modal-content border-0">
@@ -465,7 +596,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                      </ul>
                      <div className="p-3 p-md-4 border rounded text-center mb-4">
                         <h4 className="fs-18 mb-4">Scan the QR code in Tonkeeper</h4>
-                        <img src="/assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
+                        <img src="./assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
                         <a href="#!" className="color-yellow d-block"><i className="fa-regular fa-copy me-2"></i> Copy address</a>
                      </div>
                      <button type="button" className="btn btn-secondary w-100" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
@@ -494,7 +625,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                      </ul>
                      <div className="p-3 p-md-4 border rounded text-center mb-4">
                         <h4 className="fs-18 mb-4">Scan the QR code in Tonkeeper</h4>
-                        <img src="/assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
+                        <img src="./assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
                         <a href="#!" className="color-yellow d-block"><i className="fa-regular fa-copy me-2"></i> Copy address</a>
                      </div>
                      <button type="button" className="btn btn-secondary w-100" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
@@ -512,7 +643,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                   <div className="modal-body">
                      <div className="p-3 p-md-4 border rounded text-center mb-4">
                         <div className="fs-18 mb-4">Scan the QR code and pay <span className="fw-bold">0.05 TON</span> <br /> to Tonkeeper</div>
-                        <img src="/assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
+                        <img src="./assets/img/qr-code.jpg" alt="" className="img-fluid rounded mb-3" width="300" height="300" />
                         <a href="#!" className="d-block"><i className="fa-regular fa-copy me-2"></i> Copy address</a>
                      </div>
                      <div className="alert alert-warning text-center mb-4">
@@ -532,7 +663,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                   </div>
                   <div className="modal-body">
                      <div className="d-flex align-items-center bg-soft rounded p-2 mb-4">
-                        <img className="rounded image-80x80" src="/assets/img/item-details-image.jpg" alt="Tergo Cat" />
+                        <img className="rounded image-80x80" src="./assets/img/item-details-image.jpg" alt="Tergo Cat" />
                         <div className="__body ms-3">
                            <h5 className="fs-18 mb-2">TON NFT Tegro Cat #101</h5>
                            <p className="mb-0 color-grey fs-14">TON NFT Tegro Cat</p>
@@ -689,7 +820,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                <div className="modal-content border-0">
                   <div className="modal-body">
                      <div className="d-flex align-items-center bg-soft rounded p-2 mb-4">
-                        <img className="rounded image-80x80" src="/assets/img/item-details-image.jpg" alt="Tergo Cat" />
+                        <img className="rounded image-80x80" src="./assets/img/item-details-image.jpg" alt="Tergo Cat" />
                         <div className="__body ms-3">
                            <h5 className="fs-18 mb-0">Your <span className="color-yellow">Tegro Cat #133 NFT</span>  <br /> successfully created</h5>
                         </div>

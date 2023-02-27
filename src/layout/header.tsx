@@ -64,12 +64,12 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
                ) : (
                   <div className="dropdown ms-auto d-block d-lg-none">
                      <Button id="dropdownMenuProfile" variant="none p-0 border-0" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/assets/img/no-user-pic.png" alt="" className="profile-image" width="42" height="42" />
+                        <img src="./assets/img/no-user-pic.png" alt="" className="profile-image" width="42" height="42" />
                      </Button>
                      <ul className="dropdown-menu me-0 end-0" aria-labelledby="dropdownMenuProfile">
                         <a className="dropdown-item py-3 px-2" href="/my-profile">
                            <div className="d-flex align-items-center ps-2">
-                              <img src="/assets/img/no-user-pic.png" alt="" className="profile-image me-3" width="42" height="42" />
+                              <img src="./assets/img/no-user-pic.png" alt="" className="profile-image me-3" width="42" height="42" />
                               <div className="__body">
                                  <div className="mb-2 text-white fw-medium fs-16">EQDHirL…4JiG</div>
                                  <div className="small d-flex align-items-center">
@@ -213,7 +213,7 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
                      ) : (
                         <NavDropdown title={
                            <>
-                              <img src="/assets/img/no-user-pic.png" alt="" className="profile-image" width="42" height="42" />
+                              <img src="./assets/img/no-user-pic.png" alt="" className="profile-image" width="42" height="42" />
                            </>
                         }
                            id="profile-nav-dropdown"
@@ -221,7 +221,7 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
                         >
                            <NavDropdown.Item href="#">
                               <div className="d-flex align-items-center ps-2">
-                                 <img src="/assets/img/no-user-pic.png" alt="" className="profile-image me-3" width="42" height="42" />
+                                 <img src="./assets/img/no-user-pic.png" alt="" className="profile-image me-3" width="42" height="42" />
                                  <div className="__body">
                                     <div className="mb-2 text-white fw-medium fs-16">EQDHirL…4JiG</div>
                                     <div className="small d-flex align-items-center">

@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-
 import { Button, Form, InputGroup, Row, Col, Container, Card, Badge, Dropdown, Tabs, Tab } from 'react-bootstrap'
-
 import { PageProps } from '../../types/interfaces'
+
 
 export const Profile: React.FC<PageProps> = (props: PageProps) => {
    const [firstRender, setFirstRender] = React.useState<boolean>(false)
@@ -20,33 +19,23 @@ export const Profile: React.FC<PageProps> = (props: PageProps) => {
 
    return (
       <div id={props.id}>
-         <section className="nft-hero hero__no-cover">
-            <img src="/assets/img/no-user-pic.png" className="nft-hero__image" loading="lazy" width="340" height="275" alt="Tegro Cat" />
-         </section>
+         {/* ! If the banner is not loaded !
+         <div className="nft-hero hero__no-cover" style={{backgroundImage: 'url(./assets/img/my-avatar.png) no-repeat center center / cover', width: '100%', height: '340px'}}></div>
+         */}
+         <div className="nft-hero" style={{ background: 'url(./assets/img/profile-banner.jpg) no-repeat center center / cover' }}></div>
          <main className="main-page">
             <section className="nft-collection section pt-0">
                <Container fluid>
                   <Row>
                      <Col lg="4" xxl="3" className="mb-4 mb-lg-0">
-                        <Card className="card-blur p-0 mb-4" style={{marginTop: '-75px'}}>
+                        <Card className="card-blur p-0 mb-4" style={{ marginTop: '-75px' }}>
                            <Card.Body className="p-2 p-xl-4">
                               <div className="d-flex mb-4">
-                                 <Card.Img variant="profile__avatar" src="/assets/img/no-user-pic.png" />
+                                 <Card.Img variant="profile__avatar" src="./assets/img/my-avatar.png" />
                                  <div className="ms-3 w-100">
-                                    <div className="d-flex">
-                                       <Card.Title className="fs-28 fw-bold mb-2 me-3 text-wrap">
-                                          NFactura
-                                       </Card.Title>
-                                       <Dropdown className="ms-auto">
-                                          <Dropdown.Toggle variant="icon" id="dropdown-social">
-                                             <i className="fa-solid fa-ellipsis-vertical" />
-                                          </Dropdown.Toggle>
-                                          <Dropdown.Menu className="mt-2 fs-14">
-                                             <Dropdown.Item href="#"><i className="fa-regular fa-flag me-3" /> Report</Dropdown.Item>
-                                             <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                                          </Dropdown.Menu>
-                                       </Dropdown>
-                                    </div>
+                                    <Card.Title className="fs-28 fw-bold mb-2 me-3 text-wrap">
+                                       uNerd
+                                    </Card.Title>
                                     <Card.Text className="d-flex align-items-center color-grey">
                                        <span>EQCioGF…mvYl</span>
                                        <a href="#!" className="ms-3">
@@ -55,31 +44,18 @@ export const Profile: React.FC<PageProps> = (props: PageProps) => {
                                     </Card.Text>
                                  </div>
                               </div>
-                              <Dropdown>
-                                 <div className="libermall__soclinks flex-wrap">
-                                    <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-telegram" /></a>
-                                    <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-discord" /></a>
-                                    <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-instagram" /></a>
-                                    <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-linkedin-in" /></a>
-                                    <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-reddit-alien" /></a>
-                                    <Dropdown.Toggle variant="none libermall__soclinks-item m-1 m-1" id="dropdown-basic">
-                                       +5
-                                    </Dropdown.Toggle>
-                                 </div>
-                                 <Dropdown.Menu className="mt-2 fs-14">
-                                    <Dropdown.Item href="#">
-                                       <i className="fa-brands fa-youtube me-3" />
-                                       Youtube
-                                    </Dropdown.Item>
-                                    <Dropdown.Item href="#">
-                                       <i className="fa-brands fa-telegram me-3" />
-                                       @tegrocatnft
-                                    </Dropdown.Item>
-                                 </Dropdown.Menu>
-                              </Dropdown>
+                              <div className="libermall__soclinks flex-wrap">
+                                 <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-telegram" /></a>
+                                 <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-discord" /></a>
+                                 <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-reddit-alien" /></a>
+                              </div>
                            </Card.Body>
+                           <Button variant="secondary rounded-0" data-bs-toggle="modal" data-bs-target="#EditProfileModal">
+                              Edit profile
+                              <i className="fa-regular fa-pen-to-square ms-3" />
+                           </Button>
                         </Card>
-                        <div id="open-filters" className="modal-mobile position-sticky" style={{ top: '90px' }}>
+                        <div id="open-filters" className="modal-mobile">
                            <Card className="card-filters bg-transparent">
                               <div className="d-flex align-items-center py-4 border-bottom">
                                  <Card.Title className="card-title fs-22 fw-bold m-0">
@@ -156,6 +132,57 @@ export const Profile: React.FC<PageProps> = (props: PageProps) => {
                                     />
                                  </div>
                               </Card.Body>
+                              <Card.Body className="p-0 border-bottom">
+                                 <Button
+                                    variant="none"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseCollectionType"
+                                    aria-expanded="true"
+                                    aria-controls="collapseCollectionType"
+                                    className="d-flex align-items-center py-4 w-100"
+                                 >
+                                    <Card.Title className="card-filters__name fs-18 m-0">Collection</Card.Title>
+                                    <i className="fa-solid fa-angle-down ms-auto" />
+                                 </Button>
+                                 <div id="collapseCollectionType" className="collapse show">
+                                    <Form.Check name="checkbox" type="checkbox" id="flexCheck-collection-1" className="hover p-3 mb-1 w-100"
+                                       label={
+                                          <>
+                                             <img className="card-img-collection mx-3 rounded-12" src="./assets/img/collections/1.gif" style={{ width: '40px', height: '40px' }} />
+                                             <Card.Title className="d-flex align-items-center mb-0 fs-18">
+                                                Animals Red List
+                                                <span className="verified-icon ms-2" />
+                                             </Card.Title>
+                                             <div className="color-grey fw-medium small ms-auto">8</div>
+                                          </>
+                                       }
+                                    />
+                                    <Form.Check name="checkbox" type="checkbox" id="flexCheck-collection-2" className="hover p-3 mb-1 w-100"
+                                       label={
+                                          <>
+                                             <img className="card-img-collection mx-3 rounded-12" src="./assets/img/collections/15.jpg" style={{ width: '40px', height: '40px' }} />
+                                             <Card.Title className="d-flex align-items-center mb-0 fs-18">
+                                                Fantastic beasts
+                                                <span className="verified-icon ms-2" />
+                                             </Card.Title>
+                                             <div className="color-grey fw-medium small ms-auto">14</div>
+                                          </>
+                                       }
+                                    />
+                                    <Form.Check name="checkbox" type="checkbox" id="flexCheck-collection-3" className="hover p-3 mb-1 w-100"
+                                       label={
+                                          <>
+                                             <img className="card-img-collection mx-3 rounded-12" src="./assets/img/collections/14.jpg" style={{ width: '40px', height: '40px' }} />
+                                             <Card.Title className="d-flex align-items-center mb-0 fs-18">
+                                                Superhero
+                                                <span className="verified-icon ms-2" />
+                                             </Card.Title>
+                                             <div className="color-grey fw-medium small ms-auto">2</div>
+                                          </>
+                                       }
+                                    />
+                                 </div>
+                              </Card.Body>
                            </Card>
                         </div>
                      </Col>
@@ -165,7 +192,7 @@ export const Profile: React.FC<PageProps> = (props: PageProps) => {
                            transition={true}
                            id="tab__collection"
                            className="mb-3"
-                           variant="pills collections__nav mt-5"
+                           variant="pills collections__nav mt-3"
                         >
                            <Tab eventKey="Collected" title="Collected">
                               <div className="d-block d-lg-flex flex-wrap align-items-center my-4">
@@ -492,6 +519,9 @@ export const Profile: React.FC<PageProps> = (props: PageProps) => {
                                     </Card>
                                  </Col>
                               </Row>
+                           </Tab>
+                           <Tab eventKey="MyOffers" title="My Offers">
+
                            </Tab>
                         </Tabs>
                      </Col>

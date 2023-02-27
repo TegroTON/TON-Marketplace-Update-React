@@ -17,8 +17,8 @@
     --soft-green: rgb(41 255 107 / .1);
     --purple: #8829ff;
     --soft-purple: rgb(243 72 66 / 0.03);
-    --red: #f34842;
-    --soft-red: rgb(255 41 104 / .1);
+    --red: #ff3347;
+    --soft-red: rgb(255 51 71 / 0.2);
     --aqua: #2af1ff;
     --yellow-gradient: linear-gradient(270deg, #ffb665 0%, #fed84d 100%);
     --font-Inter: 'Inter', sans-serif;
@@ -77,6 +77,17 @@ body {
 
 .dropdown-toggle::after {
     display: none;
+}
+
+.btn-link {
+    text-transform: unset;
+    text-decoration: none;
+    padding: 0;
+    color: var(--text-secondary);
+}
+
+.btn-link:hover {
+    color: var(--yellow);
 }
 
 .btn.btn-sm {
@@ -398,14 +409,6 @@ h4 {
     margin-bottom: 56px;
 }
 
-.mt--100 {
-    margin-top: -200px;
-}
-
-.mt--60 {
-    margin-top: -60px;
-}
-
 .pt-150 {
     padding-top: 150px !important;
 }
@@ -682,6 +685,11 @@ h4 {
     display: flex;
     align-items: center;
     border-radius: 12px;
+    transition: 0.2s all;
+}
+
+.form-check:active {
+    transform: scale(0.98);
 }
 
 .form-check-label {
@@ -1898,10 +1906,8 @@ h4 {
 
 .nft-hero {
     min-width: 100%;
-    min-height: 340px;
-    margin: 0 0 -24px 0;
+    min-height: 240px;
     padding: 0;
-    background: var(--bg-secondary);
     position: relative;
 }
 

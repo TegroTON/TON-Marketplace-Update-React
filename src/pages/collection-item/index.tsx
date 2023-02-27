@@ -85,10 +85,10 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                         <Row>
                            <Col xl="6" className="mx-auto mb-4">
                               <Card className="hover border">
-                                 <a href="/profile" className="text-white">
+                                 <a href="/user1" className="text-white">
                                     <Card.Title className="color-grey fs-14 mb-4">Owner</Card.Title>
                                     <div className="d-flex align-items-center">
-                                       <Card.Img variant="none img-fluid rounded-circle" src="/assets/img/author/author-12.jpg" width={40} height={40} />
+                                       <Card.Img variant="none img-fluid rounded-circle" src="./assets/img/author/author-12.jpg" width={40} height={40} />
                                        <div className="fs-16 ms-3">NFT Tegro</div>
                                        <i className="fa-solid fa-angle-right color-grey ms-auto" />
                                     </div>
@@ -100,7 +100,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  <a href="/collection" className="text-white">
                                     <Card.Title className="color-grey fs-14 mb-4">Collection</Card.Title>
                                     <div className="d-flex align-items-center">
-                                       <Card.Img variant="none img-fluid rounded-circle" src="/assets/img/author/author-17.jpg" width={40} height={40} />
+                                       <Card.Img variant="none img-fluid rounded-circle" src="./assets/img/author/author-17.jpg" width={40} height={40} />
                                        <div className="fs-16 ms-3">Cat Metaverse</div>
                                        <i className="fa-solid fa-angle-right color-grey ms-auto" />
                                     </div>
@@ -263,8 +263,8 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  </div>
                               </td>
                               <td className="text-end">
-                                 <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-end" target="_blank">
-                                    <img src="/assets/img/no-user-pic.png" className="table-stats__avatar" alt="" />
+                                 <a href="/user1" className="table-stats__from d-flex align-items-center justify-content-end" target="_blank">
+                                    <img src="./assets/img/user-avatar.png" className="table-stats__avatar" alt="" />
                                     <div className="table-stats__address ms-2">Artinox</div>
                                  </a>
                               </td>
@@ -292,7 +292,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               </td>
                               <td className="text-end">
                                  <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-end" target="_blank">
-                                    <img src="/assets/img/no-user-pic.png" className="table-stats__avatar" alt="" />
+                                    <img src="./assets/img/user-avatar.png" className="table-stats__avatar" alt="" />
                                     <div className="table-stats__address ms-2">Artinox</div>
                                  </a>
                               </td>
@@ -323,7 +323,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               </td>
                               <td className="text-end">
                                  <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-end" target="_blank">
-                                    <img src="/assets/img/no-user-pic.png" className="table-stats__avatar" alt="" />
+                                    <img src="./assets/img/user-avatar.png" className="table-stats__avatar" alt="" />
                                     <div className="table-stats__address ms-2">Artinox</div>
                                  </a>
                               </td>
@@ -351,7 +351,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               </td>
                               <td className="text-end">
                                  <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-end" target="_blank">
-                                    <img src="/assets/img/no-user-pic.png" className="table-stats__avatar" alt="" />
+                                    <img src="./assets/img/user-avatar.png" className="table-stats__avatar" alt="" />
                                     <div className="table-stats__address ms-2">Artinox</div>
                                  </a>
                               </td>

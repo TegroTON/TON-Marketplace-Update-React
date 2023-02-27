@@ -22,12 +22,12 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
          <section className="nft-hero">
             <img src="./assets/img/profile-header.webp" className="nft-hero__image" loading="lazy" width="340" height="275" alt="Tegro Cat" />
          </section>
-         <main className="main-page">
+         <main className="main-page" style={{marginTop: '-65px'}}>
             <section className="nft-collection section pt-0">
                <Container fluid>
                   <Row>
                      <Col lg="4" xxl="3" className="mb-4 mb-lg-0">
-                        <Card className="card-blur p-0 mt--100 mb-4">
+                        <Card className="card-blur p-0 mb-4" style={{marginTop: '-135px'}}>
                            <Card.Body className="p-2 p-xl-4">
                               <div className="d-flex mb-4">
                                  <Card.Img variant="profile__avatar" src="assets/img/profile-avatar.png" />
@@ -54,15 +54,15 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                                     </Card.Text>
                                  </div>
                               </div>
-                              <Card.Text className="mb-4">
+                              <div className="mb-4">
                                  <div className="mb-2">
                                     Cat Metaverse are unique NFTs with cats created only for the TON network. Our TON NFT "Cats" is a community
                                     of 9,999 super-rare ...
                                  </div>
-                                 <div className="color-grey small">
+                                 <Button variant="link">
                                     See More <i className="fa-solid fa-angle-down ms-2" />
-                                 </div>
-                              </Card.Text>
+                                 </Button>
+                              </div>
                               <Dropdown>
                                  <div className="libermall__soclinks flex-wrap">
                                     <a href="#!" className="libermall__soclinks-item m-1"><i className="fa-brands fa-telegram" /></a>
@@ -1090,14 +1090,14 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                                              <div className="d-flex me-2 mb-1 mb-md-0">
                                                 <span className="color-grey me-2">transferred from</span>
                                                 <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
-                                                   <img src="/assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                                   <img src="./assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
                                                    <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
                                                 </a>
                                              </div>
                                              <div className="d-flex">
                                                 <span className="color-grey me-2">to</span>
                                                 <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
-                                                   <img src="/assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                                   <img src="./assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
                                                    <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0xa83425b17824e9717155094ce3effbec907665de</span>
                                                 </a>
                                              </div>
@@ -1118,14 +1118,14 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                                              <div className="d-flex me-2 mb-1 mb-md-0">
                                                 <span className="color-grey me-2">transferred from</span>
                                                 <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
-                                                   <img src="/assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                                   <img src="./assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
                                                    <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
                                                 </a>
                                              </div>
                                              <div className="d-flex">
                                                 <span className="color-grey me-2">to</span>
                                                 <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
-                                                   <img src="/assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                                   <img src="./assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
                                                    <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0xa83425b17824e9717155094ce3effbec907665de</span>
                                                 </a>
                                              </div>
@@ -1146,14 +1146,14 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                                              <div className="d-flex me-2 mb-1 mb-md-0">
                                                 <span className="color-grey me-2">transferred from</span>
                                                 <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
-                                                   <img src="/assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                                   <img src="./assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
                                                    <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
                                                 </a>
                                              </div>
                                              <div className="d-flex">
                                                 <span className="color-grey me-2">to</span>
                                                 <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
-                                                   <img src="/assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                                   <img src="./assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
                                                    <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0xa83425b17824e9717155094ce3effbec907665de</span>
                                                 </a>
                                              </div>
@@ -1174,14 +1174,14 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                                              <div className="d-flex me-2 mb-1 mb-md-0">
                                                 <span className="color-grey me-2">transferred from</span>
                                                 <a href="#!" className="d-flex align-items-center text-white" title="0x1ee3151cff01321059e3865214379b85c79ca984">
-                                                   <img src="/assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                                   <img src="./assets/img/user-1.svg" alt="" className="rounded-circle" width={16} height={16} />
                                                    <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0x1ee3151cff01321059e3865214379b85c79ca984</span>
                                                 </a>
                                              </div>
                                              <div className="d-flex">
                                                 <span className="color-grey me-2">to</span>
                                                 <a href="#!" className="d-flex align-items-center text-white" title="0xa83425b17824e9717155094ce3effbec907665de">
-                                                   <img src="/assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
+                                                   <img src="./assets/img/user-2.svg" alt="" className="rounded-circle" width={16} height={16} />
                                                    <span className="ms-2 d-block text-truncate" style={{ maxWidth: '116px' }}>0xa83425b17824e9717155094ce3effbec907665de</span>
                                                 </a>
                                              </div>

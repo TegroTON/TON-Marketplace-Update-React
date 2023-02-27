@@ -24,13 +24,13 @@ import { Main } from './pages/main'
 import { Explore } from './pages/explore'
 import { Rankings } from './pages/rankings'
 import { Collection } from './pages/collection'
-import { Profile } from './pages/profile'
+import { User1 } from './pages/user1'
 import { SuccessfullyPut } from './pages/successfully-put'
 import { CreateNft } from './pages/create-nft'
 import { NotFound404 } from './pages/404'
 import { EditProfile } from './pages/edit-profile'
 import { CollectionItem } from './pages/collection-item'
-import { MyProfile } from './pages/my-profile'
+import { Profile } from './pages/profile'
 
 import { HeaderBlock } from './layout/header'
 import { FooterBlock } from './layout/footer'
@@ -308,9 +308,9 @@ export const App: React.FC = () => {
                             />
                     } />
 
-                    <Route path="/profile" element={
-                            <Profile
-                                id="profile1"
+                    <Route path="/user1" element={
+                            <User1
+                                id="user1"
                                 setActiveModal={setActiveModal}
                                 consoleLog={consoleLog}
                                 isDesktop={isDesktop}
@@ -359,9 +359,9 @@ export const App: React.FC = () => {
                                 />
                         } />
 
-                    <Route path="/my-profile" element={
-                                <MyProfile
-                                    id="my-profile1"
+                    <Route path="/profile" element={
+                                <Profile
+                                    id="profile1"
                                     setActiveModal={setActiveModal}
                                     consoleLog={consoleLog}
                                     isDesktop={isDesktop}
