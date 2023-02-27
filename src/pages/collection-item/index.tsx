@@ -26,8 +26,8 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                <Container fluid>
                   <Breadcrumb className="mb-5">
                      <Breadcrumb.Item href="/explore">Explore</Breadcrumb.Item>
-                     <Breadcrumb.Item href="/collection">Cat Metaverse</Breadcrumb.Item>
-                     <Breadcrumb.Item active>TON NFT Tegro Cat (6452)</Breadcrumb.Item>
+                     <Breadcrumb.Item href="/collection">Cute Monters</Breadcrumb.Item>
+                     <Breadcrumb.Item active>ZubazzzTik (2684)</Breadcrumb.Item>
                   </Breadcrumb>
                   <Row className="justify-content-center mb-4">
                      <Col lg="5" className="mb-4 mb-lg-0">
@@ -53,16 +53,16 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  </Dropdown.Menu>
                               </Dropdown>
                            </div>
-                           <h1 className="item-details__title mb-3">TON NFT Tegro Cat (6452)</h1>
+                           <h1 className="item-details__title mb-3">ZubazzzTik (2684)</h1>
                            <p className="item-details__desc mb-0">
-                              TON Tegro Cat are unique NFTs with cats created only for the TON network. Our TON NFT "Cats"
+                              ZubazzzTik are unique NFTs with cats created only for the TON network. Our TON NFT "Cats"
                               is a community of 9,999 super-rare, artfully crafted, collectible cats. Each Cat is an individual being.
                               The collection was created by the TegroMoney team, the creators of the TGR token on The Open Network blockchain.
                            </p>
                         </div>
 
                         <Card className="border mb-4">
-                           <Card.Body className="">
+                           <Card.Body>
                               <div className="d-flex align-items-center">
                                  <div className="d-block text-uppercase fs-18 fw-medium">Price:</div>
                                  <div className="price-item__ton d-block ms-auto">43.9 TON</div>
@@ -75,6 +75,10 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  <Button variant="primary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Buy Now</Button>
                                  <Button variant="secondary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal"><i className="fa-solid fa-tag me-3"></i>Make Offer</Button>
                               </div>
+                              {/* <div className="d-flex flex-wrap">
+                                 <Button variant="primary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Buy Now</Button>
+                                 <Button variant="secondary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal"><i className="fa-solid fa-tag me-3"></i>Make Offer</Button>
+                              </div> */}
                            </Card.Body>
                         </Card>
 
@@ -217,7 +221,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                      <Card.Header className="px-4 py-3 border-bottom d-flex align-items-center">
                         <Card.Title>
                            <i className="fa-solid fa-arrow-down-arrow-up me-3"></i>
-                           Transaction History
+                           Item Activity
                         </Card.Title>
                         <Dropdown className="ms-auto">
                            <Dropdown.Toggle variant="secondary w-100">
@@ -232,124 +236,156 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                            </Dropdown.Menu>
                         </Dropdown>
                      </Card.Header>
-                     <Table responsive className="text-white mb-0">
+                     <Table responsive className="table-stats mb-0">
                         <thead className="bg-soft">
                            <tr className="border-bottom">
                               <th scope="col" className="p-4">Type</th>
-                              <th scope="col" className="p-4">Price</th>
-                              <th scope="col" className="p-4">From</th>
+                              <th scope="col" className="p-4 text-end">Price</th>
+                              <th scope="col" className="p-4 text-end">From</th>
                               <th scope="col" className="p-4">To</th>
-                              <th scope="col" className="p-4">Date</th>
+                              <th scope="col" className="p-4 text-end">Time</th>
                            </tr>
                         </thead>
                         <tbody>
-                           <tr className="border-bottom hover">
-                              <td className="p-4">
-                                 <i className="fa-regular fa-cart-shopping-fast fs-18 me-3" />
-                                 <span className="fw-medium">Sale</span>
+                           <tr>
+                              <td>
+                                 <div className="table-stats d-flex align-items-center">
+                                    <div className="table-stats__icon fs-18 me-3">
+                                       <i className="fa-regular fa-circle-plus" />
+                                    </div>
+                                    <span className="table-stats__name fw-medium">Put up for sale</span>
+                                 </div>
                               </td>
-                              <td className="p-4">38 TON</td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />EQDZr7KDKG0R4Kyauz-iRetnuY7nMKXFIEQn4-44vzygNEvj
+                              <td>
+                                 <div className="table-stats__price text-end">
+                                    <div className="mb-1">3 TON</div>
+                                    <div className="fs-14 color-grey">$2,45</div>
+                                 </div>
+                              </td>
+                              <td className="text-end">
+                                 <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-end" target="_blank">
+                                    <img src="/assets/img/no-user-pic.png" className="table-stats__avatar" alt="" />
+                                    <div className="table-stats__address ms-2">Artinox</div>
                                  </a>
                               </td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />antonov
-                                 </a>
+                              <td>
+                                 -
                               </td>
-                              <td className="p-4"><i className="fa-regular fa-timer me-3" /> 2 hours ago</td>
+                              <td className="text-end">
+                                 2 hours ago
+                              </td>
                            </tr>
-                           <tr className="border-bottom hover">
-                              <td className="p-4">
-                                 <i className="fa-regular fa-arrow-right-arrow-left me-3" />
-                                 <span className="fw-medium">Transfer</span>
+                           <tr>
+                              <td>
+                                 <div className="table-stats d-flex align-items-center">
+                                    <div className="table-stats__icon fs-18 me-3">
+                                       <i className="fa-regular fa-cart-shopping-fast" />
+                                    </div>
+                                    <span className="table-stats__name fw-medium">Sale</span>
+                                 </div>
                               </td>
-                              <td className="p-4"></td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />EQDZr7KDKG0R4Kyauz-iRetnuY7nMKXFIEQn4-44vzygNEvj
+                              <td>
+                                 <div className="table-stats__price text-end">
+                                    <div className="mb-1">3 TON</div>
+                                    <div className="fs-14 color-grey">$2,45</div>
+                                 </div>
+                              </td>
+                              <td className="text-end">
+                                 <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-end" target="_blank">
+                                    <img src="/assets/img/no-user-pic.png" className="table-stats__avatar" alt="" />
+                                    <div className="table-stats__address ms-2">Artinox</div>
                                  </a>
                               </td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />antonov
+                              <td>
+                                 <a href="/profile" className="table-stats__from d-flex align-items-center" target="_blank">
+                                    <img src="./assets/img/nfts/nft-1.png" className="table-stats__avatar" alt="" />
+                                    <div className="table-stats__address ms-2">EQDZr7KDKG0R4Kyauz-iRetnuY7nMKXFIEQn4-44vzygNEvj</div>
                                  </a>
                               </td>
-                              <td className="p-4"><i className="fa-regular fa-timer me-3" /> 12 hours ago</td>
+                              <td className="text-end">
+                                 3 min ago
+                              </td>
                            </tr>
-                           <tr className="border-bottom hover">
-                              <td className="p-4">
-                                 <i className="fa-solid fa-solid fa-sparkles me-3" />
-                                 <span className="fw-medium">Minted</span>
+                           <tr>
+                              <td>
+                                 <div className="table-stats d-flex align-items-center">
+                                    <div className="table-stats__icon fs-18 me-3">
+                                       <i className="fa-regular fa-ban" />
+                                    </div>
+                                    <span className="table-stats__name fw-medium">Sale cancellation</span>
+                                 </div>
                               </td>
-                              <td className="p-4">40 TON</td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />EQDZr7KDKG0R4Kyauz-iRetnuY7nMKXFIEQn4-44vzygNEvj
+                              <td>
+                                 <div className="table-stats__price text-end">
+                                    <div className="mb-1">3 TON</div>
+                                    <div className="fs-14 color-grey">$2,45</div>
+                                 </div>
+                              </td>
+                              <td className="text-end">
+                                 <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-end" target="_blank">
+                                    <img src="/assets/img/no-user-pic.png" className="table-stats__avatar" alt="" />
+                                    <div className="table-stats__address ms-2">Artinox</div>
                                  </a>
                               </td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />antonov
-                                 </a>
+                              <td>
+                                 -
                               </td>
-                              <td className="p-4"><i className="fa-regular fa-timer me-3" /> 1 day ago</td>
+                              <td className="text-end">
+                                 12 min ago
+                              </td>
                            </tr>
-                           <tr className="border-bottom hover">
-                              <td className="p-4">
-                                 <i className="fa-regular fa-cart-shopping-fast fs-18 me-3" />
-                                 <span className="fw-medium">Sale</span>
+                           <tr>
+                              <td>
+                                 <div className="table-stats d-flex align-items-center">
+                                    <div className="table-stats__icon fs-18 me-3">
+                                       <i className="fa-regular fa-cart-shopping-fast" />
+                                    </div>
+                                    <span className="table-stats__name fw-medium">Sale</span>
+                                 </div>
                               </td>
-                              <td className="p-4">38 TON</td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />EQDZr7KDKG0R4Kyauz-iRetnuY7nMKXFIEQn4-44vzygNEvj
+                              <td>
+                                 <div className="table-stats__price text-end">
+                                    <div className="mb-1">3 TON</div>
+                                    <div className="fs-14 color-grey">$2,45</div>
+                                 </div>
+                              </td>
+                              <td className="text-end">
+                                 <a href="/profile" className="table-stats__from d-flex align-items-center justify-content-end" target="_blank">
+                                    <img src="/assets/img/no-user-pic.png" className="table-stats__avatar" alt="" />
+                                    <div className="table-stats__address ms-2">Artinox</div>
                                  </a>
                               </td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />antonov
+                              <td>
+                                 <a href="/profile" className="table-stats__from d-flex align-items-center" target="_blank">
+                                    <img src="./assets/img/nfts/nft-2.png" className="table-stats__avatar" alt="" />
+                                    <div className="table-stats__address ms-2">iRetnuY7nMKXFEQDZr7KDKG0R4Kyauz-IEQn4-44vzygNEvj</div>
                                  </a>
                               </td>
-                              <td className="p-4"><i className="fa-regular fa-timer me-3" /> 2 hours ago</td>
+                              <td className="text-end">
+                                 3 min ago
+                              </td>
                            </tr>
-                           <tr className="border-bottom hover">
-                              <td className="p-4">
-                                 <i className="fa-regular fa-arrow-right-arrow-left me-3" />
-                                 <span className="fw-medium">Transfer</span>
+                           <tr>
+                              <td>
+                                 <div className="table-stats d-flex align-items-center">
+                                    <div className="table-stats__icon fs-18 me-3">
+                                       <i className="fa-regular fa-cart-shopping-fast" />
+                                    </div>
+                                    <span className="table-stats__name fw-medium">Mitn</span>
+                                 </div>
                               </td>
-                              <td className="p-4"></td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />EQDZr7KDKG0R4Kyauz-iRetnuY7nMKXFIEQn4-44vzygNEvj
-                                 </a>
+                              <td>
+                                 -
                               </td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />antonov
-                                 </a>
+                              <td className="text-end">
+                                 -
                               </td>
-                              <td className="p-4"><i className="fa-regular fa-timer me-3" /> 12 hours ago</td>
-                           </tr>
-                           <tr className="border-0 hover">
-                              <td className="p-4">
-                                 <i className="fa-solid fa-solid fa-sparkles me-3" />
-                                 <span className="fw-medium">Minted</span>
+                              <td>
+                                 -
                               </td>
-                              <td className="p-4">40 TON</td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />EQDZr7KDKG0R4Kyauz-iRetnuY7nMKXFIEQn4-44vzygNEvj
-                                 </a>
+                              <td className="text-end">
+                                 12 hours ago
                               </td>
-                              <td className="p-4">
-                                 <a href="/profile" className="d-block text-truncate" target="_blank" style={{ maxWidth: '150px' }}>
-                                    <i className="fa-regular fa-circle-user me-3" />antonov
-                                 </a>
-                              </td>
-                              <td className="p-4"><i className="fa-regular fa-timer me-3" /> 1 day ago</td>
                            </tr>
                         </tbody>
                      </Table>
