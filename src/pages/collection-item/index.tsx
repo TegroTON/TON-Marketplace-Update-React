@@ -39,6 +39,12 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                         <div className="card-item-details mb-5">
                            <div className="card-item-head d-flex mb-4">
                               <div className="item-details__badge badge__green me-auto">For Sale</div>
+
+                              {/*   @! Badge For Auction Page !@    
+
+                              <div className="item-details__badge badge__purple me-auto">Up for auction</div> 
+                              */}
+
                               <Button variant="icon btn-like me-3">
                                  <i className="fa-regular fa-heart fs-18 me-2" />
                                  <span className="d-block d-sm-inline fw-500">24</span>
@@ -54,7 +60,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               </Dropdown>
                            </div>
                            <h1 className="item-details__title mb-3">ZubazzzTik (2684)</h1>
-                           <p className="item-details__desc mb-0">
+                           <p className="item-details__desc col-xxl-9 mb-0">
                               ZubazzzTik are unique NFTs with cats created only for the TON network. Our TON NFT "Cats"
                               is a community of 9,999 super-rare, artfully crafted, collectible cats. Each Cat is an individual being.
                               The collection was created by the TegroMoney team, the creators of the TGR token on The Open Network blockchain.
@@ -62,7 +68,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                         </div>
 
                         <Card className="border mb-4">
-                           <Card.Body>
+                           <Card.Body className="p-0 p-lg-3">
                               <div className="d-flex align-items-center">
                                  <div className="d-block text-uppercase fs-18 fw-medium">Price:</div>
                                  <div className="price-item__ton d-block ms-auto">43.9 TON</div>
@@ -75,10 +81,20 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  <Button variant="primary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Buy Now</Button>
                                  <Button variant="secondary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#MakeOfferModal"><i className="fa-solid fa-tag me-3"></i>Make Offer</Button>
                               </div>
-                              {/* <div className="d-flex flex-wrap">
+
+                              {/*  @! Block For Auction Page !@   
+
+                              <div className="d-flex flex-wrap">
                                  <Button variant="primary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Buy Now</Button>
-                                 <Button variant="secondary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal"><i className="fa-solid fa-tag me-3"></i>Make Offer</Button>
-                              </div> */}
+                                 <Button variant="secondary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#PlaceAbidModal">
+                                    Place a bid
+                                 </Button>
+                                 <Button variant="secondary flex-fill w-100 m-1" data-bs-toggle="modal" data-bs-target="#MakeOfferModal">
+                                    <i className="fa-solid fa-tag me-3"></i>Make Offer
+                                 </Button>
+                              </div> 
+                              */}
+
                            </Card.Body>
                         </Card>
 
@@ -109,7 +125,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                            </Col>
                         </Row>
                         <Card className="border mb-4">
-                           <Card.Body>
+                           <Card.Body className="p-0 p-lg-3">
                               <Card.Title className="mb-4">Details</Card.Title>
                               <ListGroup variant="flush" className="p-0 bg-transparent">
                                  <ListGroup.Item className="p-0 border-0 mb-3">
@@ -141,79 +157,81 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                         </Card>
 
                         <Card className="border">
-                           <Card.Title className="mb-4">Attributes</Card.Title>
-                           <Row>
-                              <Col lg="6" className="mb-3">
-                                 <a href="#!" className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
-                                    <div className="me-auto">
-                                       <span className="d-block fs-14 fw-medium color-grey mb-2">Background</span>
-                                       <span className="d-block fw-medium">Orange</span>
-                                    </div>
-                                    <div className="fs-14">
-                                       <div className="d-block fw-medium color-grey mb-2">Rarity</div>
-                                       <span>22/100</span>
-                                       <span className="mx-1">~</span>
-                                       <span className="fw-medium">17.1%</span>
-                                    </div>
-                                 </a>
-                              </Col>
-                              <Col lg="6" className="mb-3">
-                                 <a href="#!" className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
-                                    <div className="me-auto">
-                                       <span className="d-block fs-14 fw-medium color-grey mb-2">Expression</span>
-                                       <span className="d-block fw-medium">Brown Eyes</span>
-                                    </div>
-                                    <div className="fs-14">
-                                       <div className="d-block fw-medium color-grey mb-2">Rarity</div>
-                                       <span>22/100</span>
-                                       <span className="mx-1">~</span>
-                                       <span className="fw-medium">17.1%</span>
-                                    </div>
-                                 </a>
-                              </Col>
-                              <Col lg="6" className="mb-3">
-                                 <a href="#!" className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
-                                    <div className="me-auto">
-                                       <span className="d-block fs-14 fw-medium color-grey mb-2">Hairstyle</span>
-                                       <span className="d-block fw-medium">Double Ponies</span>
-                                    </div>
-                                    <div className="fs-14">
-                                       <div className="d-block fw-medium color-grey mb-2">Rarity</div>
-                                       <span>22/100</span>
-                                       <span className="mx-1">~</span>
-                                       <span className="fw-medium">17.1%</span>
-                                    </div>
-                                 </a>
-                              </Col>
-                              <Col lg="6" className="mb-3">
-                                 <a href="#!" className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
-                                    <div className="me-auto">
-                                       <span className="d-block fs-14 fw-medium color-grey mb-2">Outfit</span>
-                                       <span className="d-block fw-medium">Qipao</span>
-                                    </div>
-                                    <div className="fs-14">
-                                       <div className="d-block fw-medium color-grey mb-2">Rarity</div>
-                                       <span>22/100</span>
-                                       <span className="mx-1">~</span>
-                                       <span className="fw-medium">17.1%</span>
-                                    </div>
-                                 </a>
-                              </Col>
-                              <Col lg="6" className="mb-3">
-                                 <a href="#!" className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
-                                    <div className="me-auto">
-                                       <span className="d-block fs-14 fw-medium color-grey mb-2">Prop</span>
-                                       <span className="d-block fw-medium">Lolipop</span>
-                                    </div>
-                                    <div className="fs-14">
-                                       <div className="d-block fw-medium color-grey mb-2">Rarity</div>
-                                       <span>22/100</span>
-                                       <span className="mx-1">~</span>
-                                       <span className="fw-medium">17.1%</span>
-                                    </div>
-                                 </a>
-                              </Col>
-                           </Row>
+                           <Card.Body className="p-0 p-lg-3">
+                              <Card.Title className="mb-4">Attributes</Card.Title>
+                              <Row>
+                                 <Col lg="6" className="mb-3">
+                                    <a href="#!" className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
+                                       <div className="me-auto">
+                                          <span className="d-block fs-14 fw-medium color-grey mb-2">Background</span>
+                                          <span className="d-block fw-medium">Orange</span>
+                                       </div>
+                                       <div className="fs-14">
+                                          <div className="d-block fw-medium color-grey mb-2">Rarity</div>
+                                          <span>22/100</span>
+                                          <span className="mx-1">~</span>
+                                          <span className="fw-medium">17.1%</span>
+                                       </div>
+                                    </a>
+                                 </Col>
+                                 <Col lg="6" className="mb-3">
+                                    <a href="#!" className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
+                                       <div className="me-auto">
+                                          <span className="d-block fs-14 fw-medium color-grey mb-2">Expression</span>
+                                          <span className="d-block fw-medium">Brown Eyes</span>
+                                       </div>
+                                       <div className="fs-14">
+                                          <div className="d-block fw-medium color-grey mb-2">Rarity</div>
+                                          <span>22/100</span>
+                                          <span className="mx-1">~</span>
+                                          <span className="fw-medium">17.1%</span>
+                                       </div>
+                                    </a>
+                                 </Col>
+                                 <Col lg="6" className="mb-3">
+                                    <a href="#!" className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
+                                       <div className="me-auto">
+                                          <span className="d-block fs-14 fw-medium color-grey mb-2">Hairstyle</span>
+                                          <span className="d-block fw-medium">Double Ponies</span>
+                                       </div>
+                                       <div className="fs-14">
+                                          <div className="d-block fw-medium color-grey mb-2">Rarity</div>
+                                          <span>22/100</span>
+                                          <span className="mx-1">~</span>
+                                          <span className="fw-medium">17.1%</span>
+                                       </div>
+                                    </a>
+                                 </Col>
+                                 <Col lg="6" className="mb-3">
+                                    <a href="#!" className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
+                                       <div className="me-auto">
+                                          <span className="d-block fs-14 fw-medium color-grey mb-2">Outfit</span>
+                                          <span className="d-block fw-medium">Qipao</span>
+                                       </div>
+                                       <div className="fs-14">
+                                          <div className="d-block fw-medium color-grey mb-2">Rarity</div>
+                                          <span>22/100</span>
+                                          <span className="mx-1">~</span>
+                                          <span className="fw-medium">17.1%</span>
+                                       </div>
+                                    </a>
+                                 </Col>
+                                 <Col lg="6" className="mb-3">
+                                    <a href="#!" className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
+                                       <div className="me-auto">
+                                          <span className="d-block fs-14 fw-medium color-grey mb-2">Prop</span>
+                                          <span className="d-block fw-medium">Lolipop</span>
+                                       </div>
+                                       <div className="fs-14">
+                                          <div className="d-block fw-medium color-grey mb-2">Rarity</div>
+                                          <span>22/100</span>
+                                          <span className="mx-1">~</span>
+                                          <span className="fw-medium">17.1%</span>
+                                       </div>
+                                    </a>
+                                 </Col>
+                              </Row>
+                           </Card.Body>
                         </Card>
                      </Col>
                   </Row>
@@ -369,7 +387,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               <td>
                                  <div className="table-stats d-flex align-items-center">
                                     <div className="table-stats__icon fs-18 me-3">
-                                       <i className="fa-regular fa-cart-shopping-fast" />
+                                       <i className="fa-regular fa-paintbrush-fine" />
                                     </div>
                                     <span className="table-stats__name fw-medium">Mitn</span>
                                  </div>
