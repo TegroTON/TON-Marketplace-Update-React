@@ -28,7 +28,6 @@ import { User1 } from './pages/user1'
 import { SuccessfullyPut } from './pages/successfully-put'
 import { CreateNft } from './pages/create-nft'
 import { NotFound404 } from './pages/404'
-import { EditProfile } from './pages/edit-profile'
 import { CollectionItem } from './pages/collection-item'
 import { Profile } from './pages/profile'
 
@@ -177,7 +176,7 @@ export const App: React.FC = () => {
 
         script1.setAttribute('src', '/assets/js/popper.min.js')
         script2.setAttribute('src', '/assets/js/slick.min.js')
-        script3.setAttribute('src', '/assets/js/app.js')
+        script3.setAttribute('src', '/assets/js/settings.js')
         script4.setAttribute('src', '/assets/js/bootstrap.min.js')
 
         script1.setAttribute('class', 'script-del')
@@ -331,17 +330,6 @@ export const App: React.FC = () => {
                     <Route path="/create-nft" element={
                                 <CreateNft
                                     id="create-nft1"
-                                    setActiveModal={setActiveModal}
-                                    consoleLog={consoleLog}
-                                    isDesktop={isDesktop}
-                                    installScripts={installScripts}
-                                />
-                        } />
-
-                   
-                    <Route path="/edit-profile" element={
-                                <EditProfile
-                                    id="edit-profile1"
                                     setActiveModal={setActiveModal}
                                     consoleLog={consoleLog}
                                     isDesktop={isDesktop}
