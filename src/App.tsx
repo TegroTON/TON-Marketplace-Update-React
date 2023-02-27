@@ -22,6 +22,7 @@ import { VldBuilder, vlds } from 'validatorus-react'
 
 import { Main } from './pages/main'
 import { Explore } from './pages/explore'
+import { Rankings } from './pages/rankings'
 import { Collection } from './pages/collection'
 import { Profile } from './pages/profile'
 import { SuccessfullyPut } from './pages/successfully-put'
@@ -282,6 +283,15 @@ export const App: React.FC = () => {
                     <Route path="/explore" element={
                             <Explore
                                 id="explore1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                            />
+                    } />
+                    <Route path="/rankings" element={
+                            <Rankings
+                                id="rankings1"
                                 setActiveModal={setActiveModal}
                                 consoleLog={consoleLog}
                                 isDesktop={isDesktop}

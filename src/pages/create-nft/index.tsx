@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Button, ListGroup, Alert, Row, Col, Container, Form, Nav, Tab, Breadcrumb, Card, InputGroup, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Button, ListGroup, Alert, Row, Col, Container, Form, Nav, Tab, Breadcrumb, Card, InputGroup } from 'react-bootstrap';
 import { PageProps } from '../../types/interfaces'
 
 
@@ -44,7 +44,7 @@ export const CreateNft: React.FC<PageProps> = (props: PageProps) => {
                            </div>
                         </Col>
                         <Col lg="7" className="ms-auto">
-                           <h1 className="section__title fs-32 mb-4">Create New NFT</h1> 
+                           <h1 className="section__title mb-5">Create New NFT</h1>
                            <Card className="border p-4 mb-4">
                               <Form.Group className="mb-3">
                                  <div className="d-flex">

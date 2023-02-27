@@ -73,7 +73,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               </div>
                               <div className="d-flex flex-wrap">
                                  <Button variant="primary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Buy Now</Button>
-                                 <Button variant="secondary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal"><i className="fa-solid fa-tag me-3"></i>Make Offer</Button>
+                                 <Button variant="secondary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#MakeOfferModal"><i className="fa-solid fa-tag me-3"></i>Make Offer</Button>
                               </div>
                               {/* <div className="d-flex flex-wrap">
                                  <Button variant="primary flex-fill m-1" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Buy Now</Button>

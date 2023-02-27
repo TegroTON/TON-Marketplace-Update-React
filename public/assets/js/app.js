@@ -160,3 +160,4 @@ $('.notable-slider, .category-slider, .create-slider').slick({
 })();
 
 
+
