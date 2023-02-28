@@ -592,6 +592,39 @@ h4 {
     font-weight: 500;
 }
 
+.upload-image {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background-color: #222222;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.upload-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(28 28 28 / 0.8);
+    z-index: -1;
+    transition: all .3s;
+}
+
+.upload-image:hover::before {
+    background-color: rgb(28 28 28 / 0.9);
+}
+
+.upload-image.upload-image__profile {
+    min-width: 76px;
+    height: 76px;
+}
+
 .form-control {
     background-color: #1c1c1c;
     border: 1px solid #1c1c1c;
@@ -1538,7 +1571,7 @@ h4 {
 .card__show-effect {
     position: absolute;
     z-index: 2;
-    bottom: 30%;
+    bottom: calc(150px - 8px - 8px);
     left: 50%;
     margin-left: -60px;
     transition: all .2s ease;
@@ -1547,7 +1580,7 @@ h4 {
 
 .card:hover .card__show-effect {
     position: absolute;
-    bottom: 33%;
+    bottom: calc(180px - 8px - 8px);
     z-index: 2;
     opacity: 1;
 }
@@ -1565,9 +1598,15 @@ h4 {
 }
 
 .card-actions .btn-icon {
-    background: rgb(21 23 35 / 0.2);
+    background: rgb(255 255 255 / 0.02);
     backdrop-filter: blur(10px);
 }
+
+.card-actions .btn-icon:hover {
+    background: rgb(255 255 255 / 0.03);
+    border-color: rgb(255 255 255 / 0.03);
+}
+
 
 .card-status {
     position: absolute;
@@ -1713,6 +1752,35 @@ h4 {
     .card-img-collection {
         border-radius: 10px;
     }
+}
+
+
+.auction-timer {
+    max-width: 400px;
+    margin-bottom: 24px;
+}
+
+.auction-timer__box {
+    font-size: .75rem;
+    font-weight: 500;
+    z-index: 1;
+    width: 76px;
+    height: 76px;
+    text-align: center;
+    border-radius: 16px;
+    background: var(--soft);
+}
+
+@media (max-width: 400px) {
+    .auction-timer__box {
+        margin: 8px;
+        min-width: 42%;
+    }
+}
+
+.auction-timer__box span {
+    font-size: 1.5rem;
+    font-weight: 900;
 }
 
 .list-group {

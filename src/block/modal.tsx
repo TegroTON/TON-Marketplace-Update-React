@@ -420,24 +420,28 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                </Modal.Header>
                <Modal.Body>
                   <Form>
-                     <div className="upload-nft__box py-5 position-sticky mb-4" style={{ maxHeight: '30vh' }}>
-                        <div>
-                           <i className="fa-regular fa-cloud-arrow-up fa-3x mb-4" />
-                           <p className="mb-4">
-                              File types supported: JPG, PNG, SVG, GIF and WEBP
-                              Optimal dimensions 2500×650.
-                              Max. size: 15MB
-                           </p>
-                           <Form.Group controlId="formFile">
-                              <Form.Label forHtml="formFile" className="btn btn-secondary">Upload Banner</Form.Label>
-                              <Form.Control type="file" className="d-none" />
-                           </Form.Group>
-                        </div>
-                     </div>
+                     <Form.Group controlId="formFile">
+                        <Form.Label forHtml="formFile" className="upload-image py-5 mb-4" style={{
+                        background: 'url(./assets/img/profile-banner.jpg) no-repeat center center / cover',
+                        maxHeight: '30vh',
+                        width: '100%'
+                     }}>
+                           <div className="text-center">
+                              <i className="fa-regular fa-cloud-arrow-up fa-3x mb-4" />
+                              <div className="fs-20 fw-medium mb-3">Upload Banner</div>
+                              <p className="mb-4">
+                                 File types supported: JPG, PNG, SVG, GIF and WEBP
+                                 Optimal dimensions 2500×650.
+                                 Max. size: 15MB
+                              </p>
+                           </div>
+                        </Form.Label>
+                        <Form.Control type="file" className="d-none" />
+                     </Form.Group>
                      <Form.Group controlId="formFile" className="mb-4">
                         <Form.Label forHtml="formFile" className="d-flex align-items-center">
-                           <div className="bg-soft rounded p-4 me-4" style={{ minHeight: '76px' }}>
-                              <i className="fa-regular fa-cloud-arrow-up fs-24" />
+                           <div className="upload-image upload-image__profile me-3" style={{ background: 'url(./assets/img/my-avatar.png) no-repeat center center / cover' }}>
+                              <i className="fa-regular fa-cloud-arrow-up fs-32" />
                            </div>
                            <Form.Text>
                               <div className="fs-16 text-white fw-medium mb-2">Profile Image</div>
@@ -750,7 +754,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
             <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
                <Modal.Header>
                   <Modal.Title>About Auctions</Modal.Title>
-                  <Button variant="link border-0 p-0 modal-close" data-bs-toggle="modal" data-bs-target="#PutAuctionModal">
+                  <Button variant="link border-0 p-0 modal-close" data-bs-dismiss="modal" aria-label="Close">
                      <i className="fa-solid fa-xmark fa-lg" />
                   </Button>
                </Modal.Header>
@@ -787,10 +791,6 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                         </div>
                      </ListGroup.Item>
                   </ListGroup>
-                  <Button variant="secondary w-100" data-bs-toggle="modal" data-bs-target="#PutAuctionModal">
-                     <i className="fa-solid fa-angle-left me-3" />
-                     Back
-                  </Button>
                </Modal.Body>
             </Modal.Dialog>
          </div>
