@@ -103,63 +103,63 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                     <i className="fa-solid fa-angle-right ms-2" />
                                  </a>
                               </Card.Header>
-                              <div className="auction-timer d-flex flex-wrap align-items-center justify-content-between mb-4" id="timer">
-                                 <div className="auction-timer__box card-blur d-flex align-items-center justify-content-center">
-                                    <div><span className="d-block days">14</span> Days</div>
+                              <div className="auction-timer d-flex flex-wrap align-items-center justify-content-between" id="timer">
+                                 <div className="auction-timer__box d-flex align-items-center justify-content-center">
+                                    <div>
+                                       <span className="d-block days">14</span>
+                                       Days
+                                    </div>
                                  </div>
-                                 <div className="auction-timer__box card-blur d-flex align-items-center justify-content-center">
-                                    <div><span className="d-block hours">9</span> Hours</div>
+                                 <div className="auction-timer__box d-flex align-items-center justify-content-center">
+                                    <div>
+                                       <span className="d-block hours">9</span>
+                                       Hours
+                                    </div>
                                  </div>
-                                 <div className="auction-timer__box card-blur d-flex align-items-center justify-content-center">
-                                    <div><span className="d-block minutes">24</span> Min</div>
+                                 <div className="auction-timer__box d-flex align-items-center justify-content-center">
+                                    <div>
+                                       <span className="d-block minutes">24</span>
+                                       Min
+                                    </div>
                                  </div>
-                                 <div className="auction-timer__box card-blur d-flex align-items-center justify-content-center">
-                                    <div><span className="d-block seconds">18</span> Sec</div>
+                                 <div className="auction-timer__box d-flex align-items-center justify-content-center">
+                                    <div>
+                                       <span className="d-block seconds">18</span>
+                                       Sec
+                                    </div>
                                  </div>
                               </div>
                            </Card.Body>
-
-                           <ListGroup className="bg-transparent border-0 p-0 rounded-0 mb-4">
-                              <Card.Title className="px-4 pb-2 mb-0 fs-20">Highest bid</Card.Title>
-                              <ListGroup.Item className="px-4 py-3 border-bottom hover">
-                                 <div className="d-flex align-items-center">
-                                    <img src="./assets/img/user-avatar.png" className="rounded-12" width={48} height={48} />
-                                    <div className="fw-medium ms-3">
-                                       <a href="/user1">@SimonGrey</a>
-                                    </div>
-                                    <div className="text-end ms-auto">
-                                       <div className="text-uppercase">
-                                          1,30 TON
-                                       </div>
-                                       <small className="color-grey">~ $3,19</small>
-                                    </div>
+                           <div className="bids-box">
+                              <div className="bids-box__item d-flex align-items-center px-4 py-3 border-bottom bg-soft">
+                                 <img src="./assets/img/user-avatar.png" className="rounded-12" width={48} height={48} />
+                                 <div className="ms-3">
+                                    <div className="small mb-1">Highest bid:</div>
+                                    <a href="/user1" className="fw-medium">@SimonGrey</a>
                                  </div>
-                              </ListGroup.Item>
-                              <ListGroup.Item className="d-flex align-items-cetner px-4 py-3 border-bottom hover">
+                                 <div className="text-end ms-auto">
+                                    <div className="text-uppercase fw-medium mb-1">1,30 TON</div>
+                                    <small className="color-grey">~ $3,19</small>
+                                 </div>
+                              </div>
+                              <div className="bids-box__item d-flex align-items-center px-4 py-3 border-bottom hover">
                                  <div className="me-auto">
-                                    <div className="fw-medium mb-2">
-                                       Max. bid
-                                    </div>
+                                    <div className="fw-medium mb-1">Max. bid</div>
                                     <small className="color-grey">
                                        Press “Buy Now” to buy
                                     </small>
                                  </div>
-                                 <div className="text-end ms-auto">
-                                    <div className="text-uppercase">
-                                       25,60 TON
-                                    </div>
+                                 <div className="text-end">
+                                    <div className="text-uppercase fw-medium mb-1">25,60 TON</div>
                                     <small className="color-grey">~ $51,75</small>
                                  </div>
-                              </ListGroup.Item>
-                              <ListGroup.Item className="d-flex align-items-cetner px-4 py-3 border-bottom hover">
-                                 <small className="color-grey">Bid step</small>
-                                 <div className="text-uppercase ms-auto fs-14">
-                                    20 TON
-                                 </div>
-                              </ListGroup.Item>
-                           </ListGroup>
-
-                           <div className="d-flex flex-wrap">
+                              </div>
+                              <div className="bids-box__item d-flex align-items-center px-4 py-3 border-bottom hover">
+                                 <div className="fw-medium mb-1">Max. bid</div>
+                                 <div className="text-uppercase fw-medium ms-auto">20 TON</div>
+                              </div>
+                           </div>
+                           <div className="d-flex flex-wrap p-4">
                               <Button variant="primary flex-fill m-2" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Buy Now</Button>
                               <Button variant="secondary flex-fill m-2" data-bs-toggle="modal" data-bs-target="#PlaceAbidModal">
                                  Place a bid
@@ -168,6 +168,10 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  <i className="fa-solid fa-tag me-3"></i>Make Offer
                               </Button>
                            </div>
+                        </Card>
+                        
+                        <Card className="border p-4 mb-4">
+                           <Card.Title className="fs-22 mb-4">Bids</Card.Title>
                         </Card>
 
                         <Row>
@@ -702,6 +706,6 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                </Container>
             </section>
          </main>
-      </div>
+      </div >
    )
 }
