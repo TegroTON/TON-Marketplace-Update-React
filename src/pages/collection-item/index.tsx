@@ -81,7 +81,20 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               <div className="price-item__ton fs-24 fw-bold ms-auto">43.9 TON</div>
                            </div>
                            <div className="d-flex align-items-center">
-                              <div className="color-grey">Plus a network fee of 1 TON</div>
+                              <div className="color-grey">
+                                 Plus a network fee of 1 TON
+                                 <OverlayTrigger
+                                    key="bottom"
+                                    placement="bottom"
+                                    overlay={
+                                       <Tooltip id={`tooltip-bottom`}>
+                                          We will use this value to cover blockchain fees and send the rest back to you.
+                                       </Tooltip>
+                                    }
+                                 >
+                                    <i className="fa-regular fa-circle-info ms-2"></i>
+                                 </OverlayTrigger>
+                              </div>
                               <div className="price-item__dollar d-block color-grey ms-auto">$64.09</div>
                            </div>
                            <div className="d-flex flex-wrap mt-4">
