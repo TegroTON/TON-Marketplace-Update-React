@@ -95,42 +95,34 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                         */}
 
                         <Card className="border p-0 mb-4">
-                           <Card.Body className="p-4">
-                              <Card.Header className="d-flex align-items-center mb-4">
-                                 <Card.Title className="fs-22 mb-0">Auction ends in</Card.Title>
-                                 <a href="#!" className="d-flex align-items-center ms-auto" data-bs-toggle="modal" data-bs-target="#AboutAuctions">
-                                    How it works
-                                    <i className="fa-solid fa-angle-right ms-2" />
-                                 </a>
-                              </Card.Header>
+                           <Card.Header className="d-flex align-items-center p-4 mb-0">
+                              <Card.Title className="fs-22 mb-0">Auction ends in</Card.Title>
+                              <a href="#!" className="d-flex align-items-center ms-auto" data-bs-toggle="modal" data-bs-target="#AboutAuctions">
+                                 How it works
+                                 <i className="fa-solid fa-angle-right ms-2" />
+                              </a>
+                           </Card.Header>
+                           <Card.Body className="px-4 py-0 mb-4">
                               <div className="auction-timer d-flex flex-wrap align-items-center justify-content-between" id="timer">
-                                 <div className="auction-timer__box d-flex align-items-center justify-content-center">
-                                    <div>
-                                       <span className="d-block days">14</span>
-                                       Days
-                                    </div>
+                                 <div className="auction-timer__box text-center">
+                                    <span className="fs-28 d-block days">14</span>
+                                    <div>Days</div>
                                  </div>
                                  <div className="auction-timer__box d-flex align-items-center justify-content-center">
-                                    <div>
-                                       <span className="d-block hours">9</span>
-                                       Hours
-                                    </div>
+                                    <span className="fs-28 d-block hours">9</span>
+                                    <div>Hours</div>
                                  </div>
                                  <div className="auction-timer__box d-flex align-items-center justify-content-center">
-                                    <div>
-                                       <span className="d-block minutes">24</span>
-                                       Min
-                                    </div>
+                                    <span className="fs-28 d-block minutes">24</span>
+                                    <div>Min</div>
                                  </div>
                                  <div className="auction-timer__box d-flex align-items-center justify-content-center">
-                                    <div>
-                                       <span className="d-block seconds">18</span>
-                                       Sec
-                                    </div>
+                                    <span className="fs-28 d-block seconds">18</span>
+                                    <div>Sec</div>
                                  </div>
                               </div>
                            </Card.Body>
-                           <div className="bids-box">
+                           <Card.Body className="bids-box p-0">
                               <div className="bids-box__item d-flex align-items-center px-4 py-3 border-bottom bg-soft">
                                  <img src="./assets/img/user-avatar.png" className="rounded-12" width={48} height={48} />
                                  <div className="ms-3">
@@ -158,7 +150,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  <div className="fw-medium mb-1">Max. bid</div>
                                  <div className="text-uppercase fw-medium ms-auto">20 TON</div>
                               </div>
-                           </div>
+                           </Card.Body>
                            <div className="d-flex flex-wrap p-4">
                               <Button variant="primary flex-fill m-2" data-bs-toggle="modal" data-bs-target="#BuyNowModal">Buy Now</Button>
                               <Button variant="secondary flex-fill m-2" data-bs-toggle="modal" data-bs-target="#PlaceAbidModal">
@@ -169,9 +161,37 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               </Button>
                            </div>
                         </Card>
-                        
-                        <Card className="border p-4 mb-4">
-                           <Card.Title className="fs-22 mb-4">Bids</Card.Title>
+
+                        <Card className="d-block border p-0 mb-4">
+                           <Card.Title className="fs-22 p-4 pb-0">Bids</Card.Title>
+
+                           <Card.Link href="/profile" className="bids-box__item d-flex align-items-center px-4 py-3 border-bottom m-0">
+                              <img src="./assets/img/my-avatar.png" className="rounded-12" width={48} height={48} />
+                              <div className="ms-3">
+                                 <div className="fw-medium">uNerd</div>
+                                 <div className="small text-white  mt-1">
+                                    26 Feb, 12:08 AM
+                                 </div>
+                              </div>
+                              <div className="text-end ms-auto">
+                                 <div className="text-uppercase fw-medium text-white mb-1">16,30 TON</div>
+                                 <small className="color-grey">~ $31,2</small>
+                              </div>
+                           </Card.Link>
+
+                           <Card.Link href="/user1" className="bids-box__item d-flex align-items-center px-4 py-3 m-0">
+                              <img src="./assets/img/user-avatar.png" className="rounded-12" width={48} height={48} />
+                              <div className="ms-3">
+                                 <div className="fw-medium">SimonGrey</div>
+                                 <div className="small text-white mt-1">
+                                    27 Feb, 2:43 AM
+                                 </div>
+                              </div>
+                              <div className="text-end ms-auto">
+                                 <div className="text-uppercase fw-medium text-white mb-1">25,60 TON</div>
+                                 <small className="color-grey">~ $51,75</small>
+                              </div>
+                           </Card.Link>
                         </Card>
 
                         <Row>
@@ -189,7 +209,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               </Card>
                            </Col>
                            <Col md="6" lg="12" xl="6" className="mx-auto mb-4">
-                              <Card.Title className="mb-3">Owner</Card.Title>
+                              <Card.Title className="mb-3">Collection</Card.Title>
                               <Card className="p-3 p-sm-0 border mb-3">
                                  <Card.Link href="/collection" className="d-block d-sm-flex align-items-center text-center text-sm-start">
                                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/1.gif" />
