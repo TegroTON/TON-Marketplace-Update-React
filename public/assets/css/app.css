@@ -1787,15 +1787,13 @@ h4 {
     }
 }
 
-.collection__container .row .col-sm-6 {
+.collection__container .row .col-sm-6,
+.flex-tbody .card {
     counter-increment: inst;
 }
 
-.collection__container .row .col-sm-6 {
-    counter-increment: inst;
-}
-
-.collection__container .card:before {
+.collection__container .card:before,
+.flex-tbody .card:before {
     font-size: 13px;
     width: 32px;
     height: 32px;
@@ -1815,6 +1813,7 @@ h4 {
     content: counter(inst);
     color: white;
 }
+
 
 .collection-card {
     padding: 0;
