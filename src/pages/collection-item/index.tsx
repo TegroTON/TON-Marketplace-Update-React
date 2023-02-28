@@ -73,8 +73,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                            </Card.Body>
                         </Card>
                         */}
-
-
+                        
                         <Card className="border p-4 mb-4">
                            <div className="d-flex align-items-center">
                               <div className="d-block fs-24 fw-bold">Price:</div>
@@ -104,8 +103,6 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                         </Card>
 
                         {/*  @! Block For "Auction" Page !@ 
-
-                        */}
 
                         <Card className="border p-0 mb-4">
                            <Card.Header className="d-flex align-items-center p-4 mb-0">
@@ -206,7 +203,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                               </div>
                            </Card.Link>
                         </Card>
-
+                     */}
                         <Row>
                            <Col md="6" lg="12" xl="6" className="mx-auto mb-4">
                               <Card.Title className="mb-3">Owner</Card.Title>
@@ -527,7 +524,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                   <div className="notable-slider">
                      <Card>
                         <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-1.png" style={{ maxHeight: '241px' }} />
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-1.png" />
                            <Card.Body>
                               <div className="card-subtitle d-flex align-items-center mb-2">
                                  Pinocchio
@@ -562,7 +559,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                      </Card>
                      <Card>
                         <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" style={{ maxHeight: '241px' }} />
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" />
                            <Card.Body>
                               <div className="card-subtitle d-flex align-items-center mb-2">
                                  Single NFT
@@ -597,7 +594,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                      </Card>
                      <Card>
                         <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" style={{ maxHeight: '241px' }} />
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" />
                            <Card.Body>
                               <div className="card-subtitle d-flex align-items-center mb-2">
                                  CAT Meta
@@ -632,7 +629,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                      </Card>
                      <Card>
                         <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" style={{ maxHeight: '241px' }} />
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" />
                            <Card.Body>
                               <div className="card-subtitle d-flex align-items-center mb-2">
                                  Cyber Girl
@@ -667,7 +664,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                      </Card>
                      <Card>
                         <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-5.png" style={{ maxHeight: '241px' }} />
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-5.png" />
                            <Card.Body>
                               <div className="card-subtitle d-flex align-items-center mb-2">
                                  Moto Paradise
@@ -702,7 +699,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                      </Card>
                      <Card>
                         <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-6.png" style={{ maxHeight: '241px' }} />
+                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-6.png" />
                            <Card.Body>
                               <div className="card-subtitle d-flex align-items-center mb-2">
                                  Cute Monters
