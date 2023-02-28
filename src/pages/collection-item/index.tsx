@@ -106,7 +106,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
 
                         <Card className="border p-0 mb-4">
                            <Card.Header className="d-flex align-items-center p-4 mb-0">
-                              <Card.Title className="fs-22 mb-0">Auction ends in</Card.Title>
+                              <Card.Title className="fs-22 mb-0">Auction</Card.Title>
                               <a href="#!" className="d-flex align-items-center ms-auto" data-bs-toggle="modal" data-bs-target="#AboutAuctions">
                                  How it works
                                  <i className="fa-solid fa-angle-right ms-2" />

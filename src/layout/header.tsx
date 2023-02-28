@@ -194,9 +194,9 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
                         </>
                      }
                         id="projects-nav-dropdown">
-                        <NavDropdown.Item href="#">Tegro DEX</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Tegro Finance</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Tegro Wallet</NavDropdown.Item>
+                        <NavDropdown.Item href="https://tegro.finance/" target="__blank">DEX</NavDropdown.Item>
+                        <NavDropdown.Item href="https://tegro.io/wallet/" target="__blank">TON Wallet</NavDropdown.Item>
+                        <NavDropdown.Item href="https://tegro.io/" target="__blank">Tegro Coin</NavDropdown.Item>
                      </NavDropdown>
                      <Nav.Link href="/rankings">Stats</Nav.Link>
                      <Nav.Link href="/create-nft">Create</Nav.Link>
