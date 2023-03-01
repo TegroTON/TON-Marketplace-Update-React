@@ -1,5 +1,18 @@
 import axios from "axios"
 
+interface Collection {
+    address: string,
+    metadata: any,
+    next_item_index: number,
+    owner: undefined | {
+        address: string,
+        icon: string,
+        is_scam: boolean,
+        name: string
+    },
+    raw_collection_content: string
+}
+
 interface Item {
     address: string,
     approved_by: any,
@@ -30,7 +43,7 @@ interface Item {
             is_scam: boolean,
             name: string
         },
-        owner: {
+        owner: undefined | {
             address: string,
             icon: string,
             is_scam: boolean,
@@ -59,7 +72,7 @@ export class TonApi {
             }
         })
 
-        if (res.data.status === 'error') {
+        if (res.data.error) {
             console.error(res.data.result)
             return undefined
         }
@@ -72,6 +85,13 @@ export class TonApi {
         console.log(data)
         return data
     }
+
+    public async getCollection (address: string): Promise<Collection | undefined> {
+        const data = await this.send('nft/getCollection', { account: address } )
+
+        console.log(data)
+        return data
+    }
 }
 
-export type { Items, Item }
+export type { Items, Item, Collection }

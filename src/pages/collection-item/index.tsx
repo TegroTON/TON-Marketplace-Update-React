@@ -7,12 +7,13 @@ import { PageProps } from '../../types/interfaces'
 import { MarketNft } from '../../logic/loadnft';
 
 import { getParameterByName, fixAmount } from '../../logic/utils'
-import { Item } from '../../logic/tonapi';
+import { Collection, Item } from '../../logic/tonapi';
 
 export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
    const [firstRender, setFirstRender] = React.useState<boolean>(false)
 
    const [ oneItem, setOneItem ] = React.useState<Item | undefined>(undefined)
+   const [ collection, setCollection ] = React.useState<Collection | undefined>(undefined)
 
    const history = useNavigate()
 
@@ -21,11 +22,12 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
    async function load (address: string) {
       const data = await marketNFT.getOneNft(address)
 
-      if (!data) {
+      if (!data || !data.nft) {
          return undefined
       }
 
-      setOneItem(data)
+      setOneItem(data.nft)
+      setCollection(data.collection)
    }
 
 
@@ -239,11 +241,12 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  <div className="card__blur-bg-hover" style={{ background: 'url(/assets/img/user-avatar.png)  no-repeat center center / cover' }} />
                               </Card>
                            </Col>
+                           {collection ?
                            <Col md="6" lg="12" xl="6" className="mx-auto mb-4">
                               <Card.Title className="mb-3">Collection</Card.Title>
                               <Card className="p-3 p-sm-0 border mb-3">
                                  <Card.Link href="/collection" className="d-block d-sm-flex align-items-center text-center text-sm-start">
-                                    <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/1.gif" />
+                                    <Card.Img variant="collection m-3 m-lg-0" src={collection.metadata.image} />
                                     <div className="ms-3">
                                        <Card.Title className="mb-0 fs-18">
                                           {oneItem.collection.name}
@@ -256,16 +259,16 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  </Card.Link>
                                  <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/1.gif)  no-repeat center center / cover' }} />
                               </Card>
-                           </Col>
+                           </Col> : null }
                         </Row>
                         <Card className="border p-4 mb-4">
                            <Card.Title className="fs-22 mb-4">Details</Card.Title>
                            <ListGroup variant="flush" className="p-0 bg-transparent">
                               <ListGroup.Item className="p-0 border-0 mb-3">
-                                 <a href="https://tonscan.org/address/EQC_-u5FytW3WrGR_UQ_tjVFvFbcIanSh4nHjqP3ojIamkGP"
+                                 <a href={`https://tonscan.org/address/${oneItem.address}`}
                                     className="d-flex align-items-center p-3 rounded border hover text-white" target="_blank">
                                     <div className="fw-medium color-grey">Contract Address</div>
-                                    <div className="col-4 text-truncate ms-auto">EQC_-u5FytW3WrGR_UQ_tjVFvFbcIanSh4nHjqP3ojIamkGP</div>
+                                    <div className="col-4 text-truncate ms-auto">{oneItem.address}</div>
                                     <i className="fa-solid fa-angle-right color-grey ms-3" />
                                  </a>
                               </ListGroup.Item>
