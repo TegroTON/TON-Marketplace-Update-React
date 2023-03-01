@@ -45,6 +45,7 @@
         "react-scripts": "5.0.1",
         "react-slick": "^0.29.0",
         "stream-browserify": "^3.0.0",
+        "ton3": "^0.0.16",
         "validatorus-react": "1.0.6"
     },
     "devDependencies": {

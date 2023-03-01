@@ -4,11 +4,29 @@ import { useNavigate } from 'react-router-dom'
 import { Button, ListGroup, Dropdown, Row, Col, Container, Breadcrumb, Card, Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 import { PageProps } from '../../types/interfaces'
+import { MarketNft } from '../../logic/loadnft';
+
+import { getParameterByName, fixAmount } from '../../logic/utils'
+import { Item } from '../../logic/tonapi';
 
 export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
    const [firstRender, setFirstRender] = React.useState<boolean>(false)
 
+   const [ oneItem, setOneItem ] = React.useState<Item | undefined>(undefined)
+
    const history = useNavigate()
+
+   const marketNFT = new MarketNft()
+
+   async function load (address: string) {
+      const data = await marketNFT.getOneNft(address)
+
+      if (!data) {
+         return undefined
+      }
+
+      setOneItem(data)
+   }
 
 
    useEffect(() => {
@@ -16,23 +34,30 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
          setFirstRender(true)
          props.installScripts()
 
+         const address = getParameterByName('a')
+
+         if (address) {
+            load(address)
+         }
+
       }
    }, [])
 
    return (
       <div id={props.id}>
          <main className="main-page border-top">
+            {oneItem ?
             <section className="item-details section pt-5">
                <Container fluid>
                   <Breadcrumb className="mb-4">
                      <Breadcrumb.Item href="/explore">Explore</Breadcrumb.Item>
-                     <Breadcrumb.Item href="/collection">Cute Monters</Breadcrumb.Item>
-                     <Breadcrumb.Item active>ZubazzzTik (2684)</Breadcrumb.Item>
+                     <Breadcrumb.Item href="/collection">{oneItem.collection.name}</Breadcrumb.Item>
+                     <Breadcrumb.Item active>{oneItem.metadata.name}</Breadcrumb.Item>
                   </Breadcrumb>
                   <Row className="justify-content-center mb-4">
                      <Col lg="5" className="mb-4 mb-lg-0">
                         <div className="text-center position-sticky" style={{ top: '110px' }}>
-                           <img className="item-details__image" data-enlargable src="./assets/img/nfts/nft-6.png" alt="" />
+                           <img className="item-details__image" data-enlargable src={oneItem.previews[2].url} alt="" />
                         </div>
                      </Col>
                      <Col lg="7" className="ms-auto">
@@ -57,12 +82,8 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                  </Dropdown.Menu>
                               </Dropdown>
                            </div>
-                           <h1 className="item-details__title mb-3">ZubazzzTik (2684)</h1>
-                           <p className="item-details__desc col-xxl-9 mb-0">
-                              ZubazzzTik are unique NFTs with cats created only for the TON network. Our TON NFT "Cats"
-                              is a community of 9,999 super-rare, artfully crafted, collectible cats. Each Cat is an individual being.
-                              The collection was created by the TegroMoney team, the creators of the TGR token on The Open Network blockchain.
-                           </p>
+                           <h1 className="item-details__title mb-3">{oneItem.metadata.name}</h1>
+                           <p className="item-details__desc col-xxl-9 mb-0">{oneItem.metadata.description}</p>
                         </div>
 
                         {/*  @! Block For "Not For Sale" Page !@ 
@@ -77,7 +98,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                         <Card className="border p-4 mb-4">
                            <div className="d-flex align-items-center">
                               <div className="d-block fs-24 fw-bold">Price:</div>
-                              <div className="price-item__ton fs-24 fw-bold ms-auto">43.9 TON</div>
+                              <div className="price-item__ton fs-24 fw-bold ms-auto">{fixAmount(oneItem.sale.price.value)} {oneItem.sale.price.token_name}</div>
                            </div>
                            <div className="d-flex align-items-center">
                               <div className="color-grey">
@@ -225,7 +246,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                                     <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/1.gif" />
                                     <div className="ms-3">
                                        <Card.Title className="mb-0 fs-18">
-                                          Animals Red List
+                                          {oneItem.collection.name}
                                        </Card.Title>
                                        <Card.Text className="color-grey">
                                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">21,08 TON</span>
@@ -735,6 +756,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                   </div>
                </Container>
             </section>
+            : null }
          </main>
       </div >
    )
