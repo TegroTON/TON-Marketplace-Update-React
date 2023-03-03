@@ -5,10 +5,31 @@ import { PageProps } from '../../types/interfaces'
 import { Button, ButtonGroup, Dropdown, Row, Col, Container, Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Div } from '@vkontakte/vkui';
 
+import { MarketNft } from '../../logic/loadnft';
+import { getParameterByName, rawToTon, fixAmount } from '../../logic/utils';
+import { Collection, Item } from '../../logic/tonapi';
+
 export const Main: React.FC<PageProps> = (props: PageProps) => {
    const [firstRender, setFirstRender] = React.useState<boolean>(false)
 
+   const [ items, setItems ] = React.useState<Item[] | undefined>(undefined)
+
+   const [ page, setPage ] = React.useState<number>(0)
+
    const history = useNavigate()
+
+   const marketNFT = new MarketNft()
+
+   async function load () {
+      const data = await marketNFT.getAllItems(page)
+
+      if (!data) {
+         return undefined
+      }
+
+      setPage(page + 1)
+      setItems(data)
+   }
 
 
    useEffect(() => {
@@ -16,6 +37,8 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
          setFirstRender(true)
 
          props.installScripts()
+
+         load()
       }
    }, [])
 
@@ -166,216 +189,51 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </ButtonGroup>
                   </div>
                   <div className="notable-slider">
-                     <Card>
-                        <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-1.png" />
-                           <Card.Body>
-                              <div className="card-subtitle d-flex align-items-center mb-2">
-                                 Pinocchio
-                                 <span className="verified-icon ms-2" />
-                              </div>
-                              <Card.Title className="mb-3">
-                                 Pinocchio
-                              </Card.Title>
-                              <Card.Text className="d-flex align-items-center color-grey fs-18">
-                                 <span className="icon-ton me-2"></span>
-                                 3
-                              </Card.Text>
-                           </Card.Body>
-                        </Card.Link>
-                        <Dropdown className="card-actions">
-                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
-                              <i className="fa-solid fa-ellipsis-vertical" />
-                           </Dropdown.Toggle>
-                           <Dropdown.Menu className="mt-2 fs-14">
-                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
-                           </Dropdown.Menu>
-                        </Dropdown>
-                        <Button variant="icon btn-like btn-like__card">
-                           <i className="fa-regular fa-heart fs-18 me-2" />
-                           8
-                        </Button>
-                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                           Buy Now
-                        </Button>
-                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-1.png)  no-repeat center center / cover' }} />
-                     </Card>
-                     <Card>
-                        <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" />
-                           <Card.Body>
-                              <div className="card-subtitle d-flex align-items-center mb-2">
-                                 Single NFT
-                                 <span className="verified-icon ms-2" />
-                              </div>
-                              <Card.Title className="mb-3">
-                                 RED HOPE
-                              </Card.Title>
-                              <Card.Text className="d-flex align-items-center color-grey fs-18">
-                                 <span className="icon-ton me-2"></span>
-                                 10
-                              </Card.Text>
-                           </Card.Body>
-                        </Card.Link>
-                        <Dropdown className="card-actions">
-                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
-                              <i className="fa-solid fa-ellipsis-vertical" />
-                           </Dropdown.Toggle>
-                           <Dropdown.Menu className="mt-2 fs-14">
-                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
-                           </Dropdown.Menu>
-                        </Dropdown>
-                        <Button variant="icon btn-like btn-like__card">
-                           <i className="fa-regular fa-heart fs-18 me-2" />
-                           12
-                        </Button>
-                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                           Buy Now
-                        </Button>
-                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-2.png)  no-repeat center center / cover' }} />
-                     </Card>
-                     <Card>
-                        <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" />
-                           <Card.Body>
-                              <div className="card-subtitle d-flex align-items-center mb-2">
-                                 CAT Meta
-                                 <span className="verified-icon ms-2" />
-                              </div>
-                              <Card.Title className="mb-3">
-                                 CAT ETH
-                              </Card.Title>
-                              <Card.Text className="d-flex align-items-center color-grey fs-18">
-                                 <span className="icon-ton me-2"></span>
-                                 5
-                              </Card.Text>
-                           </Card.Body>
-                        </Card.Link>
-                        <Dropdown className="card-actions">
-                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
-                              <i className="fa-solid fa-ellipsis-vertical" />
-                           </Dropdown.Toggle>
-                           <Dropdown.Menu className="mt-2 fs-14">
-                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
-                           </Dropdown.Menu>
-                        </Dropdown>
-                        <Button variant="icon btn-like btn-like__card">
-                           <i className="fa-regular fa-heart fs-18 me-2" />
-                           4
-                        </Button>
-                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                           Buy Now
-                        </Button>
-                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-3.png)  no-repeat center center / cover' }} />
-                     </Card>
-                     <Card>
-                        <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" />
-                           <Card.Body>
-                              <div className="card-subtitle d-flex align-items-center mb-2">
-                                 Cyber Girl
-                                 <span className="verified-icon ms-2" />
-                              </div>
-                              <Card.Title className="mb-3">
-                                 TON CYBER GIRL
-                              </Card.Title>
-                              <Card.Text className="d-flex align-items-center color-grey fs-18">
-                                 <span className="icon-ton me-2"></span>
-                                 50
-                              </Card.Text>
-                           </Card.Body>
-                        </Card.Link>
-                        <Dropdown className="card-actions">
-                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
-                              <i className="fa-solid fa-ellipsis-vertical" />
-                           </Dropdown.Toggle>
-                           <Dropdown.Menu className="mt-2 fs-14">
-                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
-                           </Dropdown.Menu>
-                        </Dropdown>
-                        <Button variant="icon btn-like btn-like__card">
-                           <i className="fa-regular fa-heart fs-18 me-2" />
-                           23
-                        </Button>
-                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                           Buy Now
-                        </Button>
-                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-4.png)  no-repeat center center / cover' }} />
-                     </Card>
-                     <Card>
-                        <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-5.png" />
-                           <Card.Body>
-                              <div className="card-subtitle d-flex align-items-center mb-2">
-                                 Moto Paradise
-                                 <span className="verified-icon ms-2" />
-                              </div>
-                              <Card.Title className="mb-3">
-                                 Motorcyclist in paradise
-                              </Card.Title>
-                              <Card.Text className="d-flex align-items-center color-grey fs-18">
-                                 <span className="icon-ton me-2"></span>
-                                 27
-                              </Card.Text>
-                           </Card.Body>
-                        </Card.Link>
-                        <Dropdown className="card-actions">
-                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
-                              <i className="fa-solid fa-ellipsis-vertical" />
-                           </Dropdown.Toggle>
-                           <Dropdown.Menu className="mt-2 fs-14">
-                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
-                           </Dropdown.Menu>
-                        </Dropdown>
-                        <Button variant="icon btn-like btn-like__card">
-                           <i className="fa-regular fa-heart fs-18 me-2" />
-                           9
-                        </Button>
-                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                           Buy Now
-                        </Button>
-                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-5.png)  no-repeat center center / cover' }} />
-                     </Card>
-                     <Card>
-                        <Card.Link href="/collection-item" className="card-link">
-                           <Card.Img variant="top card-image" src="./assets/img/nfts/nft-6.png" />
-                           <Card.Body>
-                              <div className="card-subtitle d-flex align-items-center mb-2">
-                                 Cute Monters
-                                 <span className="verified-icon ms-2" />
-                              </div>
-                              <Card.Title className="mb-3">
-                                 ZubazzzTik
-                              </Card.Title>
-                              <Card.Text className="d-flex align-items-center color-grey fs-18">
-                                 <span className="icon-ton me-2"></span>
-                                 35
-                              </Card.Text>
-                           </Card.Body>
-                        </Card.Link>
-                        <Dropdown className="card-actions">
-                           <Dropdown.Toggle variant="icon" id="dropdown-actions">
-                              <i className="fa-solid fa-ellipsis-vertical" />
-                           </Dropdown.Toggle>
-                           <Dropdown.Menu className="mt-2 fs-14">
-                              <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                              <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
-                           </Dropdown.Menu>
-                        </Dropdown>
-                        <Button variant="icon btn-like btn-like__card">
-                           <i className="fa-regular fa-heart fs-18 me-2" />
-                           16
-                        </Button>
-                        <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                           Buy Now
-                        </Button>
-                        <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-6.png)  no-repeat center center / cover' }} />
-                     </Card>
+                     {items ? items.map((item, key) => (
+                        <Card key={key}>
+                           <Card.Link href={"/collection-item?a=" + rawToTon(item.address)} className="card-link">
+                              <Card.Img variant="top card-image" src={item.previews[1].url} />
+                              <Card.Body>
+                                 <div className="card-subtitle d-flex align-items-center mb-2">
+                                    {item.collection?.name}
+                                    <span className="verified-icon ms-2" />
+                                 </div>
+                                 <Card.Title className="mb-3">
+                                    {item.metadata.name}
+                                 </Card.Title>
+                                 {item.sale ? 
+                                    <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                       <span className="icon-ton me-2"></span> {fixAmount(item.sale?.price.value ?? 0)}
+                                       {/* <Badge bg="purple" className="ms-2">MIN.BID</Badge> */}
+                                    </Card.Text>
+                                    :
+                                    <Card.Text className="d-flex align-items-center color-grey">
+                                    Not For Sale
+                                 </Card.Text>}
+                              </Card.Body>
+                           </Card.Link>
+                           <Dropdown className="card-actions">
+                              <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                 <i className="fa-solid fa-ellipsis-vertical" />
+                              </Dropdown.Toggle>
+                              <Dropdown.Menu className="mt-2 fs-14">
+                                 <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                 <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                              </Dropdown.Menu>
+                           </Dropdown>
+                           <Button variant="icon btn-like btn-like__card">
+                              <i className="fa-regular fa-heart fs-18 me-2" />
+                              8
+                           </Button>
+                           <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                              Buy Now
+                           </Button>
+                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-1.png)  no-repeat center center / cover' }} />
+                        </Card>
+                     ))
+                        
+                     : null }
+                    
                   </div>
                </Container>
             </section>

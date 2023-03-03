@@ -119,6 +119,13 @@ export class TonApi {
         console.log(data)
         return data
     }
+
+    public async searchItemsfull ( limit:number = 50, offset: number = 0 ): Promise<Items | undefined> {
+        const data = await this.send('nft/searchItems', { limit, offset } )
+
+        console.log(data)
+        return data
+    }
 }
 
 export type { Items, Item, Collection, Collections }

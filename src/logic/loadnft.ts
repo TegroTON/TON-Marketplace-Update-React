@@ -61,4 +61,19 @@ export class MarketNft {
         }
         return undefined
     }
+
+    public async getAllItems ( page: number = 0): Promise<Item[] | undefined>  {
+        const limit = 15
+        const off = page * limit
+        const data = await this._tonApi.searchItemsfull(limit, off)
+
+        if (!data) {
+            return undefined
+        }
+
+        if (data.nft_items.length > 0) {
+            return data.nft_items
+        }
+        return undefined
+    }
 }
