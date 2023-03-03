@@ -6,7 +6,7 @@ import { Button, ListGroup, Dropdown, Row, Col, Container, Breadcrumb, Card, Tab
 import { PageProps } from '../../types/interfaces'
 import { MarketNft } from '../../logic/loadnft';
 
-import { getParameterByName, fixAmount } from '../../logic/utils'
+import { getParameterByName, fixAmount, rawToTon } from '../../logic/utils'
 import { Collection, Item } from '../../logic/tonapi';
 
 export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
@@ -40,6 +40,8 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
 
          if (address) {
             load(address)
+         } else {
+            history('/')
          }
 
       }
@@ -53,7 +55,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                <Container fluid>
                   <Breadcrumb className="mb-4">
                      <Breadcrumb.Item href="/explore">Explore</Breadcrumb.Item>
-                     <Breadcrumb.Item href="/collection">{oneItem.collection.name}</Breadcrumb.Item>
+                     <Breadcrumb.Item href={"/collection?a=" + (collection ? rawToTon(collection.address) : '')}>{oneItem.collection?.name}</Breadcrumb.Item>
                      <Breadcrumb.Item active>{oneItem.metadata.name}</Breadcrumb.Item>
                   </Breadcrumb>
                   <Row className="justify-content-center mb-4">
@@ -100,7 +102,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                         <Card className="border p-4 mb-4">
                            <div className="d-flex align-items-center">
                               <div className="d-block fs-24 fw-bold">Price:</div>
-                              <div className="price-item__ton fs-24 fw-bold ms-auto">{fixAmount(oneItem.sale.price.value)} {oneItem.sale.price.token_name}</div>
+                              <div className="price-item__ton fs-24 fw-bold ms-auto">{fixAmount(oneItem.sale?.price.value ?? 0)} {oneItem.sale?.price.token_name}</div>
                            </div>
                            <div className="d-flex align-items-center">
                               <div className="color-grey">
@@ -245,11 +247,11 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                            <Col md="6" lg="12" xl="6" className="mx-auto mb-4">
                               <Card.Title className="mb-3">Collection</Card.Title>
                               <Card className="p-3 p-sm-0 border mb-3">
-                                 <Card.Link href="/collection" className="d-block d-sm-flex align-items-center text-center text-sm-start">
-                                    <Card.Img variant="collection m-3 m-lg-0" src={collection.metadata.image} />
+                                 <Card.Link href={"/collection?a=" + rawToTon(collection.address)} className="d-block d-sm-flex align-items-center text-center text-sm-start">
+                                    <Card.Img variant="collection m-3 m-lg-0" src={collection.metadata?.image} />
                                     <div className="ms-3">
                                        <Card.Title className="mb-0 fs-18">
-                                          {oneItem.collection.name}
+                                          {oneItem.collection?.name}
                                        </Card.Title>
                                        <Card.Text className="color-grey">
                                           Floor: <span className="icon-ton mx-1"></span> <span className="ms-1 text-uppercase">21,08 TON</span>

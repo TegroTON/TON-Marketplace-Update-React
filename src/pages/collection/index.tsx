@@ -2,39 +2,83 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Form, InputGroup, Row, Col, Container, Card, Badge, Dropdown, Tabs, Tab, Table } from 'react-bootstrap';
 import { PageProps } from '../../types/interfaces'
+import { MarketNft } from '../../logic/loadnft';
+import { getParameterByName, rawToTon, fixAmount } from '../../logic/utils';
+import { Collection as Coll, Item } from '../../logic/tonapi';
 
 
 export const Collection: React.FC<PageProps> = (props: PageProps) => {
    const [firstRender, setFirstRender] = React.useState<boolean>(false)
 
+   const [ collection, setCollection ] = React.useState<Coll | undefined>(undefined)
+
+   const [ items, setItems ] = React.useState<Item[] | undefined>(undefined)
+
+   const [ page, setPage ] = React.useState<number>(0)
+
    const history = useNavigate()
+
+   const marketNFT = new MarketNft()
+
+   async function load (address: string) {
+      const data = await marketNFT.getCollection(address)
+
+      if (!data) {
+         return undefined
+      }
+      setCollection(data)
+   }
+
+   async function loadItems (address: string = collection?.address ?? '') {
+      if (address === '') {
+         return
+      }
+      const data = await marketNFT.getItemsFromCollection(address, page)
+      if (!data) {
+         return undefined
+      }
+
+      setPage(page + 1)
+
+      setItems(data)
+   }
 
 
    useEffect(() => {
       if (!firstRender) {
          setFirstRender(true)
          props.installScripts()
+
+         const address = getParameterByName('a')
+
+         if (address) {
+            load(address)
+            loadItems(address)
+         } else {
+            history('/')
+         }
       }
    }, [])
 
    return (
       <div id={props.id}>
          <section className="nft-hero">
-            <img src="./assets/img/profile-header.webp" className="nft-hero__image" loading="lazy" width="340" height="275" alt="Tegro Cat" />
+            <img src={collection ? collection.metadata?.cover_image : ''} className="nft-hero__image" loading="lazy" width="340" height="275" alt="Tegro Cat" />
          </section>
          <main className="main-page" style={{ marginTop: '-65px' }}>
             <section className="nft-collection section pt-0">
-               <Container fluid>
+               {collection ?
+                <Container fluid>
                   <Row>
                      <Col lg="4" xxl="3" className="mb-4 mb-lg-0">
                         <Card className="card-blur p-0 mb-4" style={{ marginTop: '-135px' }}>
                            <Card.Body className="p-2 p-xl-4">
                               <div className="d-flex mb-4">
-                                 <Card.Img variant="profile__avatar" src="assets/img/profile-avatar.png" />
+                                 <Card.Img variant="profile__avatar" src={collection.metadata?.image} />
                                  <div className="ms-3 w-100">
                                     <div className="d-flex">
                                        <Card.Title className="fs-28 fw-bold mb-2 me-3 text-wrap">
-                                          Cat Metaverse
+                                          {collection.metadata?.name}
                                        </Card.Title>
                                        <Dropdown className="ms-auto">
                                           <Dropdown.Toggle variant="icon" id="dropdown-social">
@@ -56,8 +100,7 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                               </div>
                               <div className="mb-4">
                                  <div className="mb-2">
-                                    Cat Metaverse are unique NFTs with cats created only for the TON network. Our TON NFT "Cats" is a community
-                                    of 9,999 super-rare ...
+                                    {collection.metadata?.description?.slice(0, 128)} ...
                                  </div>
                                  <Button variant="link">
                                     See More <i className="fa-solid fa-angle-down ms-2" />
@@ -785,6 +828,56 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                               </div>
 
                               <Row className="flex-wrap collections__list">
+                                 {items ? 
+                                    items.map((item, key) => (
+                                       <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4" key={key}>
+                                       <Card>
+                                          <Card.Link href={"/collection-item?a=" + rawToTon(item.address)} className="card-link">
+                                             <Card.Img variant="top card-image" src={item.previews[1].url} />
+                                             <Card.Body>
+                                                <div className="card-subtitle d-flex align-items-center mb-2">
+                                                   {collection.metadata?.name}
+                                                   <span className="verified-icon ms-2" />
+                                                </div>
+                                                <Card.Title className="mb-3">
+                                                   {item.metadata.name}
+                                                </Card.Title>
+                                                {item.sale ? 
+                                                <Card.Text className="d-flex align-items-center color-grey fs-18">
+                                                   <span className="icon-ton me-2"></span> {fixAmount(item.sale?.price.value ?? 0)}
+                                                   {/* <Badge bg="purple" className="ms-2">MIN.BID</Badge> */}
+                                                </Card.Text>
+                                                :
+                                                <Card.Text className="d-flex align-items-center color-grey">
+                                                Not For Sale
+                                             </Card.Text>}
+                                             </Card.Body>
+                                          </Card.Link>
+                                          <Dropdown className="card-actions">
+                                             <Dropdown.Toggle variant="icon" id="dropdown-actions">
+                                                <i className="fa-solid fa-ellipsis-vertical" />
+                                             </Dropdown.Toggle>
+                                             <Dropdown.Menu className="mt-2 fs-14">
+                                                <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
+                                                <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-18 me-2" /> Like</Dropdown.Item>
+                                             </Dropdown.Menu>
+                                          </Dropdown>
+                                          <Button variant="icon btn-like btn-like__card">
+                                             <i className="fa-regular fa-heart fs-18 me-2" />
+                                             16
+                                          </Button>
+                                          <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
+                                             Buy Now
+                                          </Button>
+                                          {/* <div className="card-status fw-500">
+                                             <i className="fa-regular fa-gavel me-2 fs-18" />
+                                             7 days
+                                          </div> */}
+                                          <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/cats/1.png)  no-repeat center center / cover' }} />
+                                       </Card>
+                                    </Col>
+                                    ))
+                                 : null}
                                  <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
                                     <Card>
                                        <Card.Link href="/collection-item" className="card-link">
@@ -1272,7 +1365,7 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                         </Tabs>
                      </Col>
                   </Row>
-               </Container>
+               </Container> : null }
             </section>
          </main>
       </div>

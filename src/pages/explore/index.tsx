@@ -3,18 +3,40 @@ import { useNavigate } from 'react-router-dom'
 
 import { PageProps } from '../../types/interfaces'
 import { Button, ButtonGroup, Dropdown, Row, Col, Container, Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { MarketNft } from '../../logic/loadnft';
+import { Collection, Collections } from '../../logic/tonapi';
+import { rawToTon } from '../../logic/utils';
 
 export const Explore: React.FC<PageProps> = (props: PageProps) => {
    const [firstRender, setFirstRender] = React.useState<boolean>(false)
 
+   const [ collections, setCollections ] = React.useState<Collection[] | undefined>(undefined)
+
+   const [ page, setPage ] = React.useState<number>(0)
+
 
    const history = useNavigate()
+
+   const marketNFT = new MarketNft()
+
+   async function loadList () {
+      const data = await marketNFT.getCollections(page)
+
+      if (!data) {
+         return undefined
+      }
+      setPage(page + 1)
+      if (collections) setCollections([...collections, ...data])
+      else setCollections(data)
+   }
 
 
    useEffect(() => {
       if (!firstRender) {
          setFirstRender(true)
          props.installScripts()
+
+         loadList()
 
       }
    }, [])
@@ -55,13 +77,15 @@ export const Explore: React.FC<PageProps> = (props: PageProps) => {
                      </div>
                   </div>
                   <Row className="collections__list">
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
+                     {collections ?
+                     collections.map((collection, key) => (
+                        <Col sm="6" lg="4" xl="3" xxl className="mb-4" key={key}>
                         <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/1.gif" />
+                           <Card.Link href={"/collection?a=" + rawToTon(collection.address)} className="card-link">
+                              <Card.Img variant="top card-image" src={collection.metadata?.image ?? collection.metadata?.cover_image} />
                               <Card.Body className="d-flex align-items-center mt-2">
                                  <Card.Title className="mb-0">
-                                    Animals Red List
+                                   {collection.metadata?.name}
                                  </Card.Title>
                                  <span className="verified-icon ms-2" />
                               </Card.Body>
@@ -69,205 +93,10 @@ export const Explore: React.FC<PageProps> = (props: PageProps) => {
                            <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/1.gif)  no-repeat center center / cover' }} />
                         </Card>
                      </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/2.gif" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    Rich Cats
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(../assets/img/collections/2.gif)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/3.jpg" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    TON GUYS
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/3.jpg)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/4.gif" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    Ton Doodles
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/4.gif)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/6.png" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    Dog Metaverse
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/6.png)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/5.jpg" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    METAMORPHOSES
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/5.jpg)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/8.gif" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    Cosmic Friends
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/8.gif)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/9.gif" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    digital avatars
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/9.gif)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/10.jpg" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    G-BOTS SD
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/10.jpg)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/11.png" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    Rich Cats · Outfits
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/11.png)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/12.gif" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    Meta Panthers
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/12.gif)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/13.png" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    Alienation
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/13.png)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/15.jpg" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    Fantastic beasts
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/15.jpg)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/14.jpg" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    Superhero
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/14.jpg)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
-                     <Col sm="6" lg="4" xl="3" xxl className="mb-4">
-                        <Card>
-                           <Card.Link href="/collection" className="card-link">
-                              <Card.Img variant="top card-image" src="./assets/img/collections/7.png" />
-                              <Card.Body className="d-flex align-items-center mt-2">
-                                 <Card.Title className="mb-0">
-                                    Eggs Wisdom
-                                 </Card.Title>
-                                 <span className="verified-icon ms-2" />
-                              </Card.Body>
-                           </Card.Link>
-                           <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/collections/7.png)  no-repeat center center / cover' }} />
-                        </Card>
-                     </Col>
+                     )) : null }
                   </Row>
                   <div className="mt-5 text-center">
-                     <Button variant="primary">Show More</Button>
+                     <Button variant="primary" onClick={() => loadList()}>Show More</Button>
                   </div>
                </Container>
             </section>

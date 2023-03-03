@@ -2,7 +2,16 @@ import axios from "axios"
 
 interface Collection {
     address: string,
-    metadata: any,
+    metadata: undefined | {
+        cover_image: string | undefined,
+        description: string | undefined,
+        external_link: any | undefined,
+        external_url: string | undefined,
+        image: string | undefined,
+        marketplace: string | undefined,
+        name: string | undefined,
+        social_links: string[] | undefined
+    },
     next_item_index: number,
     owner: undefined | {
         address: string,
@@ -16,7 +25,7 @@ interface Collection {
 interface Item {
     address: string,
     approved_by: any,
-    collection: any | {
+    collection: undefined | {
         address: string,
         name: string
     },
@@ -35,7 +44,7 @@ interface Item {
         address: string,
         is_scam: boolean
     },
-    sale: {
+    sale: undefined | {
         address: string,
         market: undefined | {
             address: string,
@@ -58,6 +67,10 @@ interface Item {
 
 interface Items {
     nft_items: Item[]
+}
+
+interface Collections {
+    nft_collections: Collection[]
 }
 
 export class TonApi {
@@ -92,6 +105,20 @@ export class TonApi {
         console.log(data)
         return data
     }
+
+    public async getCollections (limit:number = 50, offset: number = 0): Promise<Collections | undefined> {
+        const data = await this.send('nft/getCollections', { limit, offset } )
+
+        console.log(data)
+        return data
+    }
+
+    public async searchItems (address: string, limit:number = 50, offset: number = 0 ): Promise<Items | undefined> {
+        const data = await this.send('nft/searchItems', { collection: address, limit, offset } )
+
+        console.log(data)
+        return data
+    }
 }
 
-export type { Items, Item, Collection }
+export type { Items, Item, Collection, Collections }

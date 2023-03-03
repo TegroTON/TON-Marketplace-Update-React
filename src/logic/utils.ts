@@ -1,4 +1,4 @@
-import { Coins } from "ton3"
+import { Address, Coins } from "ton3"
 
 export function getParameterByName (name: string, url = window.location.href) {
     const name1 = name.replace(/[\[\]]/g, '\\$&')
@@ -20,4 +20,9 @@ export function fixAmount (nanoAmount: string | number) {
     //     stringAmount = Number(amount).toFixed(4)
     // }
     // return stringAmount
+}
+
+export function rawToTon (address: string) {
+    const addr = new Address(address).toString()
+    return addr
 }
