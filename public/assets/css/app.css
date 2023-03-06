@@ -8,6 +8,7 @@
     --text-secondary: #a7a7a7;
     --text-dark: #151723;
     --border: #111927;
+    --soft-yellow: hwb(47 0% 0% / 0.03);
     --yellow: #fec600;
     --yellow-hover: #feb500;
     --border-soft: rgb(255 255 255 / .02);
@@ -69,10 +70,6 @@ body {
     border-radius: 12px;
     box-shadow: none !important;
     transition: transform .3s;
-}
-
-.btn:active {
-    transform: scale(0.99);
 }
 
 .btn.btn-none,
@@ -366,6 +363,12 @@ h4 {
 .bg-red {
     color: var(--red);
     background: var(--soft-red);
+}
+
+.badge__yellow,
+.bg-yellow {
+    color: var(--yellow);
+    background: var(--soft-yellow);
 }
 
 .alert {
@@ -1010,6 +1013,7 @@ h4 {
 
 .main-page {
     padding: 0 24px;
+    min-height: 80vh;
 }
 
 @media (max-width: 996px) {
@@ -1467,6 +1471,7 @@ h4 {
     transition: all .4s;
     color: var(--text-primary);
     background: var(--bg-primary);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     align-items: center;
     justify-content: center;
@@ -1474,7 +1479,8 @@ h4 {
 
 .libermall__soclinks .libermall__soclinks-item:hover {
     color: var(--yellow);
-    background: var(--bg-secondary);
+    background: var(--soft);
+    font-size: 18px;
 }
 
 @media (max-width: 1500px) {
@@ -1561,6 +1567,10 @@ h4 {
     overflow: hidden;
     max-width: 92%;
     white-space: nowrap;
+    color: var(--text-primary);
+}
+
+.card-text {
     color: var(--text-primary);
 }
 
@@ -1916,9 +1926,11 @@ h4 {
 .item-details__image {
     width: 100%;
     height: auto;
+    min-height: 60vh;
     cursor: zoom-in;
     border-radius: 20px;
     object-fit: cover;
+    background-color: var(--bg-secondary)
 }
 
 .item-details__image--size {

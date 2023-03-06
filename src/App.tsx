@@ -9,7 +9,7 @@ import {
     PanelHeaderButton,
     Div,
     FormItem,
-    Input,
+    Input, 
     Snackbar,
     ScreenSpinner
 } from '@vkontakte/vkui'
@@ -29,6 +29,7 @@ import { SuccessfullyPut } from './pages/successfully-put'
 import { CreateNft } from './pages/create-nft'
 import { NotFound404 } from './pages/404'
 import { CollectionItem } from './pages/collection-item'
+import { Launchpad } from './pages/launchpad'
 import { Profile } from './pages/profile'
 
 import { HeaderBlock } from './layout/header'
@@ -340,6 +341,16 @@ export const App: React.FC = () => {
                     <Route path="/collection-item" element={
                                 <CollectionItem
                                     id="collection-item1"
+                                    setActiveModal={setActiveModal}
+                                    consoleLog={consoleLog}
+                                    isDesktop={isDesktop}
+                                    installScripts={installScripts}
+                                />
+                        } />
+
+                        <Route path="/launchpad" element={
+                                <Launchpad
+                                    id="launchpad1"
                                     setActiveModal={setActiveModal}
                                     consoleLog={consoleLog}
                                     isDesktop={isDesktop}
