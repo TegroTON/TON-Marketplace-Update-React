@@ -10,14 +10,14 @@ import {
   Container,
   Breadcrumb,
   Card,
-  Table,
-  OverlayTrigger,
-  Tooltip,
+  ProgressBar,
+  Form,
+  InputGroup,
 } from "react-bootstrap";
 
 import { PageProps } from "../../types/interfaces";
 
-export const Launchpad: React.FC<PageProps> = (props: PageProps) => {
+export const LaunchpadActive: React.FC<PageProps> = (props: PageProps) => {
   const [firstRender, setFirstRender] = React.useState<boolean>(false);
 
   const history = useNavigate();
@@ -125,21 +125,33 @@ export const Launchpad: React.FC<PageProps> = (props: PageProps) => {
                     </Dropdown>
                   </div>
                 </div>
-                <Card className="border p-0 mb-4">
-                  <Card.Header className="d-flex align-items-start p-4 mb-0">
-                    <div className="w-75">
-                      <Card.Title className="fs-22 fw-bold mb-1">
-                        NFT Sales will start in:
-                      </Card.Title>
-                      <div className="color-grey">16 April, 10:00 AM</div>
-                    </div>
-                    <div className="item-details__badge badge__yellow ms-auto">
-                      Public Mint
+                <Card className="border p-4 mb-4">
+                  <Card.Header className="mb-3">
+                    <Card.Title className="fs-22 fw-bold mb-1">
+                      NFT Sales
+                    </Card.Title>
+                    <div className="color-grey">
+                      Will end in: 05 may, 12:00 PM
                     </div>
                   </Card.Header>
-                  <Card.Body className="px-4 py-0 mb-4">
+                  <Card.Body className="p-0 d-flex flex-wrap mb-4">
+                    <div className="item-details__badge badge__yellow small m-1">
+                      Public Mint
+                    </div>
+                    <div className="item-details__badge badge__yellow small m-1">
+                      Price 0,5 TON
+                    </div>
+                    <div className="item-details__badge badge__yellow small m-1">
+                      Up to 600 NFTs
+                    </div>
+                    <div className="item-details__badge badge__yellow small m-1">
+                      10 NFTs Per Wallet
+                    </div>
+                  </Card.Body>
+                  <Card.Body className="p-0">
+                    {/* Timer */}
                     <div
-                      className="auction-timer d-flex flex-wrap align-items-center justify-content-between"
+                      className="auction-timer d-flex flex-wrap align-items-center justify-content-between mb-4"
                       id="timer"
                     >
                       <div className="auction-timer__box text-center">
@@ -159,6 +171,45 @@ export const Launchpad: React.FC<PageProps> = (props: PageProps) => {
                         <div>Sec</div>
                       </div>
                     </div>
+
+                    {/* Progress Bar */}
+                    <div className="progress-box mb-4">
+                      <div className="d-flex mb-2 small fw-500">
+                        <span>15%</span>
+                        <span className="ms-auto color-grey">
+                          Sold 90 from 600
+                        </span>
+                      </div>
+                      <ProgressBar animated variant="warning" now={15} />
+                    </div>
+
+                    {/* Amount Form */}
+                    <Form>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Choose Amount</Form.Label>
+                        <InputGroup className="mb-3">
+                          <InputGroup.Text className="p-0">
+                            <Button variant="link p-3">
+                              <i className="fa-solid fa-minus" />
+                            </Button>
+                          </InputGroup.Text>
+                          <Form.Control
+                            className="text-center fw-bold fs-20 mx-2"
+                            type="number"
+                            placeholder="Amount"
+                            defaultValue={1}
+                            min={1} 
+                            max={10}
+                          />
+                          <InputGroup.Text className="p-0">
+                            <Button variant="link p-3">
+                              <i className="fa-solid fa-plus" />
+                            </Button>
+                          </InputGroup.Text>
+                        </InputGroup>
+                      </Form.Group>
+                      <Button variant="primary w-100">Buy For 0.5 TON</Button>
+                    </Form>
                   </Card.Body>
                 </Card>
                 {/* Team */}
@@ -245,7 +296,7 @@ export const Launchpad: React.FC<PageProps> = (props: PageProps) => {
                     />
                   </Card>
                 </Collapse>
-
+                {/* Launchpad */}
                 <Card className="border p-4 mb-4">
                   <Card.Title className="fs-22 mb-4">Launchpad</Card.Title>
                   <Card.Text className="fw-medium mb-1">
