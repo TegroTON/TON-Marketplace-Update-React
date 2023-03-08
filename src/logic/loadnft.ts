@@ -1,4 +1,4 @@
-import { Collection, Collections, Item, TonApi } from "./tonapi"
+import { Account, Collection, Collections, Item, TonApi } from "./tonapi"
 
 export class MarketNft {
 
@@ -32,6 +32,15 @@ export class MarketNft {
         return data
     }
 
+    public async getUser (address: string): Promise<Account | undefined>  {
+        const data = await this._tonApi.getInfoUser(address)
+
+        if (!data) {
+            return undefined
+        }
+        return data
+    }
+
     public async getCollections (page: number = 0): Promise<Collection[] | undefined>  {
         const limit = 50
         const off = page * limit
@@ -51,6 +60,21 @@ export class MarketNft {
         const limit = 50
         const off = page * limit
         const data = await this._tonApi.searchItems(address, limit, off)
+
+        if (!data) {
+            return undefined
+        }
+
+        if (data.nft_items.length > 0) {
+            return data.nft_items
+        }
+        return undefined
+    }
+
+    public async getItemsFromUser (address: string, page: number = 0): Promise<Item[] | undefined>  {
+        const limit = 50
+        const off = page * limit
+        const data = await this._tonApi.searchItemsFromUser(address, limit, off)
 
         if (!data) {
             return undefined

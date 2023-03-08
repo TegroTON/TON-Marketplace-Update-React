@@ -31,8 +31,15 @@ export function rawToTon (address: string | undefined) {
     return addr
 }
 
-// https://app.tonkeeper.com/v1/txrequest-inline/eyJ2ZXJzaW9uIjoiMCIsImJvZHkiOnsidHlwZSI6InNpZ24tcmF3LXBheWxvYWQiLCJwYXJhbXMiOnsibWVzc2FnZXMiOlt7ImFkZHJlc3MiOiJFUURLbEprSFF5RzMwcHgwU2Z0ZjVpX19hdDR0SG9vdl9hbndmeHA2WXJCZTI5UzciLCJhbW91bnQiOiI2MGUyMzUzYzAifV19fX0
+export function smlAddr (address: string | undefined) {
+    if (!address) {
+        return ''
+    }
+    return address.slice(0, 7) + '...' + address.slice(address.length - 4, address.length)
+}
 
+// https://app.tonkeeper.com/v1/txrequest-inline/eyJ2ZXJzaW9uIjoiMCIsImJvZHkiOnsidHlwZSI6InNpZ24tcmF3LXBheWxvYWQiLCJwYXJhbXMiOnsibWVzc2FnZXMiOlt7ImFkZHJlc3MiOiJFUURLbEprSFF5RzMwcHgwU2Z0ZjVpX19hdDR0SG9vdl9hbndmeHA2WXJCZTI5UzciLCJhbW91bnQiOiI2MGUyMzUzYzAifV19fX0
+// https://app.tonkeeper.com/v1/txrequest-url/api.getgems.io/storage/simple?key=88a6b81b-5bf1-42c1-a30a-efad9111bb0d
 export async function getPriceTon () {
     const toncoinData = await axios.get(` https://api.coingecko.com/api/v3/coins/the-open-network`);
     if (!toncoinData) return 0

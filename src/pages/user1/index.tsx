@@ -4,17 +4,62 @@ import { useNavigate } from 'react-router-dom'
 import { Button, Form, InputGroup, Row, Col, Container, Card, Badge, Dropdown, Tabs, Tab } from 'react-bootstrap'
 
 import { PageProps } from '../../types/interfaces'
+import { Account, Item } from '../../logic/tonapi'
+import { getParameterByName, rawToTon, fixAmount, smlAddr } from '../../logic/utils'
+import { MarketNft } from '../../logic/loadnft'
 
 export const User1: React.FC<PageProps> = (props: PageProps) => {
    const [firstRender, setFirstRender] = React.useState<boolean>(false)
+   const [ items, setItems ] = React.useState<Item[] | undefined>(undefined)
+
+   const [ address, setAddress ] = React.useState<string | undefined>(undefined)
+
+   const [ account, setAccount ] = React.useState<Account | undefined>(undefined)
+
+   const [ page, setPage ] = React.useState<number>(0)
 
    const history = useNavigate()
+
+   const marketNFT = new MarketNft()
+
+   async function loadUser (address: string) {
+      const data = await marketNFT.getUser(address)
+
+      if (!data) {
+         return undefined
+      }
+      setAccount(data)
+   }
+
+   async function loadItems (address: string) {
+      if (address === '') {
+         return
+      }
+      const data = await marketNFT.getItemsFromUser(address, page)
+      if (!data) {
+         return undefined
+      }
+
+      setPage(page + 1)
+
+      setItems(data)
+   }
 
 
    useEffect(() => {
       if (!firstRender) {
          setFirstRender(true)
          props.installScripts()
+
+         const address = getParameterByName('a')
+
+         if (address) {
+            loadItems(address)
+            setAddress(address)
+            loadUser(address)
+         } else {
+            history('/')
+         }
       }
    }, [])
 
@@ -31,12 +76,14 @@ export const User1: React.FC<PageProps> = (props: PageProps) => {
                         <Col lg="4" xxl="3" className="mb-4 mb-lg-0">
                            <Card className="card-blur p-0 mb-4" style={{ marginTop: '-75px' }}>
                               <Card.Body className="p-2 p-xl-4">
+                                 {account && address ?
                                  <div className="d-flex mb-4">
-                                    <Card.Img variant="profile__avatar" src="./assets/img/user-avatar.png" />
+                                    <Card.Img variant="profile__avatar" 
+                                    src={account.icon !== '' ? account.icon : "./assets/img/user-avatar.png"} />
                                     <div className="ms-3 w-100">
                                        <div className="d-flex">
                                           <Card.Title className="fs-28 fw-bold mb-2 me-3 text-wrap">
-                                             Simon Grey
+                                             {account.name ?? smlAddr(address)}
                                           </Card.Title>
                                           <Dropdown className="ms-auto">
                                              <Dropdown.Toggle variant="icon" id="dropdown-social">
@@ -48,13 +95,14 @@ export const User1: React.FC<PageProps> = (props: PageProps) => {
                                           </Dropdown>
                                        </div>
                                        <Card.Text className="d-flex align-items-center color-grey">
-                                          <span>EQCioGF…mvYl</span>
+                                          <span>{smlAddr(address)}</span>
                                           <a href="#!" className="ms-3">
                                              <i className="fa-regular fa-copy" />
                                           </a>
                                        </Card.Text>
                                     </div>
                                  </div>
+                                 : null }
                                  <div className="mb-4">
                                     <div className="mb-2">
                                        <p>Hey!</p>
@@ -244,22 +292,33 @@ export const User1: React.FC<PageProps> = (props: PageProps) => {
                                     </div>
                                  </div>
                                  <Row className="flex-wrap collections__list">
-                                    <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
+                                 {items && items.length > 0 ? 
+                                    items.map((item, key) => (
+                                       <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4" key={key}>
                                        <Card>
-                                          <Card.Link href="/collection-item" className="card-link">
-                                             <Card.Img variant="top card-image" src="./assets/img/nfts/nft-1.png" />
+                                          <Card.Link href={"/collection-item?a=" + rawToTon(item.address)} className="card-link">
+                                             <Card.Img variant="top card-image" 
+                                                src={item.previews ? item.previews[1].url : ''} />
                                              <Card.Body>
+                                                {item.collection ?
                                                 <div className="card-subtitle d-flex align-items-center mb-2">
-                                                   Pinocchio
+                                                   {item.collection?.name}
                                                    <span className="verified-icon ms-2" />
-                                                </div>
+                                                </div> :  <div className="card-subtitle d-flex align-items-center mb-2">
+                                                   Single
+                                                </div> }
                                                 <Card.Title className="mb-3">
-                                                   Pinocchio
+                                                   {item.metadata.name}
                                                 </Card.Title>
+                                                {item.sale ? 
                                                 <Card.Text className="d-flex align-items-center color-grey fs-18">
-                                                   <span className="icon-ton me-2"></span>
-                                                   3
+                                                   <span className="icon-ton me-2"></span> {fixAmount(item.sale?.price.value ?? 0)}
+                                                   {/* <Badge bg="purple" className="ms-2">MIN.BID</Badge> */}
                                                 </Card.Text>
+                                                :
+                                                <Card.Text className="d-flex align-items-center color-grey">
+                                                Not For Sale
+                                             </Card.Text>}
                                              </Card.Body>
                                           </Card.Link>
                                           <Dropdown className="card-actions">
@@ -268,130 +327,25 @@ export const User1: React.FC<PageProps> = (props: PageProps) => {
                                              </Dropdown.Toggle>
                                              <Dropdown.Menu className="mt-2 fs-14">
                                                 <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                                                <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
+                                                <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-18 me-2" /> Like</Dropdown.Item>
                                              </Dropdown.Menu>
                                           </Dropdown>
                                           <Button variant="icon btn-like btn-like__card">
                                              <i className="fa-regular fa-heart fs-18 me-2" />
-                                             8
+                                             16
                                           </Button>
                                           <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
                                              Buy Now
                                           </Button>
-                                          <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-1.png)  no-repeat center center / cover' }} />
+                                          {/* <div className="card-status fw-500">
+                                             <i className="fa-regular fa-gavel me-2 fs-18" />
+                                             7 days
+                                          </div> */}
+                                          <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/cats/1.png)  no-repeat center center / cover' }} />
                                        </Card>
                                     </Col>
-                                    <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
-                                       <Card>
-                                          <Card.Link href="/collection-item" className="card-link">
-                                             <Card.Img variant="top card-image" src="./assets/img/nfts/nft-2.png" />
-                                             <Card.Body>
-                                                <div className="card-subtitle d-flex align-items-center mb-2">
-                                                   Single NFT
-                                                   <span className="verified-icon ms-2" />
-                                                </div>
-                                                <Card.Title className="mb-3">
-                                                   RED HOPE
-                                                </Card.Title>
-                                                <Card.Text className="d-flex align-items-center color-grey fs-18">
-                                                   <span className="icon-ton me-2"></span>
-                                                   10
-                                                </Card.Text>
-                                             </Card.Body>
-                                          </Card.Link>
-                                          <Dropdown className="card-actions">
-                                             <Dropdown.Toggle variant="icon" id="dropdown-actions">
-                                                <i className="fa-solid fa-ellipsis-vertical" />
-                                             </Dropdown.Toggle>
-                                             <Dropdown.Menu className="mt-2 fs-14">
-                                                <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                                                <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
-                                             </Dropdown.Menu>
-                                          </Dropdown>
-                                          <Button variant="icon btn-like btn-like__card">
-                                             <i className="fa-regular fa-heart fs-18 me-2" />
-                                             12
-                                          </Button>
-                                          <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                                             Buy Now
-                                          </Button>
-                                          <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-2.png)  no-repeat center center / cover' }} />
-                                       </Card>
-                                    </Col>
-                                    <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
-                                       <Card>
-                                          <Card.Link href="/collection-item" className="card-link">
-                                             <Card.Img variant="top card-image" src="./assets/img/nfts/nft-3.png" />
-                                             <Card.Body>
-                                                <div className="card-subtitle d-flex align-items-center mb-2">
-                                                   CAT Meta
-                                                   <span className="verified-icon ms-2" />
-                                                </div>
-                                                <Card.Title className="mb-3">
-                                                   CAT ETH
-                                                </Card.Title>
-                                                <Card.Text className="d-flex align-items-center color-grey fs-18">
-                                                   <span className="icon-ton me-2"></span>
-                                                   5
-                                                </Card.Text>
-                                             </Card.Body>
-                                          </Card.Link>
-                                          <Dropdown className="card-actions">
-                                             <Dropdown.Toggle variant="icon" id="dropdown-actions">
-                                                <i className="fa-solid fa-ellipsis-vertical" />
-                                             </Dropdown.Toggle>
-                                             <Dropdown.Menu className="mt-2 fs-14">
-                                                <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                                                <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
-                                             </Dropdown.Menu>
-                                          </Dropdown>
-                                          <Button variant="icon btn-like btn-like__card">
-                                             <i className="fa-regular fa-heart fs-18 me-2" />
-                                             4
-                                          </Button>
-                                          <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                                             Buy Now
-                                          </Button>
-                                          <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-3.png)  no-repeat center center / cover' }} />
-                                       </Card>
-                                    </Col>
-                                    <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
-                                       <Card>
-                                          <Card.Link href="/collection-item" className="card-link">
-                                             <Card.Img variant="top card-image" src="./assets/img/nfts/nft-4.png" />
-                                             <Card.Body>
-                                                <div className="card-subtitle d-flex align-items-center mb-2">
-                                                   Cyber Girl
-                                                   <span className="verified-icon ms-2" />
-                                                </div>
-                                                <Card.Title className="mb-3">
-                                                   TON CYBER GIRL
-                                                </Card.Title>
-                                                <Card.Text className="d-flex align-items-center color-grey fs-18">
-                                                   <span className="icon-ton me-2"></span>
-                                                   50
-                                                </Card.Text>
-                                             </Card.Body>
-                                          </Card.Link>
-                                          <Dropdown className="card-actions">
-                                             <Dropdown.Toggle variant="icon" id="dropdown-actions">
-                                                <i className="fa-solid fa-ellipsis-vertical" />
-                                             </Dropdown.Toggle>
-                                             <Dropdown.Menu className="mt-2 fs-14">
-                                                <Dropdown.Item href="#" className="border-0"><i className="fa-solid fa-arrows-rotate me-3" /> Refresh Metadata</Dropdown.Item>
-                                                <Dropdown.Item href="#"><i className="fa-regular fa-heart fs-16 me-2" /> Like</Dropdown.Item>
-                                             </Dropdown.Menu>
-                                          </Dropdown>
-                                          <Button variant="icon btn-like btn-like__card">
-                                             <i className="fa-regular fa-heart fs-18 me-2" />
-                                             23
-                                          </Button>
-                                          <Button variant="primary btn-sm card__show-effect" data-bs-toggle="modal" data-bs-target="#BuyNowModal">
-                                             Buy Now
-                                          </Button>
-                                          <div className="card__blur-bg-hover" style={{ background: 'url(./assets/img/nfts/nft-4.png)  no-repeat center center / cover' }} />
-                                       </Card>
-                                    </Col>
+                                    ))
+                                 : null}
                                  </Row>
                               </Tab>
                               <Tab eventKey="Created" title="Created">
@@ -440,6 +394,7 @@ export const User1: React.FC<PageProps> = (props: PageProps) => {
                                     </div>
                                  </div>
                                  <Row className="collections__list">
+                                 
                                     <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4">
                                        <Card>
                                           <Card.Link href="/collection" className="card-link">

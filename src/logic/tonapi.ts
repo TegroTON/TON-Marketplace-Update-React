@@ -78,6 +78,22 @@ interface Collections {
     nft_collections: Collection[]
 }
 
+interface Account {
+    address: {
+        bounceable: string,
+        non_bounceable: string,
+        raw: string
+    },
+    balance: number,
+    icon: undefined | string,
+    interfaces: any[],
+    is_scam: boolean,
+    last_update: number,
+    memo_required: boolean,
+    name: undefined | string,
+    status: string
+}
+
 export class TonApi {
     private _url: string = 'https://tonapi.io/v1/'
 
@@ -125,12 +141,26 @@ export class TonApi {
         return data
     }
 
+    public async searchItemsFromUser (address: string, limit:number = 50, offset: number = 0 ): Promise<Items | undefined> {
+        const data = await this.send('nft/searchItems', { owner: address, limit, offset } )
+
+        console.log(data)
+        return data
+    }
+
     public async searchItemsfull ( limit:number = 50, offset: number = 0 ): Promise<Items | undefined> {
         const data = await this.send('nft/searchItems', { limit, offset } )
 
         console.log(data)
         return data
     }
+
+    public async getInfoUser (address: string): Promise<Account | undefined> {
+        const data = await this.send('account/getInfo', { account: address } )
+
+        console.log(data)
+        return data
+    }
 }
 
-export type { Items, Item, Collection, Collections }
+export type { Items, Item, Collection, Collections, Account }

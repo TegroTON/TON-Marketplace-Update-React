@@ -7,7 +7,7 @@ import { PageProps } from '../../types/interfaces'
 import { MarketNft } from '../../logic/loadnft';
 
 import { getParameterByName, fixAmount, rawToTon } from '../../logic/utils'
-import { Collection, Item } from '../../logic/tonapi';
+import { Account, Collection, Item } from '../../logic/tonapi';
 
 export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
    const [firstRender, setFirstRender] = React.useState<boolean>(false)
@@ -17,9 +17,20 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
 
    const [ items, setItems ] = React.useState<Item[] | undefined>(undefined)
 
+   const [ account, setAccount ] = React.useState<Account | undefined>(undefined)
+
    const history = useNavigate()
 
    const marketNFT = new MarketNft()
+
+   async function loadUser (address: string) {
+      const data = await marketNFT.getUser(address)
+
+      if (!data) {
+         return undefined
+      }
+      setAccount(data)
+   }
 
    async function load (address: string) {
       const data = await marketNFT.getOneNft(address)
@@ -34,6 +45,8 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
       if (data.collection) await loadItems(data.collection?.address)
 
       props.installScripts()
+
+      if (data.nft.owner) await loadUser(data.nft.owner.address)
    }
 
    async function loadItems (address: string = collection?.address ?? '') {
@@ -265,19 +278,20 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
                         </Card>
                      */}
                         <Row>
+                           {account ?
                            <Col md="6" lg="12" xl="6" className="mx-auto mb-4">
                               <Card.Title className="mb-3">Owner</Card.Title>
                               <Card className="p-3 p-sm-0 border mb-3">
                                  <Card.Link href={"/user?a=" + rawToTon(oneItem.owner?.address)} className="d-block d-sm-flex align-items-center text-center text-sm-start">
                                     <Card.Img variant="collection m-3 m-lg-0" src="/assets/img/user-avatar.png" />
                                     <Card.Title className="mb-0 ms-3 fs-18">
-                                       {rawToTon(oneItem.owner?.address)}
+                                       {account.name ? account.name : rawToTon(oneItem.owner?.address)}
                                     </Card.Title>
                                     <i className="fa-solid fa-angle-right ms-auto d-none d-lg-block me-3" />
                                  </Card.Link>
                                  <div className="card__blur-bg-hover" style={{ background: 'url(/assets/img/user-avatar.png)  no-repeat center center / cover' }} />
                               </Card>
-                           </Col>
+                           </Col> : null }
                            {collection ?
                            <Col md="6" lg="12" xl="6" className="mx-auto mb-4">
                               <Card.Title className="mb-3">Collection</Card.Title>
