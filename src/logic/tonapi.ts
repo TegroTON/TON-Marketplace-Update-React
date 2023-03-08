@@ -1,5 +1,10 @@
 import axios from "axios"
 
+interface Attribute {
+    trait_type: undefined | string,
+    value: undefined | string
+}
+
 interface Collection {
     address: string,
     metadata: undefined | {
@@ -37,7 +42,7 @@ interface Item {
         marketplace: string | undefined,
         image: string | undefined,
         description: string | undefined,
-        attributes: undefined | []
+        attributes: undefined | Attribute[]
     },
     previews: any,
     owner: undefined | {

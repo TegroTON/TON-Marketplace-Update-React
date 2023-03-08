@@ -828,12 +828,13 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                               </div>
 
                               <Row className="flex-wrap collections__list">
-                                 {items ? 
+                                 {items && items.length > 0 ? 
                                     items.map((item, key) => (
                                        <Col sm="6" md="4" lg="6" xl="4" xxl="3" className="mb-4" key={key}>
                                        <Card>
                                           <Card.Link href={"/collection-item?a=" + rawToTon(item.address)} className="card-link">
-                                             <Card.Img variant="top card-image" src={item.previews[1].url} />
+                                             <Card.Img variant="top card-image" 
+                                                src={item.previews ? item.previews[1].url : ''} />
                                              <Card.Body>
                                                 <div className="card-subtitle d-flex align-items-center mb-2">
                                                    {collection.metadata?.name}

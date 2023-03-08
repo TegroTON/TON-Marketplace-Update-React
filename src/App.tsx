@@ -1,26 +1,28 @@
 import React, { useEffect } from "react";
 
 import {
-  AppRoot,
-  SplitLayout,
-  ModalRoot,
-  ModalPage,
-  ModalPageHeader,
-  PanelHeaderButton,
-  Div,
-  FormItem,
-  Input,
-  Snackbar,
-  ScreenSpinner,
+    AppRoot,
+    SplitLayout,
+    ModalRoot,
+    ModalPage,
+    ModalPageHeader,
+    PanelHeaderButton,
+    Div,
+    FormItem,
+    Input,
+    Snackbar,
+    ScreenSpinner,
 } from "@vkontakte/vkui";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 import {
-  Icon24Dismiss,
-  Icon28CancelCircleFillRed,
-  Icon28CheckCircleFill,
+    Icon24Dismiss,
+    Icon28CancelCircleFillRed,
+    Icon28CheckCircleFill,
 } from "@vkontakte/icons";
 import { VldBuilder, vlds } from "validatorus-react";
+
+import { Coins } from 'ton3'
 
 import { Main } from "./pages/main";
 import { Explore } from "./pages/explore";
@@ -40,407 +42,445 @@ import { FooterBlock } from "./layout/footer";
 
 import { Modals } from "./block/modal";
 import {
-  DeLabAddress,
-  DeLabConnect,
-  DeLabConnecting,
-  DeLabEvent,
-  DeLabNetwork,
-  DeLabTypeConnect,
+    DeLabAddress,
+    DeLabConnect,
+    DeLabConnecting,
+    DeLabEvent,
+    DeLabNetwork,
+    DeLabTransaction,
+    DeLabTypeConnect,
 } from "@delab-team/connect";
+import { Item } from "./logic/tonapi";
+import { rawToTon } from "./logic/utils";
 
 const DeLabConnector = new DeLabConnect(
-  "https://example.com",
-  "Libermall",
-  "mainnet"
+    "https://example.com",
+    "Libermall",
+    "mainnet"
 );
 
 export const App: React.FC = () => {
-  const [activeModal, setActiveModal] = React.useState<any>(null);
+    const [activeModal, setActiveModal] = React.useState<any>(null);
 
-  const [snackbar, setSnackbar] = React.useState<any>(null);
+    const [snackbar, setSnackbar] = React.useState<any>(null);
 
-  const [popout, setPopout] = React.useState<any>(null);
+    const [popout, setPopout] = React.useState<any>(null);
 
-  const [firstRender, setFirstRender] = React.useState<boolean>(false);
+    const [firstRender, setFirstRender] = React.useState<boolean>(false);
 
-  const [DelabLink, setDelabLink] = React.useState<string>("");
+    const [DelabLink, setDelabLink] = React.useState<string>("");
 
-  const [isConnected, setIsConnected] = React.useState<boolean>(false);
-  const [address, setAddress] = React.useState<DeLabAddress>(undefined);
-  const [network, setNetwork] = React.useState<DeLabNetwork>("mainnet");
-  const [typeConnect, setTypeConnect] =
-    React.useState<DeLabTypeConnect>(undefined);
+    const [isConnected, setIsConnected] = React.useState<boolean>(false);
+    const [address, setAddress] = React.useState<DeLabAddress>(undefined);
+    const [network, setNetwork] = React.useState<DeLabNetwork>("mainnet");
+    const [typeConnect, setTypeConnect] =
+        React.useState<DeLabTypeConnect>(undefined);
 
-  const isDesktop = window.innerWidth >= 1200;
+    const [modalData, setModalData] = React.useState<any | undefined>(undefined);
 
-  const location = useLocation();
 
-  const history = useNavigate();
+    const isDesktop = window.innerWidth >= 1200;
 
-  function openPop() {
-    setPopout(<ScreenSpinner state="loading" />);
-  }
+    const location = useLocation();
 
-  function closePop(type: boolean) {
-    if (type) setPopout(<ScreenSpinner state="done" aria-label="Success" />);
-    else setPopout(<ScreenSpinner state="error" aria-label="Error" />);
+    const history = useNavigate();
 
-    setTimeout(() => {
-      setPopout(null);
-    }, 1000);
-  }
-
-  const input = new VldBuilder()
-    .with(vlds.VLen, 4, 128)
-    .withFname("Merchant name");
-
-  function consoleLog(data: string, type: boolean = false) {
-    setSnackbar(
-      <Snackbar
-        before={
-          type ? <Icon28CheckCircleFill /> : <Icon28CancelCircleFillRed />
-        }
-        onClose={() => setSnackbar(null)}
-      >
-        {data}
-      </Snackbar>
-    );
-  }
-
-  function openLink(url: string) {
-    const link2 = document.createElement("a");
-    link2.href = url;
-    link2.target = "_blank";
-    link2.click();
-  }
-
-  function regListen() {
-    DeLabConnector.on("link", (data: DeLabEvent) => {
-      setDelabLink(data.data ?? "");
-      // setType(1)
-
-      console.log("link", data.data);
-
-      const typeWallet = data.data.indexOf("tonhub") > -1;
-      // if (!isDesktop)
-      openLink(data.data);
-
-      // const tonconnectImg = props.DeLabConnectObject.tonConnectWallet?.imageUrl
-
-      // qrCode.update({
-      //     data: data.data,
-      //     image: typeWallet ? tonhubLogo : tonkeeperLogo
-      // })
-    });
-
-    DeLabConnector.on("connected", () => {
-      // setIsOpenModal(false)
-      // setType(0)
-      setDelabLink("");
-      document.querySelector("#ConnectModal")?.setAttribute("style", "");
-    });
-
-    DeLabConnector.on("connect", (data: DeLabEvent) => {
-      setIsConnected(true);
-      const connectConfig: DeLabConnecting = data.data;
-      setAddress(connectConfig.address);
-      setTypeConnect(connectConfig.typeConnect);
-      setNetwork(connectConfig.network);
-
-      // document.querySelector('#ConnectModal')?.setAttribute('style', '')
-      // document.querySelector('.modal-backdrop')?.setAttribute('style', 'display: none')
-
-      const bthClose = document.querySelector(
-        "button.modal-close"
-      ) as HTMLElement;
-
-      bthClose.click();
-    });
-
-    DeLabConnector.on("disconnect", () => {
-      setIsConnected(false);
-      setAddress(undefined);
-      setTypeConnect(undefined);
-      setNetwork("mainnet");
-      console.log("disconect");
-    });
-  }
-
-  function openModalConnect() {
-    DeLabConnector.openModal();
-  }
-
-  useEffect(() => {
-    if (!firstRender) {
-      setFirstRender(true);
-
-      regListen();
+    function openPop() {
+        setPopout(<ScreenSpinner state="loading" />);
     }
-  }, []);
 
-  function installScripts() {
-    document.querySelectorAll("script-del").forEach((el) => el.remove());
+    function closePop(type: boolean) {
+        if (type) setPopout(<ScreenSpinner state="done" aria-label="Success" />);
+        else setPopout(<ScreenSpinner state="error" aria-label="Error" />);
 
-    const script1 = document.createElement("script");
-    const script2 = document.createElement("script");
-    const script3 = document.createElement("script");
-    const script4 = document.createElement("script");
+        setTimeout(() => {
+            setPopout(null);
+        }, 1000);
+    }
 
-    script1.setAttribute("src", "/assets/js/popper.min.js");
-    script2.setAttribute("src", "/assets/js/slick.min.js");
-    script3.setAttribute("src", "/assets/js/settings.js");
-    script4.setAttribute("src", "/assets/js/bootstrap.min.js");
+    const input = new VldBuilder()
+        .with(vlds.VLen, 4, 128)
+        .withFname("Merchant name");
 
-    script1.setAttribute("class", "script-del");
-    script2.setAttribute("class", "script-del");
-    script3.setAttribute("class", "script-del");
-    script4.setAttribute("class", "script-del");
+    function consoleLog(data: string, type: boolean = false) {
+        setSnackbar(
+            <Snackbar
+                before={
+                    type ? <Icon28CheckCircleFill /> : <Icon28CancelCircleFillRed />
+                }
+                onClose={() => setSnackbar(null)}
+            >
+                {data}
+            </Snackbar>
+        );
+    }
 
-    // document.querySelector('body')?.appendChild(script1)
+    function openLink(url: string) {
+        const link2 = document.createElement("a");
+        link2.href = url;
+        link2.target = "_blank";
+        link2.click();
+    }
 
-    // document.querySelector('body')?.appendChild(script4)
+    function regListen() {
+        DeLabConnector.on("link", (data: DeLabEvent) => {
+            setDelabLink(data.data ?? "");
+            // setType(1)
 
-    document.querySelector("body")?.appendChild(script2);
-    document.querySelector("body")?.appendChild(script3);
+            console.log("link", data.data);
 
-    console.log("install");
-  }
+            const typeWallet = data.data.indexOf("tonhub") > -1;
+            // if (!isDesktop)
+            openLink(data.data);
 
-  useEffect(() => {
-    // installScripts()
-  }, [location.pathname]);
+            // const tonconnectImg = props.DeLabConnectObject.tonConnectWallet?.imageUrl
 
-  useEffect(() => {
-    input.reset(true, true);
-  }, [activeModal]);
+            // qrCode.update({
+            //     data: data.data,
+            //     image: typeWallet ? tonhubLogo : tonkeeperLogo
+            // })
+        });
 
-  const modalRoot = (
-    <ModalRoot activeModal={activeModal}>
-      <ModalPage
-        id={"create_merchant"}
-        className="polus"
-        onClose={() => setActiveModal(null)}
-        dynamicContentHeight
-        // settlingHeight={100}
-        header={
-          <ModalPageHeader
-            after={
-              !isDesktop && (
-                <PanelHeaderButton onClick={() => setActiveModal(null)}>
-                  <Icon24Dismiss />
-                </PanelHeaderButton>
-              )
-            }
-          >
-            New merchant
-          </ModalPageHeader>
+        DeLabConnector.on("connected", () => {
+            // setIsOpenModal(false)
+            // setType(0)
+            setDelabLink("");
+            document.querySelector("#ConnectModal")?.setAttribute("style", "");
+        });
+
+        DeLabConnector.on("connect", (data: DeLabEvent) => {
+            setIsConnected(true);
+            const connectConfig: DeLabConnecting = data.data;
+            setAddress(connectConfig.address);
+            setTypeConnect(connectConfig.typeConnect);
+            setNetwork(connectConfig.network);
+
+            // document.querySelector('#ConnectModal')?.setAttribute('style', '')
+            // document.querySelector('.modal-backdrop')?.setAttribute('style', 'display: none')
+
+            const bthClose = document.querySelector(
+                "button.modal-close"
+            ) as HTMLElement;
+
+            bthClose.click();
+        });
+
+        DeLabConnector.on("disconnect", () => {
+            setIsConnected(false);
+            setAddress(undefined);
+            setTypeConnect(undefined);
+            setNetwork("mainnet");
+            console.log("disconect");
+        });
+    }
+
+    function openModalConnect() {
+        DeLabConnector.openModal();
+    }
+
+    function openModalData (modal: string | undefined, data: any | undefined) {
+        setModalData(data)
+        setActiveModal(modal ?? null)
+    }
+
+    function buyNft (nft: Item) {
+        if (!nft.sale) {
+            return
         }
-      >
-        <Div>
-          <FormItem top="Merchant name" bottom={input.error}>
-            <Input
-              type="text"
-              placeholder="Company name"
-              value={input.value}
-              onChange={(e) => {
-                input.change(e.target.value);
-              }}
-              status={input.iserr}
-            />
-          </FormItem>
-        </Div>
-      </ModalPage>
-    </ModalRoot>
-  );
 
-  return (
-    <AppRoot>
-      <SplitLayout
-        className="polus"
-        style={{ justifyContent: "center" }}
-        modal={modalRoot}
-        popout={popout}
-        // header={isDesktop
-        //     && <PanelHeader separator={false} className="delab-header" />
-        // }
-        // header={
-        //     <HeaderBlock />
-        // }
-      >
-        <HeaderBlock
-          openModalConnect={openModalConnect}
-          address={address}
-          DelabObject={DeLabConnector}
-        />
+        const trans: DeLabTransaction = {
+            to: rawToTon(nft.sale.address),
+            value: Coins.fromNano(nft.sale.price.value).add(new Coins('1')).toNano()
+        }
+        console.log(trans)
+        DeLabConnector.sendTransaction(trans)
+    }
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Main
-                id="main1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
-          <Route
-            path="/explore"
-            element={
-              <Explore
-                id="explore1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
-          <Route
-            path="/rankings"
-            element={
-              <Rankings
-                id="rankings1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
-          <Route
-            path="/collection"
-            element={
-              <Collection
-                id="collection1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
+    useEffect(() => {
+        if (!firstRender) {
+            setFirstRender(true);
 
-          <Route
-            path="/user1"
-            element={
-              <User1
-                id="user1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
+            regListen();
+        }
+    }, []);
 
-          <Route
-            path="/successfully-put"
-            element={
-              <SuccessfullyPut
-                id="successfully-put1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
+    function installScripts() {
+        document.querySelectorAll(".script-del").forEach((el) => el.remove());
 
-          <Route
-            path="/create-nft"
-            element={
-              <CreateNft
-                id="create-nft1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
+        const script1 = document.createElement("script");
+        const script2 = document.createElement("script");
+        const script3 = document.createElement("script");
+        const script4 = document.createElement("script");
 
-          <Route
-            path="/collection-item"
-            element={
-              <CollectionItem
-                id="collection-item1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
+        script1.setAttribute("src", "/assets/js/popper.min.js");
+        script2.setAttribute("src", "/assets/js/slick.min.js");
+        script3.setAttribute("src", "/assets/js/settings.js");
+        script4.setAttribute("src", "/assets/js/bootstrap.min.js");
 
-          <Route
-            path="/launchpad"
-            element={
-              <Launchpad
-                id="launchpad1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
-          <Route
-            path="/launchpad-active"
-            element={
-              <LaunchpadActive
-                id="launchpad-active1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
+        script1.setAttribute("class", "script-del");
+        script2.setAttribute("class", "script-del");
+        script3.setAttribute("class", "script-del");
+        script4.setAttribute("class", "script-del");
 
-          <Route
-            path="/profile"
-            element={
-              <Profile
-                id="profile1"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
+        // document.querySelector('body')?.appendChild(script1)
 
-          <Route
-            path="/404"
-            element={
-              <NotFound404
-                id="4041"
-                setActiveModal={setActiveModal}
-                consoleLog={consoleLog}
-                isDesktop={isDesktop}
-                installScripts={installScripts}
-              />
-            }
-          />
-        </Routes>
+        // document.querySelector('body')?.appendChild(script4)
 
-        <FooterBlock />
+        document.querySelector("body")?.appendChild(script2);
+        document.querySelector("body")?.appendChild(script3);
 
-        <Modals
-          id="modals"
-          setActiveModal={setActiveModal}
-          consoleLog={consoleLog}
-          isDesktop={isDesktop}
-          installScripts={installScripts}
-          DelabObject={DeLabConnector}
-          DelabLink={DelabLink}
-        />
+        console.log("install");
+    }
 
-        {snackbar}
-      </SplitLayout>
-    </AppRoot>
-  );
+    useEffect(() => {
+        // installScripts()
+    }, [location.pathname]);
+
+    useEffect(() => {
+        input.reset(true, true);
+    }, [activeModal]);
+
+    const modalRoot = (
+        <ModalRoot activeModal={activeModal}>
+            <ModalPage
+                id={"create_merchant"}
+                className="polus"
+                onClose={() => setActiveModal(null)}
+                dynamicContentHeight
+                // settlingHeight={100}
+                header={
+                    <ModalPageHeader
+                        after={
+                            !isDesktop && (
+                                <PanelHeaderButton onClick={() => setActiveModal(null)}>
+                                    <Icon24Dismiss />
+                                </PanelHeaderButton>
+                            )
+                        }
+                    >
+                        New merchant
+                    </ModalPageHeader>
+                }
+            >
+                <Div>
+                    <FormItem top="Merchant name" bottom={input.error}>
+                        <Input
+                            type="text"
+                            placeholder="Company name"
+                            value={input.value}
+                            onChange={(e) => {
+                                input.change(e.target.value);
+                            }}
+                            status={input.iserr}
+                        />
+                    </FormItem>
+                </Div>
+            </ModalPage>
+        </ModalRoot>
+    );
+
+    return (
+        <AppRoot>
+            <SplitLayout
+                className="polus"
+                style={{ justifyContent: "center" }}
+                modal={modalRoot}
+                popout={popout}
+            // header={isDesktop
+            //     && <PanelHeader separator={false} className="delab-header" />
+            // }
+            // header={
+            //     <HeaderBlock />
+            // }
+            >
+                <HeaderBlock
+                    openModalConnect={openModalConnect}
+                    address={address}
+                    DelabObject={DeLabConnector}
+                />
+
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <Main
+                                id="main1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/explore"
+                        element={
+                            <Explore
+                                id="explore1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/rankings"
+                        element={
+                            <Rankings
+                                id="rankings1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/collection"
+                        element={
+                            <Collection
+                                id="collection1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+
+                    <Route
+                        path="/user"
+                        element={
+                            <User1
+                                id="user1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+
+                    <Route
+                        path="/successfully-put"
+                        element={
+                            <SuccessfullyPut
+                                id="successfully-put1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+
+                    <Route
+                        path="/create-nft"
+                        element={
+                            <CreateNft
+                                id="create-nft1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+
+                    <Route
+                        path="/collection-item"
+                        element={
+                            <CollectionItem
+                                id="collection-item1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+
+                    <Route
+                        path="/launchpad"
+                        element={
+                            <Launchpad
+                                id="launchpad1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/launchpad-active"
+                        element={
+                            <LaunchpadActive
+                                id="launchpad-active1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+
+                    <Route
+                        path="/profile"
+                        element={
+                            <Profile
+                                id="profile1"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+
+                    <Route
+                        path="/404"
+                        element={
+                            <NotFound404
+                                id="4041"
+                                setActiveModal={setActiveModal}
+                                consoleLog={consoleLog}
+                                isDesktop={isDesktop}
+                                installScripts={installScripts}
+                                openModalData={openModalData}
+                            />
+                        }
+                    />
+                </Routes>
+
+                <FooterBlock />
+
+                <Modals
+                    id="modals"
+                    setActiveModal={setActiveModal}
+                    consoleLog={consoleLog}
+                    isDesktop={isDesktop}
+                    installScripts={installScripts}
+                    DelabObject={DeLabConnector}
+                    DelabLink={DelabLink}
+                    modalData={modalData}
+                    buyNft={buyNft}
+                />
+
+                {snackbar}
+            </SplitLayout>
+        </AppRoot>
+    );
 };

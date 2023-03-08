@@ -27,8 +27,13 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
          return undefined
       }
 
+      if (page === 0) {
+         props.installScripts()
+      }
+
       setPage(page + 1)
       setItems(data)
+      
    }
 
 

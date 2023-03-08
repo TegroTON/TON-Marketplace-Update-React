@@ -4,4 +4,5 @@ export interface PageProps {
     consoleLog: Function,
     isDesktop: boolean,
     installScripts: Function,
+    openModalData: Function
 }

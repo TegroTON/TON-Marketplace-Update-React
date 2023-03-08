@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { Button, InputGroup, Form, Modal, Card, ListGroup, Alert, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 import { PageProps } from '../types/interfaces'
-import { DeLabConnect } from '@delab-team/connect'
+import { DeLabConnect, DeLabModal } from '@delab-team/connect'
 import { WalletInfoRemote } from '@tonconnect/sdk'
+import { Item } from '../logic/tonapi';
+import { fixAmount } from '../logic/utils';
 
 interface ModalType {
    DelabObject: DeLabConnect,
@@ -14,7 +16,9 @@ interface ModalType {
    consoleLog: Function,
    isDesktop: boolean,
    installScripts: Function,
-   DelabLink: string
+   DelabLink: string,
+   modalData: Item | undefined,
+   buyNft: Function
 }
 
 export const Modals: React.FC<ModalType> = (props: ModalType) => {
@@ -32,6 +36,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
 
    return (
       <div id={props.id}>
+         <DeLabModal DeLabConnectObject={props.DelabObject} scheme='dark' />
          {/* Login */}
          <div className="modal fade" id="ConnectModal" tabIndex={-1} aria-hidden="true">
             <Modal.Dialog className="modal-dialog-centered mobile-modal-bottom">
@@ -85,45 +90,53 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                      <i className="fa-solid fa-xmark fa-lg" />
                   </Button>
                </Modal.Header>
-               <Modal.Body>
-                  <Card className="flex-row bg-soft p-2 mb-3">
-                     <Card.Img variant="custom rounded image-80x80" src="./assets/img/nfts/nft-6.png" />
-                     <Card.Body>
-                        <Card.Title className="fs-18 mb-2">ZubazzzTik (2684)</Card.Title>
-                        <Card.Text className="mb-0 color-grey fs-14">Cute Monters</Card.Text>
-                     </Card.Body>
-                  </Card>
-                  <ListGroup className="bg-transparent p-0 mb-4">
-                     <ListGroup.Item className="d-flex align-items-center">
-                        <div>NFT Price</div>
-                        <div className="ms-auto">43.9 TON</div>
-                     </ListGroup.Item>
-                     <ListGroup.Item className="d-flex align-items-center small color-grey pb-1">
-                        <div>Creator Royalties</div>
-                        <div className="ms-auto">0.525 TON</div>
-                     </ListGroup.Item>
-                     <ListGroup.Item className="d-flex align-items-center small color-grey pb-4">
-                        <div>Service Fee</div>
-                        <div className="ms-auto">0.875 TON</div>
-                     </ListGroup.Item>
-                     <ListGroup.Item className="d-flex align-items-center">
-                        <div>Network Fee</div>
-                        <div className="ms-auto">1 TON</div>
-                     </ListGroup.Item>
-                     <ListGroup.Item className="fs-14 color-grey">
-                        The rest will be returned to your wallet
-                     </ListGroup.Item>
-                  </ListGroup>
-                  <Card className="flex-row bg-soft fw-medium fs-18 mb-4">
-                     <div>You Pay</div>
-                     <div className="ms-auto">46.98 TON</div>
-                  </Card>
-                  <Alert key="warning" variant="warning mb-4">
-                     <p>Libermall is unaffiliated with any NFT projects. We are not responsible for possible losses. Invest at your own risk.</p>
-                     <Alert.Link href="#">Learn More</Alert.Link>
-                  </Alert>
-                  <Button variant="primary w-100" data-bs-toggle="modal" data-bs-target="#TransactionModal">Buy For 46.98 TON</Button>
-               </Modal.Body>
+               {props.modalData && props.modalData.metadata ?
+                  <Modal.Body>
+                     <Card className="flex-row bg-soft p-2 mb-3">
+                        <Card.Img variant="custom rounded image-80x80" 
+                        src={props.modalData.previews ? props.modalData.previews[1].url : ''} />
+                        <Card.Body>
+                           <Card.Title className="fs-18 mb-2">{props.modalData.metadata.name}</Card.Title>
+                           <Card.Text className="mb-0 color-grey fs-14">{props.modalData.collection?.name}</Card.Text>
+                        </Card.Body>
+                     </Card>
+                     <ListGroup className="bg-transparent p-0 mb-4">
+                        <ListGroup.Item className="d-flex align-items-center">
+                           <div>NFT Price</div>
+                           <div className="ms-auto">{fixAmount(props.modalData.sale?.price.value ?? 0)} TON</div>
+                        </ListGroup.Item>
+                        <ListGroup.Item className="d-flex align-items-center small color-grey pb-1">
+                           <div>Creator Royalties</div>
+                           <div className="ms-auto">0.525 TON</div>
+                        </ListGroup.Item>
+                        <ListGroup.Item className="d-flex align-items-center small color-grey pb-4">
+                           <div>Service Fee</div>
+                           <div className="ms-auto">0.875 TON</div>
+                        </ListGroup.Item>
+                        <ListGroup.Item className="d-flex align-items-center">
+                           <div>Network Fee</div>
+                           <div className="ms-auto">1 TON</div>
+                        </ListGroup.Item>
+                        <ListGroup.Item className="fs-14 color-grey">
+                           The rest will be returned to your wallet
+                        </ListGroup.Item>
+                     </ListGroup>
+                     <Card className="flex-row bg-soft fw-medium fs-18 mb-4">
+                        <div>You Pay</div>
+                        <div className="ms-auto">{fixAmount(props.modalData.sale?.price.value ?? 0)} TON</div>
+                     </Card>
+                     <Alert key="warning" variant="warning mb-4">
+                        <p>Libermall is unaffiliated with any NFT projects. We are not responsible for possible losses. Invest at your own risk.</p>
+                        <Alert.Link href="#">Learn More</Alert.Link>
+                     </Alert>
+                     <Button
+                        variant="primary w-100"
+                        data-bs-toggle="modal"
+                        data-bs-target="#TransactionModal"
+                        onClick={() => props.buyNft(props.modalData)}
+                     >Buy For {fixAmount(props.modalData.sale?.price.value ?? 0)} TON</Button>
+                  </Modal.Body>
+                  : null}
             </Modal.Dialog>
          </div>
          {/* Place a Bid  */}
@@ -389,7 +402,7 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                      <div className="__body ms-4">
                         <div className="fs-18 fw-medium mb-1">Transaction</div>
                         <div className="color-grey fs-14 mb-3 pe-5">
-                           Go to the [Wallet Name] app and confirm the transaction
+                           Go to the {props.DelabObject.typeConnect} app and confirm the transaction
                         </div>
                         <Button variant="primary btn-sm small px-3 py-2">Go to [Wallet Name]</Button>
                      </div>
@@ -422,10 +435,10 @@ export const Modals: React.FC<ModalType> = (props: ModalType) => {
                   <Form>
                      <Form.Group controlId="formFile">
                         <Form.Label forHtml="formFile" className="upload-image py-5 mb-4" style={{
-                        background: 'url(./assets/img/profile-banner.jpg) no-repeat center center / cover',
-                        maxHeight: '30vh',
-                        width: '100%'
-                     }}>
+                           background: 'url(./assets/img/profile-banner.jpg) no-repeat center center / cover',
+                           maxHeight: '30vh',
+                           width: '100%'
+                        }}>
                            <div className="text-center">
                               <i className="fa-regular fa-cloud-arrow-up fa-3x mb-4" />
                               <div className="fs-20 fw-medium mb-3">Upload Banner</div>
