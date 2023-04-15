@@ -194,10 +194,10 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </ButtonGroup>
                   </div>
                   <div className="notable-slider">
-                     {items ? items.map((item, key) => (
+                     {items ? items.filter(i => i.previews).map((item, key) => (
                         <Card key={key}>
                            <Card.Link href={"/collection-item?a=" + rawToTon(item.address)} className="card-link">
-                              <Card.Img variant="top card-image" src={item.previews[1].url} />
+                              <Card.Img variant="top card-image" src={item.previews ? item.previews[1].url : ''} />
                               <Card.Body>
                                  <div className="card-subtitle d-flex align-items-center mb-2">
                                     {item.collection?.name}

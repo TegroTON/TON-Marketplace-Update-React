@@ -44,7 +44,9 @@ interface Item {
         description: string | undefined,
         attributes: undefined | Attribute[]
     },
-    previews: any,
+    previews: {
+        url: string
+    }[] | undefined,
     owner: undefined | {
         address: string,
         is_scam: boolean
@@ -127,29 +129,29 @@ export class TonApi {
         return data
     }
 
-    public async getCollections (limit:number = 50, offset: number = 0): Promise<Collections | undefined> {
+    public async getCollections (limit:number = 100, offset: number = 0): Promise<Collections | undefined> {
         const data = await this.send('nft/getCollections', { limit, offset } )
 
         console.log(data)
         return data
     }
 
-    public async searchItems (address: string, limit:number = 50, offset: number = 0 ): Promise<Items | undefined> {
+    public async searchItems (address: string, limit:number = 100, offset: number = 0 ): Promise<Items | undefined> {
         const data = await this.send('nft/searchItems', { collection: address, limit, offset } )
 
         console.log(data)
         return data
     }
 
-    public async searchItemsFromUser (address: string, limit:number = 50, offset: number = 0 ): Promise<Items | undefined> {
-        const data = await this.send('nft/searchItems', { owner: address, limit, offset } )
+    public async searchItemsFromUser (address: string, limit:number = 100, offset: number = 0 ): Promise<Items | undefined> {
+        const data = await this.send('nft/searchItems', { owner: address, limit, offset, include_on_sale: true } )
 
         console.log(data)
         return data
     }
 
-    public async searchItemsfull ( limit:number = 50, offset: number = 0 ): Promise<Items | undefined> {
-        const data = await this.send('nft/searchItems', { limit, offset } )
+    public async searchItemsfull ( limit:number = 100, offset: number = 0 ): Promise<Items | undefined> {
+        const data = await this.send('nft/searchItems', { limit, offset} )
 
         console.log(data)
         return data

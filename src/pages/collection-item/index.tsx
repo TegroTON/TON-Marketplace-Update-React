@@ -42,6 +42,8 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
       setOneItem(data.nft)
       setCollection(data.collection)
 
+      if (!data.nft.previews) history('/')
+
       if (data.collection) await loadItems(data.collection?.address)
 
       props.installScripts()
@@ -81,7 +83,7 @@ export const CollectionItem: React.FC<PageProps> = (props: PageProps) => {
    return (
       <div id={props.id}>
          <main className="main-page border-top">
-            {oneItem ?
+            {oneItem && oneItem.previews ?
             <section className="item-details section pt-5">
                <Container fluid>
                   <Breadcrumb className="mb-4">

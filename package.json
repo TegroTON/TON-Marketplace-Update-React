@@ -19,7 +19,7 @@
         ]
     },
     "dependencies": {
-        "@delab-team/connect": "^1.4.1",
+        "@delab-team/connect": "^1.4.2",
         "@itznevikat/router": "^0.1.0-beta28",
         "@tonconnect/sdk": "^2.0.7",
         "@vkontakte/icons": "^1.202.0",
@@ -46,7 +46,14 @@
         "react-slick": "^0.29.0",
         "stream-browserify": "^3.0.0",
         "ton3": "^0.0.16",
-        "validatorus-react": "1.0.6"
+        "validatorus-react": "1.0.6",
+        "@ton.org/func-js": "^0.1.3",
+        "@types/uuid": "^8.3.4",
+        "bn.js": "^5.2.1",
+        "chai": "^4.3.6",
+        "mocha": "^10.0.0",
+        "ton": "^11.18.2",
+        "uuid": "^8.3.2"
     },
     "devDependencies": {
         "@types/node": "^18.7.6",

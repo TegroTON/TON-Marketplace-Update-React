@@ -1,15 +1,75 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { DeLabTransaction } from '@delab-team/connect';
+import { BOC, Coins } from 'ton3';
+import { Cell } from 'ton';
+import { VldBuilder, vlds } from 'validatorus-react'
 import { Button, ListGroup, Alert, Row, Col, Container, Form, Nav, Tab, Breadcrumb, Card, InputGroup } from 'react-bootstrap';
 import { PageProps } from '../../types/interfaces'
 
-
+import { CustomNft, CustomNftSingleData } from '../../logic/nft';
+import { rawToTon } from '../../logic/utils';
+import { CustomIpfs } from '../../logic/ipfs';
 
 export const CreateNft: React.FC<PageProps> = (props: PageProps) => {
    const [firstRender, setFirstRender] = React.useState<boolean>(false)
 
+   const name = new VldBuilder()
+        .with(vlds.VLen, 0, 60)
+        .withFname('Name')
+
+   const desc = new VldBuilder()
+        .with(vlds.VLen, 0, 700)
+        .withFname('Desciption')
+
    const history = useNavigate()
+
+   async function loadIpfsData () {}
+
+   async function createSingleNft () {
+      if (!props.address) {
+         return
+      }
+
+      const ipfs = new CustomIpfs()
+
+      const metadata = {
+         name: "Test 2",
+         description: "test text",
+         marketplace: "libermall.com",
+         attributes: [],
+         image: 'https://s.getgems.io/nft/c/63e2ed43bd25302bbe4887d1/1000002/image.png'
+      }
+      const ipfsData = await ipfs.uploadDataJson(JSON.stringify(metadata))
+      if (!ipfsData) {
+         return
+      }
+      const data: CustomNftSingleData = {
+         ownerAddress: props.address,
+         // content: Buffer.from('ipfs://' + ipfsData, 'utf8').toString('base64'),
+         content: 'ipfs://' + ipfsData,
+         royaltyParams: {
+            royaltyFactor: 0,
+            royaltyBase: 0,
+            royaltyAddress: props.address
+         }
+      }
+      const msg = await CustomNft.deploySingleNft(data)
+
+      const toBoc = msg.stateInit.toBoc().toString('base64')
+      console.log('toBoc', toBoc)
+      console.log('msg', msg)
+
+      console.log('msg.address.toFriendly()', msg.address.toFriendly())
+
+      const trans: DeLabTransaction = {
+         to: msg.address.toFriendly(),
+         value: new Coins('0.01').toNano(),
+         stateInit: toBoc
+     }
+
+      props.DeLabConnector.sendTransaction(trans)
+   }
 
 
    useEffect(() => {
@@ -49,16 +109,27 @@ export const CreateNft: React.FC<PageProps> = (props: PageProps) => {
                               <Form.Group className="mb-3">
                                  <div className="d-flex">
                                     <Form.Label className="fw-medium">Display Name</Form.Label>
-                                    <div className="ms-auto color-grey"><span>0</span>/60</div>
+                                    <div className="ms-auto color-grey"><span>{name.value.length}</span>/60</div>
                                  </div>
-                                 <Form.Control type="text" placeholder="Name your NFT" />
+                                 <Form.Control 
+                                    type="text" 
+                                    placeholder="Name your NFT"
+                                    value={name.value}
+                                    onChange={e => name.change(e.target.value)}
+                                 />
                               </Form.Group>
                               <Form.Group>
                                  <div className="d-flex">
                                     <Form.Label className="fw-medium">Description</Form.Label>
-                                    <div className="ms-auto color-grey"><span>0</span>/700</div>
+                                    <div className="ms-auto color-grey"><span>{desc.value.length}</span>/700</div>
                                  </div>
-                                 <Form.Control as="textarea" rows={4} placeholder="Describe the idea behind your NFT and explain how it stands out from the rest." />
+                                 <Form.Control 
+                                 as="textarea" 
+                                 rows={4} 
+                                 placeholder="Describe the idea behind your NFT and explain how it stands out from the rest."
+                                 value={desc.value}
+                                 onChange={e => desc.change(e.target.value)}
+                                 />
                               </Form.Group>
                            </Card>
                            <Card className="border p-4 mb-4">
@@ -224,7 +295,12 @@ export const CreateNft: React.FC<PageProps> = (props: PageProps) => {
                                  </Tab.Content>
                               </Tab.Container>
                            </Card>
-                           <Button variant="primary fs-18 w-100">Create NFT</Button>
+                           <Button 
+                              variant="primary fs-18 w-100"
+                              data-bs-toggle="modal" 
+                              data-bs-target="#TransactionModal"
+                              onClick={() => createSingleNft()}
+                           >Create NFT</Button>
                         </Col>
                      </Row>
                   </Form>

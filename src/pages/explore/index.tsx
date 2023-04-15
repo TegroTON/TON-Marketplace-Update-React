@@ -78,7 +78,7 @@ export const Explore: React.FC<PageProps> = (props: PageProps) => {
                   </div>
                   <Row className="collections__list">
                      {collections ?
-                     collections.filter(coll => coll.metadata?.name).map((collection, key) => (
+                     collections.filter(coll => coll.metadata?.name).filter(coll => coll.next_item_index > 0).map((collection, key) => (
                         <Col sm="6" lg="4" xl="3" xxl className="mb-4" key={key}>
                         <Card>
                            <Card.Link href={"/collection?a=" + rawToTon(collection.address)} className="card-link">

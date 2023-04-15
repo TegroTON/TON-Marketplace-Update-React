@@ -310,6 +310,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -323,6 +325,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -336,6 +340,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -349,6 +355,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -363,6 +371,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -377,6 +387,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -391,6 +403,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -405,6 +419,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -419,6 +435,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -432,6 +450,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -446,6 +466,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />
@@ -460,6 +482,8 @@ export const App: React.FC = () => {
                                 isDesktop={isDesktop}
                                 installScripts={installScripts}
                                 openModalData={openModalData}
+                                address={address}
+                                DeLabConnector={DeLabConnector}
                             />
                         }
                     />

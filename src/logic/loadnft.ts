@@ -42,7 +42,7 @@ export class MarketNft {
     }
 
     public async getCollections (page: number = 0): Promise<Collection[] | undefined>  {
-        const limit = 50
+        const limit = 100
         const off = page * limit
         const data = await this._tonApi.getCollections(limit, off)
 
@@ -57,7 +57,7 @@ export class MarketNft {
     }
 
     public async getItemsFromCollection (address: string, page: number = 0): Promise<Item[] | undefined>  {
-        const limit = 50
+        const limit = 100
         const off = page * limit
         const data = await this._tonApi.searchItems(address, limit, off)
 
@@ -72,7 +72,7 @@ export class MarketNft {
     }
 
     public async getItemsFromUser (address: string, page: number = 0): Promise<Item[] | undefined>  {
-        const limit = 50
+        const limit = 100
         const off = page * limit
         const data = await this._tonApi.searchItemsFromUser(address, limit, off)
 
