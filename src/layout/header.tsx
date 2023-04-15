@@ -203,9 +203,10 @@ export const HeaderBlock: React.FC<HeaderType> = (props: HeaderType) => {
                      {!props.address ? (
                         <Button
                            variant="secondary ms-4 d-none d-lg-flex align-items-center"
-                           data-bs-toggle="modal"
-                           data-bs-target="#ConnectModal"
-                           onClick={() => props.openModalConnect()}
+                           // data-bs-toggle="modal"
+                           // data-bs-target="#ConnectModal"
+                           onClick={() => props.DelabObject.openModal()}
+                           // onClick={() => props.openModalConnect()}
                         >
                            <i className="fa-solid fa-wallet me-2" />
                            Connect
