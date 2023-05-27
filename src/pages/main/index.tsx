@@ -124,7 +124,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                               Create your collection
                            </h4>
                            <p className="fs-18 color-grey mb-0">
-                              Once you’ve set up your wallet of choice, connect it to Libermall by clicking the wallet icon in the top right corner. Learn about the wallets we support
+                           Create Your NFT Collection" is an innovative platform that enables users to curate and showcase their very own collection of NFTs (Non-Fungible Tokens).
                            </p>
                         </div>
                      </div>
@@ -140,7 +140,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                               Add your NFTs
                            </h4>
                            <p className="fs-18 color-grey mb-0">
-                              Once you’ve set up your wallet of choice, connect it to Libermall by clicking the wallet icon in the top right corner. Learn about the wallets we support
+                           "Add NFT to Your Collection" is a convenient and intuitive feature within our platform that allows users to seamlessly expand their existing collection of NFTs (Non-Fungible Tokens). 
                            </p>
                         </div>
                      </div>
@@ -156,7 +156,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                               List them for sale
                            </h4>
                            <p className="fs-18 color-grey mb-0">
-                              Once you’ve set up your wallet of choice, connect it to Libermall by clicking the wallet icon in the top right corner. Learn about the wallets we support
+                           "List Your NFTs for Sale" is a feature that allows users to easily showcase and sell their NFT collections. Set prices or auction formats, reach potential buyers, and enjoy secure transactions.
                            </p>
                         </div>
                      </div>
@@ -274,7 +274,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                   <Row>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQAA1yvDaDwEK5vHGOXRdtS2MbOVd1-TNy01L1S_t2HF4oLu" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/1.gif" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-2 fs-18">
@@ -300,7 +300,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQCvYf5W36a0zQrS_wc6PMKg6JnyTcFU56NPx1PrAW63qpvt" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/2.gif" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-2 fs-18">
@@ -326,7 +326,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQCg2iAv486UTCHN9PCwjpRKrUoFvJDs28bcQGCbtCgQIIFd" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/3.jpg" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -352,7 +352,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQBdHpUa1u3IVs1b3xfjpSlXVD5lkNsfIcJMqtXu1IJ0rLHK" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/4.gif" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -378,7 +378,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQCoPMFxArXwkKO9zH6IU-ZJ0ahFU2nih9rPvN7_YWcxRmhb" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/5.jpg" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -404,7 +404,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQAadrsHePbHk-v7KtM4_jrX0HTlMYfP9ZGtlLgn590D7-SC" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/6.png" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -430,7 +430,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQAFWmqW3be4lLRqDZFfOmgtgrhSu4FmkRiPS5IufYFcIPS9" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/7.png" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -456,7 +456,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQB_5zkZ2dfmE9nO6mZy-Z4QkI_mNP27DehFwUWrZQlIxtR6" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/8.gif" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -482,7 +482,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQATEy2gBxw0xPUM8Yl_7hrq-ClJpLw_xhvSH3CCj57zwCF4" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/9.gif" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -508,7 +508,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQDgZmQpDJbO6laHvvibaXYXMlEAYEH6LnUtA5J19W18dENp" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/10.jpg" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -534,7 +534,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQDGNvj3jV6_gWhpp9Z5DLokRIITPNuDP7TzHZ-vp1p4n5DU" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/11.png" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -560,7 +560,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQCjMKEVh1r4e4OjgcduRJ1DaDx7dKbeI38-LPgmQ7rj4KnV" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/12.gif" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -586,7 +586,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQDljuE2gYgT08hhUKbkv6jxShlo0isG8jf5z7O6TFh5bMvQ" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/13.png" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -612,7 +612,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQCTy-ye-H1bxUpaeZUP2iY-MmYxb_q-55E-fyRP4UkHqcie" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/15.jpg" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">
@@ -638,7 +638,7 @@ export const Main: React.FC<PageProps> = (props: PageProps) => {
                      </Col>
                      <Col sm="6" xxl="4">
                         <Card className="collection-card mb-3">
-                           <Card.Link href="/collection" className="card-link d-flex flex-column flex-lg-row align-items-center">
+                           <Card.Link href="/collection?a=EQDkbC5Ks63QM-7Unm9aM7qMuWB9VajqXbr_7pK4TbwJAYRz" className="card-link d-flex flex-column flex-lg-row align-items-center">
                               <Card.Img variant="collection m-3 m-lg-0" src="./assets/img/collections/14.jpg" />
                               <Card.Body>
                                  <Card.Title className="d-flex align-items-center mb-3 fs-18">

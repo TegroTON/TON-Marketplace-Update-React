@@ -233,7 +233,9 @@ export const App: React.FC = () => {
     }
 
     useEffect(() => {
-        // installScripts()
+        setTimeout(()=>{
+            installScripts()
+        }, 1000)
     }, [location.pathname]);
 
     useEffect(() => {

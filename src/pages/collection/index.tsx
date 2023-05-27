@@ -63,7 +63,7 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
    return (
       <div id={props.id}>
          <section className="nft-hero">
-            <img src={collection ? collection.metadata?.cover_image : ''} className="nft-hero__image" loading="lazy" width="340" height="275" alt="Tegro Cat" />
+            <img src={collection && collection.metadata && collection.metadata.cover_image ? collection.metadata.cover_image : '/assets/img/hero-image.jpg'} className="nft-hero__image" loading="lazy" width="340" height="275" alt="Tegro Cat" />
          </section>
          <main className="main-page" style={{ marginTop: '-65px' }}>
             <section className="nft-collection section pt-0">
@@ -131,7 +131,7 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                            </Card.Body>
                            <Card.Footer className="d-flex aling-items-center p-4">
                               Created by
-                              <Card.Link href="#" className="ms-2">TON NFT Tegro Cat</Card.Link>
+                              <Card.Link href="#" className="ms-2">{collection.metadata?.name}</Card.Link>
                               <span className="verified-icon ms-2" />
                            </Card.Footer>
                         </Card>
@@ -763,11 +763,11 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                            <div className="d-flex align-items-center justify-content-between">
                               <div className="card-blur__item p-4 border-end text-center">
                                  <h5 className="text-uppercase fs-14 color-grey" style={{ letterSpacing: '1px' }}>floor</h5>
-                                 <div className="m-0 text-uppercase fw-medium" style={{ letterSpacing: '1px' }}>0.04 eTH</div>
+                                 <div className="m-0 text-uppercase fw-medium" style={{ letterSpacing: '1px' }}>0.00 TON</div>
                               </div>
                               <div className="card-blur__item p-4 border-end text-center">
                                  <h5 className="text-uppercase fs-14 color-grey" style={{ letterSpacing: '1px' }}>volume</h5>
-                                 <div className="m-0 text-uppercase fw-medium" style={{ letterSpacing: '1px' }}>40.61 ETH</div>
+                                 <div className="m-0 text-uppercase fw-medium" style={{ letterSpacing: '1px' }}>0.00 TON</div>
                               </div>
                               <div className="card-blur__item p-4 border-end text-center">
                                  <h5 className="text-uppercase fs-14 color-grey" style={{ letterSpacing: '1px' }}>Items</h5>
@@ -779,11 +779,11 @@ export const Collection: React.FC<PageProps> = (props: PageProps) => {
                               </div>
                               <div className="card-blur__item p-4 border-end text-center">
                                  <h5 className="text-uppercase fs-14 color-grey" style={{ letterSpacing: '1px' }}>Blockchain</h5>
-                                 <div className="m-0 text-uppercase fw-medium" style={{ letterSpacing: '1px' }}>TON Conin</div>
+                                 <div className="m-0 text-uppercase fw-medium" style={{ letterSpacing: '1px' }}>TON</div>
                               </div>
                               <div className="card-blur__item p-4 text-center">
                                  <h5 className="text-uppercase fs-14 color-grey" style={{ letterSpacing: '1px' }}>address</h5>
-                                 <div className="m-0 text-uppercase fw-medium" style={{ letterSpacing: '1px' }}>0x15f...d860</div>
+                                 <div className="m-0 text-uppercase fw-medium" style={{ letterSpacing: '1px' }}>E</div>
                               </div>
                            </div>
                         </Card>

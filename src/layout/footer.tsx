@@ -52,7 +52,7 @@ export const FooterBlock: React.FC = () => {
             <div className="footer__text mb-5">
                <h4 className="fs-18">Stay in the loop</h4>
                <p className="color-grey">
-                  Join our mailing list to stay in the loop with our newest feature releases, NFT drops, and tips and tricks for navigating OpenSea.
+               Join our mailing list to stay in the loop with our newest feature releases, NFT drops, and tips and tricks for navigating Libermall.
                </p>
             </div>
             <Form className="mb-5">
