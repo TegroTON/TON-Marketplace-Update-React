@@ -201,6 +201,8 @@ export const App: React.FC = () => {
             setFirstRender(true);
 
             regListen();
+
+            installScripts()
         }
     }, []);
 
@@ -231,6 +233,7 @@ export const App: React.FC = () => {
 
         console.log("install");
     }
+
 
     useEffect(() => {
         setTimeout(()=>{
